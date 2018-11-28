@@ -76,6 +76,7 @@
 	position: relative;
 	top: 12px;
 	right: 105px;
+	cursor: pointer;
 }
 
 .span-icon {
