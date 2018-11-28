@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<context:component-scan base-package="User"></context:component-scan>
+	<context:component-scan base-package="controller"></context:component-scan>
 	<context:property-placeholder location="classpath:/config/value.properties"/>
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${db.driverClass}"/>
