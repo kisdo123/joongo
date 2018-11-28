@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<User> searchUserList() {
-		return null;
+		return userDAO.selectList();
 	}
 
 	

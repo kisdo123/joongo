@@ -36,8 +36,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<User> selectList() {
-		// TODO Auto-generated method stub
-		return null;
+		return userMapper.selectUserList();
 	}
 
 
