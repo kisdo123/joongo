@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+.navbar {
+	width: 100%;
+	height: 300px;
+}
+
+.divTopMenu {
+	height: 25px;
+	text-align: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.divMiddleMenu {
+	height: 110px;
+	padding-top: 60px;
+}
+
+.divBottomMenu {
+	height: 10px;
+	margin-bottom: 30px;
+}
+
+.divMenuUser {
+	margin-right: 10px;
+}
+
+.topMenuLogo {
+	margin-top: 5px;
+	margin-right: 150px;
+	margin-left: 80px;
+	float: left;
+}
+
+.topMenuHamButton {
+	margin-left: 120px;
+}
+
+.topMenuStore {
+	margin-top: -10px;
+}
+
+
+
+.firstDiv{
+	border-top: 1px solid #757575;
+	/* #E6E6E6 */
+}
+
+.secondDiv{
+	border-bottom: 1px solid #757575;
+    height: 235px;
+}
+
+.spanStore {
+	margin-left: 25px;
+}
+
+.spanLogin {
+	margin-left: 25px;
+}
+
+.search-input {
+	width: 450px;
+	height: 40px;
+	border: 2px solid #e81e22;
+	float: left;
+	margin-right: 65px;
+	padding: 0 48px 0 14px;
+	margin-top: 5px;
+	font-size : 15px;
+}
+
+.search-icon {
+	position: relative;
+	top: 12px;
+	right: 105px;
+}
+
+.span-icon {
+	font-size: 23px;
+	color: #e81e22;
+}
+
+.span-bars {
+	font-size: 20px;
+	margin-left: 12px;
+}
+
+
+
+img{
+	width: 45px;
+	height: 45px;
+	cursor: pointer;
+}
+
+input:focus {
+	outline: none;
+}
+
+.a:hover {
+	color: gray;
+	cursor: pointer;
+}
+
+
+
+
+
+ul.menu li {
+	float: left;
+	width: 179px;
+	height: 48px;
+	background-color: #555;
+	position: relative;
+}
+
+ul.menu li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 48px;
+	text-indent: 30px;
+	font-weight: bold;
+	color: #eee;
+	text-decoration: none;
+}
+
+ul.menu li a:hover {
+	background-color: #333;
+}
+
+ul.menu li ul.sub {
+	position: absolute;
+}
+
+ul.menu {
+	zoom: 1;
+}
+
+ul.menu:after {
+	height: 0;
+	visibility: hidden;
+	content: ".";
+	display: block;
+	clear: both;
+}
