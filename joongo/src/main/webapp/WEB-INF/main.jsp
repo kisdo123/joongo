@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="css/public.css">
-<link rel="stylesheet" type="text/css" href="css/main.css?3">
+<link rel="stylesheet" type="text/css" href="/joongo/css/public.css">
+<link rel="stylesheet" type="text/css" href="/joongo/css/main.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="script/main.js?1"></script>
+<script type="text/javascript" src="script/main.js"></script>
 <title>중고장터</title>
 </head>
 <body>
