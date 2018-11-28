@@ -1,6 +1,5 @@
 package User.service;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +22,18 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void updateUser(User user) {
-		userDAO.update(user);
+		int res = userDAO.update(user);
+		if(res == 0) {
+			throw new UserNotFoundException("수정 실패: 유저를 찾을 수 없음");
+		}
 	}
 
 	@Override
 	public void deleteUser(int userNo) {
-		userDAO.delete(userNo);
+		int res = userDAO.delete(userNo);
+		if(res == 0) {
+			throw new UserNotFoundException("삭제 실패: 유저를 찾을 수 없음");
+		}
 	}
 
 	@Override

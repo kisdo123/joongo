@@ -20,13 +20,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void delete(int userNo) {
-		userMapper.deleteUser(userNo);
+	public int delete(int userNo) {
+		return userMapper.deleteUser(userNo);
 	}
 
 	@Override
-	public void update(User user) {
-		userMapper.updateUser(user);
+	public int update(User user) {
+		return userMapper.updateUser(user);
 	}
 
 	@Override

@@ -7,9 +7,9 @@ import User.DTO.User;
 public interface UserDAO {
 	public void insert(User user);
 	
-	public void delete(int userNo);
+	public int delete(int userNo);
 	
-	public void update(User user);
+	public int update(User user);
 	
 	public User selectById(String loginId);
 	
