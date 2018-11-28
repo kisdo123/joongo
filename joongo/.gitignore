@@ -3,7 +3,10 @@
 # Edit at https://www.gitignore.io/?templates=java,maven,eclipse,java-web
 
 ### Eclipse ###
-
+pom.properties
+MANIFEST.MF
+.project
+.classpath
 .metadata
 bin/
 tmp/
