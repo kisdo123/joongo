@@ -7,7 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/public.css" rel="stylesheet" type="text/css">
 <link href="../css/footer.css" rel="stylesheet" type="text/css">
-<title>Insert title here</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../css/bootstrap-social.css" rel="stylesheet" type="text/css">
+<link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
+<title>Insert title heare</title>
 <script>
 	
 </script>
@@ -15,6 +19,9 @@
 <body>
 <div class="footer">
 	<div class="middle">
+		<div class="footer-logo">
+			<h2>로고로고</h2>
+		</div>
 			<div class="footer-joongo">
 				<dl>
 					<dt>중고장터㈜</dt>
@@ -41,13 +48,30 @@
 					<dd>Email: koitt@koitt.com</dd>
 				</dl>
 			</div>
-<!-- 		<div class="footer-info">
-			서울특별시 금천구 가산디지털1로 186 제이플라츠 5층 TEL/010-1234-5678<br>
-			중고장터㈜는 통신판매중개자로서 중고거래마켓 중고장터의 거래 당사자가 아니며, 입점판매가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다.<br>
+		<div class="footer-conts">
+			<div class="footer-info">
+				서울특별시 금천구 가산디지털1로 186 제이플라츠 5층 TEL/010-1234-5678<br>
+				중고장터㈜는 통신판매중개자로서 중고거래마켓 중고장터의 거래 당사자가 아니며, 입점판매가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다.<br>
+			</div>
+			<div class="footer-copy">
+				작은로고 Copyright ⓒ JOONGOJANG Corp. All rights reserved.
+			</div>
+			<ul>
+				<li>
+					<a class="btn btn-social-icon btn-facebook">
+    					<span class="fa fa-facebook"></span>
+  					</a>
+				</li>
+				<li>
+					<a class="btn btn-social-icon btn-instagram">
+    					<span class="fa fa-instagram"></span>
+  					</a>
+  				</li>
+  				<li>
+  					<a>카카오톡</a>
+  				</li>
+			</ul>
 		</div>
-		<div class="footer-copy">
-			작은로고 Copyright ⓒ JOONGOJANG Corp. All rights reserved.
-		</div> -->
 	</div>
 </div>
 </body>

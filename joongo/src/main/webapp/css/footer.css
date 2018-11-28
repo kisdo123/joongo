@@ -5,6 +5,12 @@
 	border-top: 1px solid;
 }
 
+.footer-logo{
+	float: left;
+    line-height: 90px;
+    margin-right: 20px;
+}
+
 .footer-info{
 	font-size: 14px;
 }
@@ -12,19 +18,43 @@
 .footer-copy{
 	font-size: 12px;
 	margin-top: 10px;
+	display: inline-block;
 }
 
+.footer-conts{
+    position: relative;
+    clear: both;
+    border-top: 1px solid;
+    padding-top: 10px;
+}
 .middle{
 	border: 1px solid;
-	height: 100x;
-	padding: 30px 20px 40px 20px;
+	height: 240px;
+	padding: 10px 20px 20px 20px;
 }
 dl{
-	border-left: 1px solid;
-	padding: 0px 10px 0px 10px;
+	padding: 0px 30px 0px 30px;
+}
+dd{
+	margin: auto;
+}
+
+ul{
+	overflow: hidden;
+    display: inline-block;
+    float: right;
+    margin-top: -22px;
+}
+li{
+	float: left;
+    margin-left: 10px;
 }
 
 .footer-joongo,
 .footer-center,
 .footer-ele{
+	float: left;
+	border-left: 1px solid;
+	height: 120px;
+	margin-bottom: 20px;
 }
