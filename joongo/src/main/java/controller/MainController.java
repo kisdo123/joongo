@@ -23,7 +23,6 @@ public class MainController {
 	//메인화면으로 보냄
 	@RequestMapping("/main.do")
 	public String goMain() {	
-		System.out.println("야야");
 		return "main";
 	}
 	
