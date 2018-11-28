@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.footer{
+	width: 100%;
+	background: lightgreen;
+}
+
+.footer-info{
+	font-size: 14px;
+}
+
+.footer-copy{
+	font-size: 12px;
+	margin-top: 10px;
+}
+
+.middle{
+	height: 100x;
+	padding: 30px 0px 40px 0px;
+}
