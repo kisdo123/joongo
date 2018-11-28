@@ -1,1 +1,1 @@
-<% response.sendRedirect(application.getContextPath()+ "/WEB-INF/main.jsp");%>
+<% response.sendRedirect("main.do");%>
