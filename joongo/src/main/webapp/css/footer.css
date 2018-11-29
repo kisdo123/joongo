@@ -1,23 +1,26 @@
 @charset "UTF-8";
 
 dl{
-	padding: 0px 30px 0px 30px;
+	padding: 0px 10px 0px 10px;
 }
 dd{
 	margin: auto;
 }
 
-ul{
+.footer-ul{
 	overflow: hidden;
     display: inline-block;
     float: right;
-    margin-top: -22px;
+    margin-top: -25px;
 }
-li{
+.footer-li{
 	float: left;
     margin-left: 10px;
 }
 
+.footer-icon{
+	font-size: 35px;
+}
 .footer{
 	width: 100%;
 	border-top: 1px solid;
@@ -30,7 +33,7 @@ li{
 }
 
 .footer-info{
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .footer-copy{
@@ -47,8 +50,8 @@ li{
 }
 
 .middle{
-	height: 240px;
-	padding: 10px 20px 20px 20px;
+    height: 200px;
+    padding: 10px 20px 20px 20px;
 }
 
 .footer-joongo,

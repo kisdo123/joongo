@@ -3,14 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/joongo/css/public.css" rel="stylesheet" type="text/css">
 <link href="/joongo/css/footer.css" rel="stylesheet" type="text/css">
-<link href="/joongo/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/joongo/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="/joongo/css/bootstrap-social.css" rel="stylesheet" type="text/css">
-<link href="/joongo/css/font-awesome.css" rel="stylesheet" type="text/css">
 <title>Insert title heare</title>
 <script>
 	
@@ -56,18 +52,14 @@
 			<div class="footer-copy">
 				작은로고 Copyright ⓒ JOONGOJANG Corp. All rights reserved.
 			</div>
-			<ul>
-				<li>
-					<a class="btn btn-social-icon btn-facebook">
-    					<span class="fa fa-facebook"></span>
-  					</a>
+			<ul class="footer-ul">
+				<li class="footer-li">
+					<a class="footer-icon"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
 				</li>
-				<li>
-					<a class="btn btn-social-icon btn-instagram">
-    					<span class="fa fa-instagram"></span>
-  					</a>
+				<li class="footer-li">
+					<a class="footer-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a>
   				</li>
-  				<li>
+  				<li class="footer-li">
   					<a>카톡</a>
   				</li>
 			</ul>
