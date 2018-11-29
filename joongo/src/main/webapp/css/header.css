@@ -1,68 +1,59 @@
 @charset "UTF-8";
 
-.navbar {
+#header-navbar {
 	width: 100%;
-	height: 300px;
+	height: 220px;
+	border-bottom: 1px solid #757575;
+	background-color: white;
 }
 
-.divTopMenu {
-	height: 25px;
-	text-align: right;
-	margin-top: 10px;
-	margin-bottom: 10px;
+.header-divTop {
+	height: 100px;
+    padding-top: 50px;
 }
 
-.divMiddleMenu {
-	height: 110px;
-	padding-top: 60px;
-}
 
-.divBottomMenu {
+
+
+.header-divMenu {
 	height: 10px;
 	margin-bottom: 30px;
 }
 
-.divMenuUser {
-	margin-right: 10px;
-}
 
-.topMenuLogo {
+
+.header-logo {
 	margin-top: 5px;
-	margin-right: 150px;
-	margin-left: 80px;
+	margin-right: 180px;
 	float: left;
 }
 
-.topMenuHamButton {
-	margin-left: 120px;
-}
 
-.topMenuStore {
-	margin-top: -10px;
+.header-search{
+	float: left;
 }
 
 
-
-.firstDiv{
-	border-top: 1px solid #757575;
-	/* #E6E6E6 */
+.header-divLogin {
+	margin-top: 15px;
+	margin-left: 35px;
+	float: left;
 }
 
-.secondDiv{
-	border-bottom: 1px solid #757575;
-    height: 235px;
+.header-form-search{
+	width: 575px;
+    height: 52px;
 }
 
-.spanStore {
+
+
+.header-spanJoin {
 	margin-left: 25px;
 }
 
-.spanLogin {
-	margin-left: 25px;
-}
 
-.search-input {
-	width: 450px;
+.header-search-input {
+	width: 380px;
 	height: 40px;
 	border: 2px solid #e81e22;
 	float: left;
@@ -72,36 +63,27 @@
 	font-size : 15px;
 }
 
-.search-icon {
+
+.header-search-icon {
 	position: relative;
-	top: 12px;
-	right: 105px;
-	cursor: pointer;
-}
-
-.span-icon {
-	font-size: 23px;
-	color: #e81e22;
-}
-
-.span-bars {
-	font-size: 20px;
-	margin-left: 12px;
+    top: 15px;
+    right: 105px;
 }
 
 
 
-img{
+
+.header-img{
 	width: 45px;
 	height: 45px;
 	cursor: pointer;
 }
 
-input:focus {
+.header-search-input:focus {
 	outline: none;
 }
 
-.a:hover {
+.header-a:hover {
 	color: gray;
 	cursor: pointer;
 }
@@ -110,15 +92,16 @@ input:focus {
 
 
 
-ul.menu li {
+ul.header-ulMenu li {
 	float: left;
 	width: 179px;
 	height: 48px;
 	background-color: #555;
+	/*  */
 	position: relative;
 }
 
-ul.menu li a {
+ul.header-ulMenu li a {
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -129,22 +112,28 @@ ul.menu li a {
 	text-decoration: none;
 }
 
-ul.menu li a:hover {
+ul.header-ulMenu li a:hover {
 	background-color: #333;
 }
 
-ul.menu li ul.sub {
+ul.header-ulMenu li ul.header-sub {
 	position: absolute;
 }
 
-ul.menu {
+ul.header-ulMenu {
 	zoom: 1;
 }
 
-ul.menu:after {
+ul.header-ulMenu:after {
 	height: 0;
 	visibility: hidden;
 	content: ".";
 	display: block;
 	clear: both;
+}
+
+
+.header-topfixed{
+	position: fixed;
+	top: 0px;
 }
