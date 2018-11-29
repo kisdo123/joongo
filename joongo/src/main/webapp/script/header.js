@@ -16,7 +16,7 @@ $(function() {
 	 */
 
 	var nav = $("#header-navbar");
-	var navTop = nav.offset().top;
+	var navTop = 80; //숫자 지정
 
 	$(window).scroll(function() {
 

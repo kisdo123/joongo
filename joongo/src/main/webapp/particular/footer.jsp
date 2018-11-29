@@ -1,19 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/joongo/css/public.css" rel="stylesheet" type="text/css">
-<link href="/joongo/css/footer.css" rel="stylesheet" type="text/css">
-<title>Insert title heare</title>
-<script>
-	
-</script>
-</head>
-<body>
-<div class="footer">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<footer class="footer">
 	<div id="footer-middle" class="middle">
 		<div class="footer-logo">
 			<h2>로고로고</h2>
@@ -65,6 +52,6 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</footer>
 </body>
 </html>

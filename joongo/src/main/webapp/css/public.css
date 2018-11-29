@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
-body, ul, li{
-	margin: 0px;
-	padding: 0px;
+html body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 ul, li{
@@ -13,10 +15,4 @@ ul, li{
 
 a{
 	text-decoration: none;
-}
-
-.middle {
-	width: 1024px;
-	margin: 0px auto;
-	background-color: white;
 }

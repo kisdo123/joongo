@@ -5,6 +5,8 @@
 }
 
 .middle {
+	width: 1024px;
+	margin: 0px auto;
 	background-color: white;
 }
 
