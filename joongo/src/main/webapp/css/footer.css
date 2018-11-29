@@ -18,7 +18,11 @@ dd{
     margin-left: 10px;
 }
 
-.footer-icon{
+.footer-facebook{
+	font-size: 35px;
+	color: #4563a0;
+}
+.footer-instagram{
 	font-size: 35px;
 }
 .footer{

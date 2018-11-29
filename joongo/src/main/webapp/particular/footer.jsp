@@ -54,10 +54,10 @@
 			</div>
 			<ul class="footer-ul">
 				<li class="footer-li">
-					<a class="footer-icon"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+					<a class="footer-facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
 				</li>
 				<li class="footer-li">
-					<a class="footer-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a class="footer-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
   				</li>
   				<li class="footer-li">
   					<a>카톡</a>
