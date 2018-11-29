@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="footer">
-	<div class="middle">
+	<div id="footer-middle" class="middle">
 		<div class="footer-logo">
 			<h2>로고로고</h2>
 		</div>
