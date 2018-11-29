@@ -8,9 +8,10 @@
 	background-color: white;
 }
 
-.w1024 {
-	width: 1024px;
-	margin: auto;
+.w1200 {
+	width: 1200px;
+	margin: 0px auto;
+	background-color: white;
 }
 
 .lately-container {

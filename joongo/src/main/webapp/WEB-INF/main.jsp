@@ -5,16 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/joongo/css/public.css">
-<link rel="stylesheet" type="text/css" href="/joongo/css/main.css">
+<link rel="stylesheet" type="text/css" href="/joongo/css/main.css?1">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="script/main.js"></script>
 <title>중고장터</title>
 </head>
 <body>
+	<jsp:include page="/particular/header.jsp" />
 	<div class="container">
-		<div class="middle">
-			<div class="w1024">
+		<div class="w1200">
+			<div class="middle">
 				<!-- 최신글은 한번만 -->
 				<div class="lately-container">
 					<p class="category-info">
