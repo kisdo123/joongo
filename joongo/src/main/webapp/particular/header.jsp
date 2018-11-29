@@ -33,10 +33,12 @@
 					<!-- 로그인했을 때 판매하기 내상점버튼으로 바꾸고 로그아웃버튼만들기 -->
 				</div>
 			</div>
+
 	</nav>
 
 <!-- 	<i class="fa fa-cloud-upload" aria-hidden="true"></i> 판매하기
 	<i class="fa fa-suitcase" aria-hidden="true"></i> 내상점 -->
+	
 	
 </body>
 </html>
