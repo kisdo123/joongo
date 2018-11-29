@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import User.DTO.User;
-import User.DAO.IUserMapper;
 
 @Repository("userDAO")
 public class UserDAOImpl implements UserDAO {

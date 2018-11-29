@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!-- 우리가 jdbc로 작성했떤 쿼리문을 여기다가 만들면됨 -->
+<mapper namespace="Product.DAO.ProductMapper">
+	<select id="selectSerchList" parameterType="string" resultType="Product">
+		select * from products where title like '%#{word}%';
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+

@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<context:component-scan base-package="User"></context:component-scan>
+	<context:component-scan base-package="Product"></context:component-scan>
 	<context:component-scan base-package="controller"></context:component-scan>
 	
 	<context:property-placeholder location="classpath:/config/value.properties"/>
@@ -21,28 +22,22 @@
 	<!-- 마이바티스 매퍼 인터페이스를 한꺼번에 스캔!!! -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 매퍼로 읽을 아이를 특정 패키지안에서 검색!! -->
-		<property name="basePackage" value="User.DAO"/>
+		<property name="basePackage" value="User.DAO, Product.DAO"/>
 		<!-- 마이바티스매퍼를 구별할수있게 어노테이션 추가한걸로 구별 -->
-		<property name="annotationClass" value="User.DAO.UserQuery"/>
+		<property name="annotationClass" value="User.DAO.Query"/>
 	</bean>
 	
 	<!-- Mybatis-spring설정 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="typeAliasesPackage" value="User"/>
+		<property name="typeAliasesPackage" value="User,Product"/>
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:/config/userMapper.xml</value>
+				<value>classpath:/config/productMapper.xml</value>
 			</list>
 		</property>
 	</bean>
-	
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg ref="sqlSessionFactory"/>
-	</bean>
-	
-	
-
 </beans>
 
 

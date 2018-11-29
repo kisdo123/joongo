@@ -4,7 +4,7 @@ import java.util.List;
 
 import User.DTO.User;
 
-@UserQuery
+@Query
 public interface IUserMapper {
 	
 	void insertUser(User user);
