@@ -31,25 +31,6 @@
 						class="fa fa-user-plus" aria-hidden="true"></i> 회원가입</span>
 						
 					<!-- 로그인했을 때 판매하기 내상점버튼으로 바꾸고 로그아웃버튼만들기 -->
-						
-				</div>
-			</div>
-			<div class="middle header-divMenu">
-				<div>
-					<ul class="header-ulMenu">
-						<li><a href="#">카테고리</a>
-							<ul class="header-sub">
-								<li><a href="#">의류</a></li>
-								<li><a href="#">가전제품</a></li>
-								<li><a href="#">화장품</a></li>
-								<li><a href="#">악기</a></li>
-								<li><a href="#">도서</a></li>
-								<li><a href="#">생활용품</a></li>
-								<li><a href="#">스포츠</a></li>
-								<li><a href="#">식품</a></li>
-								<li><a href="#">기타</a></li>
-							</ul></li>
-					</ul>
 				</div>
 			</div>
 	</nav>

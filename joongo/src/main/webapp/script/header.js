@@ -1,13 +1,14 @@
 
 
 $(function() {
+	
 	// 헤더 카테고리 드롭다운
-	$("ul.header-sub").hide();
+	/*$("ul.header-sub").hide();
 	$("ul.header-ulMenu li").hover(function() {
 		$("ul:not(:animated)", this).slideDown("fast");
 	}, function() {
 		$("ul", this).slideUp("fast");
-	});
+	});*/
 	
 	
 	
