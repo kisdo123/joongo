@@ -28,7 +28,7 @@ dd{
 .footer{
 	width: 100%;
 	border-top: 1px solid #c1c1c1;
-	background-color: #e8e8e8;
+	background-color: #f1f1f1;
 }
 
 .footer-logo{
@@ -57,8 +57,8 @@ dd{
 #footer-middle{
 	width: 1200px;
     height: 200px;
-    padding: 10px 20px 20px 20px;
-    background-color: #e8e8e8;
+    padding: 10px 0px 20px 0px;
+    background-color: #f1f1f1;
 }
 
 .footer-joongo,

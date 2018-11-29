@@ -10,7 +10,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="script/main.js"></script>
-<title>중고장터</title>
+<title>중고장터a</title>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselect="return false">
 	<div class="wrap">
@@ -21,10 +21,12 @@
 					<!-- 맨 위, 맨 아래로 -->
 					<div class="top-down-cotainer">
 						<div class="up">
-							<span>TOP</span><i class="fa fa-arrow-up arrow-up" aria-hidden="true"></i>
+							<span>TOP</span><i class="fa fa-arrow-up arrow-up"
+								aria-hidden="true"></i>
 						</div>
 						<div class="down">
-							<span>BOTTOM</span><i class="fa fa-arrow-down arrow-down" aria-hidden="true"></i>
+							<span>BOTTOM</span><i class="fa fa-arrow-down arrow-down"
+								aria-hidden="true"></i>
 						</div>
 					</div>
 					<!-- 최신글은 한번만 -->
@@ -44,7 +46,7 @@
 								</div>
 								<div class="product-info">
 									<div class="product-title">
-										<a href="#">맛있는 과일!</a>
+										<a href="#">ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ</a>
 									</div>
 									<div class="product-price">19000</div>
 									<div class="product-tag">#사과 #귤 #포도</div>
@@ -58,7 +60,7 @@
 								</div>
 								<div class="product-info">
 									<div class="product-title">
-										<a href="#">맛있는 과일!</a>
+										<a href="#">asdasdasdasdasdasdasd</a>
 									</div>
 									<div class="product-price">19000</div>
 									<div class="product-tag">#사과 #귤 #포도</div>

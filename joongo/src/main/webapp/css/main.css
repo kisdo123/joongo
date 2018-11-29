@@ -32,13 +32,13 @@
 	margin: 0px;
 	font-size: 20px;
 	float: left;
-	cursor: pointer;
 }
 
 .all-view {
 	float: right;
 	line-height: 27px;
 	color: #f64448;
+	cursor: pointer;
 }
 
 .product-container {
@@ -122,8 +122,9 @@
 
 .top-down-cotainer {
 	position: fixed;
-	right: 12%;
     top: 45%;
+    right: calc(50% - 20px);
+    transform: translateX(700%);
     text-align: center;
 	background-color: white;
 	cursor: pointer;
