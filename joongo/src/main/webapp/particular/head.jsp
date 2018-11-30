@@ -8,4 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/joongo/css/public.css">
 <link rel="stylesheet" type="text/css" href="/joongo/css/header.css">
 <link rel="stylesheet" type="text/css" href="/joongo/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/joongo/css/loginPopup.css">
+
 <script type="text/javascript" src="/joongo/script/header.js"></script>
+<script type="text/javascript" src="/joongo/script/loginPopup.js"></script>

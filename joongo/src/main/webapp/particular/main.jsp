@@ -4,6 +4,7 @@
 <script type="text/javascript" src="/joongo/script/main.js"></script>
 </head>
 <jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="loginPopup.jsp"></jsp:include>
 <div id="container" class="container">
 	<div class="w1200">
 		<div class="middle">
