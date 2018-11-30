@@ -52,12 +52,12 @@ public class JunitTest {
 	
 	@Test
 	public void serch() {
-//		productService.searching("로션");
+		//productService.searching("로션");
 		List<Product> products = productService.searching("로션");
 		System.out.println(products.toString());
-//		for(Product p : products) {
-//			System.out.println(p);
-//		}
+		for(Product p : products) {
+			System.out.println(p);
+		}
 	}
 
 }

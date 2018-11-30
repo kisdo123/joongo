@@ -5,8 +5,8 @@
 
 	<!-- 우리가 jdbc로 작성했떤 쿼리문을 여기다가 만들면됨 -->
 <mapper namespace="Product.DAO.ProductMapper">
-	<select id="selectSerchList" parameterType="string" resultType="Product">
-		select * from products where title like '%#{word}%';
+	<select id="selectSearchList" parameterType="string" resultType="Product">
+		Select * From products Where concat(title,tags,content) like concat('%',#{word},'%');
 	</select>
 </mapper>
 

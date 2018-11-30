@@ -13,7 +13,7 @@ public class ProductDAOImpl implements ProductDAO{
 	private ProductMapper productMapper;
 	
 	@Override
-	public List<Product> selectSerchList(String word) {
-		return productMapper.selectSerchList();
+	public List<Product> selectSearchList(String word) {
+		return productMapper.selectSearchList(word);
 	}
 }

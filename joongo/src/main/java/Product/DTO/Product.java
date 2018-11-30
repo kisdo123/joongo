@@ -23,6 +23,7 @@ public class Product {
 	public Product() {
 	}
 
+
 	public Product(int proNo, String title, int catNo, int userNo, String nickname, String condit, String price,
 			String content, String imagePath, String tags, LocalDateTime wdate, Boolean able) {
 		this.proNo = proNo;
@@ -38,6 +39,7 @@ public class Product {
 		this.wdate = wdate;
 		this.able = able;
 	}
+
 
 	public int getProNo() {
 		return proNo;

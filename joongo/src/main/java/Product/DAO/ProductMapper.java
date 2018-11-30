@@ -7,5 +7,5 @@ import User.DAO.Query;
 
 @Query
 public interface ProductMapper {
-	List<Product> selectSerchList();
+	List<Product> selectSearchList(String word);
 }
