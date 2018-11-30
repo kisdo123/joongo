@@ -46,7 +46,7 @@
 								</div>
 								<div class="product-info">
 									<div class="product-title">
-										<a href="#">ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ</a>
+										<a href="#">맛있는 과일이니 먹어요ㅁㅁㅁ</a>
 									</div>
 									<div class="product-price">19000</div>
 									<div class="product-tag">#사과 #귤 #포도</div>
