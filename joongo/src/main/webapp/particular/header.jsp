@@ -7,7 +7,7 @@
 			</div>
 			<div class="header-search">
 				<form action="#" method="post" class="header-form-search">
-					<input type="text" placeholder="&nbsp;상품명, 카테고리 , @태그입력" class="header-search-input" required autofocus>
+					<input type="text" placeholder="&nbsp;상품명, 카테고리 , @태그입력" class="header-search-input" name="word" required autofocus>
 					<input type="image" src="/joongo/image/3.png" class="header-search-icon">
 				</form>
 			</div>
