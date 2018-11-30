@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.productInfo-topDiv{
+	float: left;
+}
+
+.productInfo-context{
+	float: left;
+	margin-bottom: 30px;
+}
+
+
+
+.productInfo-title{
+	width: 500px;
+	margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: bolder;
+    white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.productInfo-price{
+	width: 500px;
+    height: 65px;
+    font-size: 35px;
+    font-weight: bolder;
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 55px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    clear: both;
+ 
+}
+
+
+
+.productInfo-ul{
+	
+}
+
+.productInfo-li{
+	
+}
+
+
+
+
+
+
+.productInfo-zzimBtn{
+	width: 150px;
+    height: 56px;
+	border: 1px solid #da1519;
+    background-color: #e81e22;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+
+
+.productInfo-img{
+	
+	width: 400px;
+	height: 400px;
+	margin-top: 30px;
+	margin-bottom: 100px;
+	margin-right: 30px;
+	
+}
+
