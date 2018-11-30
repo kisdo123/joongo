@@ -15,21 +15,6 @@ $(function() {
 	 * $('#header-navbar').removeClass('header-topfixed'); } });
 	 */
 
-	var nav = $("#header-navbar");
-	var navTop = 80; //숫자 지정
-
-	$(window).scroll(function() {
-
-		var windowTop = $(this).scrollTop();
-
-		if (windowTop >= navTop) 
-			nav.addClass("header-topfixed");
-			else if(windowTop <= navTop){
-				nav.removeClass("header-topfixed");
-		}
-	});
-
-	
 	
 	
 	
