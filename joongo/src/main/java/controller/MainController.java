@@ -40,6 +40,20 @@ public class MainController {
 		return "redirect:/main.do";
 	}
 	
+	@RequestMapping("/registerFormKakao.do")
+	public String registerFormKakao(@RequestParam("") String name) {
+
+		return "redirect:/main.do";
+	}
+	
+	@RequestMapping("/registerKakao.do")
+	public String registerKakao(@ModelAttribute User user) {
+		userService.registerUser(user);
+
+		return "redirect:/main.do";
+	}
+	
+	
 	@RequestMapping("/idDuplication.do")
 	public String idDuplicated(@RequestParam("loginId") String loginId) {
 		if(userService.idDuplicate(loginId)) {
