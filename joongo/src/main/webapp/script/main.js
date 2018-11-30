@@ -36,28 +36,4 @@ $(function(){
 		$('html').scrollTop($(document).height());
 	});
 	
-	$('.product-title > a').each(function() {
-		
-		var cutLength = 15;
-		var length = $(this).text().length;
-		
-		for(let i=0; i<length; i++) {
-			let chr = $(this).text().charAt(i)
-			var tl = 0;
-			 
-			if((chr < "AC00") || (chr > "D7A3")) { // 한글의 범위를 벗어났을 경우.
-				tl += 1;
-				console.log('영어')
-			} else {
-				tl += 2;
-				console.log('한글')
-			}
-		}
-		
-		if(tl > cutLength) {
-			var text = $(this).text().substr(0,cutLength)+'...';
-			$(this).text(text);
-		}
-	})
-	
-})
+});

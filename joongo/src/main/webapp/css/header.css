@@ -1,8 +1,15 @@
 @charset "UTF-8";
+
+#header-body{
+	width: 100%;
+	border-bottom: 1px solid #757575;
+	background-color: white;
+}
+
+
 #header-navbar {
 	width: 1200px;
     height: 160px;
-    border-bottom: 1px solid #757575;
     background-color: white;
     margin: auto;
 }
