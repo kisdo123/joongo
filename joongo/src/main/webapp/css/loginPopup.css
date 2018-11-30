@@ -3,7 +3,7 @@
 #popupDiv {  /* 팝업창 css */
    	top: 0px;
     position: absolute;
-    background: #e8e8e8;
+    background: white;
     width: 350px;
     height: 500px;
     border-radius: 4px;
