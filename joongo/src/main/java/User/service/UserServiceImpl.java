@@ -51,5 +51,25 @@ public class UserServiceImpl implements UserService{
 		return userDAO.selectList();
 	}
 
+	@Override
+	public Boolean idDuplicate(String loginId) {
+		User user = userDAO.selectById(loginId);
+		if(user == null) {
+			return false;
+		}else {
+			return true;			
+		}
+	}
+
+	@Override
+	public Boolean phoneDuplicate(String phone) {
+		User user = userDAO.selectByPhone(phone);
+		if(user == null) {
+			return false;
+		}else {
+			return true;			
+		}
+	}
+
 	
 }

@@ -6,12 +6,16 @@
 	<!-- 우리가 jdbc로 작성했떤 쿼리문을 여기다가 만들면됨 -->
 <mapper namespace="User.DAO.IUserMapper">
 	<insert id="insertUser" parameterType="User">
-		insert into Users(loginId, password, password_q, password_a, name, nickname, email, phone, addr, bdate)
-		values(#{loginId},#{password},#{password_q},#{password_a},#{name},#{nickname},#{email},#{phone},#{addr},#{bdate})
+		insert into Users(loginId, password, password_q, password_a, name, nickname, email, phone, addr, bdate, kakaoface)
+		values(#{loginId},#{password},#{password_q},#{password_a},#{name},#{nickname},#{email},#{phone},#{addr},#{bdate}, #{kakaoface})
 	</insert>
 	
 	<select id="selectUserById" resultType="User" parameterType="string">
 		select * from users where loginId = #{loginId}
+	</select>
+	
+	<select id="selectUserByPhone" resultType="User" parameterType="string">
+		select * from users where phone = #{phone}
 	</select>
 	
 	<select id="selectUserList" resultType="User">

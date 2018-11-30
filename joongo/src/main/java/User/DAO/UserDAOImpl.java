@@ -38,5 +38,10 @@ public class UserDAOImpl implements UserDAO {
 		return userMapper.selectUserList();
 	}
 
+	@Override
+	public User selectByPhone(String phone) {
+		return userMapper.selectUserByPhone(phone);
+	}
+
 
 }

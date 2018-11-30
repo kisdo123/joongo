@@ -20,12 +20,13 @@ public class User {
 	private LocalDateTime rdate;
 	private Boolean isAdmin;
 	private Boolean able;
+	private Boolean kakaoface;
 	
 	public User() {}
 	
 	public User(int userNo, String loginId, String password, String password_q, String password_a, String name,
 			String nickname, String email, String phone, String addr, String bdate, LocalDateTime rdate, Boolean isAdmin,
-			Boolean able) {
+			Boolean able, Boolean kakaoface) {
 		this.userNo = userNo;
 		this.loginId = loginId;
 		this.password = password;
@@ -42,7 +43,7 @@ public class User {
 		this.able = able;
 	}
 	public User(String loginId, String password, String password_q, String password_a, String name, String nickname,
-			String email, String phone, String addr, String bdate) {
+			String email, String phone, String addr, String bdate, Boolean kakaoface) {
 		this.loginId = loginId;
 		this.password = password;
 		this.password_q = password_q;
@@ -55,7 +56,7 @@ public class User {
 		this.bdate = bdate;
 	}
 	public User(int userNo, String password, String password_q, String password_a, String name, String nickname,
-			String email, String phone, String addr, String bdate) {
+			String email, String phone, String addr, String bdate, Boolean kakaoface) {
 		this.userNo = userNo;
 		this.password = password;
 		this.password_q = password_q;
@@ -67,6 +68,10 @@ public class User {
 		this.addr = addr;
 		this.bdate = bdate;
 	}
+	public Boolean getKakaoface() {
+		return kakaoface;
+	}
+
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}

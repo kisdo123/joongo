@@ -14,6 +14,8 @@ public interface UserDAO {
 	public User selectById(String loginId);
 	
 	public List<User> selectList();
+	
+	public User selectByPhone(String phone);
 
 }
 
