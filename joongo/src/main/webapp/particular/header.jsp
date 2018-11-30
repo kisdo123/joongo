@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <body class="text-center" oncontextmenu="return false" ondragstart="return false" onselect="return false">
+<div id="header-body">
 	<nav id="header-navbar">
 		<div class="middle header-divTop">
 			<div class="header-logo">
@@ -17,6 +18,6 @@
 			</div>
 		</div>
 	</nav>
-	
+</div>
 	<!-- 	<i class="fa fa-cloud-upload" aria-hidden="true"></i> 판매하기
 	<i class="fa fa-suitcase" aria-hidden="true"></i> 내상점 -->
