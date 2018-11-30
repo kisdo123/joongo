@@ -67,6 +67,9 @@ public class User {
 		this.addr = addr;
 		this.bdate = bdate;
 	}
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
 	
 	public String getPhone() {
 		return phone;

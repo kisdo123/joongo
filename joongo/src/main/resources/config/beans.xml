@@ -22,7 +22,7 @@
 	<!-- 마이바티스 매퍼 인터페이스를 한꺼번에 스캔!!! -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 매퍼로 읽을 아이를 특정 패키지안에서 검색!! -->
-		<property name="basePackage" value="User.DAO, Product.DAO"/>
+		<property name="basePackage" value="User.DAO, Product.DAO, Favorite.DAO"/>
 		<!-- 마이바티스매퍼를 구별할수있게 어노테이션 추가한걸로 구별 -->
 		<property name="annotationClass" value="User.DAO.Query"/>
 	</bean>
@@ -35,6 +35,7 @@
 			<list>
 				<value>classpath:/config/userMapper.xml</value>
 				<value>classpath:/config/productMapper.xml</value>
+				<value>classpath:/config/favoriteMapper.xml</value>
 			</list>
 		</property>
 	</bean>
