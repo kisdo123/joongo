@@ -16,4 +16,7 @@ public interface UserService {
 	
 	public List<User> searchUserList();
 
+	public Boolean idDuplicate(String loginId);
+	
+	public Boolean phoneDuplicate(String phone);
 }
