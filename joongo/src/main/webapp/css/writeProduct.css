@@ -1,0 +1,61 @@
+.write-container {
+	background-color: #f8f8f8;
+}
+
+.first-div {
+	width: 1200px;
+	margin: 0px auto;
+	background-color: white;
+}
+
+.form-container{
+	padding: 85px 0px;
+}
+
+.form-title-container {
+	margin-bottom: 10px;
+}
+
+.form-info {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.title-winput {
+	width: 93.6%;
+}
+
+.tag-winput {
+	width: 96.7%;
+}
+
+.title-input {
+	width: 100%;
+}
+
+.select-info {
+	font-size: 13px;
+	height: 22px;
+}
+
+.price-input {
+	width: 305px;
+}
+
+.tag-container {
+	margin-top: 10px;
+}
+
+.register-container {
+	float: right;
+}
+
+.register, .cancel{
+	background-color: #FE8181;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+    padding: 9px 20px;
+    font-size: 15px;
+}
