@@ -20,14 +20,14 @@
 				</a>
 			</div>
 			<form id="form" method="post" action="register.do" onsubmit="return false">
-				<div class="signup_name">
+				<div class="signup">
 					<h4 class="signup_title">이름</h4>
 					<span class="box">
 						<input type="text" name="name" id="name">
 					</span>
 					<p id="name_msg"></p>
 				</div>
-				<div class="signup_id">
+				<div class="signup">
 					<h4 class="signup_title">아이디</h4>
 					<span class="box">
 						<input type="text" name="loginId" id="id">
@@ -35,21 +35,21 @@
 					</span>
 					<p id="id_msg"></p>
 				</div>
-				<div class="signup_password">
+				<div class="signup">
 					<h4 class="signup_title">비밀번호</h4>
 					<span class="box">
 						<input type="password" name="password" id="pw" maxlength="20">
 					</span>
 					<p id="pw_msg"></p>
 				</div>
-				<div class="signup_password">
+				<div class="signup">
 					<h4 class="signup_title">비밀번호 확인</h4>
 					<span class="box">
 						<input type="password" id="pw_ch" maxlength="20">
 					</span>
 					<p id="pw_ch_msg"></p>
 				</div>
-				<div class="signup_password_Q">
+				<div class="signup">
 					<h4 class="signup_title">비밀번호 확인 질문</h4>
 					<span class="box">
 						<select name="password_q" id="question">
@@ -63,28 +63,28 @@
 					</span>
 					<p id="question_msg"></p>
 				</div>
-				<div class="signup_password_A">
+				<div class="signup">
 					<h4 class="signup_title">비밀번호 확인 답변</h4>
 					<span class="box">
 						<input type="text" name="password_a" id="answer">
 					</span>
 					<p id="answer_msg"></p>
 				</div>
-				<div class="signup_nickName">
+				<div class="signup">
 					<h4 class="signup_title">별명</h4>
 					<span class="box">
 						<input type="text" name="nickname" id="nickname">
 					</span>
 					<p id="nickname_msg"></p>
 				</div>
-				<div class="signup_addr">
+				<div class="signup">
 					<h4 class="signup_title">주소</h4>
 					<span class="box">
 						<input type="text" name="addr" id="addr" placeholder="  예)서울특별시 강남구 ">
 					</span>
 					<p id="addr_msg"></p>
 				</div>
-				<div class="signup_phone">
+				<div class="signup">
 					<h4 class="signup_title">전화번호</h4>
 					<span class="box">
 						<input type="text" name="phone1" id="phone1" class="phone" maxlength="3" pattern="[0-1]{3}" value="010">
@@ -94,7 +94,7 @@
 					</span>
 					<p id="phone_msg"></p>
 				</div>
-				<div class="signup_email">
+				<div class="signup">
 					<h4 class="signup_title">이메일</h4>
 					<span class="box">
 						<input type="text" name="email1" id="email1">
@@ -110,7 +110,7 @@
 					</span>
 					<p id="email_msg"></p>
 				</div>
-				<div class="signup_birthday">
+				<div class="signup">
 					<h4 class="signup_title">생년월일</h4>
 					<span class="box">
 						<input type="text" name="bdate" id="bdate" maxlength="6" pattern="[0-9]{6}" placeholder="  주민등록번호 앞자리를 입력하시오.">
