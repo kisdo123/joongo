@@ -1,4 +1,15 @@
 $(function() {
+	//이름
+	$("#name").blur(function() {
+		if ($("#name").val() == "") {
+			$("#name_msg").html("아이디를 입력하세요.").css("color", "red")
+			$("#name").css("border-color", "red");
+			return false;
+		} else {
+			$("#name_msg").html("");
+			$("#name").css("border-color", "gray");
+		}
+	});
 	// 아이디
 
 	$("#id").blur(function() {
@@ -104,7 +115,12 @@ $(function() {
 });
 function check() {
 	var flag = true;
-	console.log("야")
+	if ($("#name").val() == "") {
+		$("#name_msg").html("이름을 입력하세요.").css("color", "red")
+		$("#name").css("border-color", "red");
+		flag = false;
+	}
+	
 	if ($("#id").val() == "") {
 		$("#id_msg").html("아이디를 입력하세요.").css("color", "red")
 		$("#id").css("border-color", "red");
@@ -150,8 +166,7 @@ function check() {
 		$("#addr").css("border-color", "red");
 		flag = false;
 	}
-	if ($("#phone1").val() == "" | $("#phone2").val() == ""
-			& $("#phone3").val() == "") {
+	if ($("#phone1").val() == "" | $("#phone2").val() == "" & $("#phone3").val() == "") {
 		$("#phone_msg").html("전화번호를 입력하세요.").css("color", "red")
 		flag = false;
 	}
