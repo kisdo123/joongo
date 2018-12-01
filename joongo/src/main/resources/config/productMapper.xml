@@ -22,7 +22,7 @@
 	
 	<!--글 등록 -->
 	<insert id="insertProduct" parameterType="Product">
-		insert into products(title, catNo, userNo, nickname, price, content, imagePath, tags) values(#{title},#{catNo},#{userNo},#{nickname},#{price},#{content},#{phone},#{imagePath},#{tags});
+		insert into products(title, catNo, userNo, nickname, price, content, imagePath, tags) values(#{title},#{catNo},#{userNo},#{nickname},#{price},#{content},#{imagePath},#{tags});
 	</insert>
 	
 	<!--카테고리 별 조회-->
