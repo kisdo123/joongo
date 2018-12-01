@@ -47,10 +47,10 @@
 }
 
 .loginImg {
-	width: 50px;
-	height: 50px;
-	margin-top: 30px;
-	margin-left: 40px;
+	width: 75px;
+    height: 75px;
+    margin-top: 25px;
+    margin-left: 20px;
 }
 
 #loginSubmit {
@@ -67,8 +67,8 @@
 #popCloseImg {
 	position: relative;
 	cursor: pointer;
-    left: 98px;
-    bottom: 40px;
+    left: 102px;
+    bottom: 66px;
     width: 20px;
     height: 20px;
     opacity: 0.6;
