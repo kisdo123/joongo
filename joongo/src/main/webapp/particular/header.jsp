@@ -4,12 +4,12 @@
 	<nav id="header-navbar">
 		<div class="middle header-divTop">
 			<div class="header-logo">
-				<img src="/joongo/image/2.png" class="header-img">
+				<img src="/joongo/image/logo.png" class="header-img">
 			</div>
 			<div class="header-search">
 				<form action="search.do" method="post" class="header-form-search">
 					<input type="text" placeholder="&nbsp;상품명, 카테고리 , @태그입력" class="header-search-input" name="word" required autofocus>
-					<input type="image" src="/joongo/image/3.png" class="header-search-icon">
+					<input type="image" src="/joongo/image/searchBtn.png" class="header-search-icon">
 				</form>
 			</div>
 			<div class="header-divLogin">
