@@ -3,7 +3,9 @@
 <footer class="footer">
 	<div id="footer-middle" class="middle">
 		<div class="footer-logo">
-			<h2>로고로고</h2>
+			<a href="#">
+				<img src="/joongo/image/logo100x100.PNG" class="footer-logo-img">
+			</a>
 		</div>
 			<div class="footer-joongo">
 				<dl>
@@ -37,7 +39,7 @@
 				중고장터㈜는 통신판매중개자로서 중고거래마켓 중고장터의 거래 당사자가 아니며, 입점판매가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다.<br>
 			</div>
 			<div class="footer-copy">
-				작은로고 Copyright ⓒ JOONGOJANG Corp. All rights reserved.
+				Copyright ⓒ JOONGOJANG Corp. All rights reserved.
 			</div>
 			<ul class="footer-ul">
 				<li class="footer-li">

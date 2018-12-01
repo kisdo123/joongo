@@ -19,7 +19,7 @@
 					<!-- 상품이 for문으로 돌아가야 함 -->
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -32,7 +32,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -45,7 +45,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -58,7 +58,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -71,7 +71,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -105,7 +105,7 @@
 					<!-- 상품이 for문으로 돌아가야 함 -->
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -118,7 +118,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -131,7 +131,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -144,7 +144,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -157,7 +157,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -178,7 +178,7 @@
 				<div class="product-container">
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -191,7 +191,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -204,7 +204,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -217,7 +217,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -230,7 +230,7 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="/joongo/image/fruit.jpg" class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
