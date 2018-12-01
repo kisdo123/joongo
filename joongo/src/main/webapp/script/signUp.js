@@ -163,7 +163,7 @@ $(function() {
 	$('.signup_email_select').change(function() {
 		$('#email3').val($('.signup_email_select').val());
 	});
-	// 생년월일
+	//생년월일
 	$("#bdate").blur(function() {
 		if ($("#bdate").val() == "") {
 			$("#bdate_msg").html("생년월일을 입력하세요.").css("color", "red")
