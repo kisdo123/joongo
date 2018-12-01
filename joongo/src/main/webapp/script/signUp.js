@@ -190,7 +190,10 @@ function idDuplicate() {
 		return;
 	}
 	url = 'idDuplication.do?loginId=' + $('#id').val();
-	open(url, "confirm", "width=300, height=200, resizable=no, scrollbars=no");
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY= (window.screen.height /2) - (300 / 2);
+
+	window.open(url, 'confirm', 'status=no, height=200, width=300, resizable=no, scrollbar=no,left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 }
 
 function phoneDuplicate() {
@@ -202,6 +205,9 @@ function phoneDuplicate() {
 	var phone = $('#phone1').val() + '-' + $('#phone2').val() + '-'
 			+ $('#phone3').val();
 	url = "phoneDuplication.do?phone="+phone;
-	open(url, "confirm",  "width=300, height=200, resizable=no, scrollbars=no");
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY= (window.screen.height /2) - (300 / 2);
+
+	window.open(url, 'confirm', 'status=no, height=200, width=300, resizable=no, scrollbar=no,left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 }
 
