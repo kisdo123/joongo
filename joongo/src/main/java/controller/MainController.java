@@ -134,4 +134,10 @@ public class MainController {
 		model.addAttribute("products", products);
 		return "search";
 	}
+	
+	@RequestMapping("/writeProduct.do")
+	public String writeProduct(@ModelAttribute Product product) {
+		productService.insert(product);
+		return "productList";
+	}
 }
