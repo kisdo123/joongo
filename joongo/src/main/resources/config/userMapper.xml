@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="selectUserById" resultType="User" parameterType="string">
-		select * from users where loginId = #{loginId} and able = true
+		select * from users where loginId = #{loginId}
 	</select>
 	
 	<select id="selectUserByPhone" resultType="User" parameterType="string">
@@ -19,7 +19,7 @@
 	</select>
 	
 	<select id="selectUserList" resultType="User">
-		select * from users
+		select * from users where able = true
 	</select>
 	
 	<update id="updateUser" parameterType="User">

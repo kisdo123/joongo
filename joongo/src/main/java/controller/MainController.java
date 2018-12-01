@@ -140,4 +140,5 @@ public class MainController {
 		productService.insert(product);
 		return "productList";
 	}
+	
 }
