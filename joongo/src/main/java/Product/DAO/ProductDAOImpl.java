@@ -38,7 +38,7 @@ public class ProductDAOImpl implements ProductDAO{
 
 	//카테고리별 조회
 	@Override
-	public Product selectcatNo(int catNo) {
+	public List<Product> selectcatNo(int catNo) {
 		return productMapper.selectcatNo(catNo);
 	}
 

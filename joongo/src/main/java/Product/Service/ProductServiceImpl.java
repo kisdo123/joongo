@@ -53,12 +53,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product catNoSelect(int catNo) {
-		Product product = productDAO.selectcatNo(catNo);
-		if(product.equals(null)) {
-			throw new UserNotFoundException("목록이 존재하지 않습니다.");	
+	public List<Product> catNoSelect(int catNo) {
+		List<Product> products = productDAO.selectcatNo(catNo);
+		if(products.isEmpty() || products.equals(null)) {
+			throw new UserNotFoundException("검색 목록이 존재하지 않습니다.");
 		}
-		return product;
+		return products;
 	}
 
 	@Override

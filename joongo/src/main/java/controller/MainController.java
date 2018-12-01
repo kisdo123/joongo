@@ -160,4 +160,12 @@ public class MainController {
 		mv.setViewName("productOne");
 		return mv;
 	}
+	
+	//카테고리별 목록보기
+	@RequestMapping("/catList.do")
+	public String catList(Model model, @RequestParam int catNo) {
+		List<Product> products = productService.catNoSelect(catNo);
+		model.addAttribute("products", products);
+		return "catList";
+	}
 }
