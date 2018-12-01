@@ -2,8 +2,9 @@
 
 .signup_logo{text-align: center;}
 .signup_logo_img{
-	width: 120px;
-    height: 70px;
+	width: 125px;
+    height: 100px;
+    margin-bottom: 20px;
 }
 h4{
 	margin: 5px 0px 5px 0px;

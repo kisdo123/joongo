@@ -8,7 +8,7 @@
 <link href="/joongo/css/public.css" rel="stylesheet" type="text/css">
 <link href="/joongo/css/signUp.css" rel="stylesheet" type="text/css">
 <title></title>
-<script language="javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="/joongo/script/signUp.js" type="text/javascript"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
 		<div class="signup_container">
 			<div class="signup_logo">
 				<a href="#">
-					<img src="/joongo/image/logo100x100.PNG" class="signup_logo_img">
+					<img src="/joongo/image/logo100x100.png" class="signup_logo_img">
 				</a>
 			</div>
 			<form id="form"><!--  action="register.do" onsubmit="return false" --> 
