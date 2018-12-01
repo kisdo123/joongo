@@ -14,7 +14,6 @@
 	//파일 기본경로 _ 상세경로
 	String path = defaultPath +"upload"+File.separator;
 	
-	System.out.println(path);
 	File file = new File(path);
 	if(!file.exists()) {
 	  file.mkdirs();
@@ -34,7 +33,5 @@
 	os.flush();
 	os.close();
 	sFileInfo += "&bNewLine=true&sFileName="+ name+"&sFileURL=/joongo/upload/"+realname;
-	System.out.println("==================");
-	System.out.println(sFileInfo);
 	out.println(sFileInfo); 
 %>

@@ -1,6 +1,9 @@
 $(function() {
+	
 	var oEditors = [];
 	var textarea = $('#ir1');
+	
+	// 스마트 에디터를 만드는 함수
 	nhn.husky.EZCreator.createInIFrame({
 		oAppRef : oEditors,
 		elPlaceHolder : textarea[0],
@@ -8,32 +11,42 @@ $(function() {
 		fCreator : "createSEditor2"
 	});
 	
-	console.log('test')
-	var btn = $('#writebtn');
-	btn.click(function() {
-		submitContents(btn);
+	// 3자리마다 콤마를 만드는 함수
+	function addCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+	
+	// addCommas를 호출하면서 숫자만 입력가능하게 하는 함수
+	$("#price").on("keyup", function() {
+		$(this).val(addCommas($(this).val().replace(/[^0-9]/g,"")));
 	});
 	
-	
-	//‘저장’ 버튼을 누르는 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 가정한다.
-	function submitContents(elClickedObj) {
-	    // 에디터의 내용이 textarea에 적용된다.
-	    oEditors.getById["textAreaContent"].exec("UPDATE_CONTENTS_FIELD", [ ]);
-	 
-	    // 에디터의 내용에 대한 값 검증은 이곳에서
-	    // document.getElementById("textAreaContent").value를 이용해서 처리한다.
-	  
-	    try {
-	        elClickedObj.form.submit();
-	    } catch(e) {
-	     
-	    }
-	}
-	
-	// textArea에 이미지 첨부
-	function pasteHTML(filepath){
-	    var sHTML = '<img src="<%=request.getContextPath()%>/path에서 설정했던 경로/'+filepath+'">';
-	    oEditors.getById["textAreaContent"].exec("PASTE_HTML", [sHTML]);
-	}
+	// 무결성 검사를 하는 함수
+	$("#register").click(function(){
+        
+        oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+        var ir1 = $('#ir1').val();
+        var checked = true;
+        
+        if ($('#title').val().trim() == '') {
+        	$('#title').addClass('error');
+        	$('#title').prop('placeholder', '제목을 입력해주세요');
+        	$('#title').focus();
+        	checked = false;
+        }
+        
+        if($('#price').val().trim() == '') {
+        	$('#price').addClass('error');
+        	$('#price').prop('placeholder', '가격을 입력해주세요');
+        	$('#price').focus();
+        	checked = false;
+        }
+        
+        // 문제 없을 시 submit 실행
+        if(checked) {
+        	console.log('asd')
+        	$("#writefrm")[0].submit();
+        }
+    });
 	
 })

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css"
-	href="/joongo/css/writeProduct.css?2">
+	href="/joongo/css/writeProduct.css?6">
 <script type="text/javascript" src="/joongo/script/writeProduct.js"></script>
 <script type="text/javascript"
 	src="/joongo/se2/js/HuskyEZCreator.js"></script>
@@ -13,14 +13,14 @@
 	<div class="first-div">
 		<div class="middle">
 			<div class="form-container">
-				<form action="#" name="writefrm" id="writefrm">
+				<form action="#" name="writefrm" id="writefrm" onsubmit="return false" method="post">
 					<div class="form-header">
 						<!-- 제목 카테고리 -->
 						<div class="form-title-container">
 							<table>
 								<tr>
 									<td class="form-info">제목</td>
-									<td class="title-winput"><input type="text" name="title" placeholder="제목을 입력하세요" class="title-input"></td>
+									<td class="title-winput"><input type="text" id="title" name="title" placeholder="제목을 입력하세요" class="title-input" autofocus></td>
 								</tr>
 								<tr>
 									<td class="form-info">카테고리</td>
@@ -38,7 +38,7 @@
 											<option value="9">기타</option>
 										</select>
 										<span class="form-info">가격</span>
-										<input type="text" name="price" placeholder="희망 가격을 입력해주세요 (숫자만 입력가능합니다)" class="price-input">
+										<input type="text" id="price" name="price" placeholder="희망 가격을 입력해주세요 (숫자만 입력가능합니다)" class="price-input">
 									</td>
 								</tr>
 							</table>
@@ -57,7 +57,7 @@
 					</div>
 					<!-- <input tpye="hidden" value="userId, nickName, condit"> -->
 					<div class="register-container">
-						<input type="submit" value="등록" onclick="" id="submit" class="register">
+						<input type="submit" value="등록" onclick="" id="register" class="register">
 						<a href="#" class="cancel">취소</a>
 					</div>
 				</form>

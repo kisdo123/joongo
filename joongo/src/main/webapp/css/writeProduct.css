@@ -59,3 +59,7 @@
     padding: 9px 20px;
     font-size: 15px;
 }
+
+ .error::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: red;
+}
