@@ -33,36 +33,44 @@ public class MainController {
 		return "main";
 	}
 
+	// 회원가입을 진행
 	@RequestMapping("/register.do")
 	public String registerUser(@ModelAttribute User user) {
+		user.setKakao(false);
+		userService.registerUser(user);
+
+		return "redirect:/main.do";
+	}
+	@RequestMapping("/registerKakao.do")
+	public String registerKakao(@ModelAttribute User user) {
+		user.setKakao(true);
 		userService.registerUser(user);
 
 		return "redirect:/main.do";
 	}
 	
+	// 회원가입 폼을 요청
+	@RequestMapping("/registerForm.do")
+	public String registerForm() {
+		
+		return "registerForm";
+	}
 	@RequestMapping("/registerFormKakao.do")
 	public String registerFormKakao(@RequestParam("") String name) {
 
 		return "redirect:/main.do";
 	}
 	
-	@RequestMapping("/registerKakao.do")
-	public String registerKakao(@ModelAttribute User user) {
-		userService.registerUser(user);
-
-		return "redirect:/main.do";
-	}
 	
 	
+	// 중복검사 결과를 팝업으로 반환
 	@RequestMapping("/idDuplication.do")
 	public String idDuplicated(@RequestParam("loginId") String loginId) {
 		if(userService.idDuplicate(loginId)) {
-			return "redirect:/particular/popup.jsp?type=id&res=true";			
+			return "redirect:/particular/duplicatePopup.jsp?type=id&res=true";			
 		}else {
-			return "redirect:/particular/popup.jsp?type=id&res=false";
-		}
-		
-		
+			return "redirect:/particular/duplicatePopup.jsp?type=id&res=false";
+		}	
 	}
 	
 	@RequestMapping("/phoneDuplication.do")
@@ -70,13 +78,13 @@ public class MainController {
 		String phone = phone1+"-"+phone2+"-"+phone3;
 		
 		if(userService.phoneDuplicate(phone)) {
-			return "redirect:/particular/popup.jsp?type=id&res=true";			
+			return "redirect:/particular/duplicatePopup.jsp?type=id&res=true";			
 		}else {
-			return "redirect:/particular/popup.jsp?type=id&res=false";
+			return "redirect:/particular/duplicatePopup.jsp?type=id&res=false";
 		}
 	}
 	
-	
+	// 로그인
 	@RequestMapping("/login.do")
 	public String login(HttpServletRequest request, @RequestParam("loginId") String loginId) {
 		User user = userService.loginUser(loginId);
@@ -85,25 +93,28 @@ public class MainController {
 		return "redirect:/main.do";
 	}
 
+	// 로그아웃
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest request) {
 
 		request.getSession().setAttribute("loginUser", null);
-
 		return "redirect:/main.do";
 	}
 
+	// 회원 정보 수정 폼 요청
 	@RequestMapping("/updateUserForm.do")
 	public String returnUpdateUserForm() {
 		return "updateUserForm";
 	}
-
+	
+	// 회원정보 수정
 	@RequestMapping("/updateUser.do")
 	public String returnUpdateUser(@ModelAttribute User user) {
 		userService.updateUser(user);
 		return "updateUserForm";
 	}
 
+	// 검색
 	@RequestMapping("/search.do")
 	public String getUserList(Model model, @RequestParam("word") String word) {
 		List<Product> products = productService.searching(word);

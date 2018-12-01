@@ -20,13 +20,13 @@ public class User {
 	private LocalDateTime rdate;
 	private Boolean isAdmin;
 	private Boolean able;
-	private Boolean kakaoface;
+	private Boolean kakao;
 	
 	public User() {}
 	
 	public User(int userNo, String loginId, String password, String password_q, String password_a, String name,
 			String nickname, String email, String phone, String addr, String bdate, LocalDateTime rdate, Boolean isAdmin,
-			Boolean able, Boolean kakaoface) {
+			Boolean able, Boolean kakao) {
 		this.userNo = userNo;
 		this.loginId = loginId;
 		this.password = password;
@@ -41,9 +41,10 @@ public class User {
 		this.rdate = rdate;
 		this.isAdmin = isAdmin;
 		this.able = able;
+		this.kakao = kakao;
 	}
 	public User(String loginId, String password, String password_q, String password_a, String name, String nickname,
-			String email, String phone, String addr, String bdate, Boolean kakaoface) {
+			String email, String phone, String addr, String bdate, Boolean kakao) {
 		this.loginId = loginId;
 		this.password = password;
 		this.password_q = password_q;
@@ -54,9 +55,10 @@ public class User {
 		this.phone = phone;
 		this.addr = addr;
 		this.bdate = bdate;
+		this.kakao = kakao;
 	}
 	public User(int userNo, String password, String password_q, String password_a, String name, String nickname,
-			String email, String phone, String addr, String bdate, Boolean kakaoface) {
+			String email, String phone, String addr, String bdate, Boolean kakao) {
 		this.userNo = userNo;
 		this.password = password;
 		this.password_q = password_q;
@@ -67,9 +69,14 @@ public class User {
 		this.phone = phone;
 		this.addr = addr;
 		this.bdate = bdate;
+		this.kakao = kakao;
 	}
-	public Boolean getKakaoface() {
-		return kakaoface;
+	public Boolean getKakao() {
+		return kakao;
+	}
+
+	public void setKakao(Boolean kakao) {
+		this.kakao = kakao;
 	}
 
 	public void setUserNo(int userNo) {
