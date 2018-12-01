@@ -5,9 +5,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>Insert title here</title>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<style>
+	#signupPopup{
+		border-radius: 5px;
+		width: 221px;
+    	height: 48px;
+		background: #FE8181;
+		text-align: center;
+    	line-height: 45px;
+	}
+	#signupPopup a{
+		text-decoration: none;
+	    color: white;
+	}
+</style>
 </head>
 <body class="text-center" oncontextmenu="return false"
 	ondragstart="return false" onselect="return false">
@@ -28,7 +41,9 @@
 				<a id="kakao-login-btn"></a> <a
 					href="http://developers.kakao.com/logout"></a>
 			</div>
-			<!-- 여기에 일반 회원가입 버튼 만들어주세요 -->
+			<div id="signupPopup">
+				<a href="#">회원가입</a>
+			</div>
 			<!-- <div id="registerNormal">
 				<a id="normal-login-btn"></a> <a href="registerForm.do"></a>
 			</div> -->

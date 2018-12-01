@@ -16,10 +16,17 @@
 		<div class="signup_container">
 			<div class="signup_logo">
 				<a href="#">
-					<img src="/joongo/image/logo100x100.png" class="signup_logo_img">
+					<img src="joongo/image/logo100x100.png" class="signup_logo_img">
 				</a>
 			</div>
 			<form id="form" method="post" action="register.do" onsubmit="return false">
+				<div class="signup_name">
+					<h4 class="signup_title">이름</h4>
+					<span class="box">
+						<input type="text" name="name" id="name">
+					</span>
+					<p id="name_msg"></p>
+				</div>
 				<div class="signup_id">
 					<h4 class="signup_title">아이디</h4>
 					<span class="box">
