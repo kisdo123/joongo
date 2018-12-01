@@ -38,10 +38,6 @@
 					<span>1234</span>
 				</li>
 				<li class="productInfo-li">
-					<strong>주소</strong>
-					<span>서울특별시</span>
-				</li>
-				<li class="productInfo-li">
 					<strong>상품상태</strong>
 					<span>새상품</span>
 				</li>
