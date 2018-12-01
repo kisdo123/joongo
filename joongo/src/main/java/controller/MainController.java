@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import Product.DTO.Product;
 import Product.Service.ProductService;
@@ -135,10 +136,28 @@ public class MainController {
 		return "search";
 	}
 	
+	//글쓰기
 	@RequestMapping("/writeProduct.do")
 	public String writeProduct(@ModelAttribute Product product) {
 		productService.insert(product);
+		return "redirect:/productList.do";
+	}
+	
+	//전체 목록보기
+	@RequestMapping("/productList.do")
+	public String ProductList(Model model) {
+		List<Product> products = productService.totalSelect();
+		model.addAttribute("products", products);
 		return "productList";
 	}
 	
+	//내용보기
+	@RequestMapping("/productOne.do")
+	public ModelAndView getUserInfo(@RequestParam int proNo) {
+		Product product = productService.oneSelect(proNo);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("product",product);
+		mv.setViewName("productOne");
+		return mv;
+	}
 }
