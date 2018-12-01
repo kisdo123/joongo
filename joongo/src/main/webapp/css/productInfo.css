@@ -45,7 +45,7 @@
 	margin-bottom: 10px;
 }
 
-.productInfo-li>strong {
+.productInfo-contextLi>strong {
 	float: left;
 	min-width: 90px;
 	font-size: 15px;
@@ -53,7 +53,7 @@
 	color: #999;
 }
 
-.productInfo-li>span {
+.productInfo-contextLi>span {
 	font-size: 15px;
 	font-weight: bolder;
 }
