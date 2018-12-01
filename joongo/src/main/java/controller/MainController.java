@@ -37,7 +37,7 @@ public class MainController {
 	@RequestMapping("/register.do")
 	public String registerUser(@ModelAttribute User user) {
 		
-		System.out.println(user.getLoginId()+""+ user.getPassword());
+		System.out.println(user.getLoginId()+", "+ user.getPassword());
 		userService.registerUser(user);
 
 		return "redirect:/main.do";
@@ -55,9 +55,14 @@ public class MainController {
 		model.addAttribute("kakao", false);
 		return "signUp";
 	}
+	
 	@RequestMapping("/registerFormKakao.do")
-	public String registerFormKakao(Model model, @RequestParam("") String name) {
+	public String registerFormKakao(Model model, @RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("bdate") String bdate) {
 		model.addAttribute("kakao", true);
+		model.addAttribute("name", name);
+		model.addAttribute("email",email);
+		model.addAttribute("bdate", bdate);
+		
 		return "signUp";
 	}
 	
@@ -66,9 +71,8 @@ public class MainController {
 	// 중복검사 결과를 팝업으로 반환
 	@RequestMapping("/idDuplication.do")
 	public String idDuplicate(@RequestParam("loginId") String loginId) {
-		System.out.println(loginId);
 		boolean isDuplicate = userService.idDuplicate(loginId);
-		System.out.println(isDuplicate);
+
 		if(isDuplicate) {
 			return "redirect:/particular/duplicatePopup.jsp?type=id&res=true";			
 		}else {
@@ -77,13 +81,13 @@ public class MainController {
 	}
 	
 	@RequestMapping("/phoneDuplication.do")
-	public String phoneDuplicate(@RequestParam("phone1") String phone1, @RequestParam("phone2") String phone2, @RequestParam("phone3") String phone3 ) {
-		String phone = phone1+"-"+phone2+"-"+phone3;
+	public String phoneDuplicate( @RequestParam("phone") String phone ) {
+		boolean isDuplicate = userService.phoneDuplicate(phone);
 		
-		if(userService.phoneDuplicate(phone)) {
-			return "redirect:/particular/duplicatePopup.jsp?type=id&res=true";			
+		if(isDuplicate) {
+			return "redirect:/particular/duplicatePopup.jsp?type=phone&res=true";			
 		}else {
-			return "redirect:/particular/duplicatePopup.jsp?type=id&res=false";
+			return "redirect:/particular/duplicatePopup.jsp?type=phone&res=false";
 		}
 	}
 	

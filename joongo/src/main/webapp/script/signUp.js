@@ -1,12 +1,6 @@
 $(function() {
 	// 아이디
-	$("#signup").click(function() {
-		if ($("#id").val() == "") {
-			$("#id_msg").html("아이디를 입력하세요.").css("color", "red")
-			$("#id").css("border-color", "red");
-			return false;
-		}
-	});
+
 	$("#id").blur(function() {
 		if ($("#id").val() == "") {
 			$("#id_msg").html("아이디를 입력하세요.").css("color", "red")
@@ -18,24 +12,11 @@ $(function() {
 		}
 	});
 	// 비밀번호
-	$("#signup").click(function() {
-		if ($("#pw").val() == "") {
-			$("#pw_msg").html("비밀번호를 입력하세요.").css("color", "red")
-			$("#pw").css("border-color", "red");
-			return false;
-		}
-	});
+
 	$("#pw").blur(function() {
 		if ($("#pw").val() == "") {
 			$("#pw_msg").html("비밀번호를 입력하세요.").css("color", "red")
 			$("#pw").css("border-color", "red");
-			return false;
-		}
-	});
-	$("#signup").click(function() {
-		if ($("#pw_ch").val() == "") {
-			$("#pw_ch_msg").html("비밀번호를 입력하세요.").css("color", "red")
-			$("#pw_ch").css("border-color", "red");
 			return false;
 		}
 	});
@@ -72,41 +53,7 @@ $(function() {
 			}
 		}
 	});
-	$("#signup").click(function() {
-		if ($("#pw_ch").val() != "") {
-			if ($("#pw").val() != $("#pw_ch").val()) {
-				$("#pw_ch_msg").html("입력하신 비밀번호가 다릅니다.").css("color", "red")
-				$("#pw_ch").css("border-color", "red");
-				return false;
-			} else {
-				$("#pw_ch_msg").html("");
-				$("#pw_ch").css("border-color", "gray");
-			}
-		}
-	});
-	//비밀번호 질문,답변
-	$("#signup").click(function() {
-		if ($("#question").val() == "") {
-			$("#question_msg").html("질문을 선택하세요.").css("color", "red")
-			$("#question").css("border-color", "red");
-			return false;
-		}
-	});
-	$("#signup").click(function() {
-		if ($("#answer").val() == "") {
-			$("#answer_msg").html("답변을 입력하세요.").css("color", "red")
-			$("#answer").css("border-color", "red");
-			return false;
-		}
-	});
-	// 별명
-	$("#signup").click(function() {
-		if ($("#nickname").val() == "") {
-			$("#nickname_msg").html("별명을 입력하세요.").css("color", "red")
-			$("#nickname").css("border-color", "red");
-			return false;
-		}
-	});
+
 	$("#nickname").blur(function() {
 		if ($("#nickname").val() == "") {
 			$("#nickname_msg").html("별명을 입력하세요.").css("color", "red")
@@ -117,13 +64,7 @@ $(function() {
 			$("#nickname").css("border-color", "gray");
 		}
 	});
-	$("#signup").click(function() {
-		if ($("#addr").val() == "") {
-			$("#addr_msg").html("주소를 입력하세요.").css("color", "red")
-			$("#addr").css("border-color", "red");
-			return false;
-		}
-	});
+
 	// 주소
 	$("#addr").blur(function() {
 		if ($("#addr").val() == "") {
@@ -135,22 +76,7 @@ $(function() {
 			$("#addr").css("border-color", "gray");
 		}
 	});
-	// 전화번호
-	$("#signup").click(
-			function() {
-				if ($("#phone1").val() == "" | $("#phone2").val() == ""
-						& $("#phone3").val() == "") {
-					$("#phone_msg").html("전화번호를 입력하세요.").css("color", "red")
-					return false;
-				}
-			});
-	// 이메일
-	$("#signup").click(function() {
-		if ($("#email1").val() == "" & $("#email3").val() == "") {
-			$("#email_msg").html("이메일을 입력하세요.").css("color", "red")
-			return false;
-		}
-	});
+
 	$("#email3").blur(function() {
 		var email = $("#email3").val();
 		var regex = /^[a-zA-Z]([-_\.]?[a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -163,7 +89,7 @@ $(function() {
 	$('.signup_email_select').change(function() {
 		$('#email3').val($('.signup_email_select').val());
 	});
-	//생년월일
+	// 생년월일
 	$("#bdate").blur(function() {
 		if ($("#bdate").val() == "") {
 			$("#bdate_msg").html("생년월일을 입력하세요.").css("color", "red")
@@ -174,25 +100,92 @@ $(function() {
 			$("#bdate").css("border-color", "gray");
 		}
 	});
-	$("#signup").click(function() {
-		if ($("#bdate").val() == "") {
-			$("#bdate_msg").html("생년월일을 입력하세요.").css("color", "red")
-			$("#bdate").css("border-color", "red");
-			return false;
-		}
-	});
 
 });
+function check() {
+	var flag = true;
+	console.log("야")
+	if ($("#id").val() == "") {
+		$("#id_msg").html("아이디를 입력하세요.").css("color", "red")
+		$("#id").css("border-color", "red");
+		flag = false;
+	}
+	if ($("#pw").val() == "") {
+		$("#pw_msg").html("비밀번호를 입력하세요.").css("color", "red")
+		$("#pw").css("border-color", "red");
+		flag = false;
+	}
+	if ($("#pw_ch").val() == "") {
+		$("#pw_ch_msg").html("비밀번호를 입력하세요.").css("color", "red")
+		$("#pw_ch").css("border-color", "red");
+		flag = false;
+	}
+	if ($("#pw_ch").val() != "") {
+		if ($("#pw").val() != $("#pw_ch").val()) {
+			$("#pw_ch_msg").html("입력하신 비밀번호가 다릅니다.").css("color", "red")
+			$("#pw_ch").css("border-color", "red");
+			flag = false;
+		} else {
+			$("#pw_ch_msg").html("");
+			$("#pw_ch").css("border-color", "gray");
+		}
+	}
+	if ($("#question").val() == "") {
+		$("#question_msg").html("질문을 선택하세요.").css("color", "red")
+		$("#question").css("border-color", "red");
+		flag = false;
+	}
+	if ($("#answer").val() == "") {
+		$("#answer_msg").html("답변을 입력하세요.").css("color", "red")
+		$("#answer").css("border-color", "red");
+		flag = false;
+	}
+	if ($("#nickname").val() == "") {
+		$("#nickname_msg").html("별명을 입력하세요.").css("color", "red")
+		$("#nickname").css("border-color", "red");
+		flag = false;
+	}
+	if ($("#addr").val() == "") {
+		$("#addr_msg").html("주소를 입력하세요.").css("color", "red")
+		$("#addr").css("border-color", "red");
+		flag = false;
+	}
+	if ($("#phone1").val() == "" | $("#phone2").val() == ""
+			& $("#phone3").val() == "") {
+		$("#phone_msg").html("전화번호를 입력하세요.").css("color", "red")
+		flag = false;
+	}
+	if ($("#email1").val() == "" & $("#email3").val() == "") {
+		$("#email_msg").html("이메일을 입력하세요.").css("color", "red")
+		flag = false;
+	}
+	if ($("#bdate").val() == "") {
+		$("#bdate_msg").html("생년월일을 입력하세요.").css("color", "red")
+		$("#bdate").css("border-color", "red");
+		flag = false;
+	}
+	if (flag) {
+		$("#form")[0].submit();
+	}
+}
+
 function idDuplicate() {
-	if ($("#id").val()=='') {
+	if ($("#id").val() == '') {
 		alert("ID를 입력하세요");
 		return;
 	}
 	url = 'idDuplication.do?loginId=' + $('#id').val();
 	open(url, "confirm", "width=300, height=200, resizable=no, scrollbars=no");
 }
-function signUp(){
-	console.log("ㄱㄱ");
-	$("#form")[0].submit();
-}
 
+function phoneDuplicate() {
+	if ($('#phone1').val() == '' || $('#phone2').val() == ''
+			|| $('#phone3').val() == '') {
+		alert("전화번호를 입력하세요");
+		return;
+	}
+	var phone = $('#phone1').val() + '-' + $('#phone2').val() + '-'
+			+ $('#phone3').val();
+	url = "phoneDuplication.do?phone="+phone;
+	open(url, "confirm",  "width=300, height=200, resizable=no, scrollbars=no");
+}

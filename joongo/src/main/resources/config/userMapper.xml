@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="selectUserById" resultType="User" parameterType="string">
-		select * from users where loginId = #{loginId}
+		select * from users where loginId = #{loginId} and able = true
 	</select>
 	
 	<select id="selectUserByPhone" resultType="User" parameterType="string">
@@ -27,17 +27,9 @@
 		,email=#{email}, phone=#{phone}, addr=#{addr} where userNo=#{userNo}
 	</update>
 	
-	<delete id="deleteUser" parameterType="int">
-		delete from users where userNo = #{userNo}
-	</delete>
+	<update id="deleteUser" parameterType="int">
+		update users set able = 0 where userNo = #{userNo}
+	</update>
 </mapper>
 
-
-
-
-
-
-
-
-
-
+ 

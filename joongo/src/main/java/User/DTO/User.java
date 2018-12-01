@@ -43,6 +43,58 @@ public class User {
 		this.able = able;
 		this.kakao = kakao;
 	}
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setPassword_q(String password_q) {
+		this.password_q = password_q;
+	}
+
+	public void setPassword_a(String password_a) {
+		this.password_a = password_a;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
+	public void setBdate(String bdate) {
+		this.bdate = bdate;
+	}
+
+	public void setRdate(LocalDateTime rdate) {
+		this.rdate = rdate;
+	}
+
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
+	public void setAble(Boolean able) {
+		this.able = able;
+	}
+
 	public User(String loginId, String password, String password_q, String password_a, String name, String nickname,
 			String email, String phone, String addr, String bdate, Boolean kakao) {
 		this.loginId = loginId;
