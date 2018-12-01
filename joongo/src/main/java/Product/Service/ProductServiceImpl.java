@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Product.DAO.ProductDAO;
 import Product.DTO.Product;
+import exception.UserNotFoundException;
 
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
@@ -15,7 +16,65 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public List<Product> searching(String word) {
-		return productDAO.selectSearchList(word);
+		if(word.isEmpty() || word.equals(null)) {
+			throw new UserNotFoundException("검색단어가 없습니다.");
+		}
+		List<Product> products = productDAO.selectSearchList(word);
+		if(products.isEmpty() || products.equals(null)) {
+			throw new UserNotFoundException("검색 목록이 존재하지 않습니다.");
+		}
+		return products;
+	}
+
+	@Override
+	public List<Product> totalSelect() {
+		List<Product> products = productDAO.selectList();
+		if(products.isEmpty() || products.equals(null)) {
+			throw new UserNotFoundException("목록이 존재하지 않습니다.");
+		}
+		return products;
+	}
+
+	@Override
+	public Product oneSelect(int proNo) {
+		Product product = productDAO.selectOne(proNo);
+		if(product.equals(null)) {
+			throw new UserNotFoundException("글이 존재하지 않습니다.");
+		}
+		return product;
+	}
+
+	@Override
+	public void insert(Product product) {
+		int res = productDAO.insertProduct(product);
+		if(res == 0) {
+			throw new UserNotFoundException("글쓰기 실패");	
+		}
+	}
+
+	@Override
+	public Product catNoSelect(int catNo) {
+		Product product = productDAO.selectcatNo(catNo);
+		if(product.equals(null)) {
+			throw new UserNotFoundException("목록이 존재하지 않습니다.");	
+		}
+		return product;
+	}
+
+	@Override
+	public void update(Product product) {
+		int res = productDAO.updateProduct(product);
+		if (res == 0) {
+			throw new UserNotFoundException("수정 실패");	
+		}
+	}
+
+	@Override
+	public void delete(Product product) {
+		int res = productDAO.deleteProduct(product);
+		if (res == 0) {
+			throw new UserNotFoundException("삭제 실패");	
+		}
 	}
 	
 }

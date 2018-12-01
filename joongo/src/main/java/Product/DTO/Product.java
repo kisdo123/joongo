@@ -10,6 +10,7 @@ public class Product {
 	private int proNo;
 	private String title;
 	private int catNo;
+	private String catName;
 	private int userNo;
 	private String nickname;
 	private String condit;
@@ -24,11 +25,12 @@ public class Product {
 	}
 
 
-	public Product(int proNo, String title, int catNo, int userNo, String nickname, String condit, String price,
+	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit, String price,
 			String content, String imagePath, String tags, LocalDateTime wdate, Boolean able) {
 		this.proNo = proNo;
 		this.title = title;
 		this.catNo = catNo;
+		this.catName = catName;
 		this.userNo = userNo;
 		this.nickname = nickname;
 		this.condit = condit;
@@ -39,7 +41,14 @@ public class Product {
 		this.wdate = wdate;
 		this.able = able;
 	}
+	
+	public String getCatName() {
+		return catName;
+	}
 
+	public void setCatName(String catName) {
+		this.catName = catName;
+	}
 
 	public int getProNo() {
 		return proNo;

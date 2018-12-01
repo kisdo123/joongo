@@ -21,43 +21,37 @@ public class ProductDAOImpl implements ProductDAO{
 	//목록조회
 	@Override
 	public List<Product> selectList() {
-		// TODO Auto-generated method stub
-		return null;
+		return productMapper.selectList();
 	}
 	
 	//내용보기
 	@Override
 	public Product selectOne(int proNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return productMapper.selectOne(proNo);
 	}
 
 	//글쓰기
 	@Override
-	public void insertProduct(Product product) {
-		// TODO Auto-generated method stub
-		
+	public int insertProduct(Product product) {
+		return productMapper.insertProduct(product);
 	}
 
 	//카테고리별 조회
 	@Override
 	public Product selectcatNo(int catNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return productMapper.selectcatNo(catNo);
 	}
 
 	//글 수정
 	@Override
-	public void updateProduct(Product product) {
-		// TODO Auto-generated method stub
-		
+	public int updateProduct(Product product) {
+		return productMapper.updateProduct(product);
 	}
 
 	//글 삭제
 	@Override
-	public void deleteProduct(Product product) {
-		// TODO Auto-generated method stub
-		
+	public int deleteProduct(Product product) {
+		return productMapper.deleteProduct(product);
 	}
 	
 } 	

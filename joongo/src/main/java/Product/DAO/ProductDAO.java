@@ -8,8 +8,8 @@ public interface ProductDAO {
 	public List<Product> selectSearchList(String word);
 	public List<Product> selectList();
 	public Product selectOne(int proNo);
-	public void insertProduct(Product product);
+	public int insertProduct(Product product);
 	public Product selectcatNo(int catNo);
-	public void updateProduct(Product product);
-	public void deleteProduct(Product product);
+	public int updateProduct(Product product);
+	public int deleteProduct(Product product);
 }

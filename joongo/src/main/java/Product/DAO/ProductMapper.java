@@ -8,4 +8,10 @@ import User.DAO.Query;
 @Query
 public interface ProductMapper {
 	List<Product> selectSearchList(String word);
+	List<Product> selectList();
+	Product selectOne(int proNo);
+	int insertProduct(Product product);
+	Product selectcatNo(int catNo);
+	int updateProduct(Product product);
+	int deleteProduct(Product product);
 }
