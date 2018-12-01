@@ -5,9 +5,41 @@
 
 	<!-- 우리가 jdbc로 작성했떤 쿼리문을 여기다가 만들면됨 -->
 <mapper namespace="Product.DAO.ProductMapper">
+	<!--검색 쿼리-->
 	<select id="selectSearchList" parameterType="string" resultType="Product">
-		Select * From products Where concat(title,tags,content) like concat('%',#{word},'%');
+		Select * From products Where concat(title,tags,content) like concat('%',#{word},'%') and (able != 0 and condit!="판매완료");
 	</select>
+	
+	<!--목록조회  -->	
+	<select id="selectList" resultType="Product">
+		Select * From products where able != 0;
+	</select>
+	
+	<!--한개 조회  -->
+	<select id="selectOne" resultType="Product" parameterType="int">
+		select * from products where proNo = #{proNo} and able != 0;
+	</select>
+	
+	<!--글 등록 -->
+	<insert id="insertProduct" parameterType="Product">
+		insert into products(title, catNo, userNo, nickname, price, content, imagePath, tags) values(#{title},#{catNo},#{userNo},#{nickname},#{price},#{content},#{phone},#{imagePath},#{tags});
+	</insert>
+	
+	<!--카테고리 별 조회-->
+	<select id="selectcatNo" resultType="Product" parameterType="int">
+		select * from products where catNo = catNo and able != 0;
+	</select>
+	
+	<!-- 글수정 -->
+	<update id="updateProduct" parameterType="Product">
+		update products set title=#{title}, catNo=#{catNo}, condit=#{condit}, price=#{price}, content=#{content},imagePath=#{imagePath}, tags=#{tags} where proNo = #{proNo};
+	</update>
+	
+	<!--글삭제 -->
+	<update id="deleteProduct" parameterType="Product" >
+		update products set able=0 where proNo = #{proNo};
+	</update>
+	
 </mapper>
 
 
