@@ -15,7 +15,7 @@ $(function() {
          $("body").css("overflow","hidden");//body 스크롤바 없애기
      });
      
-     $("#popCloseBtn").click(function(event){
+     $("#popCloseImg").click(function(event){
          $("#popup_mask").css("display","none"); //팝업창 뒷배경 display none
          $("#popupDiv").css("display","none"); //팝업창 display none
          $("body").css("overflow","auto");//body 스크롤바 생성

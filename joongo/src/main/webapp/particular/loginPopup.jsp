@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
-<body>
+<body class="text-center" oncontextmenu="return false" ondragstart="return false" onselect="return false">
 	<button id="popOpenBtn">Popup Open</button>
 
 	<div id="popup_mask"></div>
@@ -19,20 +19,20 @@
 		<!-- 팝업창 -->
 
 		<img class="loginImg" src="/joongo/image/2.png">
-		<button id="popCloseBtn">close</button>
+		<img id="popCloseImg" src="/joongo/image/4.png" >
 		<div id="popupTitle">중고장터로 중고거래 시작하기</div>
 		<div id="popupText">
 			로그인하고 빠르고 안전하게 중고거래를 시작하세요!<br> 단 15초면 회원가입 완료!
 			<div id="LoginAPI">
 				<a id="kakao-login-btn"></a> <a
-					href="http://developers.kakao.com/logout"></a> <br> 페이스북
+					href="http://developers.kakao.com/logout"></a>
 			</div>
 
 		</div>
 		<div>
 			<form>
-				<input class="loginInput" type="text" name="" placeholder="아이디"><br>
-				<input class="loginInput" type="text" name="" placeholder="비밀번호"><br>
+				<input class="loginInput" type="text" name="" placeholder="아이디" required autofocus><br>
+				<input class="loginInput" type="text" name="" placeholder="비밀번호" required><br>
 				<input type="submit" name="" id="loginSubmit" value="로그인하기">
 			</form>
 
