@@ -6,8 +6,8 @@
 	<!-- 우리가 jdbc로 작성했떤 쿼리문을 여기다가 만들면됨 -->
 <mapper namespace="User.DAO.IUserMapper">
 	<insert id="insertUser" parameterType="User">
-		insert into Users(loginId, password, password_q, password_a, name, nickname, email, phone, addr, bdate, kakaoface)
-		values(#{loginId},#{password},#{password_q},#{password_a},#{name},#{nickname},#{email},#{phone},#{addr},#{bdate}, #{kakaoface})
+		insert into Users(loginId, password, password_q, password_a, name, nickname, email, phone, addr, bdate, kakao)
+		values(#{loginId},#{password},#{password_q},#{password_a},#{name},#{nickname},#{email},#{phone},#{addr},#{bdate}, #{kakao})
 	</insert>
 	
 	<select id="selectUserById" resultType="User" parameterType="string">

@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="../css/public.css" rel="stylesheet" type="text/css">
-<link href="../css/signUp.css" rel="stylesheet" type="text/css">
+<link href="/joongo/css/public.css" rel="stylesheet" type="text/css">
+<link href="/joongo/css/signUp.css" rel="stylesheet" type="text/css">
 <title></title>
 <script language="javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<script src="../js/signUp.js" type="text/javascript"></script>
+<script src="/joongo/script/signUp.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="middle">
@@ -17,12 +17,12 @@
 			<div class="logo">
 				<h1>로고a로고</h1>
 			</div>
-			<form>
+			<form id="form" action="register.do" onsubmit="return false">
 				<div class="signup_id">
 					<h4 class="signup_title">아이디</h4>
 					<span class="box">
-						<input type="text" name="loginId"id="id" autofocus>
-						<button class="id_check">중복확인</button>
+						<input type="text" name="loginId" id="id" autofocus>
+						<button class="id_check" onclick="idDuplicate()">중복확인</button>
 					</span>
 					<p id="id_msg"></p>
 				</div>
@@ -36,7 +36,14 @@
 				<div class="signup_password">
 					<h4 class="signup_title">비밀번호 확인</h4>
 					<span class="box">
-						<input type="password" name="password_R" id="pw_ch" maxlength="20">
+						<input type="password" id="pw_ch" maxlength="20">
+					</span>
+					<p id="pw_ch_msg"></p>
+				</div>
+				<div class="signup_password">
+					<h4 class="signup_title">비밀번호 확인</h4>
+					<span class="box">
+						<input type="password" id="pw_ch" maxlength="20">
 					</span>
 					<p id="pw_ch_msg"></p>
 				</div>
@@ -50,7 +57,7 @@
 				<div class="signup_addr">
 					<h4 class="signup_title">주소</h4>
 					<span class="box">
-						<input type="text" name="addr" id="addr" placeholder="  예)시 ·도 / 시군 ·구/ 읍 ·면 ">
+						<input type="text" name="addr" id="addr" placeholder="  예)서울특별시 강남구 ">
 					</span>
 					<p id="addr_msg"></p>
 				</div>
@@ -68,7 +75,6 @@
 					<span class="box">
 						<input type="text" name="email1" id="email1">
 						<input type="text" name="email2" value="@" id="email2" disabled>
-						<!-- <input type="text" name="email3" id="email3" pattern="(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-z]{2,3}$/i"> -->
 						<input type="text" name="email3" id="email3">
 						<select class="signup_email_select">
 							<option value="">직접입력</option>
@@ -87,8 +93,9 @@
 					</span>
 					<p id="bdate_msg"></p>
 				</div>
+				<input type="hidden" name="kakao" value="${kakao }">
 				<div class="signup_submit">
-					<input type="submit" value="가입 하기" id="signup">
+					<input type="submit" value="가입 하기" onclick="signUp()" id="signup">
 				</div>
 			</form>
 		</div>

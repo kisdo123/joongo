@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import User.DAO.UserDAO;
 import User.DTO.User;
+import exception.PasswordNotMatchException;
 import exception.UserNotFoundException;
 
 @Service("userService")
@@ -37,10 +38,14 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User loginUser(String loginId) {
+	public User loginUser(String loginId, String password) {
 		User user = userDAO.selectById(loginId);
 		if(user == null) {
 			throw new UserNotFoundException("유저를 찾을 수 없음");
+		}
+		
+		if(user.getPassword() != password) {
+			throw new PasswordNotMatchException("비밀번호 불일치");
 		}
 		
 		return user;

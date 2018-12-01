@@ -1,4 +1,4 @@
-$( function() {
+$(function() {
 	// 아이디
 	$("#signup").click(function() {
 		if ($("#id").val() == "") {
@@ -120,33 +120,35 @@ $( function() {
 			$("#addr").css("border-color", "gray");
 		}
 	});
-	//전화번호
+	// 전화번호
+	$("#signup").click(
+			function() {
+				if ($("#phone1").val() == "" | $("#phone2").val() == ""
+						& $("#phone3").val() == "") {
+					$("#phone_msg").html("전화번호를 입력하세요.").css("color", "red")
+					return false;
+				}
+			});
+	// 이메일
 	$("#signup").click(function() {
-		if($("#phone1").val() == "" | $("#phone2").val() == "" & $("#phone3").val() == "") {
-			$("#phone_msg").html("전화번호를 입력하세요.").css("color", "red")
-			return false;
-		}
-	});
-	//이메일
-	$("#signup").click(function() {
-		if($("#email1").val() == "" & $("#email3").val() == "") {
+		if ($("#email1").val() == "" & $("#email3").val() == "") {
 			$("#email_msg").html("이메일을 입력하세요.").css("color", "red")
 			return false;
 		}
 	});
-	$("#email3").blur(function(){
+	$("#email3").blur(function() {
 		var email = $("#email3").val();
-		var regex= /^[a-zA-Z]([-_\.]?[a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-		if(regex.test(email) === false){
+		var regex = /^[a-zA-Z]([-_\.]?[a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+		if (regex.test(email) === false) {
 			$("#email_msg").html("잘못된 이메일 형식입니다.");
-		}else{
+		} else {
 			$("#email_msg").html('');
 		}
 	})
 	$('.signup_email_select').change(function() {
 		$('#email3').val($('.signup_email_select').val());
 	});
-	//생년월일
+	// 생년월일
 	$("#bdate").blur(function() {
 		if ($("#bdate").val() == "") {
 			$("#bdate_msg").html("생년월일을 입력하세요.").css("color", "red")
@@ -164,4 +166,18 @@ $( function() {
 			return false;
 		}
 	});
+
 });
+function idDuplicate() {
+	if ($("#id").val()=='') {
+		alert("ID를 입력하세요");
+		return;
+	}
+	url = 'idDuplication.do?loginId=' + $('#id').val();
+	open(url, "confirm", "width=300, height=200, resizable=no, scrollbars=no");
+}
+function signUp(){
+	console.log("ㄱㄱ");
+	$("#form")[0].submit();
+}
+

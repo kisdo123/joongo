@@ -36,14 +36,14 @@ public class MainController {
 	// 회원가입을 진행
 	@RequestMapping("/register.do")
 	public String registerUser(@ModelAttribute User user) {
-		user.setKakao(false);
+		
+		System.out.println(user.getLoginId()+""+ user.getPassword());
 		userService.registerUser(user);
 
 		return "redirect:/main.do";
 	}
 	@RequestMapping("/registerKakao.do")
 	public String registerKakao(@ModelAttribute User user) {
-		user.setKakao(true);
 		userService.registerUser(user);
 
 		return "redirect:/main.do";
@@ -51,22 +51,25 @@ public class MainController {
 	
 	// 회원가입 폼을 요청
 	@RequestMapping("/registerForm.do")
-	public String registerForm() {
-		
-		return "registerForm";
+	public String registerForm(Model model) {
+		model.addAttribute("kakao", false);
+		return "signUp";
 	}
 	@RequestMapping("/registerFormKakao.do")
-	public String registerFormKakao(@RequestParam("") String name) {
-
-		return "redirect:/main.do";
+	public String registerFormKakao(Model model, @RequestParam("") String name) {
+		model.addAttribute("kakao", true);
+		return "signUp";
 	}
 	
 	
 	
 	// 중복검사 결과를 팝업으로 반환
 	@RequestMapping("/idDuplication.do")
-	public String idDuplicated(@RequestParam("loginId") String loginId) {
-		if(userService.idDuplicate(loginId)) {
+	public String idDuplicate(@RequestParam("loginId") String loginId) {
+		System.out.println(loginId);
+		boolean isDuplicate = userService.idDuplicate(loginId);
+		System.out.println(isDuplicate);
+		if(isDuplicate) {
 			return "redirect:/particular/duplicatePopup.jsp?type=id&res=true";			
 		}else {
 			return "redirect:/particular/duplicatePopup.jsp?type=id&res=false";
@@ -74,7 +77,7 @@ public class MainController {
 	}
 	
 	@RequestMapping("/phoneDuplication.do")
-	public String phoneDuplicated(@RequestParam("phone1") String phone1, @RequestParam("phone2") String phone2, @RequestParam("phone3") String phone3 ) {
+	public String phoneDuplicate(@RequestParam("phone1") String phone1, @RequestParam("phone2") String phone2, @RequestParam("phone3") String phone3 ) {
 		String phone = phone1+"-"+phone2+"-"+phone3;
 		
 		if(userService.phoneDuplicate(phone)) {
@@ -86,12 +89,18 @@ public class MainController {
 	
 	// 로그인
 	@RequestMapping("/login.do")
-	public String login(HttpServletRequest request, @RequestParam("loginId") String loginId) {
-		User user = userService.loginUser(loginId);
-
-		request.getSession().setAttribute("loginUser", user);
-		return "redirect:/main.do";
+	public String login(HttpServletRequest request, @RequestParam("loginId") String loginId, @RequestParam("password") String password) {
+		try {
+			User user = userService.loginUser(loginId, password);
+			request.getSession().setAttribute("loginUser", user);
+			return "redirect:/main.do";
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			return null; 	    // 에러페이지 추가하삼
+		}
+		
 	}
+	
 
 	// 로그아웃
 	@RequestMapping("/logout.do")

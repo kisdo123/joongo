@@ -12,7 +12,7 @@ public interface UserService {
 	
 	public void deleteUser(int userNo);
 	
-	public User loginUser(String loginId);
+	public User loginUser(String loginId, String password);
 	
 	public List<User> searchUserList();
 
