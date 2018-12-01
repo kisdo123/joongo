@@ -2,7 +2,7 @@ $(function() {
 	//이름
 	$("#name").blur(function() {
 		if ($("#name").val() == "") {
-			$("#name_msg").html("아이디를 입력하세요.").css("color", "red")
+			$("#name_msg").html("이름을 입력하세요.").css("color", "red")
 			$("#name").css("border-color", "red");
 			return false;
 		} else {
@@ -204,3 +204,4 @@ function phoneDuplicate() {
 	url = "phoneDuplication.do?phone="+phone;
 	open(url, "confirm",  "width=300, height=200, resizable=no, scrollbars=no");
 }
+
