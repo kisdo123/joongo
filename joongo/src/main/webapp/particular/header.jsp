@@ -4,7 +4,9 @@
 	<nav id="header-navbar">
 		<div class="middle header-divTop">
 			<div class="header-logo">
+			<a href="#">
 				<img src="/joongo/image/logo.png" class="header-img">
+			</a>
 			</div>
 			<div class="header-search">
 				<form action="search.do" method="post" class="header-form-search">
