@@ -1,15 +1,16 @@
 @charset "UTF-8";
 
-.logo{
-	text-align: center;
+.signup_logo{text-align: center;}
+.signup_logo_img{
+	width: 120px;
+    height: 70px;
 }
-
 h4{
-	margin: 10px 0px 10px 0px;
+	margin: 5px 0px 5px 0px;
 }
 input{
 	width: 497px;
-	height: 40px;
+	height: 30px;
 	font-size: 17px;
 	border-radius: 5px; 
 	border: 1px solid gray;
@@ -25,7 +26,8 @@ p{
 }
 
 .middle{
-	width: 100%
+	width: 100%;
+	padding: 20px 0px 20px 0px;
 }
 
 .signup_container{
@@ -48,19 +50,32 @@ input[type=submit]{
     height: 50px;
 }
 
-.id_check{
-	height: 43px;
-}
 
 /* input 태그 */
 
 #id{
 	width: 423px;
 }
+.id_check{
+	height: 32px;
+    background-color: #FE8181;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
 .phone{
-	width: 160px;
+	width: 135px;
 	text-indent: 20px;
+}
+.phone_cheak{
+	height: 32px;
+	background-color: #FE8181;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 #email1{
@@ -77,8 +92,15 @@ input[type=submit]{
 .signup_email_select{
 	border-radius: 5px;
     width: 110px;
-    font-size: 17px;
-    height: 40px;
+	font-size: 12px;
+    height: 34px;
+}
+
+#question{
+	width: 497px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 
 /* 정규식 메시지 태그 */

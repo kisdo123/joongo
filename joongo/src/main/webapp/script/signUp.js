@@ -84,6 +84,21 @@ $(function() {
 			}
 		}
 	});
+	//비밀번호 질문,답변
+	$("#signup").click(function() {
+		if ($("#question").val() == "") {
+			$("#question_msg").html("질문을 선택하세요.").css("color", "red")
+			$("#question").css("border-color", "red");
+			return false;
+		}
+	});
+	$("#signup").click(function() {
+		if ($("#answer").val() == "") {
+			$("#answer_msg").html("답변을 입력하세요.").css("color", "red")
+			$("#answer").css("border-color", "red");
+			return false;
+		}
+	});
 	// 별명
 	$("#signup").click(function() {
 		if ($("#nickname").val() == "") {

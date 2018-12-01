@@ -2,7 +2,6 @@
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/main.css">
 <script type="text/javascript" src="/joongo/script/main.js"></script>
-</head>
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <jsp:include page="/particular/loginPopup.jsp"></jsp:include>
 <div id="container" class="container">
