@@ -97,17 +97,7 @@ $(function() {
 			$("#email_msg").html("");
 		}
 	})
-	$("#signup").click(function() {
-		var email = $("#email3").val();
-		var regex = /^[a-zA-Z]([-_\.]?[a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-		if (regex.test(email) === false) {
-			$("#email_msg").html("잘못된 이메일 형식입니다.").css("color", "red")
-			return false;
-		} else {
-			$("#email_msg").html("");
-			var email = $('#email1').val() + $('#email2').val() + $('#email3').val();
-		}
-	})
+	
 	$('.signup_email_select').change(function() {
 		$('#email3').val($('.signup_email_select').val());
 	});
@@ -183,11 +173,25 @@ function check() {
 		$("#addr").css("border-color", "red");
 		flag = false;
 	}
-	if ($("#phone1").val() == "" | $("#phone2").val() == "" & $("#phone3").val() == "") {
+	
+	var email = $("#email3").val();
+	let regex = /^[a-zA-Z]([-_\.]?[a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+	if (regex.test(email) === false) {
+		$("#email_msg").html("잘못된 이메일 형식입니다.").css("color", "red")
+		return false;
+	} else {
+		$("#email_msg").html("");
+		let email = $('#email1').val() + $('#email2').val() + $('#email3').val();
+		$("#email").val(email);
+	}
+	
+	if ($("#phone1").val() == "" | $("#phone2").val() == "" | $("#phone3").val() == "") {
 		$("#phone_msg").html("전화번호를 입력하세요.").css("color", "red")
 		flag = false;
 	} else {
 		$("#phone_msg").html("");
+		let phone = $("#phone1").val()+"-"+$("#phone2").val()+"-"+$("#phone3").val();
+		$("#phone").val(phone);
 	}
 	if ($("#email1").val() == "" & $("#email3").val() == "") {
 		$("#email_msg").html("이메일을 입력하세요.").css("color", "red")

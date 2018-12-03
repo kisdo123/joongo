@@ -43,13 +43,7 @@ public class MainController {
 
 		return "redirect:/main.do";
 	}
-	@RequestMapping("/registerKakao.do")
-	public String registerKakao(@ModelAttribute User user) {
-		userService.registerUser(user);
 
-		return "redirect:/main.do";
-	}
-	
 	// 회원가입 폼을 요청
 	@RequestMapping("/registerForm.do")
 	public String registerForm(Model model) {
@@ -58,11 +52,12 @@ public class MainController {
 	}
 	
 	@RequestMapping("/registerFormKakao.do")
-	public String registerFormKakao(Model model, @RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("bdate") String bdate) {
+	public String registerFormKakao(Model model, @RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("bdate") String bdate) {
 		model.addAttribute("kakao", true);
+		model.addAttribute("id", id);
+		model.addAttribute("password", id);
 		model.addAttribute("name", name);
 		model.addAttribute("email",email);
-		model.addAttribute("bdate", bdate);
 		
 		return "signUp";
 	}
@@ -98,12 +93,12 @@ public class MainController {
 		try {
 			User user = userService.loginUser(loginId, password);
 			request.getSession().setAttribute("loginUser", user);
-			return "redirect:/main.do";
+			System.out.println("로그인 성공, 유저:"+user.getName());
 		}catch(RuntimeException e){
 			e.printStackTrace();
 			return null; 	    // 에러페이지 추가하삼
 		}
-		
+		return "redirect:/main.do";	
 	}
 	
 

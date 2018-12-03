@@ -42,11 +42,8 @@
 					href="http://developers.kakao.com/logout"></a>
 			</div>
 			<div id="signupPopup">
-				<a href="#">회원가입</a>
+				<a href="registerForm.do">회원가입</a>
 			</div>
-			<!-- <div id="registerNormal">
-				<a id="normal-login-btn"></a> <a href="registerForm.do"></a>
-			</div> -->
 		</div>
 		
 	</div>
@@ -70,8 +67,7 @@
 						var userEmail = res.kaccount_email; //유저의 이메일
 						var userNickName = res.properties.nickname; //유저가 등록한 별명
 
-						console.log(userID, userEmail, userNickName, Phone);
-
+						opener.document.location.href="registerFormKakao.do?loginId="+userID+"&email="+userEmail+"&nickname="+userNickName;
 					},
 					fail : function(error) {
 						alert(JSON.stringify(error));

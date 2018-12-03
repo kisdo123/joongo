@@ -30,10 +30,10 @@
 
 		</div>
 		<div>
-			<form>
-				<input class="loginInput" type="text" name="" placeholder="아이디" required autofocus><br>
-				<input class="loginInput" type="text" name="" placeholder="비밀번호" required><br>
-				<input type="submit" name="" id="loginSubmit" value="로그인하기">
+			<form action="login.do">
+				<input class="loginInput" type="text" name="loginId" placeholder="아이디" required autofocus><br>
+				<input class="loginInput" type="password" name="password" placeholder="비밀번호" required><br>
+				<input type="submit" id="loginSubmit" value="로그인하기">
 			</form>
 
 		</div>
@@ -53,14 +53,11 @@
 				Kakao.API.request({
 					url : '/v1/user/me',
 					success : function(res) {
-						console.log(res);
-
 						var userID = res.id; //유저의 카카오톡 고유 id
 						var userEmail = res.kaccount_email; //유저의 이메일
 						var userNickName = res.properties.nickname; //유저가 등록한 별명
-
-						console.log(userID, userEmail, userNickName);
-
+						
+						location.href="login.do?loginId="+userID+"&password="+userID;
 					},
 					fail : function(error) {
 						alert(JSON.stringify(error));

@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService{
 			throw new UserNotFoundException("유저를 찾을 수 없음");
 		}
 		
-		if(user.getPassword() != password) {
+		if(!user.getPassword().equals(password)) {
 			throw new PasswordNotMatchException("비밀번호 불일치");
 		}
 		

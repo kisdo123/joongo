@@ -23,14 +23,14 @@
 				<div class="signup">
 					<h4 class="signup_title">이름</h4>
 					<span class="box">
-						<input type="text" name="name" id="name">
+						<input type="text" name="name" id="name" value="${name }">
 					</span>
 					<p id="name_msg"></p>
 				</div>
 				<div class="signup">
 					<h4 class="signup_title">아이디</h4>
 					<span class="box">
-						<input type="text" name="loginId" id="id">
+						<input type="text" name="loginId" id="id" value="${loginId }">
 						<button class="id_check" onclick="idDuplicate()">중복확인</button>
 					</span>
 					<p id="id_msg"></p>
@@ -38,7 +38,7 @@
 				<div class="signup">
 					<h4 class="signup_title">비밀번호</h4>
 					<span class="box">
-						<input type="password" name="password" id="pw" maxlength="20">
+						<input type="password" name="password" id="pw" value="${password }" maxlength="20">
 					</span>
 					<p id="pw_msg"></p>
 				</div>
@@ -73,7 +73,7 @@
 				<div class="signup">
 					<h4 class="signup_title">별명</h4>
 					<span class="box">
-						<input type="text" name="nickname" id="nickname">
+						<input type="text" name="nickname" value="${nickname }" id="nickname">
 					</span>
 					<p id="nickname_msg"></p>
 				</div>
@@ -87,9 +87,10 @@
 				<div class="signup">
 					<h4 class="signup_title">전화번호</h4>
 					<span class="box">
-						<input type="text" name="phone1" id="phone1" class="phone" maxlength="3" pattern="[0-1]{3}" value="010">
-						<input type="text" name="phone2" id="phone2" class="phone" maxlength="4" pattern="[0-9]{4}">
-						<input type="text" name="phone3" id="phone3" class="phone" maxlength="4" pattern="[0-9]{4}">
+						<input type="text" id="phone1" class="phone" maxlength="3" pattern="[0-1]{3}" value="010">
+						<input type="text" id="phone2" class="phone" maxlength="4" pattern="[0-9]{4}">
+						<input type="text" id="phone3" class="phone" maxlength="4" pattern="[0-9]{4}">
+						<input type="hidden" id="phone" name="phone">
 						<button class="phone_cheak" onclick="phoneDuplicate()">중복확인</button>
 					</span>
 					<p id="phone_msg"></p>
@@ -97,9 +98,10 @@
 				<div class="signup">
 					<h4 class="signup_title">이메일</h4>
 					<span class="box">
-						<input type="text" name="email1" id="email1">
-						<input type="text" name="email2" value="@" id="email2" disabled>
-						<input type="text" name="email3" id="email3">
+						<input type="text" id="email1">
+						<input type="text" value="@" id="email2" disabled>
+						<input type="text" id="email3">
+						<input type="hidden" id="email" value="${email }" name="email">
 						<select class="signup_email_select">
 							<option value="">직접입력</option>
 							<option value="naver.com">naver.com</option>
