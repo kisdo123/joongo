@@ -4,7 +4,7 @@
 	<div id="footer-middle" class="middle">
 		<div class="footer-logo">
 			<a href="#">
-				<img src="/joongo/image/logo100x100.png" class="footer-logo-img">
+				<img src="/joongo/image/logo100.png" class="footer-logo-img">
 			</a>
 		</div>
 			<div class="footer-joongo">
