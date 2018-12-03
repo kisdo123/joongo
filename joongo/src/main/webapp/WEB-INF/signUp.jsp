@@ -23,14 +23,14 @@
 				<div class="signup">
 					<h4 class="signup_title">이름</h4>
 					<span class="box">
-						<input type="text" name="name" id="name" value="${name }">
+						<input type="text" name="name" id="name">
 					</span>
 					<p id="name_msg"></p>
 				</div>
 				<div class="signup">
 					<h4 class="signup_title">아이디</h4>
 					<span class="box">
-						<input type="text" name="loginId" id="id" value="${loginId }">
+						<input type="text" name="loginId" id="id">
 						<button class="id_check" onclick="idDuplicate()">중복확인</button>
 					</span>
 					<p id="id_msg"></p>
@@ -38,7 +38,7 @@
 				<div class="signup">
 					<h4 class="signup_title">비밀번호</h4>
 					<span class="box">
-						<input type="password" name="password" id="pw" value="${password }" maxlength="20">
+						<input type="password" name="password" id="pw"  maxlength="20">
 					</span>
 					<p id="pw_msg"></p>
 				</div>
@@ -73,7 +73,7 @@
 				<div class="signup">
 					<h4 class="signup_title">별명</h4>
 					<span class="box">
-						<input type="text" name="nickname" value="${nickname }" id="nickname">
+						<input type="text" name="nickname" id="nickname">
 					</span>
 					<p id="nickname_msg"></p>
 				</div>
@@ -101,7 +101,7 @@
 						<input type="text" id="email1">
 						<input type="text" value="@" id="email2" disabled>
 						<input type="text" id="email3">
-						<input type="hidden" id="email" value="${email }" name="email">
+						<input type="hidden" id="email" name="email">
 						<select class="signup_email_select">
 							<option value="">직접입력</option>
 							<option value="naver.com">naver.com</option>
@@ -119,7 +119,7 @@
 					</span>
 					<p id="bdate_msg"></p>
 				</div>
-				<input type="hidden" name="kakao" value="${kakao }">
+				<input type="hidden" name="kakao">
 				<div class="signup_submit">
 					<input type="submit" value="가입 하기" id="signup" onclick="check()" >
 				</div>
