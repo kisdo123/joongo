@@ -24,20 +24,19 @@
 }
 
 #registerPopup-popupTitle {
-	margin-top: 10px;
+	margin-top: 45px;
 	font-weight: bolder;
 	font-size: 18px;
 }
 
 #registerPopup-popupText {
 	font-size: 12px;
-	margin-top: 30px;
-	margin-bottom: 50px;
+	margin-top: 45px;
 }
 
 #registerPopup-loginAPI {
-	margin-top: 35px;
-	margin-bottom: 25px;
+	margin-top: 60px;
+	margin-bottom: 10px;
 }
 
 
@@ -45,7 +44,7 @@
 #registerPopup-loginImg {
 	width: 75px;
     height: 75px;
-    margin-top: 25px;
+    margin-top: 55px;
     margin-left: 20px;
 }
 
@@ -53,9 +52,9 @@
 
 #registerPopup-popCloseImg {
 	position: relative;
-	cursor: pointer;
-    left: 102px;
-    bottom: 66px;
+    cursor: pointer;
+    left: 99px;
+    bottom: 93px;
     width: 20px;
     height: 20px;
     opacity: 0.6;
