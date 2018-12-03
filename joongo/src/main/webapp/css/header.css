@@ -31,6 +31,7 @@
 
 .header-search {
 	float: left;
+	width: 440px;
 }
 
 .header-divLogin {
@@ -75,7 +76,7 @@
 }
 
 .header-a:hover {
-	color: gray;
+	color: #bbbbbb;
 	cursor: pointer;
 }
 
@@ -129,4 +130,27 @@ ul.header-ulMenu:after {
 	border-radius: 4px;
 	box-shadow: 0 6px 50px 0 rgba(0, 0, 0, .1);
 	overflow: hidden;
+}
+
+
+#header-spanLogin{
+	margin-left: 80px;
+}
+
+#header-spanSell{
+	vertical-align: top;
+	margin-right: 5px;
+}
+
+#header-spanMystore{
+	vertical-align: top;
+	margin-right: 5px;
+}
+
+#header-spanLogout{
+	vertical-align: top;
+}
+
+#header-logoutImg{
+	vertical-align: super;
 }
