@@ -18,7 +18,7 @@
 	<div id="popupDiv">
 		<!-- 팝업창 -->
 
-		<img class="loginImg" src="/joongo/image/logo100x100.png">
+		<img class="loginImg" src="/joongo/image/logo100.png">
 		<img id="popCloseImg" src="/joongo/image/loginCloseBtn.png" >
 		<div id="popupTitle">중고장터로 중고거래 시작하기</div>
 		<div id="popupText">
