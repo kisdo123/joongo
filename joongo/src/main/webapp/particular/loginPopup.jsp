@@ -10,30 +10,29 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body class="text-center" oncontextmenu="return false" ondragstart="return false" onselect="return false">
-	<button id="popOpenBtn">Popup Open</button>
 
-	<div id="popup_mask"></div>
+	<div id="loginPopup-popup_mask"></div>
 	<!-- 팝업 배경 DIV -->
 
-	<div id="popupDiv">
+	<div id="loginPopup-popupDiv">
 		<!-- 팝업창 -->
 
-		<img class="loginImg" src="/joongo/image/logo100.png">
-		<img id="popCloseImg" src="/joongo/image/loginCloseBtn.png" >
-		<div id="popupTitle">중고장터로 중고거래 시작하기</div>
-		<div id="popupText">
+		<img id="loginPopup-loginImg" src="/joongo/image/logo100.png">
+		<img id="loginPopup-popCloseImg" src="/joongo/image/loginCloseBtn.png" >
+		<div id="loginPopup-popupTitle">중고장터로 중고거래 시작하기</div>
+		<div id="loginPopup-popupText">
 			로그인하고 빠르고 안전하게 중고거래를 시작하세요!<br> 단 15초면 회원가입 완료!
-			<div id="LoginAPI">
-				<a id="kakao-login-btn"></a> <a
+			<div id="loginPopup-loginAPI">
+				<a class="kakao-login-btn"></a> <a
 					href="http://developers.kakao.com/logout"></a>
 			</div>
 
 		</div>
 		<div>
-			<form action="login.do">
-				<input class="loginInput" type="text" name="loginId" placeholder="아이디" required autofocus><br>
-				<input class="loginInput" type="password" name="password" placeholder="비밀번호" required><br>
-				<input type="submit" id="loginSubmit" value="로그인하기">
+			<form>
+				<input class="loginPopup-loginInput" type="text" name="" placeholder="아이디" required autofocus><br>
+				<input class="loginPopup-loginInput" type="text" name="" placeholder="비밀번호" required><br>
+				<input type="submit" name="" id="loginPopup-loginSubmit" value="로그인하기">
 			</form>
 
 		</div>
@@ -53,11 +52,14 @@
 				Kakao.API.request({
 					url : '/v1/user/me',
 					success : function(res) {
+						console.log(res);
+
 						var userID = res.id; //유저의 카카오톡 고유 id
 						var userEmail = res.kaccount_email; //유저의 이메일
 						var userNickName = res.properties.nickname; //유저가 등록한 별명
-						
-						location.href="login.do?loginId="+userID+"&password="+userID;
+
+						console.log(userID, userEmail, userNickName);
+
 					},
 					fail : function(error) {
 						alert(JSON.stringify(error));

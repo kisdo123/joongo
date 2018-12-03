@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#loginPopup-popupDiv { /* 팝업창 css */
+#registerPopup-popupDiv { /* 팝업창 css */
 	top: 0px;
 	position: absolute;
 	background: white;
@@ -12,7 +12,7 @@
 	text-align: center;
 }
 
-#loginPopup-popup_mask { /* 팝업 배경 css */
+#registerPopup-popup_mask { /* 팝업 배경 css */
 	position: fixed;
 	width: 100%;
 	height: 1000px;
@@ -23,48 +23,35 @@
 	opacity: 0.8;
 }
 
-#loginPopup-popupTitle {
+#registerPopup-popupTitle {
 	margin-top: 10px;
 	font-weight: bolder;
 	font-size: 18px;
 }
 
-#loginPopup-popupText {
+#registerPopup-popupText {
 	font-size: 12px;
 	margin-top: 30px;
+	margin-bottom: 50px;
 }
 
-#loginPopup-loginAPI {
+#registerPopup-loginAPI {
 	margin-top: 35px;
 	margin-bottom: 25px;
 }
 
-.loginPopup-loginInput {
-	width: 200px;
-    height: 40px;
-    padding-left: 15px;
-    margin-bottom: 8px;
-}
 
-#loginPopup-loginImg {
+
+#registerPopup-loginImg {
 	width: 75px;
     height: 75px;
     margin-top: 25px;
     margin-left: 20px;
 }
 
-#loginPopup-loginSubmit {
-	background-color: #FE8181;
-    border: none;
-    color: white;
-    cursor: pointer;
-    height: 50px;
-    width: 220px;
-    border-radius: 4px;
-}
 
 
-#loginPopup-popCloseImg {
+#registerPopup-popCloseImg {
 	position: relative;
 	cursor: pointer;
     left: 102px;
@@ -72,4 +59,22 @@
     width: 20px;
     height: 20px;
     opacity: 0.6;
+}
+
+
+
+#registerPopup-signupPopup{
+	border-radius: 5px;
+    width: 208px;
+    height: 50px;
+    background: #FE8181;
+    text-align: center;
+    line-height: 45px;
+    margin: auto;
+}
+
+#registerPopup-signupPopup a{
+	text-decoration: none;
+	color: white;
+	
 }

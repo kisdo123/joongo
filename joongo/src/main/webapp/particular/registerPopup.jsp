@@ -1,51 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<style>
-	#signupPopup{
-		border-radius: 5px;
-		width: 221px;
-    	height: 48px;
-		background: #FE8181;
-		text-align: center;
-    	line-height: 45px;
-	}
-	#signupPopup a{
-		text-decoration: none;
-	    color: white;
-	}
-</style>
 </head>
 <body class="text-center" oncontextmenu="return false"
 	ondragstart="return false" onselect="return false">
-	<button id="popOpenBtn">Popup Open</button>
 
-	<div id="popup_mask"></div>
+	<div id="registerPopup-popup_mask"></div>
 	<!-- 팝업 배경 DIV -->
 
-	<div id="popupDiv">
+	<div id="registerPopup-popupDiv">
 		<!-- 팝업창 -->
 
-		<img class="loginImg" src="/joongo/image/2.png"> <img
-			id="popCloseImg" src="/joongo/image/4.png">
-		<div id="popupTitle">중고장터로 중고거래 시작하기</div>
-		<div id="popupText">
+		<img id="registerPopup-loginImg" src="/joongo/image/logo100.png">
+		<img id="registerPopup-popCloseImg"
+			src="/joongo/image/loginCloseBtn.png">
+		<div id="registerPopup-popupTitle">중고장터로 중고거래 시작하기</div>
+		<div id="registerPopup-popupText">
 			로그인하고 빠르고 안전하게 중고거래를 시작하세요!<br> 단 15초면 회원가입 완료!
-			<div id="LoginAPI">
-				<a id="kakao-login-btn"></a> <a
+			<div id="registerPopup-l oginAPI">
+				<a class="kakao-login-btn"></a> <a
 					href="http://developers.kakao.com/logout"></a>
 			</div>
-			<div id="signupPopup">
-				<a href="registerForm.do">회원가입</a>
-			</div>
+
+			<!-- <div id="registerNormal">
+				<a id="normal-login-btn"></a> <a href="registerForm.do"></a>
+			</div> -->
 		</div>
-		
+		<div id="registerPopup-signupPopup">
+			<a href="#">회원가입</a>
+		</div>
 	</div>
 	<script type='text/javascript'>
 		//<![CDATA[
@@ -67,7 +55,8 @@
 						var userEmail = res.kaccount_email; //유저의 이메일
 						var userNickName = res.properties.nickname; //유저가 등록한 별명
 
-						opener.document.location.href="registerFormKakao.do?loginId="+userID+"&email="+userEmail+"&nickname="+userNickName;
+						console.log(userID, userEmail, userNickName, Phone);
+
 					},
 					fail : function(error) {
 						alert(JSON.stringify(error));
