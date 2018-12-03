@@ -10,7 +10,7 @@
 			</div>
 			<div class="header-search">
 				<form action="search.do" method="post" class="header-form-search">
-					<input type="text" placeholder="&nbsp;상품명, 카테고리 , @태그입력" class="header-search-input" name="word" required>
+					<input type="text" placeholder="&nbsp;검색어 입력" class="header-search-input" name="word" required>
 					<input type="image" src="/joongo/image/searchBtn.png" class="header-search-icon">
 				</form>
 			</div>
