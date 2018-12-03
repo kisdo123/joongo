@@ -47,19 +47,17 @@ public class MainController {
 	// 회원가입 폼을 요청
 	@RequestMapping("/registerForm.do")
 	public String registerForm(Model model) {
-		model.addAttribute("kakao", false);
 		return "signUp";
 	}
 	
 	@RequestMapping("/registerFormKakao.do")
-	public String registerFormKakao(Model model, @RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("bdate") String bdate) {
-		model.addAttribute("kakao", true);
-		model.addAttribute("id", id);
-		model.addAttribute("password", id);
-		model.addAttribute("name", name);
+	public String registerFormKakao(Model model, @RequestParam("loginId") String loginId, @RequestParam("nickname") String nickname, @RequestParam("email") String email) {
+		model.addAttribute("loginId", loginId);
+		model.addAttribute("password", loginId);
+		model.addAttribute("name", nickname);
 		model.addAttribute("email",email);
 		
-		return "signUp";
+		return "signUpKakao";
 	}
 	
 	

@@ -119,7 +119,7 @@
 					</span>
 					<p id="bdate_msg"></p>
 				</div>
-				<input type="hidden" name="kakao">
+				<input type="hidden" name="kakao" value="false">
 				<div class="signup_submit">
 					<input type="submit" value="가입 하기" id="signup" onclick="check()" >
 				</div>
