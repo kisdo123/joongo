@@ -210,6 +210,7 @@ function check() {
 		}else{
 			alert("아이디 또는 전화번호 중복체크를 해주세요");
 		}
+		
 	}
 }
 
