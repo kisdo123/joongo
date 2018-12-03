@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-</head>
-<body class="text-center" oncontextmenu="return false"
-	ondragstart="return false" onselect="return false">
 
 	<div id="registerPopup-popup_mask"></div>
 	<!-- 팝업 배경 DIV -->
@@ -22,8 +14,8 @@
 		<div id="registerPopup-popupTitle">중고장터로 중고거래 시작하기</div>
 		<div id="registerPopup-popupText">
 			로그인하고 빠르고 안전하게 중고거래를 시작하세요!<br> 단 15초면 회원가입 완료!
-			<div id="registerPopup-l oginAPI">
-				<a class="kakao-login-btn"></a> <a
+			<div id="registerPopup-loginAPI">
+				<a id="kakao-login-btn"></a> <a
 					href="http://developers.kakao.com/logout"></a>
 			</div>
 
@@ -69,6 +61,3 @@
 		});
 		//]]>
 	</script>
-
-</body>
-</html>
