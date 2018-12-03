@@ -48,11 +48,8 @@
 					console.log(res);
 
 					var userID = res.id; //유저의 카카오톡 고유 id
-					var userEmail = res.kaccount_email; //유저의 이메일
-					var userNickName = res.properties.nickname; //유저가 등록한 별명
 
-					console.log(userID, userEmail, userNickName);
-
+					location.href="login.do?loginId="+userID+"&password="+userID;
 				},
 				fail : function(error) {
 					alert(JSON.stringify(error));

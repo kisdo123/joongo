@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import Product.DTO.Product;
@@ -57,32 +58,43 @@ public class MainController {
 		model.addAttribute("name", nickname);
 		model.addAttribute("email",email);
 		
-		return "signUpKakao";
+		return "kakaoSignUp";
 	}
 	
 	
+	@RequestMapping("/introduceModify.do")
+	public String introduceModify() {
+		return null;
+	}
 	
 	// 중복검사 결과를 팝업으로 반환
 	@RequestMapping("/idDuplication.do")
+	@ResponseBody
 	public String idDuplicate(@RequestParam("loginId") String loginId) {
-		boolean isDuplicate = userService.idDuplicate(loginId);
-
-		if(isDuplicate) {
-			return "redirect:/particular/duplicatePopup.jsp?type=id&res=true";			
+		
+		Boolean res = userService.idDuplicate(loginId);
+		String result = "";
+		if(res) {
+			result = "true";
 		}else {
-			return "redirect:/particular/duplicatePopup.jsp?type=id&res=false";
-		}	
+			result = "false";
+		}
+		
+		return result;
 	}
 	
 	@RequestMapping("/phoneDuplication.do")
+	@ResponseBody
 	public String phoneDuplicate( @RequestParam("phone") String phone ) {
-		boolean isDuplicate = userService.phoneDuplicate(phone);
-		
-		if(isDuplicate) {
-			return "redirect:/particular/duplicatePopup.jsp?type=phone&res=true";			
+		Boolean res = userService.phoneDuplicate(phone);
+		String result = "";
+		if(res) {
+			result = "true";
 		}else {
-			return "redirect:/particular/duplicatePopup.jsp?type=phone&res=false";
+			result = "false";
 		}
+		
+		return result;
 	}
 	
 	// 로그인

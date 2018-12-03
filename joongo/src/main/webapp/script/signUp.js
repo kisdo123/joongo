@@ -1,3 +1,5 @@
+var idDup = false;
+var phoneDup = false;
 $(function() {
 	//이름
 	$("#name").blur(function() {
@@ -203,7 +205,11 @@ function check() {
 		flag = false;
 	}
 	if (flag) {
-		$("#form")[0].submit();
+		if(idDup&phoneDup){
+			$("#form")[0].submit();			
+		}else{
+			alert("아이디 또는 전화번호 중복체크를 해주세요");
+		}
 	}
 }
 
@@ -212,11 +218,24 @@ function idDuplicate() {
 		alert("ID를 입력하세요");
 		return;
 	}
-	url = 'idDuplication.do?loginId=' + $('#id').val();
-	var popupX = (window.screen.width / 2) - (200 / 2);
-	var popupY= (window.screen.height /2) - (300 / 2);
-
-	window.open(url, 'confirm', 'status=no, height=200, width=300, resizable=no, scrollbar=no,left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	var id = $("#id").val();
+	
+	$.ajax({
+		type: "POST",
+		url: "idDuplication.do",
+		data : {"loginId":id},
+		error: function(error){
+			
+		},
+		success: function(result){
+			if(result==="false"){
+				$("#id_msg").text('사용 가능한 아이디입니다.');
+				idDup = true;
+			}else if(result==="true"){
+				$("#id_msg").html('이미 사용중이거나 탈퇴한 아이디 입니다.');
+			}
+		}
+	});
 }
 
 function phoneDuplicate() {
@@ -227,10 +246,22 @@ function phoneDuplicate() {
 	}
 	var phone = $('#phone1').val() + '-' + $('#phone2').val() + '-'
 			+ $('#phone3').val();
-	url = "phoneDuplication.do?phone="+phone;
-	var popupX = (window.screen.width / 2) - (200 / 2);
-	var popupY= (window.screen.height /2) - (300 / 2);
-
-	window.open(url, 'confirm', 'status=no, height=200, width=300, resizable=no, scrollbar=no,left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	
+	$.ajax({
+		type: "POST",
+		url: "phoneDuplication.do",
+		data : {"phone":phone},
+		error: function(error){
+			console.log(error);
+		},
+		success: function(result){
+			if(result==="false"){
+				$("#phone_msg").html('사용 가능한 전화번호 입니다.');
+				phoneDup = true;
+			}else if(result ==="true"){
+				$("#phone_msg").html('이미 사용중이거나 탈퇴한 전화번호 입니다.');
+			}
+		}
+	});
 }
 
