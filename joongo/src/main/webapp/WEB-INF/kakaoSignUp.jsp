@@ -23,14 +23,14 @@
 				<div class="signup">
 					<h4 class="signup_title">이름</h4>
 					<span class="box">
-						<input type="text" name="name" id="name" value="" readonly>
+						<input type="text" name="name" id="name" value="${name }" >
 					</span>
 					<p id="name_msg"></p>
 				</div>
 				<div class="signup">
 					<h4 class="signup_title">아이디</h4>
 					<span class="box">
-						<input type="text" name="loginId" id="id"  value="" readonly>
+						<input type="text" name="loginId" id="id"  value="${loginId }" readonly>
 						<button class="id_check" onclick="idDuplicate()">중복확인</button>
 					</span>
 					<p id="id_msg"></p>
@@ -38,7 +38,7 @@
 				<div class="signup">
 					<h4 class="signup_title">비밀번호</h4>
 					<span class="box">
-						<input type="password" name="password" id="pw" value="" readonly>
+						<input type="password" name="password" id="pw" value="${loginId }" readonly>
 					</span>
 					<p id="pw_msg"></p>
 				</div>
@@ -83,6 +83,7 @@
 						<input type="text" name="phone1" id="phone1" class="phone" maxlength="3" pattern="[0-1]{3}" value="010">
 						<input type="text" name="phone2" id="phone2" class="phone" maxlength="4" pattern="[0-9]{4}">
 						<input type="text" name="phone3" id="phone3" class="phone" maxlength="4" pattern="[0-9]{4}">
+						<input type="hidden" id="phone" name="phone">
 						<button class="phone_cheak" onclick="phoneDuplicate()">중복확인</button>
 					</span>
 					<p id="phone_msg"></p>
@@ -101,7 +102,7 @@
 					</span>
 					<p id="bdate_msg"></p>
 				</div>
-				<input type="hidden" name="kakao" value="${kakao }">
+				<input type="hidden" name="kakao" value="true">
 				<div class="signup_submit">
 					<input type="submit" value="가입 하기" id="signup" onclick="check()" >
 				</div>
