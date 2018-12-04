@@ -91,7 +91,7 @@
 				<div class="signup">
 					<h4 class="signup_title">이메일</h4>
 					<span class="box">
-						<input type="text" name="email" id="email">
+						<input type="text" name="email" id="email" value="${email }" readonly>
 					</span>
 					<p id="email_msg"></p>
 				</div>

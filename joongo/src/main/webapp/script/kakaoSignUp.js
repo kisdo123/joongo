@@ -34,26 +34,6 @@ $(function() {
 			$("#addr").css("border-color", "gray");
 		}
 	});
-	$("#email").blur(function() {
-		var email = $("#email").val();
-		var regex = /^[a-zA-Z]([-_\.]?[a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-		if (regex.test(email) === false) {
-			$("#email_msg").html("잘못된 이메일 형식입니다.").css("color", "red")
-			return false;
-		} else {
-			$("#email_msg").html("");
-		}
-	})
-	$("#signup").click(function() {
-		var email = $("#email").val();
-		var regex = /^[a-zA-Z]([-_\.]?[a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-		if (regex.test(email) === false) {
-			$("#email_msg").html("잘못된 이메일 형식입니다.").css("color", "red")
-			return false;
-		} else {
-			$("#email_msg").html("");
-		}
-	})
 	// 생년월일
 	$("#bdate").blur(function() {
 		if ($("#bdate").val() == "") {
@@ -107,17 +87,6 @@ function check() {
 		flag = false;
 	}
 	
-	var email = $("#email3").val();
-	let regex = /^[a-zA-Z]([-_\.]?[a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-	if (regex.test(email) === false) {
-		$("#email_msg").html("잘못된 이메일 형식입니다.").css("color", "red")
-		return false;
-	} else {
-		$("#email_msg").html("");
-		let email = $('#email1').val() + $('#email2').val() + $('#email3').val();
-		$("#email").val(email);
-	}
-	
 	if ($("#addr").val() == "") {
 		$("#addr_msg").html("주소를 입력하세요.").css("color", "red")
 		$("#addr").css("border-color", "red");
@@ -131,10 +100,6 @@ function check() {
 		let phone = $("#phone1").val()+"-"+$("#phone2").val()+"-"+$("#phone3").val();
 		$("#phone").val(phone);
 	}
-	if ($("#email").val() == "") {
-		$("#email_msg").html("이메일을 입력하세요.").css("color", "red")
-		flag = false;
-	}
 	if ($("#bdate").val() == "") {
 		$("#bdate_msg").html("생년월일을 입력하세요.").css("color", "red")
 		$("#bdate").css("border-color", "red");
@@ -144,18 +109,32 @@ function check() {
 		$("#form")[0].submit();
 	}
 }
-
 function idDuplicate() {
 	if ($("#id").val() == '') {
 		alert("ID를 입력하세요");
 		return;
 	}
-	url = 'idDuplication.do?loginId=' + $('#id').val();
-	var popupX = (window.screen.width / 2) - (200 / 2);
-	var popupY= (window.screen.height /2) - (300 / 2);
-
-	window.open(url, 'confirm', 'status=no, height=200, width=300, resizable=no, scrollbar=no,left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	var id = $("#id").val();
+	
+	$.ajax({
+		type: "POST",
+		url: "idDuplication.do",
+		data : {"loginId":id},
+		error: function(error){
+			
+		},
+		success: function(result){
+			if(result==="false"){
+				$("#id_msg").text('사용 가능한 아이디입니다.');
+				idDup = true;
+			}else if(result==="true"){
+				$("#id_msg").html('이미 사용중이거나 탈퇴한 아이디 입니다.');
+			}
+		}
+	});
+	
 }
+
 
 function phoneDuplicate() {
 	if ($('#phone1').val() == '' || $('#phone2').val() == ''
@@ -165,10 +144,22 @@ function phoneDuplicate() {
 	}
 	var phone = $('#phone1').val() + '-' + $('#phone2').val() + '-'
 			+ $('#phone3').val();
-	url = "phoneDuplication.do?phone="+phone;
-	var popupX = (window.screen.width / 2) - (200 / 2);
-	var popupY= (window.screen.height /2) - (300 / 2);
-
-	window.open(url, 'confirm', 'status=no, height=200, width=300, resizable=no, scrollbar=no,left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	
+	$.ajax({
+		type: "POST",
+		url: "phoneDuplication.do",
+		data : {"phone":phone},
+		error: function(error){
+			console.log(error);
+		},
+		success: function(result){
+			if(result==="false"){
+				$("#phone_msg").html('사용 가능한 전화번호 입니다.');
+				phoneDup = true;
+			}else if(result ==="true"){
+				$("#phone_msg").html('이미 사용중이거나 탈퇴한 전화번호 입니다.');
+			}
+		}
+	});
 }
 

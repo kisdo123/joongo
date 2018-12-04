@@ -20,11 +20,11 @@
 
 	</div>
 	<div>
-		<form>
-			<input class="loginPopup-loginInput" type="text" name=""
+		<form action="login.do">
+			<input class="loginPopup-loginInput" type="text" name="loginId"
 				placeholder="아이디" required autofocus><br> <input
-				class="loginPopup-loginInput" type="text" name="" placeholder="비밀번호"
-				required><br> <input type="submit" name=""
+				class="loginPopup-loginInput" type="password" name="password" placeholder="비밀번호"
+				required><br> <input type="submit"
 				id="loginPopup-loginSubmit" value="로그인하기">
 		</form>
 
@@ -35,7 +35,7 @@
 	//<![CDATA[
 	// 사용할 앱의 JavaScript 키를 설정해 주세요.
 	Kakao.init('5e7ba7b367a3ddeee8bfc6511796f9b2');
-
+	
 	// 카카오 로그인 버튼을 생성합니다.
 	Kakao.Auth.createLoginButton({
 		container : '#kakao-register-btn',
@@ -48,11 +48,8 @@
 					console.log(res);
 
 					var userID = res.id; //유저의 카카오톡 고유 id
-					var userEmail = res.kaccount_email; //유저의 이메일
-					var userNickName = res.properties.nickname; //유저가 등록한 별명
 
-					console.log(userID, userEmail, userNickName);
-
+					location.href="login.do?loginId="+userID+"&password="+userID;
 				},
 				fail : function(error) {
 					alert(JSON.stringify(error));

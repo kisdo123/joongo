@@ -94,6 +94,7 @@
 						<button class="phone_cheak" onclick="phoneDuplicate()">중복확인</button>
 					</span>
 					<p id="phone_msg"></p>
+					
 				</div>
 				<div class="signup">
 					<h4 class="signup_title">이메일</h4>
