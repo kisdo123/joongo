@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Favorite.DAO.FavoriteDAO;
 import Favorite.DTO.Favorite;
+import exception.FavoriteNotFoundException;
 
 @Service("favoService")
 public class FavoriteServiceImpl implements FavoriteService {
@@ -30,7 +31,10 @@ public class FavoriteServiceImpl implements FavoriteService {
 
 	@Override
 	public void deleteFavorite(int favoNo) {
-		favoDAO.deleteFavorite(favoNo);
+		int res = favoDAO.deleteFavorite(favoNo);
+		if(res == 0) {
+			throw new FavoriteNotFoundException("장바구니를 찾을 수 없음");
+		}
 	}
 
 }

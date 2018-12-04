@@ -24,7 +24,7 @@
 			</div> -->
 		</div>
 		<div id="registerPopup-signupPopup">
-			<a href="#">회원가입</a>
+			<a href="registerForm.do">회원가입</a>
 		</div>
 	</div>
 	<script type='text/javascript'>
