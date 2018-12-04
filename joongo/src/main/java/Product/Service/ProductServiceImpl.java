@@ -47,21 +47,45 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void insert(Product product, Image image) {
+	public void insert(Product product) {
 		int res = productDAO.insertProduct(product);
 		if (res == 0) {
 			throw new UserNotFoundException("글쓰기 실패");
 		}
-		int proNo = product.getProNo();
-		int res2 = productDAO.insertImage(proNo, image);
-		System.out.println("서비스 : "+proNo);
-		if (res2 != 0) {
-			System.out.println("반복문");
-			for (int i = 0; i >= res2; i++) {
-				 productDAO.insertImage(proNo, image);
+		
+		Product newProduct = productDAO.selectNewOne();
+		int proNo =newProduct.getProNo();
+		System.out.println("원본 : " + product.getContent());
+		
+		int extension = 0;
+		String imagePath="";
+		String contentimg =  product.getContent();
+		System.out.println("복사본 : " + contentimg);
+		
+		
+		for (int i = 0; i < 10; i++) {
+			if (contentimg.contains("<img")) {	
+				
+				int idx = contentimg.indexOf("src=");
+				
+				if(contentimg.contains(".jpg") || contentimg.contains(".png") || contentimg.contains(".gif") || contentimg.contains(".bmp")) {
+					extension = contentimg.indexOf(".");
+					imagePath = contentimg.substring(idx + 5, extension + 4);
+					contentimg=contentimg.substring(extension+4);
+					contentimg=contentimg.substring(contentimg.indexOf(">"));
+					
+				}else {
+					System.out.println("확장자명이 존재하지않음");
+				}
+				
+			} else {
+				System.out.println("이미지태그 없음");
+				break;
 			}
-		} else {
-			throw new UserNotFoundException("글쓰기 실패");
+			System.out.println("check : "+ proNo);
+			System.out.println("check : "+ imagePath);
+			Image image = new Image(proNo, imagePath);
+			productDAO.insertImage(image);
 		}
 	}
 
@@ -89,5 +113,5 @@ public class ProductServiceImpl implements ProductService {
 			throw new UserNotFoundException("삭제 실패");
 		}
 	}
-
+	
 }

@@ -42,6 +42,7 @@
 			</list>
 		</property>
 	</bean>
+	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 	<mvc:annotation-driven/>
 	<mvc:resources location="/upload/" mapping="/upload/**"></mvc:resources>

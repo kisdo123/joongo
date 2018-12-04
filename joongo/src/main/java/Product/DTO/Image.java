@@ -13,6 +13,14 @@ public class Image {
 		this.proNo = proNo;
 		this.imagePath = imagePath;
 	}
+	
+	public Image(int proNo, String imagePath) {
+		this.proNo = proNo;
+		this.imagePath = imagePath;
+	}
+	
+	public Image() {
+	}
 
 	public int getImgeNo() {
 		return imgeNo;

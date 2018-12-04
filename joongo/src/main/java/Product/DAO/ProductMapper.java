@@ -15,5 +15,6 @@ public interface ProductMapper {
 	List<Product> selectcatNo(int catNo);
 	int updateProduct(Product product);
 	int deleteProduct(Product product);
-	int insertImage(int proNo, Image image);
+	int insertImage(Image image);
+	Product selectNewOne();
 }

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import Product.DTO.Image;
 import Product.DTO.Product;
 import Product.Service.ProductService;
 import User.DTO.User;
@@ -144,9 +143,9 @@ public class MainController {
 	
 	//글쓰기
 	@RequestMapping("/writeProduct.do")
-	public String writeProduct(@ModelAttribute Product product, @ModelAttribute Image image) {
-		productService.insert(product, image);
-		return "redirect:/productList.do";
+	public String writeProduct(@ModelAttribute Product product) {
+		productService.insert(product);
+		return "writefinish";
 	}
 	
 	//전체 목록보기

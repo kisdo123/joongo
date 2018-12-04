@@ -40,9 +40,15 @@
 		update products set able=0 where proNo = #{proNo};
 	</update>
 	
+	<!-- 이미지등록 -->
 	<insert id="insertImage" parameterType="Image">
 		insert into image(proNo, imagePath) values(#{proNo},#{imagePath});
 	</insert>
+	
+	<!-- 최신글 한개 조회  -->
+	<select id="selectNewOne" resultType="Product">
+		select  * from products order by wdate desc limit 1;
+	</select>
 	
 </mapper>
 

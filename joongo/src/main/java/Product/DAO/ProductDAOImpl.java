@@ -57,8 +57,13 @@ public class ProductDAOImpl implements ProductDAO{
 
 	//이미지 저장
 	@Override
-	public int insertImage(int proNo, Image image) {
-		return productMapper.insertImage(proNo, image);
+	public int insertImage(Image image) {
+		return productMapper.insertImage(image);
+	}
+
+	@Override
+	public Product selectNewOne() {
+		return productMapper.selectNewOne();
 	}
 	
 } 	
