@@ -89,12 +89,21 @@ $(function() {
 			$("#addr").css("border-color", "gray");
 		}
 	});
-	$("#email3").blur(function() {
+	
+	// 이메일
+	$(".emailCheck").blur(function() {
 		var email = $("#email3").val();
 		var regex = /^[a-zA-Z]([-_\.]?[a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-		if (regex.test(email) === false) {
+		
+		if($('#email1').val().trim() == "" && email == "") {
+			$("#email_msg").html("이메일을 입력하세요.").css("color", "red")
+			return false;
+		} else if (regex.test(email) === false) {
 			$("#email_msg").html("잘못된 이메일 형식입니다.").css("color", "red")
 			return false;
+		} else if($('#email1').val().trim() == "") {
+			$("#email_msg").html("잘못된 이메일 형식입니다.").css("color", "red")
+			return false;	
 		} else {
 			$("#email_msg").html("");
 		}
