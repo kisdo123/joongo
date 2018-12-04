@@ -31,11 +31,10 @@
 
 .header-search {
 	float: left;
-	width: 440px;
+	width: 435px;
 }
 
 .header-divLogin {
-	margin-top: 15px;
 	float: left;
 }
 
@@ -132,25 +131,34 @@ ul.header-ulMenu:after {
 	overflow: hidden;
 }
 
+.header-divNick {
+	margin-bottom: 15px;
+}
 
-#header-spanLogin{
+.header-spanNick {
+	font-size: 20px;
+	font-weight: bolder;
+	color: #FFC107;
+}
+
+#header-spanLogin {
 	margin-left: 80px;
 }
 
-#header-spanSell{
+#header-spanSell {
 	vertical-align: top;
 	margin-right: 5px;
 }
 
-#header-spanMystore{
+#header-spanMystore {
 	vertical-align: top;
 	margin-right: 5px;
 }
 
-#header-spanLogout{
+#header-spanLogout {
 	vertical-align: top;
 }
 
-#header-logoutImg{
+#header-logoutImg {
 	vertical-align: super;
 }

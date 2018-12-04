@@ -22,13 +22,14 @@
 				<div class="header-divLogin">
 					<c:if test="${loginUser != null }">
 						<!-- 로그인 loginId가 있을 때 버튼 3개 -->
+						<div class="header-divNick"><span class="header-spanNick">${loginUser.nickname }</span> 님 안녕하세요!</div>
 						<img src="/joongo/image/sellImg.png">
 						<span class="header-a" id="header-spanSell">판매하기</span>
 						<img src="/joongo/image/myStoreImg.png">
 						<span class="header-a" id="header-spanMystore"> 내상점</span>
 						<img src="/joongo/image/logoutImg.png" id="header-logoutImg">
 						<span class="header-a" id="header-spanLogout"> 로그아웃</span>
-							${loginUser.nickname }님 안녕하세요
+							
 						</c:if>
 					<c:if test="${loginUser == null }">
 						<!-- 로그인 상태가 아닐 때 로그인 & 회원가입 버튼 -->
