@@ -16,7 +16,6 @@ public class Product {
 	private String condit;
 	private String price;
 	private String content;
-	private String imagePath;
 	private String tags;
 	private LocalDateTime wdate;
 	private Boolean able;
@@ -25,8 +24,9 @@ public class Product {
 	}
 
 
-	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit, String price,
-			String content, String imagePath, String tags, LocalDateTime wdate, Boolean able) {
+	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit,
+			String price, String content, String tags, LocalDateTime wdate,
+			Boolean able) {
 		this.proNo = proNo;
 		this.title = title;
 		this.catNo = catNo;
@@ -36,12 +36,11 @@ public class Product {
 		this.condit = condit;
 		this.price = price;
 		this.content = content;
-		this.imagePath = imagePath;
 		this.tags = tags;
 		this.wdate = wdate;
 		this.able = able;
 	}
-	
+
 	public String getCatName() {
 		return catName;
 	}
@@ -113,15 +112,7 @@ public class Product {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public String getImagePath() {
-		return imagePath;
-	}
-
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
-
+	
 	public String getTags() {
 		return tags;
 	}

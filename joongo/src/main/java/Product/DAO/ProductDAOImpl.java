@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import Product.DTO.Image;
 import Product.DTO.Product;
 
 @Repository("productDAO")
@@ -52,6 +53,12 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public int deleteProduct(Product product) {
 		return productMapper.deleteProduct(product);
+	}
+
+	//이미지 저장
+	@Override
+	public int insertImage(int proNo, Image image) {
+		return productMapper.insertImage(proNo, image);
 	}
 	
 } 	

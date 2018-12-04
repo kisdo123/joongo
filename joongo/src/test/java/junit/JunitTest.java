@@ -1,5 +1,6 @@
 package junit;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.Ignore;
@@ -10,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import Product.DTO.Image;
 import Product.DTO.Product;
 import Product.Service.ProductService;
 import User.DTO.User;
@@ -52,12 +54,10 @@ public class JunitTest {
 	
 	@Test
 	public void serch() {
-		//productService.searching("로션");
-		List<Product> products = productService.searching("로션");
-		System.out.println(products.toString());
-		for(Product p : products) {
-			System.out.println(p);
-		}
+		Product product = new Product(100, "title", 3, "음악", 3, "nickname", "판매중", "30000", "content", "tags", LocalDateTime.now() , true);
+		Image image = new Image(100, 3, "imagePath");
+		productService.insert(product, image);
+		
 	}
 
 }

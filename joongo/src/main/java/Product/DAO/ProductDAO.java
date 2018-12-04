@@ -2,6 +2,7 @@ package Product.DAO;
 
 import java.util.List;
 
+import Product.DTO.Image;
 import Product.DTO.Product;
 
 public interface ProductDAO {
@@ -12,4 +13,5 @@ public interface ProductDAO {
 	public List<Product> selectcatNo(int catNo);
 	public int updateProduct(Product product);
 	public int deleteProduct(Product product);
+	public int insertImage(int proNo, Image image);
 }
