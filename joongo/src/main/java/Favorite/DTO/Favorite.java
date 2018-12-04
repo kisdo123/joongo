@@ -1,9 +1,12 @@
 package Favorite.DTO;
 
+import org.apache.ibatis.type.Alias;
+
 import Product.DTO.Product;
 import User.DTO.User;
 
 // 장바구니 내용을 저장할 객체
+@Alias("Favorite")
 public class Favorite {
 	
 	private int favoNo;
