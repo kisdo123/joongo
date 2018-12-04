@@ -4,15 +4,11 @@
 <link rel="stylesheet" type="text/css" href="/joongo/css/main.css">
 <link rel="stylesheet" type="text/css"
 	href="/joongo/css/productInfo.css">
-<link rel="stylesheet" type="text/css" href="/joongo/css/slide.css">
 <script type="text/javascript" src="/joongo/script/main.js"></script>
 <script type="text/javascript" src="/joongo/script/productInfo.js"></script>
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <div id="container" class="container">
 	<div class="w1200">
-
-
-
 		<div class="middle">
 			<div class="productInfo-topDiv">
 				<ul class="productInfo-radioUl">
