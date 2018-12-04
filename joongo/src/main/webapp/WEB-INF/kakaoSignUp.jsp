@@ -16,7 +16,7 @@
 		<div class="signup_container">
 			<div class="signup_logo">
 				<a href="#">
-					<img src="joongo/image/logo100x100.png" class="signup_logo_img">
+					<img src="/joongo/image/logo100.png" class="signup_logo_img">
 				</a>
 			</div>
 			<form id="form" method="post" action="register.do" onsubmit="return false">
