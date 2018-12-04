@@ -1,30 +1,33 @@
-$(function() {
-	
-
+$(function () {
 	
 	$("input[id='pos1']").click(function() {
 
-		$(".productInfo-radioUl").css("margin-left", "0px");
+		$(".productInfo-radioUl").animate({"margin-left" : "0px"},500);
 	});
 
 	$("input[id='pos2']").click(function() {
 
-		$(".productInfo-radioUl").css("margin-left", "-400px");
+		$(".productInfo-radioUl").animate({"margin-left" : "-400px"},500);
 	});
 
 	$("input[id='pos3']").click(function() {
 
-		$(".productInfo-radioUl").css("margin-left", "-800px");
+		$(".productInfo-radioUl").animate({"margin-left" : "-800px"},500);
 	});
 	
 	$("input[id='pos4']").click(function() {
 
-		$(".productInfo-radioUl").css("margin-left", "-1200px");
+		$(".productInfo-radioUl").animate({"margin-left" : "-1200px"},500);
 	});
 	
 	$("input[id='pos5']").click(function() {
 
-		$(".productInfo-radioUl").css("margin-left", "-1600px");
+		$(".productInfo-radioUl").animate({"margin-left" : "-1600px"},500);
 	});
-
+	
 });
+
+
+	
+
+
