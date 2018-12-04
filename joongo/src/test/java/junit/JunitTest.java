@@ -1,6 +1,5 @@
 package junit;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.Ignore;
@@ -54,7 +53,7 @@ public class JunitTest {
 	
 	@Test
 	public void serch() {
-		Product product = new Product(100, "title", 3, "음악", 3, "nickname", "판매중", "30000", "content", "tags", LocalDateTime.now() , true);
+		Product product= new Product(100, "title", 3, "음악", 3, "nickname", "판매중", "30000", "content", "tags" , true);
 		Image image = new Image(100, 3, "imagePath");
 		productService.insert(product, image);
 		

@@ -1,6 +1,7 @@
 package Product.DTO;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 
@@ -19,6 +20,7 @@ public class Product {
 	private String tags;
 	private LocalDateTime wdate;
 	private Boolean able;
+	private List<Image> image;
 
 	public Product() {
 	}
@@ -155,4 +157,14 @@ public class Product {
 		this.able = able;
 	}
 
+
+	public List<Image> getImage() {
+		return image;
+	}
+
+
+	public void setImage(List<Image> image) {
+		this.image = image;
+	}
+	
 }
