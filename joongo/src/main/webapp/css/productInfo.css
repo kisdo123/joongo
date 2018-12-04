@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 .productInfo-topDiv {
 	float: left;
 	width: 400px;
@@ -73,10 +72,7 @@
 	color: #fff;
 	margin-right: 5px;
 	cursor: pointer;
-
 }
-
-
 
 .productInfo-buyBtn {
 	width: 150px;
@@ -98,7 +94,7 @@
 .productInfo-ex {
 	margin-bottom: 50px;
 	height: 30px;
-	border-bottom: 1px solid black;
+	border : 2px solid #e8e8e8;
 }
 
 .productInfo-exTitle {
@@ -137,6 +133,42 @@ label {
 	float: left;
 }
 
-.productInfo-won{
+.productInfo-won {
 	font-size: 25px;
+}
+
+.productInfo-raridoDiv label {
+	display: inline-block;
+	vertical-align: middle;
+	width: 10px;
+	height: 10px;
+	border: 2px solid #666;
+	background: #fff;
+	transition: 0.3s;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.productInfo-raridoDiv input[type="radio"] {
+	display: none;
+}
+
+#pos1:checked ~.pos>label:nth-child(1) {
+	background: #666;
+}
+
+#pos2:checked ~.pos>label:nth-child(2) {
+	background: #666;
+}
+
+#pos3:checked ~.pos>label:nth-child(3) {
+	background: #666;
+}
+
+#pos4:checked ~.pos>label:nth-child(4) {
+	background: #666;
+}
+
+#pos5:checked ~.pos>label:nth-child(5) {
+	background: #666;
 }

@@ -34,13 +34,19 @@
 						name="pos" class="pos" value="3" id="pos3"> <input
 						type="radio" name="pos" class="pos" value="4" id="pos4"> <input
 						type="radio" name="pos" class="pos" value="5" id="pos5">
+					<p class="pos">
+						<label for="pos1"></label> <label for="pos2"></label> <label
+							for="pos3"></label> <label for="pos4"></label> <label for="pos5"></label>
+					</p>
 				</div>
 			</div>
 
 			<div class="productInfo-context">
 				<c:forEach var="product" items="${products}">
 					<div class="productInfo-title">제목 : ${product.title}</div>
-					<div class="productInfo-price">가격 : ${product.price} <span class="productInfo-won">원</span></div>
+					<div class="productInfo-price">
+						가격 : ${product.price} <span class="productInfo-won">원</span>
+					</div>
 
 					<ul class="productInfo-contextUl">
 						<li class="productInfo-contextLi"><strong>주소</strong> <span>서울특별시</span>
@@ -51,12 +57,11 @@
 						</li>
 						<li class="productInfo-contextLi"><strong>조회수</strong> <span>1234</span>
 						</li>
-						<li class="productInfo-contextLi"><strong>상품상태</strong> <span>새상품</span>
+						<li class="productInfo-contextLi"><strong>상태</strong> <span>판매중..${product.condit}</span>
 						</li>
 					</ul>
 				</c:forEach>
 			</div>
-
 
 			<div class="productInfo-btnDiv">
 				<button class="productInfo-zzimBtn">
