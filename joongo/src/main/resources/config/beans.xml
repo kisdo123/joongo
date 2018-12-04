@@ -34,7 +34,7 @@
 	<!-- Mybatis-spring설정 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="typeAliasesPackage" value="User,Product,Image"/>
+		<property name="typeAliasesPackage" value="User,Product,Image,Favorite"/>
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:/config/userMapper.xml</value>

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import Favorite.DTO.Favorite;
 
-@Repository("favoriteDAO")
+@Repository("favoDAO")
 public class FavoriteDAOImpl implements FavoriteDAO {
 
 	@Autowired
