@@ -44,9 +44,9 @@ $(function() {
         
         // 문제 없을 시 submit 실행
         if(checked) {
-        	console.log('asd')
         	$("#writefrm")[0].submit();
         }
     });
 	
+
 })
