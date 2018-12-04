@@ -38,6 +38,13 @@
 	float: left;
 }
 
+.header-divLogout{
+	position: relative;
+    float: left;
+    right: 35px;
+    top: 15px;
+}
+
 .header-form-search {
 	width: 510px;
 	height: 52px;
