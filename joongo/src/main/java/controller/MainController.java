@@ -64,8 +64,14 @@ public class MainController {
 	
 	
 	@RequestMapping("/introduceModify.do")
-	public String introduceModify() {
-		return null;
+	@ResponseBody
+	public String introduceModify(HttpServletRequest request, @RequestParam("content") String content, @RequestParam("userNo")int userNo) {
+		User user = (User) request.getSession().getAttribute("loginUser");
+		int loginUserNo = user.getUserNo();
+		
+		userService.updateIntroduce(loginUserNo, userNo, content);
+
+		return content;
 	}
 	
 	// 중복검사 결과를 팝업으로 반환
@@ -120,20 +126,29 @@ public class MainController {
 		return "redirect:/main.do";
 	}
 	
-	@RequestMapping("/myPage.do")
-	public String myPage() {
-		return "myPage";
+	@RequestMapping("/userPage.do")
+	public String myPage(Model model, @RequestParam("userNo") int userNo) {
+		
+		try {
+			User user = userService.getUserByUserNo(userNo);
+			model.addAttribute("pageUser", user);
+		}catch(UserNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		// 유저페이지의 대상 유저		
+		return "userPage";
 	}
 
 	// 회원 정보 수정 폼 요청
 	@RequestMapping("/modifyUserForm.do")
-	public String UpdateUserForm() {
+	public String updateUserForm() {
 		return "userModify";
 	}
 	
 	// 회원정보 수정
 	@RequestMapping("/modifyUser.do")
-	public String UpdateUser(HttpServletRequest request, @ModelAttribute User user) {
+	public String updateUser(HttpServletRequest request, @ModelAttribute User user) {
 		User loginUser = (User)request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
 		user.setUserNo(userNo);
@@ -143,6 +158,20 @@ public class MainController {
 			e.printStackTrace();
 		}
 		return "myPage";
+	}
+	
+	@RequestMapping("/deleteUser.do")
+	public String deleteUser(HttpServletRequest request) {
+		User user = (User)request.getSession().getAttribute("loginUser");
+		int userNo = user.getUserNo();
+		
+		try {
+			userService.deleteUser(userNo);
+			request.getSession().setAttribute("loginUser", null);
+		}catch(UserNotFoundException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/main.do";
 	}
 
 	// 검색
