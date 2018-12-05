@@ -12,9 +12,26 @@
 			<div class="productInfo-topDiv">
 				<ul class="productInfo-radioUl">
 					<c:if test="${!product.image.isEmpty() }">
-						<li class=".productInfo-radioLi">
-							<img class="productInfo-img" src="${product.image.get(0).imagePath }">
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(0).imagePath }" width="400px" height="400px" >
 						</li>
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(1).imagePath }" width="400px" height="400px" >
+						</li>
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(2).imagePath }" width="400px" height="400px" >
+						</li>
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(3).imagePath }" width="400px" height="400px" >
+						</li>
+						<!-- 			<li class="productInfo-radioLi"><img
+							src="/joongo/image/2.jpg" class="productInfo-img"></li>
+						<li class="productInfo-radioLi"><img
+							src="/joongo/image/3.jpg" class="productInfo-img"></li>
+						<li class="productInfo-radioLi"><img
+							src="/joongo/image/4.jpg" class="productInfo-img"></li>
+						<li class="productInfo-radioLi"><img
+							src="/joongo/image/5.jpg" class="productInfo-img"></li> -->
 					</c:if>
 				</ul>
 				<div class="productInfo-raridoDiv">
@@ -33,32 +50,30 @@
 				</div>
 			</div>
 			<div class="productInfo-context">
-				<c:forEach var="product" items="${products}">
-					<div class="productInfo-title">제목 : ${product.title}</div>
-					<div class="productInfo-price">
-						<script type="text/javascript">
+				<div class="productInfo-title">제목 : ${product.title}</div>
+				<div class="productInfo-price">
+					<script type="text/javascript">
 							document.write(thousand(""+${product.price}1000000+""));
 						</script>
-						<span class="productInfo-won">원</span>
-					</div>
-					<ul class="productInfo-contextUl">
-						<li class="productInfo-contextLi">
-							<strong>주소</strong> <span>서울특별시</span>
-						</li>
-						<li class="productInfo-contextLi">
-							<strong>등록날짜</strong> <span>2018.11.30</span>
-						</li>
-						<li class="productInfo-contextLi">
-							<strong>찜</strong> <span>30</span>
-						</li>
-						<li class="productInfo-contextLi">
-							<strong>조회수</strong> <span>1234</span>
-						</li>
-						<li class="productInfo-contextLi">
-							<strong>상태</strong> <span>판매중..${product.condit}</span>
-						</li>
-					</ul>
-				</c:forEach>
+					<span class="productInfo-won">원</span>
+				</div>
+				<ul class="productInfo-contextUl">
+					<li class="productInfo-contextLi">
+						<strong>주소</strong> <span>서울특별시</span>
+					</li>
+					<li class="productInfo-contextLi">
+						<strong>등록날짜</strong> <span>2018.11.30</span>
+					</li>
+					<li class="productInfo-contextLi">
+						<strong>찜</strong> <span>30</span>
+					</li>
+					<li class="productInfo-contextLi">
+						<strong>조회수</strong> <span>1234</span>
+					</li>
+					<li class="productInfo-contextLi">
+						<strong>상태</strong> <span>${product.condit}</span>
+					</li>
+				</ul>
 			</div>
 			<div class="productInfo-btnDiv">
 				<button class="productInfo-zzimBtn">
@@ -146,9 +161,7 @@
 			</div>
 			<div class="productInfo-exTitle">상품정보</div>
 			<div class="productInfo-ex"></div>
-			<c:forEach var="product" items="${products}">
-				<div class="productInfo-exContext">내용${product.content}</div>
-			</c:forEach>
+			<div class="productInfo-exContext">${product.content}</div>
 			<!-- 맨 위, 맨 아래로 -->
 			<div class="top-down-cotainer">
 				<div class="up">
@@ -156,9 +169,6 @@
 				</div>
 				<div class="down">
 					<span>BOTTOM</span><i class="fa fa-arrow-down arrow-down" aria-hidden="true"></i>
-				</div>
-				<div class="product-notice">
-					<a href="/joongo/particular/notice.jsp"><img src="/joongo/image/noticeImg.png"><span class="product-spanNotice">공지사항</span></a>
 				</div>
 			</div>
 		</div>

@@ -72,5 +72,4 @@ public class ProductDAOImpl implements ProductDAO{
 	public List<Image> selectImage(int proNo) {
 		return productMapper.selectImage(proNo);
 	}
-	
 } 	

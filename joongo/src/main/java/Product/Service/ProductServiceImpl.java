@@ -26,9 +26,9 @@ public class ProductServiceImpl implements ProductService {
 		if (products.isEmpty() || products.equals(null)) {
 			throw new ProductNotFoundException("검색 목록이 존재하지 않습니다.");
 		}
-		
+
 		for (Product product : products) {
-			int proNo = product.getProNo();			
+			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 		}
@@ -43,15 +43,30 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> totalSelect() {
 		List<Product> products = productDAO.selectList();
+		if (products.isEmpty() || products.equals(null)) {
+			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
+		}
 
 		for (Product product : products) {
-			int proNo = product.getProNo();			
+			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 		}
+		return products;
+	}
 
+	// 카테고리 별 조회
+	@Override
+	public List<Product> catNoSelect(int catNo) {
+		List<Product> products = productDAO.selectcatNo(catNo);
 		if (products.isEmpty() || products.equals(null)) {
-			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
+			throw new ProductNotFoundException("카테고리 목록이 존재하지 않습니다.");
+		}
+		
+		for (Product product : products) {
+			int proNo = product.getProNo();
+			List<Image> images = productDAO.selectImage(proNo);
+			product.setImage(images);
 		}
 		return products;
 	}
@@ -63,7 +78,7 @@ public class ProductServiceImpl implements ProductService {
 		if (product.equals(null)) {
 			throw new ProductNotFoundException("글이 존재하지 않습니다.");
 		}
-				
+
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
 
@@ -110,16 +125,6 @@ public class ProductServiceImpl implements ProductService {
 			// imagePath insert
 			productDAO.insertImage(image);
 		}
-	}
-
-	// 카테고리 별 조회
-	@Override
-	public List<Product> catNoSelect(int catNo) {
-		List<Product> products = productDAO.selectcatNo(catNo);
-		if (products.isEmpty() || products.equals(null)) {
-			throw new ProductNotFoundException("검색 목록이 존재하지 않습니다.");
-		}
-		return products;
 	}
 
 	// 글 수정

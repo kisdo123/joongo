@@ -7,17 +7,33 @@
 <mapper namespace="Product.DAO.ProductMapper">
 	<!--검색 쿼리-->
 	<select id="selectSearchList" parameterType="string" resultType="Product">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and concat(products.title,products.tags,products.content) like concat('%',#{word},'%') and (products.able != 0 and products.condit!="판매완료");	
+			select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and concat(products.title,products.tags,products.content) like concat('%',#{word},'%') and (products.able != 0 and products.condit!="판매완료");	
+		</select>
+	
+	<!--전체 최신순 조회  -->	
+	<select id="selectList" resultType="Product">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 order by wdate desc;
 	</select>
 	
-	<!--목록조회  -->	
-	<select id="selectList" resultType="Product">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0;
-	</select>
 	
 	<!--한개 조회  -->
 	<select id="selectOne" resultType="Product" parameterType="int">
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and proNo = #{proNo} and able != 0;
+	</select>
+	
+	<!-- 최신글 한개 조회  -->
+	<select id="selectNewOne" resultType="Product">
+		select  * from products where able != 0 order by wdate desc limit 1;
+	</select>
+	
+	<!--카테고리 별 최신글 조회-->
+	<select id="selectcatNo" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = #{catNo} and able != 0 order by wdate desc;
+	</select>
+	
+	<!-- 해당 글의 이미지 조회  -->
+	<select id="selectImage" resultType="Image">
+		select  * from image where proNo = #{proNo};
 	</select>
 	
 	<!--글 등록 -->
@@ -25,10 +41,10 @@
 		insert into products(title, catNo, userNo, nickname, price, content, tags) values(#{title},#{catNo},#{userNo},#{nickname},#{price},#{content},#{tags});
 	</insert>
 	
-	<!--카테고리 별 조회-->
-	<select id="selectcatNo" resultType="Product" parameterType="int">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = #{catNo} and able != 0;
-	</select>
+	<!-- 이미지등록 -->
+	<insert id="insertImage" parameterType="Image">
+		insert into image(proNo, imagePath) values(#{proNo},#{imagePath});
+	</insert>
 	
 	<!-- 글수정 -->
 	<update id="updateProduct" parameterType="Product">
@@ -39,21 +55,6 @@
 	<update id="deleteProduct" parameterType="Product" >
 		update products set able=0 where proNo = #{proNo};
 	</update>
-	
-	<!-- 이미지등록 -->
-	<insert id="insertImage" parameterType="Image">
-		insert into image(proNo, imagePath) values(#{proNo},#{imagePath});
-	</insert>
-	
-	<!-- 최신글 한개 조회  -->
-	<select id="selectNewOne" resultType="Product">
-		select  * from products order by wdate desc limit 1;
-	</select>
-	
-	<!-- 해당 글의 이미지 조회  -->
-	<select id="selectImage" resultType="Image">
-		select  * from image where proNo = #{proNo};
-	</select>
 </mapper>
 
 
