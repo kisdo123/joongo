@@ -37,6 +37,14 @@
 	font-size: 14px;
 }
 
+.modify {
+	border: none;
+    background-color: white;
+    padding: 0px;
+    font-size: 14px;
+    color: red;
+}
+
 .modify:VISITED, .modify:HOVER {
 	color: #e81e22;
 }
