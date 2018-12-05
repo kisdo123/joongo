@@ -41,7 +41,10 @@
 				<c:forEach var="product" items="${products}">
 					<div class="productInfo-title">제목 : ${product.title}</div>
 					<div class="productInfo-price">
-						가격 : ${product.price} <span class="productInfo-won">원</span>
+						<script type="text/javascript">
+							document.write(thousand(""+${product.price}1000000+""));
+						</script>
+						 <span class="productInfo-won">원</span>
 					</div>
 
 					<ul class="productInfo-contextUl">
