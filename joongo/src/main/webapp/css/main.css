@@ -20,8 +20,8 @@
 
 .category-info {
 	overflow: hidden;
-    padding: 20px 0px;
-    margin: 0px;
+	padding: 20px 0px;
+	margin: 0px;
 }
 
 .category-title {
@@ -99,7 +99,7 @@
 .category-button-container {
 	overflow: hidden;
 	padding-bottom: 20px;
-} 
+}
 
 .category-button {
 	float: left;
@@ -121,10 +121,10 @@
 
 .top-down-cotainer {
 	position: fixed;
-    top: 45%;
-    right: calc(50% - 20px);
-    transform: translateX(700%);
-    text-align: center;
+	top: 45%;
+	right: calc(50% - 20px);
+	transform: translateX(700%);
+	text-align: center;
 	background-color: white;
 	cursor: pointer;
 }
@@ -147,15 +147,30 @@
 	border-bottom: 1px solid #cccccc;
 }
 
-.up > i, .up > span, .down > i, .down > span {
+.up>i, .up>span, .down>i, .down>span {
 	line-height: 30px;
 	padding-right: 5px;
 }
 
-.up > i {
+.up>i {
 	float: right;
 }
 
-.down > span {
+.down>span {
 	padding-left: 5px;
+}
+
+.product-notice {
+	position: relative;
+    bottom: 120px;
+    right: 10px;
+}
+
+.product-spanNotice {
+	position: relative;
+    font-size: 18px;
+    font-weight: bolder;
+    color: red;
+    bottom: 7px;
+    left: 8px;
 }
