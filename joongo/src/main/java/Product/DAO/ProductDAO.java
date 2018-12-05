@@ -16,4 +16,6 @@ public interface ProductDAO {
 	public int insertImage(Image image);
 	public Product selectNewOne();
 	public List<Image> selectImage(int proNo);
+	public List<Image> select5List ();
+	public List<Product> select5catNo(int catNo);
 }

@@ -25,10 +25,8 @@ public class MainController {
 	@Autowired
 	private UserService userService;
 
-	
-	@Autowired 
+	@Autowired
 	private ProductService productService;
-	 
 
 	// 메인화면으로 보냄
 	@RequestMapping("/main.do")
@@ -39,8 +37,8 @@ public class MainController {
 	// 회원가입을 진행
 	@RequestMapping("/register.do")
 	public String registerUser(@ModelAttribute User user) {
-		
-		System.out.println(user.getLoginId()+", "+ user.getPassword());
+
+		System.out.println(user.getLoginId() + ", " + user.getPassword());
 		userService.registerUser(user);
 
 		return "redirect:/main.do";
@@ -51,75 +49,76 @@ public class MainController {
 	public String registerForm(Model model) {
 		return "signUp";
 	}
-	
+
 	@RequestMapping("/registerFormKakao.do")
-	public String registerFormKakao(Model model, @RequestParam("loginId") String loginId, @RequestParam("nickname") String nickname, @RequestParam("email") String email) {
+	public String registerFormKakao(Model model, @RequestParam("loginId") String loginId,
+			@RequestParam("nickname") String nickname, @RequestParam("email") String email) {
 		model.addAttribute("loginId", loginId);
 		model.addAttribute("password", loginId);
 		model.addAttribute("name", nickname);
-		model.addAttribute("email",email);
-		
+		model.addAttribute("email", email);
+
 		return "kakaoSignUp";
 	}
-	
-	
+
 	@RequestMapping("/introduceModify.do")
 	public String introduceModify() {
 		return null;
 	}
-	
+
 	// 중복검사 결과를 팝업으로 반환
 	@RequestMapping("/idDuplication.do")
 	@ResponseBody
 	public String idDuplicate(@RequestParam("loginId") String loginId) {
-		
+
 		Boolean res = userService.idDuplicate(loginId);
 		String result = "";
-		if(res) {
+		if (res) {
 			result = "true";
-		}else {
+		} else {
 			result = "false";
 		}
-		
+
 		return result;
 	}
-	
+
 	@RequestMapping("/phoneDuplication.do")
 	@ResponseBody
-	public String phoneDuplicate( @RequestParam("phone") String phone ) {
+	public String phoneDuplicate(@RequestParam("phone") String phone) {
 		Boolean res = userService.phoneDuplicate(phone);
 		String result = "";
-		if(res) {
+		if (res) {
 			result = "true";
-		}else {
+		} else {
 			result = "false";
 		}
-		
+
 		return result;
 	}
-	
+
 	// 로그인
 	@RequestMapping("/login.do")
-	public String login(HttpServletRequest request, @RequestParam("loginId") String loginId, @RequestParam("password") String password) {
+	public String login(HttpServletRequest request, @RequestParam("loginId") String loginId,
+			@RequestParam("password") String password) {
 		try {
 			User user = userService.loginUser(loginId, password);
 			user.setBdate(user.getBdate().substring(0, 10));
 			request.getSession().setAttribute("loginUser", user);
-			System.out.println("로그인 성공, 유저:"+user.getName());
-		}catch(RuntimeException e){
+			System.out.println("로그인 성공, 유저:" + user.getName());
+		} catch (RuntimeException e) {
 			e.printStackTrace();
-			return null; 	    // 에러페이지 추가하삼
+			return null; // 에러페이지 추가하삼
 		}
-		return "redirect:/main.do";	
+		return "redirect:/main.do";
 	}
-	
+
 	// 로그아웃
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest request) {
 		request.getSession().setAttribute("loginUser", null);
 		return "redirect:/main.do";
 	}
-	
+
 	@RequestMapping("/myPage.do")
 	public String myPage() {
 		return "myPage";
@@ -130,16 +129,16 @@ public class MainController {
 	public String UpdateUserForm() {
 		return "userModify";
 	}
-	
+
 	// 회원정보 수정
 	@RequestMapping("/modifyUser.do")
 	public String UpdateUser(HttpServletRequest request, @ModelAttribute User user) {
-		User loginUser = (User)request.getSession().getAttribute("loginUser");
+		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
 		user.setUserNo(userNo);
 		try {
 			userService.updateUser(user);
-		}catch(UserNotFoundException e) {
+		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 		}
 		return "myPage";
@@ -152,37 +151,56 @@ public class MainController {
 		model.addAttribute("products", products);
 		return "search";
 	}
-	
-	//글쓰기
+
+	// 글쓰기
 	@RequestMapping("/writeProduct.do")
 	public String writeProduct(@ModelAttribute Product product) {
 		productService.insert(product);
 		return "writefinish";
 	}
-	
-	//전체 목록보기
+
+	// 전체 목록보기
 	@RequestMapping("/productList.do")
 	public String ProductList(Model model) {
 		List<Product> products = productService.totalSelect();
 		model.addAttribute("products", products);
 		return "productList";
 	}
-	
-	//내용보기
+
+	// 내용보기
 	@RequestMapping("/productInfo.do")
 	public ModelAndView getUserInfo(@RequestParam int proNo) {
 		Product product = productService.oneSelect(proNo);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("product",product);
+		mv.addObject("product", product);
 		mv.setViewName("productInfo");
 		return mv;
 	}
-	
-	//카테고리별 목록보기
+
+	// 카테고리별 목록보기
 	@RequestMapping("/catList.do")
 	public String catList(Model model, @RequestParam int catNo) {
 		List<Product> products = productService.catNoSelect(catNo);
 		model.addAttribute("products", products);
 		return "catList";
 	}
+
+	// 전체 5개 목록보기
+	@RequestMapping("/product5List.do")
+	@ResponseBody
+	public String Product5List(Model model) {
+		List<Product> products = productService.totalSelect();
+		model.addAttribute("products", products);
+		return "productList";
+	}
+
+	// 카테고리별 5개 목록보기
+	@RequestMapping("/cat5List.do")
+	@ResponseBody
+	public String cat5List(Model model, @RequestParam int catNo) {
+		List<Product> products = productService.catNoSelect(catNo);
+		model.addAttribute("products", products);
+		return "catList";
+	}
+
 }
