@@ -17,6 +17,7 @@ import Product.DTO.Product;
 import Product.Service.ProductService;
 import User.DTO.User;
 import User.service.UserService;
+import exception.UserNotFoundException;
 
 @Controller
 public class MainController {
@@ -102,6 +103,7 @@ public class MainController {
 	public String login(HttpServletRequest request, @RequestParam("loginId") String loginId, @RequestParam("password") String password) {
 		try {
 			User user = userService.loginUser(loginId, password);
+			user.setBdate(user.getBdate().substring(0, 10));
 			request.getSession().setAttribute("loginUser", user);
 			System.out.println("로그인 성공, 유저:"+user.getName());
 		}catch(RuntimeException e){
@@ -114,21 +116,32 @@ public class MainController {
 	// 로그아웃
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest request) {
-
 		request.getSession().setAttribute("loginUser", null);
 		return "redirect:/main.do";
+	}
+	
+	@RequestMapping("/myPage.do")
+	public String myPage() {
+		return "myPage";
 	}
 
 	// 회원 정보 수정 폼 요청
 	@RequestMapping("/modifyUserForm.do")
-	public String returnUpdateUserForm() {
+	public String UpdateUserForm() {
 		return "userModify";
 	}
 	
 	// 회원정보 수정
-	@RequestMapping("/updateUser.do")
-	public String returnUpdateUser(@ModelAttribute User user) {
-		userService.updateUser(user);
+	@RequestMapping("/modifyUser.do")
+	public String UpdateUser(HttpServletRequest request, @ModelAttribute User user) {
+		User loginUser = (User)request.getSession().getAttribute("loginUser");
+		int userNo = loginUser.getUserNo();
+		user.setUserNo(userNo);
+		try {
+			userService.updateUser(user);
+		}catch(UserNotFoundException e) {
+			e.printStackTrace();
+		}
 		return "myPage";
 	}
 
