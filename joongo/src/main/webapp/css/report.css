@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+.report_logo{text-align: center;}
+.report_logo_img{
+	width: 125px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+h4{
+	margin: 5px 0px 5px 0px;
+}
+input{
+	width: 497px;
+	height: 30px;
+	font-size: 17px;
+	border-radius: 5px; 
+	border: 1px solid gray;
+}
+
+input:focus{
+	outline: none;
+}
+p{
+	display: inline;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.middle{
+	width: 100%;
+	padding-top: 190px;
+}
+
+.report{
+	height: 78px;
+}
+.report_container{
+	width: 500px;
+	margin: auto;
+}
+
+.box{
+    position: relative;
+    height: 45px;
+}
+
+input[type=submit]{
+	background-color: #FE8181;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+    height: 50px;
+}
+
+#question{
+	width: 497px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.report-content {
+	width: 498px;
+    height: 60px;
+    padding: 0px;
+	border-radius: 5px;
+	resize: none;
+}
+
+.ref {
+	color: red;
+}
+
+.select {
+	height: 34px;
+	border-radius: 5px;
+}

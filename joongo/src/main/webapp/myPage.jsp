@@ -11,9 +11,15 @@
 			<div class="user-info-container">
 				<!-- 유저 이름 -->
 				<div class="user-info">
-					<span class="user-name">이름(닉네임)</span> <span class="user-modify">
-						<a href="modifyUserForm.do" class="modify">회원수정</a> <span>/</span> <a href=""
-						class="modify">회원탈퇴</a>
+					<span class="user-name">이름(닉네임)</span>
+					<span class="user-modify">
+						<a href="modifyUserForm.do" class="modify">회원수정</a> <span>/</span>
+						<a href="" class="modify">회원탈퇴</a>
+						<!-- 신고하기 다른 사람 프로필을 봤을 때 -->
+						<form action="reportForm.do" method="POST">
+							<input type="hidden" value="">
+							<input type="submit" class="modify" value="신고하기">
+						</form>
 					</span>
 				</div>
 				<!-- 유저 정보 -->

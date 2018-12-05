@@ -22,6 +22,7 @@
 		<tbody>
 			<c:forEach var="product" items="${products}">
 				<tr>
+					<td><a href="productInfo.do?proNo=${product.proNo}">수정</a></td>
 					<td>${product.title}</td>
 					<td>${product.catNo}</td>
 					<td>${product.nickname}</td>

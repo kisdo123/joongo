@@ -169,12 +169,12 @@ public class MainController {
 	}
 	
 	//내용보기
-	@RequestMapping("/productOne.do")
+	@RequestMapping("/productInfo.do")
 	public ModelAndView getUserInfo(@RequestParam int proNo) {
 		Product product = productService.oneSelect(proNo);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("product",product);
-		mv.setViewName("productOne");
+		mv.setViewName("productInfo");
 		return mv;
 	}
 	

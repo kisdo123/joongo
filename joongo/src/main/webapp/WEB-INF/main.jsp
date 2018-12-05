@@ -252,6 +252,11 @@
 				<div class="down">
 					<span>BOTTOM</span><i class="fa fa-arrow-down arrow-down" aria-hidden="true"></i>
 				</div>
+				<div class="product-notice">
+					<a href="/joongo/particular/notice.jsp"><img
+						src="/joongo/image/noticeImg.png"><span
+						class="product-spanNotice">공지사항</span></a>
+				</div>
 			</div>
 		</div>
 	</div>
