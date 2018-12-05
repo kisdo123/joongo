@@ -1,5 +1,5 @@
 $(function(){
-	
+
 	// 마지막 line 클래스 없애기
 	$('.line').last().remove();
 	
@@ -36,4 +36,13 @@ $(function(){
 		$('html').scrollTop($(document).height());
 	});
 	
+	$('#hello').click(function() {
+		var href = $(this).prop('href');
+		var destination = href.substr(href.indexOf('#'))
+		var y = $(destination).offset().top;
+		
+		$("html,body").animate({
+			scrollTop: y
+		}, 1000);
+	})
 });

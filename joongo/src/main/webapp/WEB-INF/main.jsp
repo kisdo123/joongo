@@ -84,15 +84,15 @@
 				</div>
 			</div>
 			<div class="category-button-container">
-				<!-- 카테고리 for문 8개 -->
-				<div class="category-button">안농~</div>
-				<div class="category-button">카테고리</div>
-				<div class="category-button">카테고리</div>
-				<div class="category-button">카테고리</div>
-				<div class="category-button">카테고리</div>
-				<div class="category-button">카테고리</div>
-				<div class="category-button">카테고리</div>
-				<div class="category-button">카테고리</div>
+				<div class="category-button"><a href="#clothing" id="hello">의류</a></div>
+				<div class="category-button"><a href="#appliances" id="hello">가전제품</a></div>
+				<div class="category-button"><a href="#cosmetics" id="hello">화장품</a></div>
+				<div class="category-button"><a href="#instrument" id="hello">악기</a></div>
+				<div class="category-button"><a href="#books" id="hello">도서</a></div>
+				<div class="category-button"><a href="#household" id="hello">생활용품</a></div>
+				<div class="category-button"><a href="#sports" id="hello">스포츠</a></div>
+				<div class="category-button"><a href="#foods" id="hello">식품</a></div>
+				<div class="category-button"><a href="#etc" id="hello">기타</a></div>
 			</div>
 			<!-- category 별로 for문이 돌아가야 함. -->
 			<div class="category">
@@ -172,7 +172,7 @@
 			</div>
 			<div class="category">
 				<p class="category-info">
-					<span class="category-title">카테고리</span> <span class="all-view">전체보기</span>
+					<span class="category-title" id="clothing">카테고리</span> <span class="all-view">전체보기</span>
 				</p>
 				<div class="product-container">
 					<div class="product">
