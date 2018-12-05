@@ -17,4 +17,5 @@ public interface ProductMapper {
 	int deleteProduct(Product product);
 	int insertImage(Image image);
 	Product selectNewOne();
+	List<Image> selectImage(int proNo);
 }

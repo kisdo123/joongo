@@ -61,9 +61,16 @@ public class ProductDAOImpl implements ProductDAO{
 		return productMapper.insertImage(image);
 	}
 
+	//최신글 한개 조회
 	@Override
 	public Product selectNewOne() {
 		return productMapper.selectNewOne();
+	}
+	
+	//해당글의 이미지 조회
+	@Override
+	public List<Image> selectImage(int proNo) {
+		return productMapper.selectImage(proNo);
 	}
 	
 } 	

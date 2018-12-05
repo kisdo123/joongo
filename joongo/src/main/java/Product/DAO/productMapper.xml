@@ -50,6 +50,10 @@
 		select  * from products order by wdate desc limit 1;
 	</select>
 	
+	<!-- 해당 글의 이미지 조회  -->
+	<select id="selectImage" resultType="Image">
+		select  * from image where proNo = #{proNo};
+	</select>
 </mapper>
 
 
