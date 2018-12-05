@@ -26,6 +26,20 @@ $(function(){
 		});
 	})
 	
+	// 카테고리 버튼 padding 조정
+	$('#moveScroll').each(function() {
+		let aTag = $(this).find('a').text();
+		let len = aTag.length;
+		
+		if(len == 2) {
+			$(aTag).css('padding', '12px 40px');
+		} else if(len == 3) {
+			$(aTag).css('padding', '12px 32px');
+		} else if(len == 4) {
+			$(aTag).css('padding', '12px 24px');
+		}
+	});
+	
 	// 맨 위로
 	$('.up').click(function() {
 		$('html').scrollTop(0);
@@ -36,7 +50,7 @@ $(function(){
 		$('html').scrollTop($(document).height());
 	});
 	
-	$('#hello').click(function() {
+	$('#moveScroll').click(function() {
 		var href = $(this).prop('href');
 		var destination = href.substr(href.indexOf('#'))
 		var y = $(destination).offset().top;
