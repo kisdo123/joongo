@@ -12,8 +12,8 @@
 			<div class="productInfo-topDiv">
 				<ul class="productInfo-radioUl">
 					<c:if test="${!product.image.isEmpty() }">
-						<li>
-							<img src="${product.image.get(0).imagePath }">
+						<li class=".productInfo-radioLi">
+							<img class="productInfo-img" src="${product.image.get(0).imagePath }">
 						</li>
 					</c:if>
 				</ul>
