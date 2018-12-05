@@ -12,6 +12,10 @@ public interface UserService {
 	
 	public void deleteUser(int userNo);
 	
+	public void updateIntroduce(int loginUserNo, int userNo, String content);
+	
+	public User getUserByUserNo(int userNo);
+	
 	public User loginUser(String loginId, String password);
 	
 	public List<User> searchUserList();

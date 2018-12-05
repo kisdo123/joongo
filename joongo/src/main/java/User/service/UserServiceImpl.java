@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import User.DAO.UserDAO;
 import User.DTO.User;
+import exception.IntroduceUpdateException;
 import exception.PasswordNotMatchException;
 import exception.UserNotFoundException;
 
@@ -23,6 +24,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void updateUser(User user) {
+
 		int res = userDAO.update(user);
 		if(res == 0) {
 			throw new UserNotFoundException("수정 실패: 유저를 찾을 수 없음");
@@ -31,6 +33,9 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void deleteUser(int userNo) {
+		if(userNo == 0) {
+			throw new UserNotFoundException("유저를 찾을 수 없음 : userNo가 0 입니다.");
+		}
 		int res = userDAO.delete(userNo);
 		if(res == 0) {
 			throw new UserNotFoundException("삭제 실패: 유저를 찾을 수 없음");
@@ -74,6 +79,36 @@ public class UserServiceImpl implements UserService{
 		}else {
 			return true;			
 		}
+	}
+
+	@Override
+	public User getUserByUserNo(int userNo) {
+		User user =  userDAO.selectByUserNo(userNo);
+		if(user == null) {
+			throw new UserNotFoundException("유저를 찾을 수 없음");
+		}
+		
+		user.setRdate(user.getRdate().substring(0,10));
+		
+		return user;
+	}
+
+	@Override
+	public void updateIntroduce(int loginUserNo, int userNo, String introduce) {
+		
+		if(userNo == 0) {
+			throw new UserNotFoundException("유저를 찾을 수 없음");
+		}
+		if(loginUserNo!= userNo) {
+			throw new IntroduceUpdateException("대상이 올바르지 않음");
+		}
+		
+		User user = new User();
+		user.setUserNo(userNo);
+		user.setIntroduce(introduce);
+		
+		userDAO.updateIntroduce(user);
+		
 	}
 
 	

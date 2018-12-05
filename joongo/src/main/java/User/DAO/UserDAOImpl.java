@@ -43,5 +43,15 @@ public class UserDAOImpl implements UserDAO {
 		return userMapper.selectUserByPhone(phone);
 	}
 
+	@Override
+	public User selectByUserNo(int userNo) {
+		return userMapper.selectUserByUserNo(userNo);
+	}
+
+	@Override
+	public int updateIntroduce(User user) {
+		return userMapper.updateIntroduce(user);
+	}
+
 
 }

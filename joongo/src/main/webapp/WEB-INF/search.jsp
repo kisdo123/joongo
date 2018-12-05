@@ -7,9 +7,10 @@
 <title>serch.jsp</title>
 </head>
 <body>
-	<table>
+	<table border="1">
 		<thead>
 			<tr>
+				<th>글번호</th>
 				<th>제목</th>
 				<th>분류</th>
 				<th>닉네임</th>
@@ -22,9 +23,9 @@
 		<tbody>
 			<c:forEach var="product" items="${products}">
 				<tr>
-					<td><a href="productInfo.do?proNo=${product.proNo}">수정</a></td>
+					<td><a href="productInfo.do?proNo=${product.proNo}">${product.proNo}</a></td>
 					<td>${product.title}</td>
-					<td>${product.catNo}</td>
+					<td>${product.catName}</td>
 					<td>${product.nickname}</td>
 					<td>${product.condit}</td>
 					<td>${product.price}</td>

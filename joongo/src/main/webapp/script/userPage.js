@@ -14,30 +14,7 @@ $(function() {
 		
 		$('#introduce-modify').val(content);
 	});
-	
-	/* 소개글 변경 */
-	$('#register').click(function() {
-		var content = $('#introduce-modify').val();
-		
-		$.ajax({
-			url: 'introduceModify.do',
-			data: {
-				"content": content
-			},
-			dataType: 'string',
-			success: function(data) {
-				$('#introduce-content').css('display', 'block');
-				$('#update').css('display', 'block');
-				$('#introduce-modify').css('display', 'none');
-				$('#register').css('display', 'none');
-				
-				$('#introduce-content').text(data);
-			},
-			error: function() {
-				alert('소개글 변경에 실패하였습니다.');
-			}
-		}); 
-	});
+
 	
 	$('.menu').click(function() {
 		var index = $('.menu').index(this);
@@ -98,3 +75,29 @@ $(function() {
 	});
 	
 });
+
+/* 소개글 변경 */
+function introduceChange(userNo) {
+	var content = $('#introduce-modify').val();
+	
+	$.ajax({
+		url: 'introduceModify.do',
+		data: {
+			"content":content,
+			"userNo":userNo
+		},
+		dataType: 'string',
+		success: function(data) {
+			$('#introduce-content').css('display', 'block');
+			$('#update').css('display', 'block');
+			$('#introduce-modify').css('display', 'none');
+			$('#register').css('display', 'none');
+			
+			$('#introduce-content').val(data);
+		},
+		error: function(error) {
+			console.log(error);
+			alert('소개글 변경에 실패하였습니다.');
+		}
+	}); 
+}

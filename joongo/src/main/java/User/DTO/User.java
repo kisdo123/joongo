@@ -16,8 +16,16 @@ public class User {
 	private String email;
 	private String phone;
 	private String addr;
+	private String introduce;
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
 	private String bdate;
-	private LocalDateTime rdate;
+	private String rdate;
 	private Boolean isAdmin;
 	private Boolean able;
 	private Boolean kakao;
@@ -25,7 +33,7 @@ public class User {
 	public User() {}
 	
 	public User(int userNo, String loginId, String password, String password_q, String password_a, String name,
-			String nickname, String email, String phone, String addr, String bdate, LocalDateTime rdate, Boolean isAdmin,
+			String nickname, String email, String phone, String addr, String bdate, String rdate, Boolean isAdmin,
 			Boolean able, Boolean kakao) {
 		this.userNo = userNo;
 		this.loginId = loginId;
@@ -83,7 +91,7 @@ public class User {
 		this.bdate = bdate;
 	}
 
-	public void setRdate(LocalDateTime rdate) {
+	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
 
@@ -169,7 +177,7 @@ public class User {
 	public String getBdate() {
 		return bdate;
 	}
-	public LocalDateTime getRdate() {
+	public String getRdate() {
 		return rdate;
 	}
 	public Boolean isAdmin() {

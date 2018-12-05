@@ -13,10 +13,13 @@ public interface UserDAO {
 	
 	public User selectById(String loginId);
 	
+	public User selectByUserNo(int userNo);
+	
 	public List<User> selectList();
 	
 	public User selectByPhone(String phone);
 
+	public int updateIntroduce(User user);
 }
 
 
