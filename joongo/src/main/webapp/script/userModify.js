@@ -1,7 +1,5 @@
 var phoneDup = false;
 $(function() {
-
-	console.log('asdd')
 	
 	$("#nickname").blur(function() {
 		if ($("#nickname").val() == "") {

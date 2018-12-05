@@ -90,7 +90,6 @@ $(function() {
 	// textarea 글자수 제한
 	$('#introduce-modify').keyup(function() {
 		var frm = $('#introduce-modify'); 
-		console.log(frm.val().length);
 		if(frm.val().length > 100){  
 			alert("100자로 제한됩니다.");
 	        frm.val(frm.val().substr(0,100));  
