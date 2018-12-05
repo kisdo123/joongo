@@ -111,7 +111,6 @@ public class MainController {
 		return "redirect:/main.do";	
 	}
 	
-
 	// 로그아웃
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest request) {
@@ -121,16 +120,16 @@ public class MainController {
 	}
 
 	// 회원 정보 수정 폼 요청
-	@RequestMapping("/updateUserForm.do")
+	@RequestMapping("/modifyUserForm.do")
 	public String returnUpdateUserForm() {
-		return "updateUserForm";
+		return "userModify";
 	}
 	
 	// 회원정보 수정
 	@RequestMapping("/updateUser.do")
 	public String returnUpdateUser(@ModelAttribute User user) {
 		userService.updateUser(user);
-		return "updateUserForm";
+		return "myPage";
 	}
 
 	// 검색

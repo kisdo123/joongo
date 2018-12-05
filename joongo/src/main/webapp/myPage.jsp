@@ -12,7 +12,7 @@
 				<!-- 유저 이름 -->
 				<div class="user-info">
 					<span class="user-name">이름(닉네임)</span> <span class="user-modify">
-						<a href="#" class="modify">회원수정</a> <span>/</span> <a href="#"
+						<a href="modifyUserForm.do" class="modify">회원수정</a> <span>/</span> <a href=""
 						class="modify">회원탈퇴</a>
 					</span>
 				</div>

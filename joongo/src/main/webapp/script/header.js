@@ -28,5 +28,15 @@ $(function() {
 			nav.removeClass("header-topfixed");
 		}
 	});
+	
+	
+	
+	$("span:contains('내상점')").click(function(){
+		location.href="myPage.do";
+	})
+	
+	$("span:contains('로그아웃')").click(function(){
+		location.href="logout.do";
+	})
 
 });
