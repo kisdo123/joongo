@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import Favorite.DTO.Favorite;
+import Favorite.service.FavoriteService;
 import Product.DTO.Product;
 import Product.Service.ProductService;
 import User.DTO.User;
@@ -28,6 +30,9 @@ public class MainController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private FavoriteService favoService;
+	
 	@Autowired
 	private ProductService productService;
 
@@ -181,6 +186,23 @@ public class MainController {
 		return "myPage";
 	}
 
+	@RequestMapping("/addFavorite.do")
+	@ResponseBody
+	public String addFavorite(@RequestParam("userNo")int userNo, @RequestParam("proNo") int proNo) {
+		
+		User user = new User();
+		user.setUserNo(userNo);
+		
+		Product product = new Product();
+		product.setProNo(proNo);
+		
+		Favorite favorite= new Favorite(user, product);
+		favoService.addFavorite(favorite);
+		
+		return "";
+	}
+	
+	
 	// 검색
 	@RequestMapping("/search.do")
 	public String getUserList(Model model, @RequestParam("word") String word) {
