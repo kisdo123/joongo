@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/particular/head.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="/joongo/css/myPage.css">
+<link rel="stylesheet" type="text/css" href="/joongo/css/userPage.css">
 <script type="text/javascript" src="/joongo/script/userPage.js"></script>
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <div class="mypage-container">
@@ -15,8 +15,8 @@
 					<span class="user-modify">
 					
 						<c:if test="${pageUser.userNo == loginUser.userNo }">
-							<span id="modifya" class="modify">회원수정</span> <span>/</span>
-							<span id="deletea" class="modify">회원탈퇴</span>
+							<a id="modifya" class="modify">회원수정</a> <span>/</span>
+							<a id="deletea" class="modify">회원탈퇴</a>
 							<form id="modifyForm" action="modifyUserForm.do">
 								<input type="hidden" name="userNo" value="${pageUser.userNo }">
 							</form>

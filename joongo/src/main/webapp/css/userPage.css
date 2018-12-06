@@ -2,6 +2,10 @@
 	background-color: #f8f8f8;
 }
 
+.modify{
+	cursor: pointer;
+}
+
 .first-middle {
 	width: 1200px;
 	margin: 0px auto;
