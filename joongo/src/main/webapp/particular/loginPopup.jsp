@@ -57,7 +57,7 @@
 			});
 		},
 		fail : function(err) {
-			alert(JSON.stringify(err));
+			alert(JSON.stringify	(err));
 		}
 	});
 	//]]>

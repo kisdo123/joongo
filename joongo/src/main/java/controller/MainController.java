@@ -98,8 +98,10 @@ public class MainController {
 		try {
 			User user = userService.loginUser(loginId, password);
 			user.setBdate(user.getBdate().substring(0, 10));
+			
 			request.getSession().setAttribute("loginUser", user);
 			System.out.println("로그인 성공, 유저:" + user.getName());
+			
 		} catch (RuntimeException e) {
 			e.printStackTrace();
 			return null; // 에러페이지 추가하삼
