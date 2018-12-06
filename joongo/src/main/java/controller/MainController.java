@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,13 +30,32 @@ public class MainController {
 
 	@Autowired
 	private FavoriteService favoService;
-	
+
 	@Autowired
 	private ProductService productService;
 
 	// 메인화면으로 보냄
 	@RequestMapping("/main.do")
-	public String goMain() {
+	public String goMain(Model model) {
+		List<Product> products = productService.totalSelect();
+		List<Product> cat5List1 = productService.select5catNo1();
+		List<Product> cat5List2 = productService.select5catNo2();
+		List<Product> cat5List3 = productService.select5catNo3();
+		List<Product> cat5List4 = productService.select5catNo4();
+		List<Product> cat5List5 = productService.select5catNo5();
+		List<Product> cat5List6 = productService.select5catNo6();
+		List<Product> cat5List7 = productService.select5catNo7();
+		List<Product> cat5List8 = productService.select5catNo8();
+
+		model.addAttribute("products", products);
+		model.addAttribute("cat5List1", cat5List1);
+		model.addAttribute("cat5List2", cat5List2);
+		model.addAttribute("cat5List3", cat5List3);
+		model.addAttribute("cat5List4", cat5List4);
+		model.addAttribute("cat5List5", cat5List5);
+		model.addAttribute("cat5List6", cat5List6);
+		model.addAttribute("cat5List7", cat5List7);
+		model.addAttribute("cat5List8", cat5List8);
 		return "main";
 	}
 
@@ -129,7 +146,7 @@ public class MainController {
 			@RequestParam("userNo") int userNo) throws UnsupportedEncodingException {
 		User user = (User) request.getSession().getAttribute("loginUser");
 		int loginUserNo = user.getUserNo();
-		
+
 		userService.updateIntroduce(loginUserNo, userNo, content);
 	}
 
@@ -167,7 +184,7 @@ public class MainController {
 
 		User pageUser = userService.getUserByUserNo(userNo);
 		model.addAttribute("pageUser", pageUser);
-		
+
 		return "userModify";
 	}
 
@@ -187,21 +204,20 @@ public class MainController {
 
 	@RequestMapping("/addFavorite.do")
 	@ResponseBody
-	public String addFavorite(@RequestParam("userNo")int userNo, @RequestParam("proNo") int proNo) {
-		
+	public String addFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
+
 		User user = new User();
 		user.setUserNo(userNo);
-		
+
 		Product product = new Product();
 		product.setProNo(proNo);
-		
-		Favorite favorite= new Favorite(user, product);
+
+		Favorite favorite = new Favorite(user, product);
 		favoService.addFavorite(favorite);
-		
+
 		return "";
 	}
-	
-	
+
 	// 검색
 	@RequestMapping("/search.do")
 	public String getUserList(Model model, @RequestParam("word") String word) {
@@ -242,33 +258,6 @@ public class MainController {
 		model.addAttribute("products", products);
 		return "catList";
 	}
-
-	// 전체 5개 목록보기
-	@RequestMapping("/product5List.do")
-	@ResponseBody
-	public Model Product5List(Model model) {
-		List<Product> products = productService.totalSelect();
-		List<Product> cat5List1 = productService.select5catNo1();
-		List<Product> cat5List2 = productService.select5catNo2();
-		List<Product> cat5List3 = productService.select5catNo3();
-		List<Product> cat5List4 = productService.select5catNo4();
-		List<Product> cat5List5 = productService.select5catNo5();
-		List<Product> cat5List6 = productService.select5catNo6();
-		List<Product> cat5List7 = productService.select5catNo7();
-		List<Product> cat5List8 = productService.select5catNo8();
-		
-		model.addAttribute("products", products);
-		model.addAttribute("cat5List1", cat5List1);
-		model.addAttribute("cat5List2", cat5List2);
-		model.addAttribute("cat5List3", cat5List3);
-		model.addAttribute("cat5List4", cat5List4);
-		model.addAttribute("cat5List5", cat5List5);
-		model.addAttribute("cat5List6", cat5List6);
-		model.addAttribute("cat5List7", cat5List7);
-		model.addAttribute("cat5List8", cat5List8);
-		return model;
-	}
-
 
 	// 글 수정
 	@RequestMapping("/updateProductForm.do")
