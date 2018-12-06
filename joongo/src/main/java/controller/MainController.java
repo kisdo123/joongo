@@ -1,8 +1,9 @@
 package controller;
 
-import java.util.HashMap;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -119,14 +120,13 @@ public class MainController {
 
 	@RequestMapping("/introduceModify.do")
 	@ResponseBody
-	public String introduceModify(HttpServletRequest request, @RequestParam("content") String content,
-			@RequestParam("userNo") int userNo) {
+	public void introduceModify(HttpServletRequest request, @RequestParam("content") String content,
+			@RequestParam("userNo") int userNo) throws UnsupportedEncodingException {
 		User user = (User) request.getSession().getAttribute("loginUser");
 		int loginUserNo = user.getUserNo();
-
+		
+		System.out.println(content);
 		userService.updateIntroduce(loginUserNo, userNo, content);
-
-		return content;
 	}
 
 	@RequestMapping("/userPage.do")
@@ -225,7 +225,7 @@ public class MainController {
 	// 전체 5개 목록보기
 	@RequestMapping("/product5List.do")
 	@ResponseBody
-	public Map<String, List<Product>> Product5List() {
+	public Model Product5List(Model model) {
 		List<Product> products = productService.totalSelect();
 		List<Product> cat5List1 = productService.select5catNo1();
 		List<Product> cat5List2 = productService.select5catNo2();
@@ -236,17 +236,16 @@ public class MainController {
 		List<Product> cat5List7 = productService.select5catNo7();
 		List<Product> cat5List8 = productService.select5catNo8();
 		
-		Map<String, List<Product>> map = new HashMap<>();
-		map.put("products", products);
-		map.put("cat1", cat5List1);
-		map.put("cat2", cat5List2);
-		map.put("cat3", cat5List3);
-		map.put("cat4", cat5List4);
-		map.put("cat5", cat5List5);
-		map.put("cat6", cat5List6);
-		map.put("cat7", cat5List7);
-		map.put("cat8", cat5List8);
-		return map;
+		model.addAttribute("products", products);
+		model.addAttribute("cat5List1", cat5List1);
+		model.addAttribute("cat5List2", cat5List2);
+		model.addAttribute("cat5List3", cat5List3);
+		model.addAttribute("cat5List4", cat5List4);
+		model.addAttribute("cat5List5", cat5List5);
+		model.addAttribute("cat5List6", cat5List6);
+		model.addAttribute("cat5List7", cat5List7);
+		model.addAttribute("cat5List8", cat5List8);
+		return model;
 	}
 
 
