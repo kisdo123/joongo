@@ -157,7 +157,11 @@ public class MainController {
 
 	// 회원 정보 수정 폼 요청
 	@RequestMapping("/modifyUserForm.do")
-	public String UpdateUserForm() {
+	public String UpdateUserForm(Model model, @RequestParam("userNo") int userNo) {
+
+		User pageUser = userService.getUserByUserNo(userNo);
+		model.addAttribute("pageUser", pageUser);
+		
 		return "userModify";
 	}
 

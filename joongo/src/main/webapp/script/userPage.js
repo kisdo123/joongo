@@ -64,6 +64,15 @@ $(function() {
 		}
 	});
 	
+	$("#modifya").click(function(){
+		$("#modifyForm")[0].submit();
+	})
+	
+	$("#deletea").click(function(){
+		$("#deleteUser")[0].submit();
+	})
+	
+	
 	// textarea 글자수 제한
 	$('#introduce-modify').keyup(function() {
 		var frm = $('#introduce-modify'); 

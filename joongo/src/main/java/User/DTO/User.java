@@ -17,13 +17,7 @@ public class User {
 	private String phone;
 	private String addr;
 	private String introduce;
-	public String getIntroduce() {
-		return introduce;
-	}
-
-	public void setIntroduce(String introduce) {
-		this.introduce = introduce;
-	}
+	
 	private String bdate;
 	private String rdate;
 	private Boolean isAdmin;
@@ -79,6 +73,13 @@ public class User {
 		this.email = email;
 	}
 
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
