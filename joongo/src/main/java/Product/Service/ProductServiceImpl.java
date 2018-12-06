@@ -149,6 +149,8 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> select5List() {
 		List<Product> products = productDAO.selectList();
+		
+		List<Product> productscat1 = productDAO.select5catNo1();
 		if (products.isEmpty() || products.equals(null)) {
 			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
 		}
