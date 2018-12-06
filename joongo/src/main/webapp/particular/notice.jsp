@@ -12,7 +12,9 @@
 			<div id="notice-topDiv">
 
 				<div id="notice-header">
-					<h3 id="notice-title">공지사항</h3>
+					<div id="notice-title">
+						<span id="notice-spanTitle">공지사항</span>
+					</div>
 					<p id="notice-title_sub">중고장터의 최근 소식을 신속하게 전달드립니다.</p>
 				</div>
 
