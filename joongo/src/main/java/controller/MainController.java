@@ -60,7 +60,12 @@ public class MainController {
 
 		return "kakaoSignUp";
 	}
-	
+
+	@RequestMapping("/introduceModify.do")
+	public String introduceModify() {
+		return null;
+	}
+
 	// 중복검사 결과를 팝업으로 반환
 	@RequestMapping("/idDuplication.do")
 	@ResponseBody
@@ -101,7 +106,6 @@ public class MainController {
 			
 			request.getSession().setAttribute("loginUser", user);
 			System.out.println("로그인 성공, 유저:" + user.getName());
-			
 		} catch (RuntimeException e) {
 			e.printStackTrace();
 			return null; // 에러페이지 추가하삼
@@ -155,7 +159,7 @@ public class MainController {
 		}
 		return "redirect:/main.do";
 	}
-
+	
 	// 회원 정보 수정 폼 요청
 	@RequestMapping("/modifyUserForm.do")
 	public String UpdateUserForm() {
@@ -235,4 +239,19 @@ public class MainController {
 		return "catList";
 	}
 
+	// 글 수정
+	@RequestMapping("/updateProductForm.do")
+	public String UpdateProductForm() {
+		return "productModify";
+	}
+
+	// 글 수정
+	@RequestMapping("/productModify.do")
+	public String UpdateProduct(HttpServletRequest request, @ModelAttribute Product product) {
+		User loginUser = (User) request.getSession().getAttribute("loginUser");
+		int userNo = loginUser.getUserNo();
+		
+		
+		return "myPage";
+	}
 }
