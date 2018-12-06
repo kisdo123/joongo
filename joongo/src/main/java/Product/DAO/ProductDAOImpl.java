@@ -73,21 +73,11 @@ public class ProductDAOImpl implements ProductDAO{
 		return productMapper.selectImage(proNo);
 	}
 
-<<<<<<< HEAD
 	@Override
 	public List<Image> select5List() {
 		return productMapper.select5List();
 	}
 
-=======
-	//전체글 5개조회
-	@Override
-	public List<Image> select5List() {
-		return productMapper.select5List();
-	}
-
-	//카테고리별 5개조회
->>>>>>> branch 'master' of https://github.com/kisdo123/joongo.git
 	@Override
 	public List<Product> select5catNo(int catNo) {
 		return productMapper.select5catNo(catNo);

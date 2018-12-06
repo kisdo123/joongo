@@ -50,7 +50,7 @@ $(function(){
 		$('html').scrollTop($(document).height());
 	});
 	
-	$('#hello').click(function() {
+	$('#moveScroll').click(function() {
 		var href = $(this).prop('href');
 		var destination = href.substr(href.indexOf('#'))
 		var y = $(destination).offset().top;
