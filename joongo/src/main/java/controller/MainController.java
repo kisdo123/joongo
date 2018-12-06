@@ -119,9 +119,44 @@ public class MainController {
 		return "redirect:/main.do";
 	}
 
-	@RequestMapping("/myPage.do")
-	public String myPage() {
-		return "myPage";
+	@RequestMapping("/introduceModify.do")
+	@ResponseBody
+	public String introduceModify(HttpServletRequest request, @RequestParam("content") String content,
+			@RequestParam("userNo") int userNo) {
+		User user = (User) request.getSession().getAttribute("loginUser");
+		int loginUserNo = user.getUserNo();
+
+		userService.updateIntroduce(loginUserNo, userNo, content);
+
+		return content;
+	}
+
+	@RequestMapping("/userPage.do")
+	public String myPage(Model model, @RequestParam("userNo") int userNo) {
+
+		try {
+			User user = userService.getUserByUserNo(userNo);
+			model.addAttribute("pageUser", user);
+		} catch (UserNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		// 유저페이지의 대상 유저
+		return "userPage";
+	}
+
+	@RequestMapping("/deleteUser.do")
+	public String deleteUser(HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("loginUser");
+		int userNo = user.getUserNo();
+
+		try {
+			userService.deleteUser(userNo);
+			request.getSession().setAttribute("loginUser", null);
+		} catch (UserNotFoundException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/main.do";
 	}
 
 	// 회원 정보 수정 폼 요청
