@@ -130,7 +130,6 @@ public class MainController {
 		User user = (User) request.getSession().getAttribute("loginUser");
 		int loginUserNo = user.getUserNo();
 		
-		System.out.println(content);
 		userService.updateIntroduce(loginUserNo, userNo, content);
 	}
 
