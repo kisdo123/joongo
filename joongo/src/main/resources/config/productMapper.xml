@@ -83,6 +83,11 @@
 		insert into image(proNo, imagePath) values(#{proNo},#{imagePath});
 	</insert>
 	
+	<!-- 본인이 작성한 글보기 -->
+	<select id="selectImage" resultType="Product">
+		select products.proNo, products.title, products.catNo, categories.catName, users.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from users, products, categories where products.userNo = users.userNo and categories.catNo = products.catNo and products.able != 0 order by wdate desc;
+	</select>
+	
 	<!-- 글수정 -->
 	<update id="updateProduct" parameterType="Product">
 		update products set title=#{title}, catNo=#{catNo}, condit=#{condit}, price=#{price}, content=#{content}, tags=#{tags} where proNo = #{proNo} and userNo=#{userNo};
