@@ -34,6 +34,10 @@
 					</tr>
 				</c:forEach>
 			</table>
+			
+			
+			
+			
 			<div class="category">
 				<p class="category-info">
 					<span><input value="의류" readonly class="category-title"></span>

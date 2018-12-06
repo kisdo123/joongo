@@ -150,10 +150,6 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> select5List() {
 		List<Product> products = productDAO.selectList();
 		
-		for(int i=0; i<10; i++) {
-			String prodctscati ="";
-		}
-		
 		List<Product> productscat1 = productDAO.select5catNo1();
 		if (products.isEmpty() || products.equals(null)) {
 			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
