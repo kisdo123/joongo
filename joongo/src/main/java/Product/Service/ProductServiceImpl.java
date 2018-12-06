@@ -277,7 +277,6 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> select5catNo8() {
 		List<Product> productscat8 = productDAO.select5catNo8();
 		if (productscat8.isEmpty() || productscat8.equals(null)) {
-			throw new ProductNotFoundException("카테고리8 목록이 존재하지 않습니다.");
 		}
 
 		for (Product product : productscat8) {

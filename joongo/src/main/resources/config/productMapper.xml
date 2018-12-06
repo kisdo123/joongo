@@ -12,7 +12,7 @@
 	
 	<!--전체 최신순 조회  -->	
 	<select id="selectList" resultType="Product">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories from products, categories where products.catNo = categories.catNo and able != 0 order by wdate desc;
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 order by wdate desc;
 	</select>
 	
 	<!--전체 최신순 5개조회  -->	
