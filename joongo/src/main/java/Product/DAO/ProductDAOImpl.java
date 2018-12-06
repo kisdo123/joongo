@@ -72,4 +72,16 @@ public class ProductDAOImpl implements ProductDAO{
 	public List<Image> selectImage(int proNo) {
 		return productMapper.selectImage(proNo);
 	}
+
+	//전체글 5개조회
+	@Override
+	public List<Image> select5List() {
+		return productMapper.select5List();
+	}
+
+	//카테고리별 5개조회
+	@Override
+	public List<Product> select5catNo(int catNo) {
+		return productMapper.select5catNo(catNo);
+	}
 } 	

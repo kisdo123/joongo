@@ -18,4 +18,6 @@ public interface ProductMapper {
 	int insertImage(Image image);
 	Product selectNewOne();
 	List<Image> selectImage(int proNo);
+	List<Image> select5List ();
+	List<Product> select5catNo(int catNo);
 }

@@ -12,4 +12,6 @@ public interface ProductService {
 	public List<Product> catNoSelect(int catNo);
 	public void update(Product product);
 	public void delete(Product product);
+	public List<Product> select5List();
+	public List<Product> select5catNo(int catNo);
 }

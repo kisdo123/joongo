@@ -7,18 +7,22 @@
 <mapper namespace="Product.DAO.ProductMapper">
 	<!--검색 쿼리-->
 	<select id="selectSearchList" parameterType="string" resultType="Product">
-			select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and concat(products.title,products.tags,products.content) like concat('%',#{word},'%') and (products.able != 0 and products.condit!="판매완료");	
-		</select>
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and concat(products.title,products.tags,products.content) like concat('%',#{word},'%') and (products.able != 0 and products.condit!="판매완료");	
+	</select>
 	
 	<!--전체 최신순 조회  -->	
 	<select id="selectList" resultType="Product">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 order by wdate desc;
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories from products, categories where products.catNo = categories.catNo and able != 0 order by wdate desc;
 	</select>
 	
+	<!--전체 최신순 5개조회  -->	
+	<select id="select5List" resultType="Product">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 order by wdate desc limit 5;
+	</select>
 	
 	<!--한개 조회  -->
 	<select id="selectOne" resultType="Product" parameterType="int">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and proNo = #{proNo} and able != 0;
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and proNo = #{proNo} and able != 0;
 	</select>
 	
 	<!-- 최신글 한개 조회  -->
@@ -28,7 +32,12 @@
 	
 	<!--카테고리 별 최신글 조회-->
 	<select id="selectcatNo" resultType="Product" parameterType="int">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = #{catNo} and able != 0 order by wdate desc;
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = #{catNo} and able != 0 order by wdate desc;
+	</select>
+	
+	<!--카테고리 별 최신글 5개 조회-->
+	<select id="select5catNo" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = #{catNo} and able != 0 order by wdate desc limit 5;
 	</select>
 	
 	<!-- 해당 글의 이미지 조회  -->
@@ -48,7 +57,7 @@
 	
 	<!-- 글수정 -->
 	<update id="updateProduct" parameterType="Product">
-		update products set title=#{title}, catNo=#{catNo}, condit=#{condit}, price=#{price}, content=#{content}, tags=#{tags} where proNo = #{proNo};
+		update products set title=#{title}, catNo=#{catNo}, condit=#{condit}, price=#{price}, content=#{content}, tags=#{tags} where proNo = #{proNo} and userNo=#{userNo};
 	</update>
 	
 	<!--글삭제 -->

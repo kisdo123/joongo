@@ -145,4 +145,36 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
+	//최신글 5개 조회
+	@Override
+	public List<Product> select5List() {
+		List<Product> products = productDAO.selectList();
+		if (products.isEmpty() || products.equals(null)) {
+			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
+		}
+
+		for (Product product : products) {
+			int proNo = product.getProNo();
+			List<Image> images = productDAO.selectImage(proNo);
+			product.setImage(images);
+		}
+		return products;
+	}
+
+	//카테고리별 최신글 5개조회
+	@Override
+	public List<Product> select5catNo(int catNo) {
+		List<Product> products = productDAO.selectcatNo(catNo);
+		if (products.isEmpty() || products.equals(null)) {
+			throw new ProductNotFoundException("카테고리 목록이 존재하지 않습니다.");
+		}
+		
+		for (Product product : products) {
+			int proNo = product.getProNo();
+			List<Image> images = productDAO.selectImage(proNo);
+			product.setImage(images);
+		}
+		return products;
+	}
+
 }
