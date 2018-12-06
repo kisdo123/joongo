@@ -60,12 +60,7 @@ public class MainController {
 
 		return "kakaoSignUp";
 	}
-
-	@RequestMapping("/introduceModify.do")
-	public String introduceModify() {
-		return null;
-	}
-
+	
 	// 중복검사 결과를 팝업으로 반환
 	@RequestMapping("/idDuplication.do")
 	@ResponseBody
