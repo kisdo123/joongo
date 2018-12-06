@@ -34,7 +34,8 @@ $(function() {
 			$("#addr").css("border-color", "gray");
 		}
 	});
-
+	
+	
 });
 
 function check() {
@@ -114,5 +115,8 @@ function phoneDuplicate() {
 			}
 		}
 	});
+
 }
+
+
 
