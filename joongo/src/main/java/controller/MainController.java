@@ -1,5 +1,8 @@
 package controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -117,14 +120,13 @@ public class MainController {
 
 	@RequestMapping("/introduceModify.do")
 	@ResponseBody
-	public String introduceModify(HttpServletRequest request, @RequestParam("content") String content,
-			@RequestParam("userNo") int userNo) {
+	public void introduceModify(HttpServletRequest request, @RequestParam("content") String content,
+			@RequestParam("userNo") int userNo) throws UnsupportedEncodingException {
 		User user = (User) request.getSession().getAttribute("loginUser");
 		int loginUserNo = user.getUserNo();
-
+		
+		System.out.println(content);
 		userService.updateIntroduce(loginUserNo, userNo, content);
-
-		return content;
 	}
 
 	@RequestMapping("/userPage.do")

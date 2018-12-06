@@ -95,14 +95,14 @@ function introduceChange(userNo) {
 			"content":content,
 			"userNo":userNo
 		},
-		dataType: 'string',
-		success: function(data) {
+		dataType: 'text',
+		success: function() {
 			$('#introduce-content').css('display', 'block');
 			$('#update').css('display', 'block');
 			$('#introduce-modify').css('display', 'none');
 			$('#register').css('display', 'none');
 			
-			$('#introduce-content').val(data);
+			$('#introduce-content').text(content);
 		},
 		error: function(error) {
 			console.log(error);
