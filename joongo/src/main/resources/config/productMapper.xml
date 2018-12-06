@@ -35,9 +35,37 @@
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = #{catNo} and able != 0 order by wdate desc;
 	</select>
 	
-	<!--카테고리 별 최신글 5개 조회-->
-	<select id="select5catNo" resultType="Product" parameterType="int">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = #{catNo} and able != 0 order by wdate desc limit 5;
+	<!--카테고리 1 최신글 5개 조회-->
+	<select id="select5catNo1" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 1 and able != 0 order by wdate desc limit 5;
+	</select>
+	<!--카테고리 2 최신글 5개 조회-->
+	<select id="select5catNo2" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 2 and able != 0 order by wdate desc limit 5;
+	</select>
+	<!--카테고리 3 최신글 5개 조회-->
+	<select id="select5catNo3" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 3 and able != 0 order by wdate desc limit 5;
+	</select>
+	<!--카테고리 4 최신글 5개 조회-->
+	<select id="select5catNo4" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 4 and able != 0 order by wdate desc limit 5;
+	</select>
+	<!--카테고리 5 최신글 5개 조회-->
+	<select id="select5catNo5" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 5 and able != 0 order by wdate desc limit 5;
+	</select>
+	<!--카테고리 6 최신글 5개 조회-->
+	<select id="select5catNo6" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 6 and able != 0 order by wdate desc limit 5;
+	</select>
+	<!--카테고리 7 최신글 5개 조회-->
+	<select id="select5catNo7" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 7 and able != 0 order by wdate desc limit 5;
+	</select>
+	<!--카테고리 8 최신글 5개 조회-->
+	<select id="select5catNo8" resultType="Product" parameterType="int">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 8 and able != 0 order by wdate desc limit 5;
 	</select>
 	
 	<!-- 해당 글의 이미지 조회  -->

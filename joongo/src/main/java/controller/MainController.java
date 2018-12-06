@@ -98,7 +98,7 @@ public class MainController {
 		try {
 			User user = userService.loginUser(loginId, password);
 			user.setBdate(user.getBdate().substring(0, 10));
-			
+
 			request.getSession().setAttribute("loginUser", user);
 			System.out.println("로그인 성공, 유저:" + user.getName());
 		} catch (RuntimeException e) {
@@ -154,7 +154,7 @@ public class MainController {
 		}
 		return "redirect:/main.do";
 	}
-	
+
 	// 회원 정보 수정 폼 요청
 	@RequestMapping("/modifyUserForm.do")
 	public String UpdateUserForm() {
@@ -219,19 +219,73 @@ public class MainController {
 	// 전체 5개 목록보기
 	@RequestMapping("/product5List.do")
 	@ResponseBody
-	public String Product5List(Model model) {
+	public List<Product> Product5List() {
 		List<Product> products = productService.totalSelect();
-		model.addAttribute("products", products);
-		return "productList";
+		return products;
 	}
 
-	// 카테고리별 5개 목록보기
-	@RequestMapping("/cat5List.do")
+	// 카테고리1 5개 목록보기
+	@RequestMapping("/cat5List1.do")
 	@ResponseBody
-	public String cat5List(Model model, @RequestParam int catNo) {
-		List<Product> products = productService.catNoSelect(catNo);
-		model.addAttribute("products", products);
-		return "catList";
+	public List<Product> cat5List1() {
+		List<Product> cat5List1 = productService.select5catNo1();
+		return cat5List1;
+	}
+
+	// 카테고리2 5개 목록보기
+	@RequestMapping("/cat5List2.do")
+	@ResponseBody
+	public List<Product> cat5List2() {
+		List<Product> cat5List2 = productService.select5catNo2();
+		return cat5List2;
+	}
+
+	// 카테고리3 5개 목록보기
+	@RequestMapping("/cat5List3.do")
+	@ResponseBody
+	public List<Product> cat5List3() {
+		List<Product> cat5List3 = productService.select5catNo3();
+		return cat5List3;
+	}
+
+	// 카테고리4 5개 목록보기
+	@RequestMapping("/cat5List4.do")
+	@ResponseBody
+	public List<Product> cat5List4() {
+		List<Product> cat5List4 = productService.select5catNo4();
+		return cat5List4;
+	}
+
+	// 카테고리5 5개 목록보기
+	@RequestMapping("/cat5List5.do")
+	@ResponseBody
+	public List<Product> cat5List5() {
+		List<Product> cat5List5 = productService.select5catNo5();
+		return cat5List5;
+	}
+
+	// 카테고리6 5개 목록보기
+	@RequestMapping("/cat5List6.do")
+	@ResponseBody
+	public List<Product> cat5List6() {
+		List<Product> cat5List6 = productService.select5catNo6();
+		return cat5List6;
+	}
+
+	// 카테고리7 5개 목록보기
+	@RequestMapping("/cat5List7.do")
+	@ResponseBody
+	public List<Product> cat5List7() {
+		List<Product> cat5List7 = productService.select5catNo7();
+		return cat5List7;
+	}
+
+	// 카테고리8 5개 목록보기
+	@RequestMapping("/cat5List8.do")
+	@ResponseBody
+	public List<Product> cat5List8() {
+		List<Product> cat5List8 = productService.select5catNo8();
+		return cat5List8;
 	}
 
 	// 글 수정
@@ -245,8 +299,7 @@ public class MainController {
 	public String UpdateProduct(HttpServletRequest request, @ModelAttribute Product product) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
-		
-		
+
 		return "myPage";
 	}
 }

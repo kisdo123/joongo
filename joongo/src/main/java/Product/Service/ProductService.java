@@ -13,5 +13,12 @@ public interface ProductService {
 	public void update(Product product);
 	public void delete(Product product);
 	public List<Product> select5List();
-	public List<Product> select5catNo(int catNo);
+	public List<Product> select5catNo1();
+	public List<Product> select5catNo2();
+	public List<Product> select5catNo3();
+	public List<Product> select5catNo4();
+	public List<Product> select5catNo5();
+	public List<Product> select5catNo6();
+	public List<Product> select5catNo7();
+	public List<Product> select5catNo8();
 }
