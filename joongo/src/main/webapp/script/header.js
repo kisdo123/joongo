@@ -15,7 +15,7 @@ $(function() {
 	 * $('#header-navbar').removeClass('header-topfixed'); } });
 	 */
 
-	var nav = $("#header-body");
+	/*var nav = $("#header-body");
 	var navTop = 1; // 숫자 지정
 
 	$(window).scroll(function() {
@@ -27,7 +27,7 @@ $(function() {
 		else if (windowTop <= navTop) {
 			nav.removeClass("header-topfixed");
 		}
-	});
+	});*/
 	
 	
 	
