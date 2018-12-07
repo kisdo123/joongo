@@ -37,13 +37,4 @@ public class FavoriteServiceImpl implements FavoriteService {
 		}
 	}
 
-	@Override
-	public Favorite getFavorite(int favoNo) {
-		Favorite favorite = favoDAO.selectFavorite(favoNo);
-		if( favorite == null) {
-			throw new FavoriteNotFoundException("해당 장바구니를 찾을 수 없음");
-		}
-		return null;
-	}
-
 }
