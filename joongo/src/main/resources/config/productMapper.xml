@@ -84,7 +84,7 @@
 	</insert>
 	
 	<!-- 본인이 작성한 글보기 -->
-	<select id="selectImage" resultType="Product">
+	<select id="selectUser1123223" resultType="Product">
 		select products.proNo, products.title, products.catNo, categories.catName, users.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from users, products, categories where products.userNo = users.userNo and categories.catNo = products.catNo and products.able != 0 order by wdate desc;
 	</select>
 	
