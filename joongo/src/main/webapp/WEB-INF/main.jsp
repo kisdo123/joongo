@@ -21,7 +21,7 @@
 						<div class="product">
 						<div class="product-img-container">
 							<a href="productInfo.do?proNo=${product.proNo }">
-								<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+								<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 								<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 							</a>
 						</div>
@@ -73,7 +73,7 @@
 			<!-- category 별로 for문 -->
 			<div class="category" id="clothes">
 				<p class="category-info">
-					<span class="category-title">의류</span> <span class="all-view">전체보기</span>
+					<span class="category-title">의류</span> <span class="all-view"><a href="productList.do?catNo=1">전체보기</a></span>
 				</p>
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
@@ -82,7 +82,7 @@
 						<div class="product">
 							<div class="product-img-container">
 								<a href="productInfo.do?proNo=${product.proNo }">
-									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 									<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 								</a>
 							</div>
@@ -105,7 +105,7 @@
 			</div>
 			<div class="category" id="appliances">
 				<p class="category-info">
-					<span class="category-title">가전제품</span> <span class="all-view">전체보기</span>
+					<span class="category-title">가전제품</span> <span class="all-view"><a href="productList.do?catNo=2">전체보기</a></span>
 				</p>
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
@@ -114,7 +114,7 @@
 						<div class="product">
 							<div class="product-img-container">
 								<a href="productInfo.do?proNo=${product.proNo }">
-									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 									<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 								</a>
 							</div>
@@ -137,7 +137,7 @@
 			</div>
 			<div class="category" id="cosmetics">
 				<p class="category-info">
-					<span class="category-title">화장품</span> <span class="all-view">전체보기</span>
+					<span class="category-title">화장품</span> <span class="all-view"><a href="productList.do?catNo=3">전체보기</a></span>
 				</p>
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
@@ -146,7 +146,7 @@
 						<div class="product">
 							<div class="product-img-container">
 								<a href="productInfo.do?proNo=${product.proNo }">
-									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 									<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 								</a>
 							</div>
@@ -169,7 +169,7 @@
 			</div>
 			<div class="category" id="instrument">
 				<p class="category-info">
-					<span class="category-title">악기음향기기</span> <span class="all-view">전체보기</span>
+					<span class="category-title">악기음향기기</span> <span class="all-view"><a href="productList.do?catNo=4">전체보기</a></span>
 				</p>
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
@@ -178,7 +178,7 @@
 						<div class="product">
 							<div class="product-img-container">
 								<a href="productInfo.do?proNo=${product.proNo }">
-									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 									<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 								</a>
 							</div>
@@ -201,7 +201,7 @@
 			</div>
 			<div class="category" id="books">
 				<p class="category-info">
-					<span class="category-title">도서</span> <span class="all-view">전체보기</span>
+					<span class="category-title">도서</span> <span class="all-view"><a href="productList.do?catNo=5">전체보기</a></span>
 				</p>
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
@@ -210,7 +210,7 @@
 						<div class="product">
 							<div class="product-img-container">
 								<a href="productInfo.do?proNo=${product.proNo }">
-									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 									<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 								</a>
 							</div>
@@ -233,7 +233,7 @@
 			</div>
 			<div class="category" id="household">
 				<p class="category-info">
-					<span class="category-title">생활용품</span> <span class="all-view">전체보기</span>
+					<span class="category-title">생활용품</span> <span class="all-view"><a href="productList.do?catNo=6">전체보기</a></span>
 				</p>
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
@@ -242,7 +242,7 @@
 						<div class="product">
 							<div class="product-img-container">
 								<a href="productInfo.do?proNo=${product.proNo }">
-									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 									<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 								</a>
 							</div>
@@ -265,7 +265,7 @@
 			</div>
 			<div class="category" id="sports">
 				<p class="category-info">
-					<span class="category-title">스포츠</span> <span class="all-view">전체보기</span>
+					<span class="category-title">스포츠</span> <span class="all-view"><a href="productList.do?catNo=7">전체보기</a></span>
 				</p>
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
@@ -274,7 +274,7 @@
 						<div class="product">
 							<div class="product-img-container">
 								<a href="productInfo.do?proNo=${product.proNo }">
-									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 									<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 								</a>
 							</div>
@@ -297,7 +297,7 @@
 			</div>
 			<div class="category" id="foods">
 				<p class="category-info">
-					<span class="category-title">식품</span> <span class="all-view">전체보기</span>
+					<span class="category-title">식품</span> <span class="all-view"><a href="productList.do?catNo=8">전체보기</a></span>
 				</p>
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
@@ -306,7 +306,7 @@
 						<div class="product">
 							<div class="product-img-container">
 								<a href="productInfo.do?proNo=${product.proNo }">
-									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 									<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 								</a>
 							</div>
@@ -329,7 +329,7 @@
 			</div>
 			<div class="category" id="etc">
 				<p class="category-info">
-					<span class="category-title">기타</span> <span class="all-view">전체보기</span>
+					<span class="category-title">기타</span> <span class="all-view"><a href="productList.do?catNo=9">전체보기</a></span>
 				</p>
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
@@ -338,7 +338,7 @@
 						<div class="product">
 							<div class="product-img-container">
 								<a href="productInfo.do?proNo=${product.proNo }">
-									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/noImage.jpg" class="product-img"></c:if>
+									<c:if test="${product.image.isEmpty() }"><img src="/joongo/image/no-image.jpg" class="product-img"></c:if>
 									<c:if test="${!product.image.isEmpty() }"><img src="${product.image.get(0).imagePath }" class="product-img"></c:if>
 								</a>
 							</div>
