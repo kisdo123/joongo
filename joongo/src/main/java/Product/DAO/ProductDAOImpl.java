@@ -145,4 +145,9 @@ public class ProductDAOImpl implements ProductDAO {
 		return productMapper.updateProductSelect(userNo, proNo);
 	}
 
+	@Override
+	public int deleteImage(int imgNo) {
+		return productMapper.deleteImage(imgNo);
+	}
+
 }

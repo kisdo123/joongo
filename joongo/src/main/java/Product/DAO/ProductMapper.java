@@ -30,4 +30,5 @@ public interface ProductMapper {
 	List<Product> select5catNo9();
 	List<Product> selectProductbyUser(int userNo);
 	Product updateProductSelect(int userNo, int proNo);
+	int deleteImage(int imgNo);
 }
