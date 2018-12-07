@@ -77,14 +77,14 @@
 		select  * from image where proNo = #{proNo};
 	</select>
 	
-	<!--글 등록 -->
-	<insert id="insertProduct" parameterType="Product">
-		insert into products(title, catNo, userNo, nickname, price, content, tags) values(#{title},#{catNo},#{userNo},#{nickname},#{price},#{content},#{tags});
-	</insert>
-	
 	<!-- 이미지등록 -->
 	<insert id="insertImage" parameterType="Image">
 		insert into image(proNo, imagePath) values(#{proNo},#{imagePath});
+	</insert>
+	
+	<!--글 등록 -->
+	<insert id="insertProduct" parameterType="Product">
+		insert into products(title, catNo, userNo, nickname, price, content, tags) values(#{title},#{catNo},#{userNo},#{nickname},#{price},#{content},#{tags});
 	</insert>
 	
 	<!-- 상점보기 -->
@@ -101,6 +101,12 @@
 	<update id="deleteProduct" parameterType="Product" >
 		update products set able=0 where proNo = #{proNo};
 	</update>
+	
+	<!--수정을 위한 글조회 -->
+	<select id="updateProductSelect" resultType="Product" parameterType="int">
+		select * from products where proNo = #{proNo} and userNo = #{userNo};
+	</select>
+	
 </mapper>
 
 

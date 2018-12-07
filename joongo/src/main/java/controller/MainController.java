@@ -58,7 +58,7 @@ public class MainController {
 		model.addAttribute("cat5List7", cat5List7);
 		model.addAttribute("cat5List8", cat5List8);
 		model.addAttribute("cat5List9", cat5List9);
-		
+
 		return "main";
 	}
 
@@ -262,18 +262,36 @@ public class MainController {
 		return "catList";
 	}
 
-	// 글 수정
-	@RequestMapping("/updateProductForm.do")
-	public String UpdateProductForm() {
+	// 상점 목록보기
+	@RequestMapping("/shopList.do")
+	@ResponseBody
+	public String selectShop(Model model, @RequestParam int userNo) {
+		List<Product> products = productService.selectShop(userNo);
+		model.addAttribute("products", products);
+		return "shopList";
+	}
+
+	// 글 수정화면에 기본값 입력
+	@RequestMapping("/productModifyForm.do")
+	public String UpdateProduct(HttpServletRequest request, Model model, @RequestParam int catNo) {
+		User loginUser = (User) request.getSession().getAttribute("loginUser");
+		int userNo = loginUser.getUserNo();
+		if (loginUser.equals(null) || loginUser.equals("")) {
+			throw new UserNotFoundException("로그인 되지않았습니다.");
+		}
+		Product product = productService.updateSelect(userNo, catNo);
+		model.addAttribute("product", product);
 		return "productModify";
 	}
 
-	// 글 수정
+	// 글수정
 	@RequestMapping("/productModify.do")
-	public String UpdateProduct(HttpServletRequest request, @ModelAttribute Product product) {
+	public String UpdateProduct(Model model, HttpServletRequest request, @ModelAttribute Product product) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
-
+		product.setUserNo(userNo);
+		productService.update(product);
 		return "myPage";
 	}
+
 }
