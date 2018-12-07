@@ -12,6 +12,10 @@
 		select * from favorite
 	</select>
 
+	<select id="selectFavorite" resultType="Favorite" parameterType="int">
+		select * from favorite where proNo=#{proNo} and userNo=#{userNo}
+	</select>
+
 	<delete id="deleteFavorite" parameterType="int">
 		delete from favorite where favoNo = #{favoNo}
 	</delete>
