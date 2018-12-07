@@ -288,4 +288,19 @@ public class ProductServiceImpl implements ProductService {
 		return productscat8;
 	}
 
+	// 카테고리9 최신글 5개조회
+	@Override
+	public List<Product> select5catNo9() {
+		List<Product> productscat9 = productDAO.select5catNo9();
+		if (productscat9.isEmpty() || productscat9.equals(null)) {
+		}
+
+		for (Product product : productscat9) {
+			int proNo = product.getProNo();
+			List<Image> images = productDAO.selectImage(proNo);
+			product.setImage(images);
+		}
+		return productscat9;
+	}
+
 }

@@ -127,4 +127,10 @@ public class ProductDAOImpl implements ProductDAO {
 		return productMapper.select5catNo8();
 	}
 
+	// 카테고리 9조회
+	@Override
+	public List<Product> select5catNo9() {
+		return productMapper.select5catNo9();
+	}
+
 }

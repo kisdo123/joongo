@@ -46,6 +46,7 @@ public class MainController {
 		List<Product> cat5List6 = productService.select5catNo6();
 		List<Product> cat5List7 = productService.select5catNo7();
 		List<Product> cat5List8 = productService.select5catNo8();
+		List<Product> cat5List9 = productService.select5catNo9();
 
 		model.addAttribute("products", products);
 		model.addAttribute("cat5List1", cat5List1);
@@ -56,6 +57,8 @@ public class MainController {
 		model.addAttribute("cat5List6", cat5List6);
 		model.addAttribute("cat5List7", cat5List7);
 		model.addAttribute("cat5List8", cat5List8);
+		model.addAttribute("cat5List9", cat5List9);
+		
 		return "main";
 	}
 
