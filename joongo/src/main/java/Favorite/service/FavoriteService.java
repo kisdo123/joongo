@@ -8,6 +8,5 @@ public interface FavoriteService {
 	void addFavorite(Favorite favorite);
 	void deleteFavorite(int favoNo);
 	List<Favorite> favoriteList();
-	Favorite getFavorite(int favoNo);
 	
 }

@@ -30,10 +30,5 @@ public class FavoriteDAOImpl implements FavoriteDAO {
 		return favoMapper.deleteFavorite(favoNo);
 	}
 
-	@Override
-	public Favorite selectFavorite(int favoNo) {
-		
-		return favoMapper.selectFavorite(favoNo);
-	}
 
 }

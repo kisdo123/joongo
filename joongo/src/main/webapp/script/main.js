@@ -1,5 +1,20 @@
 $(function(){
 	
+	// tag #추가
+	$('.product-tag').each(function() {
+		var tag = $(this).text();
+		var ctag = ''; 
+		
+		if(tag != '태그없음') {
+			let stag = tag.split(',');
+			for(let i=0; i<stag.length; i++) {
+				ctag += '#' + stag[i] + ' ';
+			}
+			
+			$(this).text(ctag);
+		}
+	})
+	
 	// 마지막 line 클래스 없애기
 	$('.line').last().remove();
 	
@@ -27,9 +42,9 @@ $(function(){
 	})
 	
 	// 카테고리 버튼 padding 조정
-	$('#moveScroll').each(function() {
-		let aTag = $(this).find('a').text();
-		let len = aTag.length;
+	$('.category-button').each(function() {
+		let aTag = $(this).find('a');
+		let len = aTag.text().length;
 		
 		if(len == 2) {
 			$(aTag).css('padding', '12px 40px');
@@ -50,10 +65,12 @@ $(function(){
 		$('html').scrollTop($(document).height());
 	});
 	
-	$('#moveScroll').click(function() {
+	// 스크롤 애니메이션
+	$('.moveScroll').click(function() {
 		var href = $(this).prop('href');
 		var destination = href.substr(href.indexOf('#'))
 		var y = $(destination).offset().top;
+//		if()
 		
 		$("html,body").animate({
 			scrollTop: y
