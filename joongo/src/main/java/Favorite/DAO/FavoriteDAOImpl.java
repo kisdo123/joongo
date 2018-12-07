@@ -12,8 +12,6 @@ public class FavoriteDAOImpl implements FavoriteDAO {
 
 	@Autowired
 	FavoriteMapper favoMapper;
-	
-
 
 	@Override
 	public List<Favorite> selectFavoriteList() {
@@ -28,6 +26,11 @@ public class FavoriteDAOImpl implements FavoriteDAO {
 	@Override
 	public int deleteFavorite(int favoNo) {
 		return favoMapper.deleteFavorite(favoNo);
+	}
+
+	@Override
+	public Favorite selectFavorite(int userNo, int proNo) {
+		return favoMapper.selectFavorite(userNo, proNo);
 	}
 
 

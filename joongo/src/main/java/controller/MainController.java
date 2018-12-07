@@ -220,6 +220,12 @@ public class MainController {
 
 		return "";
 	}
+	
+	@RequestMapping("/deleteFavorite.do")
+	@ResponseBody
+	public void deleteFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
+		favoService.deleteFavorite(userNo, proNo);
+	}
 
 	// 검색
 	@RequestMapping("/search.do")

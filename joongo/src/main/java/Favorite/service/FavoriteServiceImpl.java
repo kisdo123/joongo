@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Favorite.DAO.FavoriteDAO;
 import Favorite.DTO.Favorite;
+import exception.BadLoginIdException;
 import exception.FavoriteNotFoundException;
 
 @Service("favoService")
@@ -30,11 +31,22 @@ public class FavoriteServiceImpl implements FavoriteService {
 	}
 
 	@Override
-	public void deleteFavorite(int favoNo) {
-		int res = favoDAO.deleteFavorite(favoNo);
+	public void deleteFavorite(int userNo, int proNo) {
+		
+		if(userNo == 0) {
+			throw new BadLoginIdException("loginId 값이 올바르지 않음");
+		}
+		
+		Favorite favorite = favoDAO.selectFavorite(userNo, proNo);
+		if(favorite == null) {
+			throw new FavoriteNotFoundException("해당 장바구니 항목을 찾을 수 없음");
+		}
+		
+		int res = favoDAO.deleteFavorite(favorite.getFavoNo());
 		if(res == 0) {
-			throw new FavoriteNotFoundException("해당 장바구니를 찾을 수 없음");
+			throw new FavoriteNotFoundException("삭제 실패");
 		}
 	}
+
 
 }

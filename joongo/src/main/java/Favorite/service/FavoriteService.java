@@ -6,7 +6,6 @@ import Favorite.DTO.Favorite;
 
 public interface FavoriteService {
 	void addFavorite(Favorite favorite);
-	void deleteFavorite(int favoNo);
+	void deleteFavorite(int userNo, int proNo);
 	List<Favorite> favoriteList();
-	
 }
