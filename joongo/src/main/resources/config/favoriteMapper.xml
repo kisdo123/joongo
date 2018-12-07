@@ -8,8 +8,12 @@
 		insert into favorite(userNo, proNo) values(#{userNo}, #{proNo})
 	</insert>
 	
-	<select id="selectFavoriteList" resultType="User">
+	<select id="selectFavoriteList" resultType="Favorite">
 		select * from favorite
+	</select>
+	
+	<select id="selectFavorite" resultType="Favorite" parameterType="int">
+		select * from favorite where favoNo = #{favoNo}
 	</select>
 
 	<delete id="deleteFavorite" parameterType="int">
