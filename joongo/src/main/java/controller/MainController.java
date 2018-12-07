@@ -37,7 +37,7 @@ public class MainController {
 	// 메인화면으로 보냄
 	@RequestMapping("/main.do")
 	public String goMain(Model model) {
-		List<Product> products = productService.totalSelect();
+		List<Product> products = productService.select5List();
 		List<Product> cat5List1 = productService.select5catNo1();
 		List<Product> cat5List2 = productService.select5catNo2();
 		List<Product> cat5List3 = productService.select5catNo3();
@@ -223,7 +223,7 @@ public class MainController {
 	public String getUserList(Model model, @RequestParam("word") String word) {
 		List<Product> products = productService.searching(word);
 		model.addAttribute("products", products);
-		return "search";
+		return "productList";
 	}
 
 	// 글쓰기

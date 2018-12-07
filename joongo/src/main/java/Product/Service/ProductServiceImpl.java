@@ -148,18 +148,17 @@ public class ProductServiceImpl implements ProductService {
 	// 최신글 5개 조회
 	@Override
 	public List<Product> select5List() {
-		List<Product> products = productDAO.selectList();
-		
-		List<Product> productscat1 = productDAO.select5catNo1();
-		if (products.isEmpty() || products.equals(null)) {
-			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
+		List<Product> select5List = productDAO.select5List();
+		if (select5List.isEmpty() || select5List.equals(null)) {
+			throw new ProductNotFoundException("카테고리1 목록이 존재하지 않습니다.");
 		}
-		for (Product product : products) {
+
+		for (Product product : select5List) {
 			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 		}
-		return products;
+		return select5List;
 	}
 
 	// 카테고리1 최신글 5개조회
