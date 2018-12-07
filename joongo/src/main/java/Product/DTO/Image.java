@@ -4,12 +4,12 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("Image")
 public class Image {
-	private int imgeNo;
+	private int imgNo;
 	private int proNo;
 	private String imagePath;
 
-	public Image(int imgeNo, int proNo, String imagePath) {
-		this.imgeNo = imgeNo;
+	public Image(int imgNo, int proNo, String imagePath) {
+		this.imgNo = imgNo;
 		this.proNo = proNo;
 		this.imagePath = imagePath;
 	}
@@ -22,12 +22,12 @@ public class Image {
 	public Image() {
 	}
 
-	public int getImgeNo() {
-		return imgeNo;
+	public int getImgNo() {
+		return imgNo;
 	}
 
-	public void setImgeNo(int imgeNo) {
-		this.imgeNo = imgeNo;
+	public void setImgNo(int imgNo) {
+		this.imgNo = imgNo;
 	}
 
 	public int getProNo() {

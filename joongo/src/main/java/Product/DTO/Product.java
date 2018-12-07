@@ -43,10 +43,21 @@ public class Product {
 		this.able = able;
 	}
 	
+	public Product(String title, int catNo, int userNo, String nickname, String condit,
+			String price, String content, String tags) {
+		this.title = title;
+		this.catNo = catNo;
+		this.userNo = userNo;
+		this.nickname = nickname;
+		this.condit = condit;
+		this.price = price;
+		this.content = content;
+		this.tags = tags;
+	}
 	
-
 	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit,
-			String price, String content, String tags, Boolean able) {
+			String price, String content, String tags, LocalDateTime wdate, Boolean able, List<Image> image) {
+		super();
 		this.proNo = proNo;
 		this.title = title;
 		this.catNo = catNo;
@@ -57,7 +68,9 @@ public class Product {
 		this.price = price;
 		this.content = content;
 		this.tags = tags;
+		this.wdate = wdate;
 		this.able = able;
+		this.image = image;
 	}
 
 

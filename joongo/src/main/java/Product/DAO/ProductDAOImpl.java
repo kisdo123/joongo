@@ -139,4 +139,10 @@ public class ProductDAOImpl implements ProductDAO {
 		return productMapper.selectProductbyUser(userNo);
 	}
 
+	//수정을 위한 select
+	@Override
+	public Product updateProductSelect(int userNo, int proNo) {
+		return productMapper.updateProductSelect(userNo, proNo);
+	}
+
 }

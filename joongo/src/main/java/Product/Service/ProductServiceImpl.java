@@ -127,24 +127,6 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
-	// 글 수정
-	@Override
-	public void update(Product product) {
-		int res = productDAO.updateProduct(product);
-		if (res == 0) {
-			throw new ProductNotFoundException("수정 실패");
-		}
-	}
-
-	// 글 삭제
-	@Override
-	public void delete(Product product) {
-		int res = productDAO.deleteProduct(product);
-		if (res == 0) {
-			throw new ProductNotFoundException("삭제 실패");
-		}
-	}
-
 	// 최신글 5개 조회
 	@Override
 	public List<Product> select5List() {
@@ -305,7 +287,7 @@ public class ProductServiceImpl implements ProductService {
 		return productscat9;
 	}
 
-	//상점보기
+	// 상점보기
 	@Override
 	public List<Product> selectShop(int userNo) {
 		List<Product> products = productDAO.selectProductbyUser(userNo);
@@ -319,6 +301,72 @@ public class ProductServiceImpl implements ProductService {
 		}
 
 		return products;
+	}
+
+	// 글 수정
+	@Override
+	public void update(Product product) {
+		int res = productDAO.updateProduct(product);
+		if (res == 0) {
+			throw new ProductNotFoundException("수정 실패");
+		}
+		// 최신글 한개 조회해서 게시글의 번호 가져옴
+		int proNo = product.getProNo();
+		List<Image> images = productDAO.selectImage(proNo);
+		for (Image image : images) {
+		}
+
+		// Image 저장경로를 얻기위한 String값 처리
+		int extension = 0;
+		String imagePath = "";
+		String contentimg = product.getContent();
+
+		for (int i = 0; i < 10; i++) {
+			if (contentimg.contains("<img")) {
+				int idx = contentimg.indexOf("src=");
+
+				// 확장자명 분류
+				if (contentimg.contains(".jpg") || contentimg.contains(".png") || contentimg.contains(".gif")
+						|| contentimg.contains(".bmp")) {
+					extension = contentimg.indexOf(".");
+					imagePath = contentimg.substring(idx + 5, extension + 4);
+					contentimg = contentimg.substring(extension + 4);
+					contentimg = contentimg.substring(contentimg.indexOf(">"));
+
+				} else {
+					throw new ProductNotFoundException("사용할 수 없는 확장자명 입니다.");
+				}
+
+			} else {
+				break;
+			}
+			Image image = new Image(proNo, imagePath);
+
+			// imagePath insert
+			productDAO.insertImage(image);
+		}
+	}
+
+	// 글 삭제
+	@Override
+	public void delete(Product product) {
+		int res = productDAO.deleteProduct(product);
+		if (res == 0) {
+			throw new ProductNotFoundException("삭제 실패");
+		}
+	}
+
+	// 수정을위한 select
+	@Override
+	public Product updateSelect(int userNo, int proNo) {
+		Product product = productDAO.updateProductSelect(userNo, proNo);
+		if (product.equals("") || product.equals(null)) {
+			throw new ProductNotFoundException("조회실패");
+		}
+		List<Image> images = productDAO.selectImage(proNo);
+		product.setImage(images);
+
+		return product;
 	}
 
 }
