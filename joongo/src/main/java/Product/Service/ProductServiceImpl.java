@@ -278,6 +278,7 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> select5catNo8() {
 		List<Product> productscat8 = productDAO.select5catNo8();
 		if (productscat8.isEmpty() || productscat8.equals(null)) {
+			throw new ProductNotFoundException("카테고리8 목록이 존재하지 않습니다.");
 		}
 
 		for (Product product : productscat8) {
@@ -293,6 +294,7 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> select5catNo9() {
 		List<Product> productscat9 = productDAO.select5catNo9();
 		if (productscat9.isEmpty() || productscat9.equals(null)) {
+			throw new ProductNotFoundException("카테고리9 목록이 존재하지 않습니다.");
 		}
 
 		for (Product product : productscat9) {
@@ -301,6 +303,22 @@ public class ProductServiceImpl implements ProductService {
 			product.setImage(images);
 		}
 		return productscat9;
+	}
+
+	//상점보기
+	@Override
+	public List<Product> selectShop(int userNo) {
+		List<Product> products = productDAO.selectProductbyUser(userNo);
+		if (products.isEmpty() || products.equals(null)) {
+			throw new ProductNotFoundException("상점 목록이 존재하지 않습니다.");
+		}
+		for (Product product : products) {
+			int proNo = product.getProNo();
+			List<Image> images = productDAO.selectImage(proNo);
+			product.setImage(images);
+		}
+
+		return products;
 	}
 
 }

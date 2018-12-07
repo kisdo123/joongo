@@ -28,5 +28,5 @@ public interface ProductMapper {
 	List<Product> select5catNo7();
 	List<Product> select5catNo8();
 	List<Product> select5catNo9();
-	Product selectProductbyUser();
+	List<Product> selectProductbyUser(int userNo);
 }

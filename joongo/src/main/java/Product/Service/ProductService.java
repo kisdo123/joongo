@@ -22,4 +22,5 @@ public interface ProductService {
 	public List<Product> select5catNo7();
 	public List<Product> select5catNo8();
 	public List<Product> select5catNo9();
+	public List<Product> selectShop(int userNo);
 }
