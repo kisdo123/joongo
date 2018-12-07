@@ -68,7 +68,7 @@
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 8 and able != 0 order by wdate desc limit 5;
 	</select>
 	<!--카테고리 9 최신글 5개 조회-->
-	<select id="select5catNo8" resultType="Product" parameterType="int">
+	<select id="select5catNo9" resultType="Product" parameterType="int">
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = 9 and able != 0 order by wdate desc limit 5;
 	</select>
 	
