@@ -39,9 +39,8 @@ $(function() {
 
 				$("#productInfo-label2").css("display", "none");
 			} else if (index == 0) {
-
-				$(this).attr("src", "/joongo/image/no-image.jpg")
-
+				$("#productInfo-label2").css("display", "none");
+				/*$(this).attr("src", "/joongo/image/no-image.jpg");*/
 			}
 
 		}

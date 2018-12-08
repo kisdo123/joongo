@@ -110,7 +110,7 @@
 				<div class="productInfo-title">제목 : ${product.title}</div>
 				<div class="productInfo-price">
 					<script type="text/javascript">
-						document.write(thousand("${product.price}1000000"));
+						document.write(thousand("${product.price}"));
 					</script>
 					<span class="productInfo-won">원</span>
 				</div>
