@@ -279,15 +279,13 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
-	
-	//이미지 패스에 파일이 존재하지않으면 변경
-	public void checkPathImage(List<Image> images){
+	// 이미지 패스에 파일이 존재하지않으면 변경
+	public void checkPathImage(List<Image> images) {
 
-		for(Image image : images) {
+		for (Image image : images) {
 			String imagePath = image.getImagePath();
-			File file = new File(imagePath);
-			
-			if(!file.exists()) {
+			File dir = new File("C:/Users/KOITT-02-A/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"+ imagePath);
+			if (!dir.exists()) {
 				image.setImagePath("/joongo/image/no-image.jpg");
 			}
 
