@@ -50,13 +50,5 @@ public class JunitTest {
 		userService.deleteUser(6);
 		System.out.println("삭제완료");
 	}
-	
-	@Test
-	public void serch() {
-		Product product= new Product(100, "title", 3, "음악", 3, "nickname", "판매중", "30000", "content", "tags" , true);
-		Image image = new Image(100, 3, "imagePath");
-		productService.insert(product, image);
-		
-	}
 
 }

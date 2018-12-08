@@ -43,13 +43,13 @@
 			</div>
 			<ul class="footer-ul">
 				<li class="footer-li">
-					<a class="footer-facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+					<a><img src="image/iconfacebook.ico" width="35" height="35"></a>
 				</li>
 				<li class="footer-li">
-					<a class="footer-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a><img src="image/iconinstagram.ico" width="35" height="35"></a>
   				</li>
   				<li class="footer-li">
-  					<a>카톡</a>
+  					<a><img src="image/iconkakao.ico" width="35" height="35"></a>
   				</li>
 			</ul>
 		</div>
