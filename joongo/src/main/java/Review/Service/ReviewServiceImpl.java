@@ -1,28 +1,28 @@
-package Review.DAO;
+package Review.Service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import Review.DTO.Review;
 
-@Repository("reviewDAO")
-public class ReviewDAOImpl implements ReviewDAO {
+@Service("reviewService")
+public class ReviewServiceImpl implements ReviewService {
 
 	@Override
-	public void insertReview(Review reivew) {
+	public void insertReview(Review review) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public int deleteReview(int reviewNo) {
+	public int updateReview(Review review) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int updateReview(Review review) {
+	public int deleteReview(int reviewNo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

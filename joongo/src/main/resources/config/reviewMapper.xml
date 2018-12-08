@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Review.DAO.ReviewMapper">
+	<insert id="insertReview" parameterType="Review">
+		insert into review(userNo, nickname, content) values(#{userNo}, #{nickname},#{content})
+	</insert>
+	
+	<select id="selectReviewList" resultType="Review">
+		select * from favorite
+	</select>
+
+	<delete id="deleteReview" parameterType="int">
+		delete from review where reviewNo = #{reviewNo}
+	</delete>
+</mapper>
+
+ 
