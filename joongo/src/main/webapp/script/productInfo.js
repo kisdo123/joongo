@@ -118,11 +118,15 @@ $(function() {
 		}, 500);
 	});
 
+	
+	
+	// 찜버튼 활성화
 	$(".productInfo-zzimBtn").on("click", function() {
 		$(".productInfo-zzimBtn").css("display", "none");
 		$(".productInfo-clickZzim").css("display", "inline");
 	});
 
+	// 찜버튼 비활성화
 	$(".productInfo-clickZzim").on("click", function() {
 		$(".productInfo-zzimBtn").css("display", "inline");
 		$(".productInfo-clickZzim").css("display", "none");
@@ -137,23 +141,19 @@ function thousand(number) {
 
 }
 
-
-
-
 // 찜 선택 삭제 ajax 처리
-
-/*$("찜이 안 돼있을 때").click(function() {
+/*$(".productInfo-zzimBtn").click(function() {
 
 	$.ajax({
-		url : 'addFavorite.do',
+		url : "addFavorite.do",
 		data : {
-			//  ${product.proNo} , {product.userNo} 로 변경해야 함
+			// ${product.proNo} , {product.userNo} 로 변경해야 함
 			"proNo" : proNo,
-			"userNo": userNo
+			"userNo" : userNo
 		},
 		success : function() {
-
-			$("#").css("");
+			$(".productInfo-zzimBtn").css("display", "none");
+			$(".productInfo-clickZzim").css("display", "inline");
 		},
 		error : function(error) {
 
@@ -161,26 +161,25 @@ function thousand(number) {
 			alert('찜 선택이 실패했습니다.');
 		}
 	});
-});*/
+});
 
-
-/*$("찜이 돼있을 때").click(function() {
+$(".productInfo-clickZzim").click(function() {
 
 	$.ajax({
-		url : 'deleteFavorite.do',
+		url : "deleteFavorite.do",
 		data : {
-		//  ${product.proNo} , {product.userNo} 로 변경해야 함
+			// ${product.proNo} , {product.userNo} 로 변경해야 함
 			"proNo" : proNo,
-			"userNo": userNo
+			"userNo" : userNo
 		},
 		success : function() {
-
-			$("#").css("");
+			$(".productInfo-zzimBtn").css("display", "inline");
+			$(".productInfo-clickZzim").css("display", "none");
 		},
 		error : function(error) {
 
 			console.log(error);
-			alert('찜 선택이 실패했습니다.');
+			alert('찜 해제에 실패했습니다.');
 		}
 	});
 });*/
