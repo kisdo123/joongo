@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/main.css">
 <link rel="stylesheet" type="text/css"
@@ -14,62 +14,12 @@
 			<div class="productInfo-topDiv">
 				<ul class="productInfo-radioUl">
 					<c:if test="${!product.image.isEmpty() }">
-
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(0).imagePath }" width="400px"
-							height="400px"></li>
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(1).imagePath }" width="400px"
-							height="400px"></li>
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(2).imagePath }" width="400px"
-							height="400px"></li>
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(3).imagePath }" width="400px"
-							height="400px"></li>
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(4).imagePath }" width="400px"
-							height="400px"></li>
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(5).imagePath }" width="400px"
-							height="400px"></li>
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(6).imagePath }" width="400px"
-							height="400px"></li>
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(7).imagePath }" width="400px"
-							height="400px"></li>
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(8).imagePath }" width="400px"
-							height="400px"></li>
-						<li class="productInfo-radioLi"><img
-							src="${product.image.get(9).imagePath }" width="400px"
-							height="400px"></li>
-
+						<c:forEach var="product" items="${product.image }">
+								<li class="productInfo-radioLi"><img
+									src="${product.imagePath }" width="400px"
+									height="400px"></li>
+						</c:forEach>
 					</c:if>
-
-					<!-- 이미지 2개일 때 예시 -->
-					<!-- 이미지 src 없을때 이미지와 라디오버튼이 보이지 않음 -->
-					<!-- <li class="productInfo-radioLi"><img src="/joongo/image/1.jpg"
-						class="productInfo-img"></li>
-					<li class="productInfo-radioLi"><img src="/joongo/image/2.jpg"
-						class="productInfo-img"></li>
-					<li class="productInfo-radioLi"><img src=""
-						class="productInfo-img"></li>
-					<li class="productInfo-radioLi"><img src=""
-						class="productInfo-img"></li>
-					<li class="productInfo-radioLi"><img src=""
-						class="productInfo-img"></li>
-					<li class="productInfo-radioLi"><img src=""
-						class="productInfo-img"></li>
-					<li class="productInfo-radioLi"><img src=""
-						class="productInfo-img"></li>
-					<li class="productInfo-radioLi"><img src=""
-						class="productInfo-img"></li>
-					<li class="productInfo-radioLi"><img src=""
-						class="productInfo-img"></li>
-					<li class="productInfo-radioLi"><img src=""
-						class="productInfo-img"></li> -->
 
 				</ul>
 				<div class="productInfo-raridoDiv">
