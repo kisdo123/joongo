@@ -1,5 +1,17 @@
 $(function() {
 	
+	/* 자신의 상품목록 가져오기 */
+	$.ajax({
+		url: 'productList.do',
+		dataType: 'json',
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(error) {
+			console.log(error);
+		}
+	})
+	
 	/* 소개글 변경 눌렀을 시 textarea와 버튼을 생성 */
 	$('#update').click(function() {
 		var content = $('#introduce-content').text();
