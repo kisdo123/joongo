@@ -15,68 +15,62 @@
 				<ul class="productInfo-radioUl">
 					<c:if test="${!product.image.isEmpty() }">
 
-						<%-- 
-						
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(0).imagePath }" width="400px" height="400px" >
-						</li>
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(1).imagePath }" width="400px" height="400px" >
-						</li>
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(2).imagePath }" width="400px" height="400px" >
-						</li>
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(3).imagePath }" width="400px" height="400px" >
-						</li>
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(4).imagePath }" width="400px" height="400px" >
-						</li>
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(5).imagePath }" width="400px" height="400px" >
-						</li>
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(6).imagePath }" width="400px" height="400px" >
-						</li>
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(7).imagePath }" width="400px" height="400px" >
-						</li>
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(8).imagePath }" width="400px" height="400px" >
-						</li>
-						<li class="productInfo-radioLi">
-							<img src="${product.image.get(9).imagePath }" width="400px" height="400px" >
-						</li>
-						
-						 --%>
-
-
-
-		
-						<!-- 이미지 2개일 때 예시 -->
-						<!-- 이미지 src 없을때 이미지와 라디오버튼이 보이지 않음 -->
 						<li class="productInfo-radioLi"><img
-							src="/joongo/image/1.jpg" class="productInfo-img"></li>
+							src="${product.image.get(0).imagePath }" width="400px"
+							height="400px"></li>
 						<li class="productInfo-radioLi"><img
-							src="/joongo/image/2.jpg" class="productInfo-img"></li>
+							src="${product.image.get(1).imagePath }" width="400px"
+							height="400px"></li>
 						<li class="productInfo-radioLi"><img
-							src="" class="productInfo-img"></li>
+							src="${product.image.get(2).imagePath }" width="400px"
+							height="400px"></li>
 						<li class="productInfo-radioLi"><img
-							src="" class="productInfo-img"></li>
+							src="${product.image.get(3).imagePath }" width="400px"
+							height="400px"></li>
 						<li class="productInfo-radioLi"><img
-							src="" class="productInfo-img"></li>
+							src="${product.image.get(4).imagePath }" width="400px"
+							height="400px"></li>
 						<li class="productInfo-radioLi"><img
-							src="" class="productInfo-img"></li>
+							src="${product.image.get(5).imagePath }" width="400px"
+							height="400px"></li>
 						<li class="productInfo-radioLi"><img
-							src="" class="productInfo-img"></li>
+							src="${product.image.get(6).imagePath }" width="400px"
+							height="400px"></li>
 						<li class="productInfo-radioLi"><img
-							src="" class="productInfo-img"></li>
-						<li class="productInfo-radioLi"><img src=""
-							class="productInfo-img"></li>
-						<li class="productInfo-radioLi"><img src=""
-							class="productInfo-img"></li>
+							src="${product.image.get(7).imagePath }" width="400px"
+							height="400px"></li>
+						<li class="productInfo-radioLi"><img
+							src="${product.image.get(8).imagePath }" width="400px"
+							height="400px"></li>
+						<li class="productInfo-radioLi"><img
+							src="${product.image.get(9).imagePath }" width="400px"
+							height="400px"></li>
 
 					</c:if>
+
+					<!-- 이미지 2개일 때 예시 -->
+					<!-- 이미지 src 없을때 이미지와 라디오버튼이 보이지 않음 -->
+					<!-- <li class="productInfo-radioLi"><img src="/joongo/image/1.jpg"
+						class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src="/joongo/image/2.jpg"
+						class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src=""
+						class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src=""
+						class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src=""
+						class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src=""
+						class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src=""
+						class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src=""
+						class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src=""
+						class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src=""
+						class="productInfo-img"></li> -->
+
 				</ul>
 				<div class="productInfo-raridoDiv">
 
@@ -119,21 +113,6 @@
 					</li>
 					<li class="productInfo-contextLi"><strong>등록날짜</strong> <span>2018.12.01${product.wdate }</span>
 					</li>
-
-
-					<c:if test="${!favorite.favoNo.isEmpty() }">
-						<c:choose>
-							<li class="productInfo-contextLi"><strong>찜</strong><span>
-									<c:when
-										test="${favorite.proNo == product.proNo && favorite.userNo == users.userNo}">
-										<i class="fa fa-star" aria-hidden="true"></i> 찜한 상품입니다.
-							</c:when> <c:otherwise>
-										<i class="fa fa-star-o" aria-hidden="true"></i> 찜한 상품이 아닙니다.
-							</c:otherwise>
-							</span></li>
-						</c:choose>
-					</c:if>
-
 					<li class="productInfo-contextLi"><strong>조회수</strong> <span>1234</span>
 					</li>
 					<li class="productInfo-contextLi"><strong>상태</strong> <span>${product.condit}</span>
@@ -151,7 +130,7 @@
 					<span class="productInfo-zzimI"><i class="fa fa-heart"
 						aria-hidden="true"></i> 찜함</span>
 				</button>
-				
+
 
 				<button class="productInfo-buyBtn">
 					<span><i class="fa fa-usd" aria-hidden="true"></i></span> 구매하기
