@@ -9,6 +9,7 @@ import User.DAO.UserDAO;
 import User.DTO.User;
 import exception.IntroduceUpdateException;
 import exception.PasswordNotMatchException;
+import exception.UserAlreadyExistException;
 import exception.UserNotFoundException;
 
 @Service("userService")
@@ -19,6 +20,11 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public void registerUser(User user) {
+		User testUser = userDAO.selectById(user.getLoginId());
+		if(testUser != null) {
+			throw new UserAlreadyExistException("이미 존재하는 유저");
+		}
+		
 		userDAO.insert(user);
 	}
 
