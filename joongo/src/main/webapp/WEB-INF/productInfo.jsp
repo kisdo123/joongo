@@ -1,8 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> --%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/main.css">
-<link rel="stylesheet" type="text/css" href="/joongo/css/productInfo.css">
+<link rel="stylesheet" type="text/css"
+	href="/joongo/css/productInfo.css">
 <script type="text/javascript" src="/joongo/script/main.js"></script>
 <script type="text/javascript" src="/joongo/script/productInfo.js"></script>
 <jsp:include page="/particular/header.jsp"></jsp:include>
@@ -12,6 +14,9 @@
 			<div class="productInfo-topDiv">
 				<ul class="productInfo-radioUl">
 					<c:if test="${!product.image.isEmpty() }">
+
+						<%-- 
+						
 						<li class="productInfo-radioLi">
 							<img src="${product.image.get(0).imagePath }" width="400px" height="400px" >
 						</li>
@@ -24,28 +29,80 @@
 						<li class="productInfo-radioLi">
 							<img src="${product.image.get(3).imagePath }" width="400px" height="400px" >
 						</li>
-						<!-- 			<li class="productInfo-radioLi"><img
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(4).imagePath }" width="400px" height="400px" >
+						</li>
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(5).imagePath }" width="400px" height="400px" >
+						</li>
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(6).imagePath }" width="400px" height="400px" >
+						</li>
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(7).imagePath }" width="400px" height="400px" >
+						</li>
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(8).imagePath }" width="400px" height="400px" >
+						</li>
+						<li class="productInfo-radioLi">
+							<img src="${product.image.get(9).imagePath }" width="400px" height="400px" >
+						</li>
+						
+						 --%>
+
+
+
+		
+						<!-- 이미지 2개일 때 예시 -->
+						<!-- 이미지 src 없을때 이미지와 라디오버튼이 보이지 않음 -->
+						<li class="productInfo-radioLi"><img
+							src="/joongo/image/1.jpg" class="productInfo-img"></li>
+						<li class="productInfo-radioLi"><img
 							src="/joongo/image/2.jpg" class="productInfo-img"></li>
 						<li class="productInfo-radioLi"><img
-							src="/joongo/image/3.jpg" class="productInfo-img"></li>
+							src="" class="productInfo-img"></li>
 						<li class="productInfo-radioLi"><img
-							src="/joongo/image/4.jpg" class="productInfo-img"></li>
+							src="" class="productInfo-img"></li>
 						<li class="productInfo-radioLi"><img
-							src="/joongo/image/5.jpg" class="productInfo-img"></li> -->
+							src="" class="productInfo-img"></li>
+						<li class="productInfo-radioLi"><img
+							src="" class="productInfo-img"></li>
+						<li class="productInfo-radioLi"><img
+							src="" class="productInfo-img"></li>
+						<li class="productInfo-radioLi"><img
+							src="" class="productInfo-img"></li>
+						<li class="productInfo-radioLi"><img src=""
+							class="productInfo-img"></li>
+						<li class="productInfo-radioLi"><img src=""
+							class="productInfo-img"></li>
+
 					</c:if>
 				</ul>
 				<div class="productInfo-raridoDiv">
-					<input type="radio" name="pos" class="pos" value="1" id="pos1" checked="checked">
-					<input type="radio" name="pos" class="pos" value="2" id="pos2">
-					<input type="radio" name="pos" class="pos" value="3" id="pos3">
-					<input type="radio" name="pos" class="pos" value="4" id="pos4">
-					<input type="radio" name="pos" class="pos" value="5" id="pos5">
+
+					<input type="radio" name="pos" class="pos" value="1" id="pos1"
+						checked="checked"> <input type="radio" name="pos"
+						class="pos" value="2" id="pos2"> <input type="radio"
+						name="pos" class="pos" value="3" id="pos3"> <input
+						type="radio" name="pos" class="pos" value="4" id="pos4"> <input
+						type="radio" name="pos" class="pos" value="5" id="pos5"> <input
+						type="radio" name="pos" class="pos" value="6" id="pos6"> <input
+						type="radio" name="pos" class="pos" value="7" id="pos7"> <input
+						type="radio" name="pos" class="pos" value="8" id="pos8"> <input
+						type="radio" name="pos" class="pos" value="9" id="pos9"> <input
+						type="radio" name="pos" class="pos" value="10" id="pos10">
+
 					<p class="pos">
-						<label for="pos1"></label>
-						<label for="pos2"></label>
-						<label for="pos3"></label>
-						<label for="pos4"></label>
-						<label for="pos5"></label>
+						<label id="productInfo-label1" for="pos1"></label> <label
+							id="productInfo-label2" for="pos2"></label> <label
+							id="productInfo-label3" for="pos3"></label> <label
+							id="productInfo-label4" for="pos4"></label> <label
+							id="productInfo-label5" for="pos5"></label> <label
+							id="productInfo-label6" for="pos6"></label> <label
+							id="productInfo-label7" for="pos7"></label> <label
+							id="productInfo-label8" for="pos8"></label> <label
+							id="productInfo-label9" for="pos9"></label> <label
+							id="productInfo-label10" for="pos10"></label>
 					</p>
 				</div>
 			</div>
@@ -53,34 +110,55 @@
 				<div class="productInfo-title">제목 : ${product.title}</div>
 				<div class="productInfo-price">
 					<script type="text/javascript">
-							document.write(thousand(""+${product.price}1000000+""));
-						</script>
+						document.write(thousand("${product.price}1000000"));
+					</script>
 					<span class="productInfo-won">원</span>
 				</div>
 				<ul class="productInfo-contextUl">
-					<li class="productInfo-contextLi">
-						<strong>주소</strong> <span>서울특별시</span>
+					<li class="productInfo-contextLi"><strong>주소</strong> <span>서울특별시</span>
 					</li>
-					<li class="productInfo-contextLi">
-						<strong>등록날짜</strong> <span>2018.11.30</span>
+					<li class="productInfo-contextLi"><strong>등록날짜</strong> <span>2018.12.01${product.wdate }</span>
 					</li>
-					<li class="productInfo-contextLi">
-						<strong>찜</strong> <span>30</span>
+
+
+					<c:if test="${!favorite.favoNo.isEmpty() }">
+						<c:choose>
+							<li class="productInfo-contextLi"><strong>찜</strong><span>
+									<c:when
+										test="${favorite.proNo == product.proNo && favorite.userNo == users.userNo}">
+										<i class="fa fa-star" aria-hidden="true"></i> 찜한 상품입니다.
+							</c:when> <c:otherwise>
+										<i class="fa fa-star-o" aria-hidden="true"></i> 찜한 상품이 아닙니다.
+							</c:otherwise>
+							</span></li>
+						</c:choose>
+					</c:if>
+
+					<li class="productInfo-contextLi"><strong>조회수</strong> <span>1234</span>
 					</li>
-					<li class="productInfo-contextLi">
-						<strong>조회수</strong> <span>1234</span>
-					</li>
-					<li class="productInfo-contextLi">
-						<strong>상태</strong> <span>${product.condit}</span>
+					<li class="productInfo-contextLi"><strong>상태</strong> <span>${product.condit}</span>
 					</li>
 				</ul>
 			</div>
 			<div class="productInfo-btnDiv">
+
+
 				<button class="productInfo-zzimBtn">
-					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜</span>
+					<span class="productInfo-zzimI"><i class="fa fa-heart"
+						aria-hidden="true"></i> 찜안함</span>
 				</button>
+				<button class="productInfo-clickZzim">
+					<span class="productInfo-zzimI"><i class="fa fa-heart"
+						aria-hidden="true"></i> 찜함</span>
+				</button>
+				
+
 				<button class="productInfo-buyBtn">
-					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span> 구매하기
+					<span><i class="fa fa-usd" aria-hidden="true"></i></span> 구매하기
+				</button>
+				<button class="productInfo-storeBtn">
+					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
+					상점이동
 				</button>
 			</div>
 			<!-- 최신글은 한번만 -->
@@ -94,7 +172,8 @@
 					<!-- 상품이 for문으로 돌아가야 함 -->
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="../image/fruit.jpg"
+								class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -107,7 +186,8 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="../image/fruit.jpg"
+								class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -120,7 +200,8 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="../image/fruit.jpg"
+								class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -133,7 +214,8 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="../image/fruit.jpg"
+								class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -146,7 +228,8 @@
 					</div>
 					<div class="product">
 						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg" class="product-img">
+							<a href="#"> <img src="../image/fruit.jpg"
+								class="product-img">
 							</a>
 						</div>
 						<div class="product-info">
@@ -161,14 +244,35 @@
 			</div>
 			<div class="productInfo-exTitle">상품정보</div>
 			<div class="productInfo-ex"></div>
-			<div class="productInfo-exContext">${product.content}</div>
+			<div class="productInfo-exContext">
+				내용 ${product.content} <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br>rr
+			</div>
 			<!-- 맨 위, 맨 아래로 -->
 			<div class="top-down-cotainer">
 				<div class="up">
-					<span>TOP</span><i class="fa fa-arrow-up arrow-up" aria-hidden="true"></i>
+					<span>TOP</span><i class="fa fa-arrow-up arrow-up"
+						aria-hidden="true"></i>
 				</div>
 				<div class="down">
-					<span>BOTTOM</span><i class="fa fa-arrow-down arrow-down" aria-hidden="true"></i>
+					<span>BOTTOM</span><i class="fa fa-arrow-down arrow-down"
+						aria-hidden="true"></i>
+				</div>
+				<div class="product-notice">
+					<a href="/joongo/particular/notice.jsp"><img
+						src="/joongo/image/noticeImg.png"><span
+						class="product-spanNotice">공지사항</span></a>
 				</div>
 			</div>
 		</div>
