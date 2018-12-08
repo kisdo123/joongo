@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -262,11 +264,21 @@ public class MainController {
 
 	// 카테고리별 목록보기
 	@RequestMapping("/catList.do")
-	public String catList(Model model, @RequestParam int catNo) {
-		List<Product> products = productService.catNoSelect(catNo);
-		model.addAttribute("products", products);
-		return "catList";
+	public String categoryList() {
+		
+		return "categoryList";
 	}
+	
+	@RequestMapping("/getCatList.do")
+	@ResponseBody
+	public Map<String, List<Product>> catList(@RequestParam("catNo") int catNo) {
+		List<Product> products = productService.catNoSelect(catNo);
+		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
+		map.put("products", products);
+		
+		return map;
+	}
+
 
 	// 상점 목록보기
 	@RequestMapping("/shopList.do")
