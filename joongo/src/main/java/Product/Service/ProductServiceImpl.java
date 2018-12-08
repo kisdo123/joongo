@@ -54,6 +54,7 @@ public class ProductServiceImpl implements ProductService {
 			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
+			checkPathImage(product.getImage());
 		}
 		return products;
 	}
@@ -70,6 +71,7 @@ public class ProductServiceImpl implements ProductService {
 			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
+			checkPathImage(product.getImage());
 		}
 		return products;
 	}
@@ -84,7 +86,7 @@ public class ProductServiceImpl implements ProductService {
 
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
-
+		checkPathImage(product.getImage());
 		return product;
 	}
 
@@ -142,11 +144,12 @@ public class ProductServiceImpl implements ProductService {
 			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
+			checkPathImage(product.getImage());
 		}
 		return select5List;
 	}
 
-	// 카테고리1 최신글 5개조회
+	// 카테고리 최신글 5개조회
 	@Override
 	public Map<String, List<Product>> select5catNo() {
 		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
@@ -161,12 +164,13 @@ public class ProductServiceImpl implements ProductService {
 				int proNo = product.getProNo();
 				List<Image> images = productDAO.selectImage(proNo);
 				product.setImage(images);
+				checkPathImage(product.getImage());
 			}
-			map.put("category"+i, productscat);
-			
+			map.put("category" + i, productscat);
+
 		}
 		return map;
-		
+
 	}
 
 	// 상점보기
@@ -180,6 +184,7 @@ public class ProductServiceImpl implements ProductService {
 			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
+			checkPathImage(product.getImage());
 		}
 
 		return products;
@@ -260,6 +265,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
+		checkPathImage(product.getImage());
 
 		return product;
 	}
@@ -270,6 +276,21 @@ public class ProductServiceImpl implements ProductService {
 		int res = productDAO.deleteProduct(product);
 		if (res == 0) {
 			throw new ProductNotFoundException("삭제 실패");
+		}
+	}
+
+	
+	//이미지 패스에 파일이 존재하지않으면 변경
+	public void checkPathImage(List<Image> images){
+
+		for(Image image : images) {
+			String imagePath = image.getImagePath();
+			File file = new File(imagePath);
+			
+			if(!file.exists()) {
+				image.setImagePath("/joongo/image/no-image.jpg");
+			}
+
 		}
 	}
 

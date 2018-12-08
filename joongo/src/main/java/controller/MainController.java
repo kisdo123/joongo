@@ -218,7 +218,7 @@ public class MainController {
 	public String getUserList(Model model, @RequestParam("word") String word) {
 		List<Product> products = productService.searching(word);
 		model.addAttribute("products", products);
-		return "productList";
+		return "search";
 	}
 
 	// 글쓰기
@@ -228,13 +228,13 @@ public class MainController {
 		return "writefinish";
 	}
 
-	// 전체 목록보기
+	/*// 전체 목록보기
 	@RequestMapping("/productList.do")
 	public String ProductList(Model model) {
 		List<Product> products = productService.totalSelect();
 		model.addAttribute("products", products);
 		return "productList";
-	}
+	}*/
 
 	// 내용보기
 	@RequestMapping("/productInfo.do")
