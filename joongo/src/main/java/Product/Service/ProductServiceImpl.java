@@ -1,5 +1,6 @@
 package Product.Service;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -314,7 +315,21 @@ public class ProductServiceImpl implements ProductService {
 		int proNo = product.getProNo();
 		List<Image> images = productDAO.selectImage(proNo);
 		for (Image image : images) {
+			int imgNo = image.getImgNo();
+			String path = image.getImagePath();
+			File file = new File(path);
+			if (file.exists()) {
+				if (file.delete()) {
+					System.out.println("파일삭제 성공");
+					productDAO.deleteImage(imgNo);
+				} else {
+					throw new ProductNotFoundException("이미지 삭제 실패");
+				}
+			} else {
+				break;
+			}
 		}
+		
 
 		// Image 저장경로를 얻기위한 String값 처리
 		int extension = 0;
