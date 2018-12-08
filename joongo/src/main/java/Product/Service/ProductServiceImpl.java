@@ -307,14 +307,19 @@ public class ProductServiceImpl implements ProductService {
 	// 글 수정
 	@Override
 	public void update(Product product) {
+		if (product.getUserNo() == 0) {
+			System.out.println("로그인되지 않았습니다.");
+		}
+		// 글수정 쿼리 실행
 		int res = productDAO.updateProduct(product);
 		if (res == 0) {
 			throw new ProductNotFoundException("수정 실패");
 		}
-		// 최신글 한개 조회해서 게시글의 번호 가져옴
+		// 해당글의 imagePath조회
 		int proNo = product.getProNo();
 		List<Image> images = productDAO.selectImage(proNo);
 		for (Image image : images) {
+			// Path에 있는 이미지 파일 삭제
 			int imgNo = image.getImgNo();
 			String path = image.getImagePath();
 			File file = new File(path);
@@ -326,10 +331,10 @@ public class ProductServiceImpl implements ProductService {
 					throw new ProductNotFoundException("이미지 삭제 실패");
 				}
 			} else {
+				System.out.println("이미지가 없습니다.");
 				break;
 			}
 		}
-		
 
 		// Image 저장경로를 얻기위한 String값 처리
 		int extension = 0;
@@ -362,18 +367,12 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
-	// 글 삭제
-	@Override
-	public void delete(Product product) {
-		int res = productDAO.deleteProduct(product);
-		if (res == 0) {
-			throw new ProductNotFoundException("삭제 실패");
-		}
-	}
-
 	// 수정을위한 select
 	@Override
 	public Product updateSelect(int userNo, int proNo) {
+		if (userNo == 0) {
+			System.out.println("로그인되지 않았습니다.");
+		}
 		Product product = productDAO.updateProductSelect(userNo, proNo);
 		if (product.equals("") || product.equals(null)) {
 			throw new ProductNotFoundException("조회실패");
@@ -382,6 +381,15 @@ public class ProductServiceImpl implements ProductService {
 		product.setImage(images);
 
 		return product;
+	}
+
+	// 글 삭제
+	@Override
+	public void delete(Product product) {
+		int res = productDAO.deleteProduct(product);
+		if (res == 0) {
+			throw new ProductNotFoundException("삭제 실패");
+		}
 	}
 
 }

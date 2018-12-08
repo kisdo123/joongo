@@ -222,7 +222,7 @@ public class MainController {
 
 		return "";
 	}
-	
+
 	@RequestMapping("/deleteFavorite.do")
 	@ResponseBody
 	public void deleteFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
@@ -265,20 +265,18 @@ public class MainController {
 	// 카테고리별 목록보기
 	@RequestMapping("/catList.do")
 	public String categoryList() {
-		
 		return "categoryList";
 	}
-	
+
 	@RequestMapping("/getCatList.do")
 	@ResponseBody
 	public Map<String, List<Product>> catList(@RequestParam("catNo") int catNo) {
 		List<Product> products = productService.catNoSelect(catNo);
 		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
 		map.put("products", products);
-		
+
 		return map;
 	}
-
 
 	// 상점 목록보기
 	@RequestMapping("/shopList.do")
@@ -294,9 +292,6 @@ public class MainController {
 	public String UpdateProduct(HttpServletRequest request, Model model, @RequestParam int catNo) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
-		if (loginUser.equals(null) || loginUser.equals("")) {
-			throw new UserNotFoundException("로그인 되지않았습니다.");
-		}
 		Product product = productService.updateSelect(userNo, catNo);
 		model.addAttribute("product", product);
 		return "productModify";
@@ -310,6 +305,13 @@ public class MainController {
 		product.setUserNo(userNo);
 		productService.update(product);
 		return "myPage";
+	}
+
+	// 글 삭제
+	@RequestMapping("/delectProduct.do")
+	public String delectProduct (Model model, @ModelAttribute Product product) {
+		productService.delete(product);
+		return "productModify";
 	}
 
 }
