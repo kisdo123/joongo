@@ -1,6 +1,7 @@
 package Product.Service;
 
 import java.util.List;
+import java.util.Map;
 
 import Product.DTO.Product;
 
@@ -13,15 +14,7 @@ public interface ProductService {
 	public void update(Product product);
 	public void delete(Product product);
 	public List<Product> select5List();
-	public List<Product> select5catNo1();
-	public List<Product> select5catNo2();
-	public List<Product> select5catNo3();
-	public List<Product> select5catNo4();
-	public List<Product> select5catNo5();
-	public List<Product> select5catNo6();
-	public List<Product> select5catNo7();
-	public List<Product> select5catNo8();
-	public List<Product> select5catNo9();
+	public Map<String, List<Product>> select5catNo();
 	public List<Product> selectShop(int userNo);
 	public Product updateSelect(int userNo, int proNo);
 }

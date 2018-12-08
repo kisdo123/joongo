@@ -19,15 +19,7 @@ public interface ProductMapper {
 	Product selectNewOne();
 	List<Image> selectImage(int proNo);
 	List<Product> select5List ();
-	List<Product> select5catNo1();
-	List<Product> select5catNo2();
-	List<Product> select5catNo3();
-	List<Product> select5catNo4();
-	List<Product> select5catNo5();
-	List<Product> select5catNo6();
-	List<Product> select5catNo7();
-	List<Product> select5catNo8();
-	List<Product> select5catNo9();
+	List<Product> select5catNo(int catNo);
 	List<Product> selectProductbyUser(int userNo);
 	Product updateProductSelect(int userNo, int proNo);
 	int deleteImage(int imgNo);

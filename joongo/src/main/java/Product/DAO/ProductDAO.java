@@ -17,15 +17,7 @@ public interface ProductDAO {
 	public Product selectNewOne();
 	public List<Image> selectImage(int proNo);
 	public List<Product> select5List ();
-	public List<Product> select5catNo1();
-	public List<Product> select5catNo2();
-	public List<Product> select5catNo3();
-	public List<Product> select5catNo4();
-	public List<Product> select5catNo5();
-	public List<Product> select5catNo6();
-	public List<Product> select5catNo7();
-	public List<Product> select5catNo8();
-	public List<Product> select5catNo9();
+	public List<Product> select5catNo(int catNo);
 	public List<Product> selectProductbyUser(int userNo);
 	public Product updateProductSelect(int userNo, int proNo);
 	public int deleteImage(int imgNo);

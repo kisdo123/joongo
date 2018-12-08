@@ -39,28 +39,12 @@ public class MainController {
 	// 메인화면으로 보냄
 	@RequestMapping("/main.do")
 	public String goMain(Model model) {
+		
 		List<Product> products = productService.select5List();
-		List<Product> cat5List1 = productService.select5catNo1();
-		List<Product> cat5List2 = productService.select5catNo2();
-		List<Product> cat5List3 = productService.select5catNo3();
-		List<Product> cat5List4 = productService.select5catNo4();
-		List<Product> cat5List5 = productService.select5catNo5();
-		List<Product> cat5List6 = productService.select5catNo6();
-		List<Product> cat5List7 = productService.select5catNo7();
-		List<Product> cat5List8 = productService.select5catNo8();
-		List<Product> cat5List9 = productService.select5catNo9();
+		Map<String, List<Product>> map = productService.select5catNo();
 
 		model.addAttribute("products", products);
-		model.addAttribute("cat5List1", cat5List1);
-		model.addAttribute("cat5List2", cat5List2);
-		model.addAttribute("cat5List3", cat5List3);
-		model.addAttribute("cat5List4", cat5List4);
-		model.addAttribute("cat5List5", cat5List5);
-		model.addAttribute("cat5List6", cat5List6);
-		model.addAttribute("cat5List7", cat5List7);
-		model.addAttribute("cat5List8", cat5List8);
-		model.addAttribute("cat5List9", cat5List9);
-
+		model.addAttribute("cat5List", map);
 		return "main";
 	}
 

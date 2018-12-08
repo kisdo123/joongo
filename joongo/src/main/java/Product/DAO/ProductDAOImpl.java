@@ -81,56 +81,8 @@ public class ProductDAOImpl implements ProductDAO {
 
 	// 카테고리 1조회
 	@Override
-	public List<Product> select5catNo1() {
-		return productMapper.select5catNo1();
-	}
-
-	// 카테고리 2조회
-	@Override
-	public List<Product> select5catNo2() {
-		return productMapper.select5catNo2();
-	}
-
-	// 카테고리 3조회
-	@Override
-	public List<Product> select5catNo3() {
-		return productMapper.select5catNo3();
-	}
-
-	// 카테고리 4조회
-	@Override
-	public List<Product> select5catNo4() {
-		return productMapper.select5catNo4();
-	}
-
-	// 카테고리 5조회
-	@Override
-	public List<Product> select5catNo5() {
-		return productMapper.select5catNo5();
-	}
-
-	// 카테고리 6조회
-	@Override
-	public List<Product> select5catNo6() {
-		return productMapper.select5catNo6();
-	}
-
-	// 카테고리 7조회
-	@Override
-	public List<Product> select5catNo7() {
-		return productMapper.select5catNo7();
-	}
-
-	// 카테고리 8조회
-	@Override
-	public List<Product> select5catNo8() {
-		return productMapper.select5catNo8();
-	}
-
-	// 카테고리 9조회
-	@Override
-	public List<Product> select5catNo9() {
-		return productMapper.select5catNo9();
+	public List<Product> select5catNo(int catNo) {
+		return productMapper.select5catNo(catNo);
 	}
 
 	//상점보기
