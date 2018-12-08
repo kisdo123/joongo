@@ -141,7 +141,7 @@ function thousand(number) {
 
 }
 
-// 찜 선택 삭제 ajax 처리
+// 찜 선택 삭제 ajax 처링
 /*$(".productInfo-zzimBtn").click(function() {
 
 	$.ajax({
@@ -182,4 +182,4 @@ $(".productInfo-clickZzim").click(function() {
 			alert('찜 해제에 실패했습니다.');
 		}
 	});
-});*/
+}); */
