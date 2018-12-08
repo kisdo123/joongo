@@ -81,41 +81,42 @@
 			</div>
 			<!-- category 별로 for문 -->
 			<c:forEach var="i" begin="1" end="9">
-					<div class="category" id="clothes">
+				${num = i -1;'' }
+					<div class="category" id="${categories[num] }">
 						<p class="category-info">
-							<span class="category-title">의류</span> <span class="all-view"><a
-								href="productList.do?catNo=1">전체보기</a></span>
+							<span class="category-title">${titles[num] }</span> <span class="all-view"><a
+								href="catList.do?catNo=${i} }">전체보기</a></span>
 						</p>
 						<!-- 상품을 감싸고 있는 div  -->
 						<div class="product-container">
-				<c:forEach var="product" items="${cat5List.get('category'+=i) }">
-							<!-- 상품이 for문으로 돌아가야 함 -->
-							<div class="product">
-								<div class="product-img-container">
-									<a href="productInfo.do?proNo=${product.proNo }"> <c:if
-											test="${product.image.isEmpty() }">
-											<img src="/joongo/image/no-image.jpg" class="product-img">
-										</c:if> <c:if test="${!product.image.isEmpty() }">
-											<img src="${product.image.get(0).imagePath }"
-												class="product-img">
-										</c:if>
-									</a>
-								</div>
-								<div class="product-info">
-									<div class="product-title">
-										<a href="productInfo.do?proNo=${product.proNo }">${product.title }</a>
-									</div>
-									<div class="product-price">${product.price }</div>
-									<c:if
-										test="${product.tags == '' || product.tags eq null || empty product.tags }">
-										<div class="product-tag">태그없음</div>
-									</c:if>
-									<c:if test="${product.tags != '' }">
-										<div class="product-tag">${product.tags }</div>
-									</c:if>
-								</div>
-							</div>
-				</c:forEach>
+							<c:forEach var="product" items="${cat5List.get('category'+=i) }">
+										<!-- 상품이 for문으로 돌아가야 함 -->
+										<div class="product">
+											<div class="product-img-container">
+												<a href="productInfo.do?proNo=${product.proNo }">
+													<c:if test="${product.image.isEmpty() }">
+														<img src="/joongo/image/no-image.jpg" class="product-img">
+													</c:if> <c:if test="${!product.image.isEmpty() }">
+														<img src="${product.image.get(0).imagePath }"
+															class="product-img">
+													</c:if>
+												</a>
+											</div>
+											<div class="product-info">
+												<div class="product-title">
+													<a href="productInfo.do?proNo=${product.proNo }">${product.title }</a>
+												</div>
+												<div class="product-price">${product.price }</div>
+												<c:if
+													test="${product.tags == '' || product.tags eq null || empty product.tags }">
+													<div class="product-tag">태그없음</div>
+												</c:if>
+												<c:if test="${product.tags != '' }">
+													<div class="product-tag">${product.tags }</div>
+												</c:if>
+											</div>
+										</div>
+							</c:forEach>
 						</div>
 				<div class="line"></div>
 		</div>
@@ -377,7 +378,21 @@
 				<div class="line"></div>
 			</div> --%>
 		<!-- 맨 위, 맨 아래로 -->
-		<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
+		<div class="top-down-cotainer">
+			<div class="up">
+				<span>TOP</span><i class="fa fa-arrow-up arrow-up"
+					aria-hidden="true"></i>
+			</div>
+			<div class="down">
+				<span>BOTTOM</span><i class="fa fa-arrow-down arrow-down"
+					aria-hidden="true"></i>
+			</div>
+			<div class="product-notice">
+				<a href="/joongo/particular/notice.jsp"><img
+					src="/joongo/image/noticeImg.png"><span
+					class="product-spanNotice">공지사항</span></a>
+			</div>
+		</div>
 	</div>
 </div>
 </div>

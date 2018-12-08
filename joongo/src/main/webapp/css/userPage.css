@@ -131,15 +131,15 @@
 	width: 196.70px;
 	float: left;
 	margin-right: 10px;
-	margin-bottom: 11px;
+	margin-bottom: 25px;
 }
+
+.product:NTH-CHILD(5n) {
+	margin-right: 0px;
+} 
 
 .product:FIRST-CHILD {
 	margin-left: 0px;
-}
-
-.product:LAST-CHILD {
-	margin-right: 0px;
 }
 
 .product-img {
@@ -174,7 +174,6 @@
 .product-tag {
 	font-size: 14px;
 	color: #bbbbbb;
-	padding: 2px;
 }
 
 .line {
@@ -198,4 +197,8 @@
 .register {
 	float: right;
     height: 46px;
+}
+
+.product-img-container {
+	height: 200px;
 }

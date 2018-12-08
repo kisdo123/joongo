@@ -42,7 +42,12 @@ public class MainController {
 		
 		List<Product> products = productService.select5List();
 		Map<String, List<Product>> map = productService.select5catNo();
-
+		
+		
+		String[] categories = {"clothes", "appliances","cosmetics","instrument","books", "household", "sports", "foods", "etc"};
+		String[] titles = {"의류", "가전제품", "화장품", "악기/음향기기", "도서", "생활용품", "스포츠", "식품", "기타"};
+		model.addAttribute("categories", categories);
+		model.addAttribute("titles", titles);
 		model.addAttribute("products", products);
 		model.addAttribute("cat5List", map);
 		return "main";
@@ -218,7 +223,7 @@ public class MainController {
 	public String getUserList(Model model, @RequestParam("word") String word) {
 		List<Product> products = productService.searching(word);
 		model.addAttribute("products", products);
-		return "search";
+		return "productList";
 	}
 
 	// 글쓰기
@@ -228,13 +233,13 @@ public class MainController {
 		return "writefinish";
 	}
 
-	/*// 전체 목록보기
+	// 전체 목록보기
 	@RequestMapping("/productList.do")
 	public String ProductList(Model model) {
 		List<Product> products = productService.totalSelect();
 		model.addAttribute("products", products);
 		return "productList";
-	}*/
+	}
 
 	// 내용보기
 	@RequestMapping("/productInfo.do")
@@ -265,10 +270,12 @@ public class MainController {
 	// 상점 목록보기
 	@RequestMapping("/shopList.do")
 	@ResponseBody
-	public String selectShop(Model model, @RequestParam int userNo) {
+	public Map<String, List<Product>> selectShop(Model model, @RequestParam int userNo) {
 		List<Product> products = productService.selectShop(userNo);
-		model.addAttribute("products", products);
-		return "shopList";
+		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
+		map.put("products", products);
+		
+		return map;
 	}
 
 	// 글 수정화면에 기본값 입력

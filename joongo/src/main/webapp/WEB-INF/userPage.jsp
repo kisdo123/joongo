@@ -4,8 +4,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/userPage.css">
-<script type="text/javascript" src="/joongo/script/userPage.js"></script>
+<script type="text/javascript" src="/joongo/script/userPage.js?6"></script>
 <jsp:include page="/particular/header.jsp"></jsp:include>
+<script>
+	window.onload = function() {
+		viewProducts(${pageUser.userNo}, 'shopList.do');
+	}
+</script>
 <div class="mypage-container">
 	<div class="first-middle">
 		<div class="middle">
@@ -14,7 +19,6 @@
 				<div class="user-info">
 					<span class="user-name">${pageUser.name }(${pageUser.nickname })</span>
 					<span class="user-modify">
-					
 						<c:if test="${pageUser.userNo == loginUser.userNo }">
 							<a id="modifya" class="modify">회원수정</a> <span>/</span>
 							<a id="deletea" class="modify">회원탈퇴</a>
@@ -60,7 +64,7 @@
 							<span class="introduce-content" id="introduce-content">${pageUser.introduce }</span>
 							<c:if test="${loginUser.userNo == pageUser.userNo }">
 							<p class="update" id="update">변경</p>
-							<textarea class="introduce-textarea" id="introduce-modify" comment="100">${pageUser.introduce }</textarea>
+							<textarea class="introduce-textarea" id="introduce-modify">${pageUser.introduce }</textarea>
 							<button class="register" id="register" onclick="introduceChange(${pageUser.userNo})">등록</button>
 							</c:if>
 						</div>
@@ -75,48 +79,14 @@
 				</div>
 				<!-- product를 감싸는 div -->
 				<div class="menu-contents" >
-					<div class="product-package">
-						<!-- for 문 -->
-						<div class="product">
-							<div class="product-img-container">
-								<a href="#"> <img src="/joongo/image/fruit.jpg"class="product-img">
-								</a>
-							</div>
-							<div class="product-info">
-								<div class="product-title">
-									<a href="#">상품</a>
-								</div>
-								<div>
-									<div class="product-price">19000</div>
-									<div class="product-tag">#사과 #귤 #포도</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- for 문 -->
-					<div class="product-package none">
-						<!-- for 문 -->
-						<div class="product">
-							<div class="product-img-container">
-								<a href="#"> <img src="/joongo/image/fruit.jpg"class="product-img">
-								</a>
-							</div>
-							<div class="product-info">
-								<div class="product-title">
-									<a href="#">상품</a>
-								</div>
-								<div>
-									<div class="product-price">19000</div>
-									<div class="product-tag">#사과 #귤 #포도</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- 라인은 for문 5번 하고 난 후 -->
-					<div class="line"></div>
+					<!-- 내 상품 div -->
+					<div class="product-package" id="product-package"></div>
+					<!-- 후기 div -->
+					<!-- 찜 div -->
+					<div class="product-package none" id="fav-packge"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-	<jsp:include page="/particular/footer.jsp"></jsp:include>
+<jsp:include page="/particular/footer.jsp"></jsp:include>
