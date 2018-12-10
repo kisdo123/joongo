@@ -55,8 +55,8 @@
 							</tr>
 						</table>
 					</div>
-					<input type="hidden" name="userNo" value="1">
-					<input type="hidden" name="nickname" value="1">
+					<input type="hidden" name="userNo" value="${loginUser.userNo }">
+					<input type="hidden" name="nickname" value="${loginUser.nickname }">
 					<div class="register-container">
 						<input type="submit" value="등록" id="register" class="register">
 						<a href="#" class="cancel">취소</a>

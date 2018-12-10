@@ -74,7 +74,7 @@ function selectCat(catNo){
 				var product = list.products[i];
 				var text = "<div class='product'>"+
 								"<div class='product-img-container'>" +
-									"<a href='#'> <img src='"+((product.image.length==0)?" ":product.image[0].imagePath) +"'"+
+									"<a href='#'> <img src='"+((product.image.length==0)?"/joongo/image/no-image.jpg":product.image[0].imagePath) +"'"+
 										"class='product-img'>"+
 									"</a>"+
 								"</div>"+
