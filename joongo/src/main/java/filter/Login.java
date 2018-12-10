@@ -26,7 +26,7 @@ public class Login implements Filter {
 		if (session == null || session.getAttribute("User") == null) {
 			
 			HttpServletResponse response = (HttpServletResponse) resp;
-			response.sendRedirect(request.getContextPath() + "/loginForm.do");
+			response.sendRedirect(request.getContextPath() + "/writeSuccess.do");
 
 		} else {
 			

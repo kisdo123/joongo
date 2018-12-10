@@ -8,7 +8,6 @@
 	src="/joongo/se2/js/HuskyEZCreator.js"></script>
 </head>
 <jsp:include page="/particular/header.jsp"></jsp:include>
-<jsp:include page="/particular/loginPopup.jsp"></jsp:include>
 <div class="write-container">
 	<div class="first-div">
 		<div class="middle">

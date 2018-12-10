@@ -49,7 +49,7 @@
 
 	<filter>
 		<filter-name>Login</filter-name>
-		<filter-class>Filter.Login</filter-class>
+		<filter-class>filter.Login</filter-class>
 	</filter>
 
 	<filter-mapping>
