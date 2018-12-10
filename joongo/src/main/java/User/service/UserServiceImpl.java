@@ -9,6 +9,7 @@ import User.DAO.UserDAO;
 import User.DTO.User;
 import exception.IntroduceUpdateException;
 import exception.PasswordNotMatchException;
+import exception.RegisterFailedException;
 import exception.UserAlreadyExistException;
 import exception.UserNotFoundException;
 
@@ -25,7 +26,10 @@ public class UserServiceImpl implements UserService{
 			throw new UserAlreadyExistException("이미 존재하는 유저");
 		}
 		
-		userDAO.insert(user);
+		int res = userDAO.insert(user);
+		if( res == 0 ) {
+			throw new RegisterFailedException("회원가입 실패");
+		}
 	}
 
 	@Override
@@ -106,7 +110,7 @@ public class UserServiceImpl implements UserService{
 			throw new UserNotFoundException("유저를 찾을 수 없음");
 		}
 		if(loginUserNo!= userNo) {
-			throw new IntroduceUpdateException("대상이 올바르지 않음");
+			throw new IntroduceUpdateException("권한 없음");
 		}
 		
 		User user = new User();

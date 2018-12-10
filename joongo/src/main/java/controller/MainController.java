@@ -22,6 +22,9 @@ import Product.DTO.Product;
 import Product.Service.ProductService;
 import User.DTO.User;
 import User.service.UserService;
+import exception.PasswordNotMatchException;
+import exception.RegisterFailedException;
+import exception.UserAlreadyExistException;
 import exception.UserNotFoundException;
 
 @Controller
@@ -55,12 +58,24 @@ public class MainController {
 
 	// 회원가입을 진행
 	@RequestMapping("/register.do")
-	public String registerUser(@ModelAttribute User user) {
+	public String registerUser(HttpServletRequest req, @ModelAttribute User user) {
 
 		System.out.println(user.getLoginId() + ", " + user.getPassword());
-		userService.registerUser(user);
-
-		return "redirect:/main.do";
+		
+		try {
+			userService.registerUser(user);
+			return "redirect:/main.do";
+		}catch(UserAlreadyExistException e) {
+			e.printStackTrace();
+			req.setAttribute("userExist", true);
+			req.setAttribute("ret", "main.do");
+		}catch(RegisterFailedException e) {
+			e.printStackTrace();
+			req.setAttribute("registerFail", true);
+			req.setAttribute("ret", "main.do");
+		}
+		return "writefinish";
+		
 	}
 
 	// 회원가입 폼을 요청
@@ -120,11 +135,17 @@ public class MainController {
 
 			request.getSession().setAttribute("loginUser", user);
 			System.out.println("로그인 성공, 유저:" + user.getName());
-		} catch (RuntimeException e) {
+			return "redirect:/main.do";
+		} catch (UserNotFoundException e) {
 			e.printStackTrace();
-			return null; // 에러페이지 추가하삼
+			request.setAttribute("loginFail", true);
+			request.setAttribute("ret", "main.do");
+		} catch (PasswordNotMatchException e) {
+			e.printStackTrace();
+			request.setAttribute("passwordNotMatch", true);
+			request.setAttribute("ret", "main.do");
 		}
-		return "redirect:/main.do";
+		return "error";
 	}
 
 	// 로그아웃

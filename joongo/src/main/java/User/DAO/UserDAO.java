@@ -5,7 +5,7 @@ import java.util.List;
 import User.DTO.User;
 
 public interface UserDAO {
-	public void insert(User user);
+	public int insert(User user);
 	
 	public int delete(int userNo);
 	
