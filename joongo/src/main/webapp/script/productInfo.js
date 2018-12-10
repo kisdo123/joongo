@@ -1,51 +1,72 @@
 $(function() {
 
-	// 이미지가 없으면 이미지와 라디오 버튼을 지움
-	$("li>img").each(function(index) {
+	// 이미지 개수에 따른 상품 라디오 버튼 숫자조절
+	var total = $(".productInfo-radioUl>li").length;
 
-		var curSrc = $(this).attr("src");
+	$(".productInfo-radioUl>li")
+			.each(
+					function(index) {
 
-		console.log(curSrc);
-		console.log(index);
+						var curClass = $(this).attr("class");
+						var noImg = "<li class='roductInfo-radioLi'><img src='/joongo/image/no-image.jpg' class='productInfo-img'></li>";
 
-		if (curSrc == "") {
+						console.log(total);
+						console.log(index);
 
-			if (index == 9) {
+						if (total == 0) {
+							$(".productInfo-radioUl").after(noImg);
+						}
+						// 이미지 한개일 때
+						else if (total == 1) {
+							for (var i = 2; i < 11; i++) {
+								$("#productInfo-label" + i).css("display",
+										"none");
+							}
+							// 이미지 2개일 때
+						} else if (total == 2) {
+							for (var i = 3; i < 11; i++) {
+								$("#productInfo-label" + i).css("display",
+										"none");
+							}
+							// 이미지 3개일 때
+						} else if (total == 3) {
+							for (var i = 4; i < 11; i++) {
+								$("#productInfo-label" + i).css("display",
+										"none");
+							}
+						} else if (total == 4) {
+							for (var i = 5; i < 11; i++) {
+								$("#productInfo-label" + i).css("display",
+										"none");
+							}
+						} else if (total == 5) {
+							for (var i = 6; i < 11; i++) {
+								$("#productInfo-label" + i).css("display",
+										"none");
+							}
+						} else if (total == 6) {
+							for (var i = 7; i < 11; i++) {
+								$("#productInfo-label" + i).css("display",
+										"none");
+							}
+						} else if (total == 7) {
+							for (var i = 8; i < 11; i++) {
+								$("#productInfo-label" + i).css("display",
+										"none");
+							}
+						} else if (total == 8) {
+							for (var i = 9; i < 11; i++) {
+								$("#productInfo-label" + i).css("display",
+										"none");
+							}
+						} else if (total == 9) {
+							for (var i = 10; i < 11; i++) {
+								$("#productInfo-label" + i).css("display",
+										"none");
+							}
+						}
 
-				$("#productInfo-label10").css("display", "none");
-
-			} else if (index == 8) {
-
-				$("#productInfo-label9").css("display", "none");
-			} else if (index == 7) {
-
-				$("#productInfo-label8").css("display", "none");
-			} else if (index == 6) {
-
-				$("#productInfo-label7").css("display", "none");
-			} else if (index == 5) {
-
-				$("#productInfo-label6").css("display", "none");
-			} else if (index == 4) {
-
-				$("#productInfo-label5").css("display", "none");
-			} else if (index == 3) {
-
-				$("#productInfo-label4").css("display", "none");
-			} else if (index == 2) {
-
-				$("#productInfo-label3").css("display", "none");
-			} else if (index == 1) {
-
-				$("#productInfo-label2").css("display", "none");
-			} else if (index == 0) {
-				$("#productInfo-label2").css("display", "none");
-				/*$(this).attr("src", "/joongo/image/no-image.jpg");*/
-			}
-
-		}
-
-	});
+					});
 
 	$("input[id='pos1']").click(function() {
 
@@ -117,8 +138,6 @@ $(function() {
 		}, 500);
 	});
 
-	
-	
 	// 찜버튼 활성화
 	$(".productInfo-zzimBtn").on("click", function() {
 		$(".productInfo-zzimBtn").css("display", "none");
@@ -141,44 +160,24 @@ function thousand(number) {
 }
 
 // 찜 선택 삭제 ajax 처링
-/*$(".productInfo-zzimBtn").click(function() {
-
-	$.ajax({
-		url : "addFavorite.do",
-		data : {
-			// ${product.proNo} , {product.userNo} 로 변경해야 함
-			"proNo" : proNo,
-			"userNo" : userNo
-		},
-		success : function() {
-			$(".productInfo-zzimBtn").css("display", "none");
-			$(".productInfo-clickZzim").css("display", "inline");
-		},
-		error : function(error) {
-
-			console.log(error);
-			alert('찜 선택이 실패했습니다.');
-		}
-	});
-});
-
-$(".productInfo-clickZzim").click(function() {
-
-	$.ajax({
-		url : "deleteFavorite.do",
-		data : {
-			// ${product.proNo} , {product.userNo} 로 변경해야 함
-			"proNo" : proNo,
-			"userNo" : userNo
-		},
-		success : function() {
-			$(".productInfo-zzimBtn").css("display", "inline");
-			$(".productInfo-clickZzim").css("display", "none");
-		},
-		error : function(error) {
-
-			console.log(error);
-			alert('찜 해제에 실패했습니다.');
-		}
-	});
-}); */
+/*
+ * $(".productInfo-zzimBtn").click(function() {
+ * 
+ * $.ajax({ url : "addFavorite.do", data : { // ${product.proNo} ,
+ * {product.userNo} 로 변경해야 함 "proNo" : proNo, "userNo" : userNo }, success :
+ * function() { $(".productInfo-zzimBtn").css("display", "none");
+ * $(".productInfo-clickZzim").css("display", "inline"); }, error :
+ * function(error) {
+ * 
+ * console.log(error); alert('찜 선택이 실패했습니다.'); } }); });
+ * 
+ * $(".productInfo-clickZzim").click(function() {
+ * 
+ * $.ajax({ url : "deleteFavorite.do", data : { // ${product.proNo} ,
+ * {product.userNo} 로 변경해야 함 "proNo" : proNo, "userNo" : userNo }, success :
+ * function() { $(".productInfo-zzimBtn").css("display", "inline");
+ * $(".productInfo-clickZzim").css("display", "none"); }, error :
+ * function(error) {
+ * 
+ * console.log(error); alert('찜 해제에 실패했습니다.'); } }); });
+ */
