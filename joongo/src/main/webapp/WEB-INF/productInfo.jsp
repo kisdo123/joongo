@@ -63,8 +63,6 @@
 					</li>
 					<li class="productInfo-contextLi"><strong>등록날짜</strong> <span>${product.wdate }</span>
 					</li>
-					<li class="productInfo-contextLi"><strong>조회수</strong> <span>1234</span>
-					</li>
 					<li class="productInfo-contextLi"><strong>상태</strong> <span>${product.condit}</span>
 					</li>
 				</ul>
