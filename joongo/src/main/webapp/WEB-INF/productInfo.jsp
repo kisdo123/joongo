@@ -61,7 +61,7 @@
 				<ul class="productInfo-contextUl">
 					<li class="productInfo-contextLi"><strong>주소</strong> <span>서울특별시</span>
 					</li>
-					<li class="productInfo-contextLi"><strong>등록날짜</strong> <span>2018.12.01${product.wdate }</span>
+					<li class="productInfo-contextLi"><strong>등록날짜</strong> <span>${product.wdate }</span>
 					</li>
 					<li class="productInfo-contextLi"><strong>조회수</strong> <span>1234</span>
 					</li>
