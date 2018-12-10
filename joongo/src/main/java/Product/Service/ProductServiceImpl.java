@@ -26,9 +26,6 @@ public class ProductServiceImpl implements ProductService {
 			throw new ProductNotFoundException("검색단어가 없습니다.");
 		}
 		List<Product> products = productDAO.selectSearchList(word);
-		if (products.isEmpty() || products.equals(null)) {
-			throw new ProductNotFoundException("검색 목록이 존재하지 않습니다.");
-		}
 
 		for (Product product : products) {
 			int proNo = product.getProNo();
@@ -36,9 +33,6 @@ public class ProductServiceImpl implements ProductService {
 			product.setImage(images);
 		}
 
-		if (products.isEmpty() || products.equals(null)) {
-			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
-		}
 		return products;
 	}
 
@@ -46,9 +40,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> totalSelect() {
 		List<Product> products = productDAO.selectList();
-		if (products.isEmpty() || products.equals(null)) {
-			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
-		}
 
 		for (Product product : products) {
 			int proNo = product.getProNo();
@@ -63,9 +54,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> catNoSelect(int catNo) {
 		List<Product> products = productDAO.selectcatNo(catNo);
-		if (products.isEmpty() || products.equals(null)) {
-			throw new ProductNotFoundException("카테고리 목록이 존재하지 않습니다.");
-		}
 
 		for (Product product : products) {
 			int proNo = product.getProNo();
@@ -80,9 +68,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product oneSelect(int proNo) {
 		Product product = productDAO.selectOne(proNo);
-		if (product.equals(null)) {
-			throw new ProductNotFoundException("글이 존재하지 않습니다.");
-		}
 
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
@@ -136,9 +121,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> select5List() {
 		List<Product> select5List = productDAO.select5List();
-		if (select5List.isEmpty() || select5List.equals(null)) {
-			throw new ProductNotFoundException("카테고리1 목록이 존재하지 않습니다.");
-		}
 
 		for (Product product : select5List) {
 			int proNo = product.getProNo();
@@ -153,9 +135,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> selectExceptSelf(int proNo) {
 		List<Product> selectExceptSelf = productDAO.selectExceptSelf(proNo);
-		if (selectExceptSelf.isEmpty() || selectExceptSelf.equals(null)) {
-			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
-		}
 		for (Product product : selectExceptSelf) {
 			proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
@@ -171,10 +150,6 @@ public class ProductServiceImpl implements ProductService {
 		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
 		for (int i = 1; i < 10; i++) {
 			List<Product> productscat = productDAO.select5catNo(i);
-
-			if (productscat.isEmpty() || productscat.equals(null)) {
-				throw new ProductNotFoundException("카테고리" + i + " 목록이 존재하지 않습니다.");
-			}
 
 			for (Product product : productscat) {
 				int proNo = product.getProNo();
@@ -193,9 +168,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> selectShop(int userNo) {
 		List<Product> products = productDAO.selectProductbyUser(userNo);
-		if (products.isEmpty() || products.equals(null)) {
-			throw new ProductNotFoundException("상점 목록이 존재하지 않습니다.");
-		}
+		
 		for (Product product : products) {
 			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
