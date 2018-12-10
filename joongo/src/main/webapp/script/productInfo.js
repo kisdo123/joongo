@@ -3,70 +3,59 @@ $(function() {
 	// 이미지 개수에 따른 상품 라디오 버튼 숫자조절
 	var total = $(".productInfo-radioUl>li").length;
 
-	$(".productInfo-radioUl>li")
-			.each(
-					function(index) {
+	var noImgLi = "<li class='roductInfo-radioLi'><img src='/joongo/image/no-image.jpg' class='productInfo-img'></li>";
 
-						var curClass = $(this).attr("class");
-						var noImg = "<li class='roductInfo-radioLi'><img src='/joongo/image/no-image.jpg' class='productInfo-img'></li>";
-
-						console.log(total);
-						console.log(index);
-
-						if (total == 0) {
-							$(".productInfo-radioUl").after(noImg);
-						}
-						// 이미지 한개일 때
-						else if (total == 1) {
-							for (var i = 2; i < 11; i++) {
-								$("#productInfo-label" + i).css("display",
-										"none");
-							}
-							// 이미지 2개일 때
-						} else if (total == 2) {
-							for (var i = 3; i < 11; i++) {
-								$("#productInfo-label" + i).css("display",
-										"none");
-							}
-							// 이미지 3개일 때
-						} else if (total == 3) {
-							for (var i = 4; i < 11; i++) {
-								$("#productInfo-label" + i).css("display",
-										"none");
-							}
-						} else if (total == 4) {
-							for (var i = 5; i < 11; i++) {
-								$("#productInfo-label" + i).css("display",
-										"none");
-							}
-						} else if (total == 5) {
-							for (var i = 6; i < 11; i++) {
-								$("#productInfo-label" + i).css("display",
-										"none");
-							}
-						} else if (total == 6) {
-							for (var i = 7; i < 11; i++) {
-								$("#productInfo-label" + i).css("display",
-										"none");
-							}
-						} else if (total == 7) {
-							for (var i = 8; i < 11; i++) {
-								$("#productInfo-label" + i).css("display",
-										"none");
-							}
-						} else if (total == 8) {
-							for (var i = 9; i < 11; i++) {
-								$("#productInfo-label" + i).css("display",
-										"none");
-							}
-						} else if (total == 9) {
-							for (var i = 10; i < 11; i++) {
-								$("#productInfo-label" + i).css("display",
-										"none");
-							}
-						}
-
-					});
+	if (total == 0) {
+		$(".productInfo-radioUl").after(noImgLi);
+		for (var i = 2; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+	}
+	// 이미지 한개일 때
+	else if (total == 1) {
+		for (var i = 2; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+		// 이미지 2개일 때
+	} else if (total == 2) {
+		for (var i = 3; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+		// 이미지 3개일 때
+	} else if (total == 3) {
+		for (var i = 4; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+	} else if (total == 4) {
+		for (var i = 5; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+	} else if (total == 5) {
+		for (var i = 6; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+	} else if (total == 6) {
+		for (var i = 7; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+	} else if (total == 7) {
+		for (var i = 8; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+	} else if (total == 8) {
+		for (var i = 9; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+	} else if (total == 9) {
+		for (var i = 10; i < 11; i++) {
+			$("#productInfo-label" + i).css("display", "none");
+		}
+	}
+	
+	
+	
+	
+	
 
 	$("input[id='pos1']").click(function() {
 
