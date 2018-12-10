@@ -12,7 +12,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-	
+
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -23,12 +23,12 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:/config/beans.xml</param-value>
 	</context-param>
-	
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -41,9 +41,29 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
+
+	<filter>
+		<filter-name>Login</filter-name>
+		<filter-class>Filter.Login</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>Login</filter-name>
+		<url-pattern>/writeProduct.do</url-pattern>
+		<url-pattern>/logout.do</url-pattern>
+		<url-pattern>/introduceModify.do</url-pattern>
+		<url-pattern>/deleteUser.do</url-pattern>
+		<url-pattern>/modifyUserForm.do</url-pattern>
+		<url-pattern>/modifyUser.do</url-pattern>
+		<url-pattern>/addFavorite.do</url-pattern>
+		<url-pattern>/deleteFavorite.do</url-pattern>
+		<url-pattern>/productModifyForm.do</url-pattern>
+		<url-pattern>/productModify.do</url-pattern>
+		<url-pattern>/delectProduct.do</url-pattern>
+	</filter-mapping>
 </web-app>
