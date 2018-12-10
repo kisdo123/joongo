@@ -223,7 +223,7 @@ public class MainController {
 	public String getUserList(Model model, @RequestParam("word") String word) {
 		List<Product> products = productService.searching(word);
 		model.addAttribute("products", products);
-		return "productList";
+		return "search";
 	}
 
 	// 글쓰기

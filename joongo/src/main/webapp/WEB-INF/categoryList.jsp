@@ -19,21 +19,6 @@
 				<div class="category-button" onclick="selectCat(8)">식품</div>
 				<div class="category-button" onclick="selectCat(9)">기타</div>
 			</div>
-			<%-- <table border="1">
-				<c:forEach var="product" items="${products}">
-					<tr>
-						<td>${product.title}</td>
-						<td>${product.catNo}</td>
-						<td>${product.nickname}</td>
-						<td>${product.condit}</td>
-						<td>${product.price}</td>
-						<c:if test="${!product.image.isEmpty() }">
-							<td><img src="${product.image.get(0).imagePath }"></td>
-						</c:if>
-						<td>${product.tags}</td>
-					</tr>
-				</c:forEach>
-			</table> --%>
 			<div class="category">
 				<p class="category-info">
 					<span><input value="의류" readonly class="category-title"></span>
