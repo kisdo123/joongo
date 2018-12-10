@@ -17,4 +17,5 @@ public interface ProductService {
 	public Map<String, List<Product>> select5catNo();
 	public List<Product> selectShop(int userNo);
 	public Product updateSelect(int userNo, int proNo);
+	public List<Product> selectExceptSelf(int proNo);
 }

@@ -39,13 +39,13 @@ public class MainController {
 	// 메인화면으로 보냄
 	@RequestMapping("/main.do")
 	public String goMain(Model model) {
-		
+
 		List<Product> products = productService.select5List();
 		Map<String, List<Product>> map = productService.select5catNo();
-		
-		
-		String[] categories = {"clothes", "appliances","cosmetics","instrument","books", "household", "sports", "foods", "etc"};
-		String[] titles = {"의류", "가전제품", "화장품", "악기/음향기기", "도서", "생활용품", "스포츠", "식품", "기타"};
+
+		String[] categories = { "clothes", "appliances", "cosmetics", "instrument", "books", "household", "sports",
+				"foods", "etc" };
+		String[] titles = { "의류", "가전제품", "화장품", "악기/음향기기", "도서", "생활용품", "스포츠", "식품", "기타" };
 		model.addAttribute("categories", categories);
 		model.addAttribute("titles", titles);
 		model.addAttribute("products", products);
@@ -274,7 +274,18 @@ public class MainController {
 		List<Product> products = productService.selectShop(userNo);
 		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
 		map.put("products", products);
-		
+
+		return map;
+	}
+
+	// 본인글제외 최신글 5개조회
+	@RequestMapping("/exceptSelf.do")
+	@ResponseBody
+	public Map<String, List<Product>> exceptSelf(Model model, @RequestParam int proNo) {
+		List<Product> products = productService.selectExceptSelf(proNo);
+		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
+		map.put("products", products);
+
 		return map;
 	}
 
@@ -295,14 +306,13 @@ public class MainController {
 		int userNo = loginUser.getUserNo();
 		product.setUserNo(userNo);
 		productService.update(product);
-		return "myPage";
+		return "main";
 	}
 
 	// 글 삭제
 	@RequestMapping("/delectProduct.do")
-	public String delectProduct (Model model, @ModelAttribute Product product) {
+	public String delectProduct(Model model, @ModelAttribute Product product) {
 		productService.delete(product);
 		return "productModify";
 	}
-
 }

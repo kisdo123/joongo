@@ -148,6 +148,22 @@ public class ProductServiceImpl implements ProductService {
 		}
 		return select5List;
 	}
+	
+	//본인글 제외 최신글 5개조회
+	@Override
+	public List<Product> selectExceptSelf(int proNo) {
+		List<Product> selectExceptSelf = productDAO.selectExceptSelf(proNo);
+		if (selectExceptSelf.isEmpty() || selectExceptSelf.equals(null)) {
+			throw new ProductNotFoundException("목록이 존재하지 않습니다.");
+		}
+		for (Product product : selectExceptSelf) {
+			proNo = product.getProNo();
+			List<Image> images = productDAO.selectImage(proNo);
+			product.setImage(images);
+			checkPathImage(product.getImage());
+		}
+		return selectExceptSelf;
+	}
 
 	// 카테고리 최신글 5개조회
 	@Override
@@ -281,7 +297,6 @@ public class ProductServiceImpl implements ProductService {
 
 	// 이미지 패스에 파일이 존재하지않으면 변경
 	public void checkPathImage(List<Image> images) {
-
 		for (Image image : images) {
 			String imagePath = image.getImagePath();
 			File dir = new File("C:/Users/KOITT-02-A/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"+ imagePath);

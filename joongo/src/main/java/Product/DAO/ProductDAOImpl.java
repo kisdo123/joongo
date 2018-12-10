@@ -97,9 +97,16 @@ public class ProductDAOImpl implements ProductDAO {
 		return productMapper.updateProductSelect(userNo, proNo);
 	}
 
+	//글삭제
 	@Override
 	public int deleteImage(int imgNo) {
 		return productMapper.deleteImage(imgNo);
+	}
+
+	//본인글 제외 최신글 5개 조회
+	@Override
+	public List<Product> selectExceptSelf(int proNo) {
+		return productMapper.selectExceptSelf(proNo);
 	}
 
 }
