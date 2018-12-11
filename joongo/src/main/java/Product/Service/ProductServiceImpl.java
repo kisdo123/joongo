@@ -31,6 +31,7 @@ public class ProductServiceImpl implements ProductService {
 			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
+			checkPathImage(product.getImage());
 		}
 
 		return products;
