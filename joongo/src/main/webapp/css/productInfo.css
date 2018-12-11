@@ -59,8 +59,8 @@
 	font-weight: bolder;
 }
 
-.productInfo-btnDiv {
-	
+.productInfo-btnSecondDiv {
+	margin-top: 10px;
 }
 
 .productInfo-zzimBtn {
@@ -116,7 +116,29 @@
 }
 
 
+.productInfo-productModify{
+	width: 150px;
+	height: 56px;
+	border: 1px solid #673ab7;
+	background-color: #673ab7;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	margin-right: 5px;
+	cursor: pointer;
+}
 
+.productInfo-productdelete{
+	width: 150px;
+	height: 56px;
+	border: 1px solid #4862ef;
+	background-color: #4862ef;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	margin-right: 5px;
+	cursor: pointer;
+}
 
 
 .productInfo-img {
