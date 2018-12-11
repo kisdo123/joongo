@@ -34,11 +34,8 @@ public class Server {
 	 */
 
 	@OnOpen
-
 	public void handleOpen(Session userSession) {
-
 		sessionUsers.add(userSession);
-
 	}
 
 	/**
@@ -55,33 +52,20 @@ public class Server {
 	 */
 
 	@OnMessage
-
 	public void handleMessage(String message, Session userSession) throws IOException {
-
-		String username = (String) userSession.getUserProperties().get("username");
-
+		String username = (String)userSession.getUserProperties().get("username");
 		// 세션 프로퍼티에 username이 없으면 username을 선언하고 해당 세션을으로 메시지를 보낸다.(json 형식이다.)
-
 		// 최초 메시지는 username설정
-
 		if (username == null) {
-
 			userSession.getUserProperties().put("username", message);
-
 			userSession.getBasicRemote().sendText(buildJsonData("System", "you are now connected as " + message));
-
 			return;
-
 		}
 
 		// username이 있으면 전체에게 메시지를 보낸다.
-
 		Iterator<Session> iterator = sessionUsers.iterator();
-
 		while (iterator.hasNext()) {
-
 			iterator.next().getBasicRemote().sendText(buildJsonData(username, message));
-
 		}
 
 	}
@@ -95,11 +79,8 @@ public class Server {
 	 */
 
 	@OnClose
-
 	public void handleClose(Session userSession) {
-
 		sessionUsers.remove(userSession);
-
 	}
 
 	/**
@@ -115,20 +96,12 @@ public class Server {
 	 */
 
 	public String buildJsonData(String username, String message) {
-
 		JsonObject jsonObject = Json.createObjectBuilder().add("message", username + " : " + message).build();
-
 		StringWriter stringwriter = new StringWriter();
-
 		try (JsonWriter jsonWriter = Json.createWriter(stringwriter)) {
-
 			jsonWriter.write(jsonObject);
-
-		}
-		;
-
+		};
 		return stringwriter.toString();
-
 	}
 
 }
