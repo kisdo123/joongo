@@ -10,7 +10,7 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="/joongo/script/signUp.js" type="text/javascript"></script>
 </head>
-<body>
+<body oncontextmenu="return false" ondragstart="return false" onselect="return false">
 	<div class="middle">
 		<div class="signup_container">
 			<div class="signup_logo">
