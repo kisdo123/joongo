@@ -1,6 +1,7 @@
 package Product.DTO;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.apache.ibatis.type.Alias;
@@ -23,12 +24,13 @@ public class Product {
 	private List<Image> image;
 
 	public Product() {
+		String strwdate = wdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		wdate = LocalDateTime.parse(strwdate, formatter);
 	}
 
-
 	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit,
-			String price, String content, String tags, LocalDateTime wdate,
-			Boolean able) {
+			String price, String content, String tags, LocalDateTime wdate, Boolean able) {
 		this.proNo = proNo;
 		this.title = title;
 		this.catNo = catNo;
@@ -42,9 +44,9 @@ public class Product {
 		this.wdate = wdate;
 		this.able = able;
 	}
-	
-	public Product(String title, int catNo, int userNo, String nickname, String condit,
-			String price, String content, String tags) {
+
+	public Product(String title, int catNo, int userNo, String nickname, String condit, String price, String content,
+			String tags) {
 		this.title = title;
 		this.catNo = catNo;
 		this.userNo = userNo;
@@ -54,7 +56,7 @@ public class Product {
 		this.content = content;
 		this.tags = tags;
 	}
-	
+
 	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit,
 			String price, String content, String tags, LocalDateTime wdate, Boolean able, List<Image> image) {
 		super();
@@ -72,7 +74,6 @@ public class Product {
 		this.able = able;
 		this.image = image;
 	}
-
 
 	public String getCatName() {
 		return catName;
@@ -145,7 +146,7 @@ public class Product {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	public String getTags() {
 		return tags;
 	}
@@ -170,14 +171,12 @@ public class Product {
 		this.able = able;
 	}
 
-
 	public List<Image> getImage() {
 		return image;
 	}
 
-
 	public void setImage(List<Image> image) {
 		this.image = image;
 	}
-	
+
 }
