@@ -55,7 +55,7 @@ public class MainController {
 		model.addAttribute("cat5List", map);
 		return "main";
 	}
-	
+
 	// 결과페이지로 리턴
 	@RequestMapping("/finishPage.do")
 	public String finishPage() {
@@ -349,10 +349,4 @@ public class MainController {
 		productService.delete(product);
 		return "productModify";
 	}
-	
-	@RequestMapping("/chat.do")
-    public String viewChattingPage() {
-        return "chat";
-    }
-
 }

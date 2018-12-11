@@ -1,11 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css"
-	href="/joongo/css/writeProduct.css?6">
+<link rel="stylesheet" type="text/css" href="/joongo/css/writeProduct.css?6">
 <script type="text/javascript" src="/joongo/script/writeProduct.js"></script>
-<script type="text/javascript"
-	src="/joongo/se2/js/HuskyEZCreator.js"></script>
+<script type="text/javascript" src="/joongo/se2/js/HuskyEZCreator.js"></script>
 </head>
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <div class="write-container">
@@ -23,8 +20,7 @@
 								</tr>
 								<tr>
 									<td class="form-info">카테고리</td>
-									<td>
-										<select class="select-info" name="catNo">
+									<td><select class="select-info" name="catNo">
 											<!-- 카테고리 foreach -->
 											<option selected="selected" value="1">의류</option>
 											<option value="2">가전제품</option>
@@ -35,16 +31,13 @@
 											<option value="7">스포츠</option>
 											<option value="8">식품</option>
 											<option value="9">기타</option>
-										</select>
-										<span class="form-info">가격</span>
-										<input type="text" id="price" name="price" placeholder="희망 가격을 입력해주세요 (숫자만 입력가능합니다)" class="price-input">
-									</td>
+									</select> <span class="form-info">가격</span> <input type="text" id="price" name="price" placeholder="희망 가격을 입력해주세요 (숫자만 입력가능합니다)" class="price-input"></td>
 								</tr>
 							</table>
 						</div>
 					</div>
 					<!-- 스마트 에디터가 생기는 textarea -->
-					<textarea id="ir1" name="content" rows="10" cols="100" style='width:100%; height: 400px;'></textarea>
+					<textarea id="ir1" name="content" rows="10" cols="100" style='width: 100%; height: 400px;'></textarea>
 					<!-- tag -->
 					<div class="tag-container">
 						<table class="tags-table">
@@ -54,11 +47,9 @@
 							</tr>
 						</table>
 					</div>
-					<input type="hidden" name="userNo" value="${loginUser.userNo }">
-					<input type="hidden" name="nickname" value="${loginUser.nickname }">
+					<input type="hidden" name="userNo" value="${loginUser.userNo }"> <input type="hidden" name="nickname" value="${loginUser.nickname }">
 					<div class="register-container">
-						<input type="submit" value="등록" id="register" class="register">
-						<a href="#" class="cancel">취소</a>
+						<input type="submit" value="등록" id="register" class="register"> <a href="#" class="cancel">취소</a>
 					</div>
 				</form>
 			</div>

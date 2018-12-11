@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/main.css?3">
@@ -24,12 +23,10 @@
 					<c:forEach var="product" items="${products }">
 						<div class="product">
 							<div class="product-img-container">
-								<a href="productInfo.do?proNo=${product.proNo }"> <c:if
-										test="${product.image.isEmpty() }">
+								<a href="productInfo.do?proNo=${product.proNo }"> <c:if test="${product.image.isEmpty() }">
 										<img src="/joongo/image/no-image.jpg" class="product-img">
 									</c:if> <c:if test="${!product.image.isEmpty() }">
-										<img src="${product.image.get(0).imagePath }"
-											class="product-img">
+										<img src="${product.image.get(0).imagePath }" class="product-img">
 									</c:if>
 								</a>
 							</div>
@@ -38,8 +35,7 @@
 									<a href="productInfo.do?proNo=${product.proNo }">${product.title }</a>
 								</div>
 								<div class="product-price">${product.price }</div>
-								<c:if
-									test="${product.tags == '' || product.tags eq null || empty product.tags }">
+								<c:if test="${product.tags == '' || product.tags eq null || empty product.tags }">
 									<div class="product-tag">태그없음</div>
 								</c:if>
 								<c:if test="${product.tags != '' }">
@@ -83,47 +79,43 @@
 			<c:forEach var="i" begin="1" end="9">
 				${num = i -1;'' }
 					<div class="category" id="${categories[num] }">
-						<p class="category-info">
-							<span class="category-title">${titles[num] }</span> <span class="all-view"><a
-								href="catList.do?catNo=${i} }">전체보기</a></span>
-						</p>
-						<!-- 상품을 감싸고 있는 div  -->
-						<div class="product-container">
-							<c:forEach var="product" items="${cat5List.get('category'+=i) }">
-										<!-- 상품이 for문으로 돌아가야 함 -->
-										<div class="product">
-											<div class="product-img-container">
-												<a href="productInfo.do?proNo=${product.proNo }">
-													<c:if test="${product.image.isEmpty() }">
-														<img src="/joongo/image/no-image.jpg" class="product-img">
-													</c:if> <c:if test="${!product.image.isEmpty() }">
-														<img src="${product.image.get(0).imagePath }"
-															class="product-img">
-													</c:if>
-												</a>
-											</div>
-											<div class="product-info">
-												<div class="product-title">
-													<a href="productInfo.do?proNo=${product.proNo }">${product.title }</a>
-												</div>
-												<div class="product-price">${product.price }</div>
-												<c:if
-													test="${product.tags == '' || product.tags eq null || empty product.tags }">
-													<div class="product-tag">태그없음</div>
-												</c:if>
-												<c:if test="${product.tags != '' }">
-													<div class="product-tag">${product.tags }</div>
-												</c:if>
-											</div>
-										</div>
-							</c:forEach>
-						</div>
-				<div class="line"></div>
+					<p class="category-info">
+						<span class="category-title">${titles[num] }</span> <span class="all-view"><a href="catList.do?catNo=${i} }">전체보기</a></span>
+					</p>
+					<!-- 상품을 감싸고 있는 div  -->
+					<div class="product-container">
+						<c:forEach var="product" items="${cat5List.get('category'+=i) }">
+							<!-- 상품이 for문으로 돌아가야 함 -->
+							<div class="product">
+								<div class="product-img-container">
+									<a href="productInfo.do?proNo=${product.proNo }"> <c:if test="${product.image.isEmpty() }">
+											<img src="/joongo/image/no-image.jpg" class="product-img">
+										</c:if> <c:if test="${!product.image.isEmpty() }">
+											<img src="${product.image.get(0).imagePath }" class="product-img">
+										</c:if>
+									</a>
+								</div>
+								<div class="product-info">
+									<div class="product-title">
+										<a href="productInfo.do?proNo=${product.proNo }">${product.title }</a>
+									</div>
+									<div class="product-price">${product.price }</div>
+									<c:if test="${product.tags == '' || product.tags eq null || empty product.tags }">
+										<div class="product-tag">태그없음</div>
+									</c:if>
+									<c:if test="${product.tags != '' }">
+										<div class="product-tag">${product.tags }</div>
+									</c:if>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+					<div class="line"></div>
+				</div>
+			</c:forEach>
+			<!-- 맨 위, 맨 아래로 -->
+			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>
-		</c:forEach>
-		<!-- 맨 위, 맨 아래로 -->
-		<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 	</div>
-</div>
 </div>
 <jsp:include page="/particular/footer.jsp"></jsp:include>

@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/userPage.css">
 <script type="text/javascript" src="/joongo/script/userPage.js?6"></script>
@@ -17,10 +15,9 @@
 			<div class="user-info-container">
 				<!-- 유저 이름 -->
 				<div class="user-info">
-					<span class="user-name">${pageUser.name }(${pageUser.nickname })</span>
-					<span class="user-modify">
-						<c:if test="${pageUser.userNo == loginUser.userNo }">
-							<a id="modifya" class="modify">회원수정</a> <span>/</span>
+					<span class="user-name">${pageUser.name }(${pageUser.nickname })</span> <span class="user-modify"> <c:if test="${pageUser.userNo == loginUser.userNo }">
+							<a id="modifya" class="modify">회원수정</a>
+							<span>/</span>
 							<a id="deletea" class="modify">회원탈퇴</a>
 							<form id="modifyForm" action="modifyUserForm.do">
 								<input type="hidden" name="userNo" value="${pageUser.userNo }">
@@ -28,13 +25,9 @@
 							<form id="deleteUser" action="deleteUser.do">
 								<input type="hidden" name="userNo" value="${pageUser.userNo }">
 							</form>
-						</c:if>
-						
-						<!-- 신고하기 다른 사람 프로필을 봤을 때 -->
-						<c:if test="${pageUser.userNo != loginUser.userNo }">
+						</c:if> <!-- 신고하기 다른 사람 프로필을 봤을 때 --> <c:if test="${pageUser.userNo != loginUser.userNo }">
 							<form action="reportForm.do" method="POST">
-								<input type="hidden" value="${pageUser.userNo }">
-								<input type="submit" class="modify" value="신고하기">
+								<input type="hidden" value="${pageUser.userNo }"> <input type="submit" class="modify" value="신고하기">
 							</form>
 						</c:if>
 					</span>
@@ -63,9 +56,9 @@
 						<div class="introduce" id="introduce">
 							<span class="introduce-content" id="introduce-content">${pageUser.introduce }</span>
 							<c:if test="${loginUser.userNo == pageUser.userNo }">
-							<p class="update" id="update">변경</p>
-							<textarea class="introduce-textarea" id="introduce-modify">${pageUser.introduce }</textarea>
-							<button class="register" id="register" onclick="introduceChange(${pageUser.userNo})">등록</button>
+								<p class="update" id="update">변경</p>
+								<textarea class="introduce-textarea" id="introduce-modify">${pageUser.introduce }</textarea>
+								<button class="register" id="register" onclick="introduceChange(${pageUser.userNo})">등록</button>
 							</c:if>
 						</div>
 					</div>
@@ -78,7 +71,7 @@
 					<div class="center menu-title menu">찜</div>
 				</div>
 				<!-- product를 감싸는 div -->
-				<div class="menu-contents" >
+				<div class="menu-contents">
 					<!-- 내 상품 div -->
 					<div class="product-package" id="product-package"></div>
 					<!-- 후기 div -->
