@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE>
 
@@ -14,55 +15,54 @@
 
 <body>
 
-    <!-- 메시지 표시 영역 -->
+	<!-- 메시지 표시 영역 -->
 
-    <textarea id="messageTextArea" readonly="readonly" rows="10" cols="45"></textarea><br />
+	<textarea id="messageTextArea" readonly="readonly" rows="10" cols="45"></textarea>
+	<br />
 
-    <!-- 송신 메시지 텍스트박스 -->
+	<!-- 송신 메시지 텍스트박스 -->
 
-    <input type="text" id="messageText" size="50" />
+	<input type="text" id="messageText" size="50" />
 
-    <!-- 송신 버튼 -->
+	<!-- 송신 버튼 -->
 
-    <input type="button" value="Send" onclick="sendMessage()" />
+	<input type="button" value="Send" onclick="sendMessage()" /> x
+	<script type="text/javascript">
+		//웹소켓 초기화
 
-    <script type="text/javascript">
+		var webSocket = new WebSocket("ws://192.168.0.254:8080/joongo/server");
 
-        //웹소켓 초기화
+		var messageTextArea = document.getElementById("messageTextArea");
 
-        var webSocket = new WebSocket("ws://192.168.0.254:8080/joongo/broadsocket");
+		//메시지가 오면 messageTextArea요소에 메시지를 추가한다.
 
-        var messageTextArea = document.getElementById("messageTextArea");
+		webSocket.onmessage = function processMessge(message) {
 
-        //메시지가 오면 messageTextArea요소에 메시지를 추가한다.
+			//Json 풀기
 
-        webSocket.onmessage = function processMessge(message){
+			var jsonData = JSON.parse(message.data)
 
-            //Json 풀기
+			if (jsonData.message != null) {
 
-            var jsonData = JSON.parse(message.data);
+				messageTextArea.value += jsonData.message + "\n"
 
-            if(jsonData.message != null) {
+			}
+			;
 
-                messageTextArea.value += jsonData.message + "\n"
+		}
 
-            };
+		//메시지 보내기
 
-        }
+		function sendMessage() {
 
-        //메시지 보내기
+			var messageText = document.getElementById("messageText");
 
-        function sendMessage(){
+			webSocket.send(messageText.value);
 
-            var messageText = document.getElementById("messageText");
+			messageText.value = "";
 
-            webSocket.send(messageText.value);
-
-            messageText.value = "";
-
-        }
-
-    </script>
+		}
+	</script>
 
 </body>
 

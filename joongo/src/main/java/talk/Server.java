@@ -16,122 +16,119 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
- 
-
- 
-
-@ServerEndpoint("/broadsocket")
+@ServerEndpoint("/server")
 
 public class Server {
 
-    //유저 집합 리스트
+	// 유저 집합 리스트
 
-    static List<Session> sessionUsers = Collections.synchronizedList(new ArrayList<>());
+	static List<Session> sessionUsers = Collections.synchronizedList(new ArrayList<>());
 
-     
+	/**
+	 * 
+	 * 웹 소켓이 접속되면 유저리스트에 세션을 넣는다.
+	 * 
+	 * @param userSession
+	 *            웹 소켓 세션
+	 * 
+	 */
 
-    /**
+	@OnOpen
 
-     * 웹 소켓이 접속되면 유저리스트에 세션을 넣는다.
+	public void handleOpen(Session userSession) {
 
-     * @param userSession 웹 소켓 세션
+		sessionUsers.add(userSession);
 
-     */
+	}
 
-    @OnOpen
+	/**
+	 * 
+	 * 웹 소켓으로부터 메시지가 오면 호출한다.
+	 * 
+	 * @param message
+	 *            메시지
+	 * 
+	 * @param userSession
+	 * 
+	 * @throws IOException
+	 * 
+	 */
 
-    public void handleOpen(Session userSession){
+	@OnMessage
 
-        sessionUsers.add(userSession);
+	public void handleMessage(String message, Session userSession) throws IOException {
 
-    }
+		String username = (String) userSession.getUserProperties().get("username");
 
-    /**
+		// 세션 프로퍼티에 username이 없으면 username을 선언하고 해당 세션을으로 메시지를 보낸다.(json 형식이다.)
 
-     * 웹 소켓으로부터 메시지가 오면 호출한다.
+		// 최초 메시지는 username설정
 
-     * @param message 메시지
+		if (username == null) {
 
-     * @param userSession
+			userSession.getUserProperties().put("username", message);
 
-     * @throws IOException
+			userSession.getBasicRemote().sendText(buildJsonData("System", "you are now connected as " + message));
 
-     */
+			return;
 
-    @OnMessage
+		}
 
-    public void handleMessage(String message,Session userSession) throws IOException{
+		// username이 있으면 전체에게 메시지를 보낸다.
 
-        String username = (String)userSession.getUserProperties().get("username");
+		Iterator<Session> iterator = sessionUsers.iterator();
 
-        //세션 프로퍼티에 username이 없으면 username을 선언하고 해당 세션을으로 메시지를 보낸다.(json 형식이다.)
+		while (iterator.hasNext()) {
 
-        //최초 메시지는 username설정
+			iterator.next().getBasicRemote().sendText(buildJsonData(username, message));
 
-        if(username == null){
+		}
 
-            userSession.getUserProperties().put("username", message);
+	}
 
-            userSession.getBasicRemote().sendText(buildJsonData("System", "you are now connected as " + message));
+	/**
+	 * 
+	 * 웹소켓을 닫으면 해당 유저를 유저리스트에서 뺀다.
+	 * 
+	 * @param userSession
+	 * 
+	 */
 
-            return;
+	@OnClose
 
-        }
+	public void handleClose(Session userSession) {
 
-        //username이 있으면 전체에게 메시지를 보낸다.
+		sessionUsers.remove(userSession);
 
-        Iterator<Session> iterator = sessionUsers.iterator();
+	}
 
-        while(iterator.hasNext()){
+	/**
+	 * 
+	 * json타입의 메시지 만들기
+	 * 
+	 * @param username
+	 * 
+	 * @param message
+	 * 
+	 * @return
+	 * 
+	 */
 
-            iterator.next().getBasicRemote().sendText(buildJsonData(username,message));
+	public String buildJsonData(String username, String message) {
 
-        }
+		JsonObject jsonObject = Json.createObjectBuilder().add("message", username + " : " + message).build();
 
-    }
+		StringWriter stringwriter = new StringWriter();
 
-    /**
+		try (JsonWriter jsonWriter = Json.createWriter(stringwriter)) {
 
-     * 웹소켓을 닫으면 해당 유저를 유저리스트에서 뺀다.
+			jsonWriter.write(jsonObject);
 
-     * @param userSession
+		}
+		;
 
-     */
+		return stringwriter.toString();
 
-    @OnClose
-
-    public void handleClose(Session userSession){
-
-        sessionUsers.remove(userSession);
-
-    }
-
-    /**
-
-     * json타입의 메시지 만들기
-
-     * @param username
-
-     * @param message
-
-     * @return
-
-     */
-
-    public String buildJsonData(String username,String message){
-
-        JsonObject jsonObject = Json.createObjectBuilder().add("message", username+" : "+message).build();
-
-        StringWriter stringwriter =  new StringWriter();
-
-        try(JsonWriter jsonWriter = Json.createWriter(stringwriter)){
-
-                jsonWriter.write(jsonObject);
-
-        };
-
-        return stringwriter.toString();
-
-    }
+	}
 
 }
