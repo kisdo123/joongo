@@ -1,10 +1,14 @@
 var SUPEREPICFANTASTICPRODUCTS;
 var SUPEREPICFANTASTICSTART = 0;
-var SUPEREPICFANTASTICEND = 10;
+var SUPEREPICFANTASTICEND = 0;
+var SUPEREPICFANTASTICPRODUCTPERPAGE = 10;
 var SUPEREPICFANTASTICLENGTH;
+var SUPEREPICFANTASTICNUM;
+var SUPEREPICFANTASTICCUT = 5;
 
 /* 자신의 상품리스트 보기 */
-function viewProducts(userNo, url) {
+function viewProducts(userNo, url, pageNum) {
+	var pagination = "";
 	$.ajax({
 		url: url,
 		dataType: 'json',
@@ -15,8 +19,15 @@ function viewProducts(userNo, url) {
 			SUPEREPICFANTASTICPRODUCTS = data;
 			SUPEREPICFANTASTICLENGTH = Object.values(data.products).length;
 			$("#product-package").html('');
+
+			SUPEREPICFANTASTICSTART = SUPEREPICFANTASTICPRODUCTPERPAGE * (pageNum-1);
+			SUPEREPICFANTASTICEND = SUPEREPICFANTASTICSTART + SUPEREPICFANTASTICPRODUCTPERPAGE;
+			SUPEREPICFANTASTICNUM = SUPEREPICFANTASTICLENGTH/SUPEREPICFANTASTICPRODUCTPERPAGE; 
 			
-			for(var i=0; i<SUPEREPICFANTASTICEND; i++){
+			if(SUPEREPICFANTASTICNUM < 1)
+				SUPEREPICFANTASTICNUM = 1;
+			
+			for(var i=SUPEREPICFANTASTICSTART; i<SUPEREPICFANTASTICEND; i++){
 				var product = SUPEREPICFANTASTICPRODUCTS.products[i];
 				var text = "<div class='product'>"+
 				"<div class='product-img-container'>" +
@@ -39,9 +50,25 @@ function viewProducts(userNo, url) {
 					
 				}
 			}
+			
+			pagination += "<div>";
+			if(SUPEREPICFANTASTICNUM > 5) {
+				pagination += "<span><</span>";
+				for(var i=1; i<=SUPEREPICFANTASTICNUM; i++) {
+					pagination += "<span>" + i + "</span>";
+				}
+				pagination += "<span>></span>";
+			} else {
+				for(var i=1; i<=SUPEREPICFANTASTICNUM+1; i++) {
+					pagination += "<span>" + i + "</span>";
+				}
+			}
+			pagination += "</div>";
+			
+			$('#product-package').append(pagination);
 		},
 		error: function(error) {
-			console.log(error);
+			alert('예상치도 못한 오류가 발생했습니다!');
 		}
 	});
 }

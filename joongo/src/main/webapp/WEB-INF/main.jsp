@@ -43,7 +43,7 @@
 									<div class="product-tag">태그없음</div>
 								</c:if>
 								<c:if test="${product.tags != '' }">
-									<div class="product-tag">#${product.tag }</div>
+									<div class="product-tag">${product.tags }</div>
 								</c:if>
 							</div>
 						</div>

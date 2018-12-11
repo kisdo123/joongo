@@ -8,7 +8,7 @@
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <script>
 	window.onload = function() {
-		viewProducts(${pageUser.userNo}, 'shopList.do');
+		viewProducts(${pageUser.userNo}, 'shopList.do', ${param.pageNum});
 	}
 </script>
 <div class="mypage-container">
