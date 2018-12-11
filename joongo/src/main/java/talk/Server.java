@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -17,16 +16,9 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import org.springframework.web.socket.CloseStatus;
-import org.springframework.web.socket.WebSocketHandler;
-import org.springframework.web.socket.WebSocketMessage;
-import org.springframework.web.socket.WebSocketSession;
-
-import User.DTO.User;
-
 @ServerEndpoint("/server")
 
-public class Server implements WebSocketHandler {
+public class Server {
 
 	// 유저 집합 리스트
 
@@ -43,7 +35,6 @@ public class Server implements WebSocketHandler {
 
 	@OnOpen
 	public void handleOpen(Session userSession) {
-		System.out.println("client is now connected...");
 		sessionUsers.add(userSession);
 	}
 
@@ -62,7 +53,7 @@ public class Server implements WebSocketHandler {
 
 	@OnMessage
 	public void handleMessage(String message, Session userSession) throws IOException {
-		String username = (String) userSession.getUserProperties().get("username");
+		String username = (String)userSession.getUserProperties().get("username");
 		// 세션 프로퍼티에 username이 없으면 username을 선언하고 해당 세션을으로 메시지를 보낸다.(json 형식이다.)
 		// 최초 메시지는 username설정
 		if (username == null) {
@@ -109,42 +100,8 @@ public class Server implements WebSocketHandler {
 		StringWriter stringwriter = new StringWriter();
 		try (JsonWriter jsonWriter = Json.createWriter(stringwriter)) {
 			jsonWriter.write(jsonObject);
-		}
-		;
+		};
 		return stringwriter.toString();
-	}
-
-	@Override
-	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
-		Map<String, Object> map = session.getAttributes();
-		User user = (User) map.get("loginUser");
-		String nickname = user.getNickname();
-		System.out.println("로그인 한 아이디 : " + nickname);
-
-	}
-
-	@Override
-	public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public boolean supportsPartialMessages() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }
