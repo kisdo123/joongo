@@ -15,7 +15,7 @@
     
     <script type="text/javascript">
         //웹소켓 초기화
-        var webSocket = new WebSocket("ws://192.168.0.254:8080/joongo/server");
+        var webSocket = new WebSocket("ws://211.118.162.122:8080/joongo/server");
         var messageTextArea = document.getElementById("messageTextArea");
         //메시지가 오면 messageTextArea요소에 메시지를 추가한다.
         webSocket.onmessage = function processMessge(message){
