@@ -1,7 +1,6 @@
 package Product.DTO;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.apache.ibatis.type.Alias;
@@ -24,9 +23,9 @@ public class Product {
 	private List<Image> image;
 
 	public Product() {
-		String strwdate = wdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+		/*String strwdate = wdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		wdate = LocalDateTime.parse(strwdate, formatter);
+		wdate = LocalDateTime.parse(strwdate, formatter);*/
 	}
 
 	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit,
