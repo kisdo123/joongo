@@ -29,7 +29,9 @@ $(function() {
 		}
 	});*/
 	
-	
+	$("span:contains('판매하기')").click(function(){
+		location.href="writeProductForm.do";
+	})
 	
 	$("span:contains('내상점')").click(function(){
 		$('#userpage-form')[0].submit();

@@ -30,8 +30,8 @@
 						<img src="/joongo/image/sellImg.png">
 						<span class="header-a" id="header-spanSell">판매하기</span>
 						<img src="/joongo/image/myStoreImg.png">
-							<span class="header-a" id="header-spanMystore">내상점</span>
-							<input type="hidden" name="userNo" value="${loginUser.userNo }">
+						<span class="header-a" id="header-spanMystore">내상점</span>
+						<input type="hidden" name="userNo" value="${loginUser.userNo }">
 						<img src="/joongo/image/logoutImg.png" id="header-logoutImg">
 						<span class="header-a" id="header-spanLogout"> 로그아웃</span>
 						</form>

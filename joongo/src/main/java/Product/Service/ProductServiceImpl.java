@@ -78,7 +78,7 @@ public class ProductServiceImpl implements ProductService {
 
 	// 글쓰기
 	@Override
-	public void insert(Product product) {
+	public int insert(Product product) {
 		int res = productDAO.insertProduct(product);
 		if (res == 0) {
 			throw new ProductNotFoundException("글쓰기 실패");
@@ -116,6 +116,9 @@ public class ProductServiceImpl implements ProductService {
 			// imagePath insert
 			productDAO.insertImage(image);
 		}
+		
+		Product newOne = productDAO.selectNewOne();
+		return newOne.getProNo();
 	}
 
 	// 최신글 5개 조회

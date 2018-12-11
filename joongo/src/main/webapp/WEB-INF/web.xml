@@ -54,6 +54,7 @@
 
 	<filter-mapping>
 		<filter-name>Login</filter-name>
+		<url-pattern>/writeProductForm.do</url-pattern>
 		<url-pattern>/writeProduct.do</url-pattern>
 		<url-pattern>/logout.do</url-pattern>
 		<url-pattern>/introduceModify.do</url-pattern>

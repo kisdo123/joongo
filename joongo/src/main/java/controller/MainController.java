@@ -55,27 +55,33 @@ public class MainController {
 		model.addAttribute("cat5List", map);
 		return "main";
 	}
+	
+	// 결과페이지로 리턴
+	@RequestMapping("/finishPage.do")
+	public String finishPage() {
+		return "finishPage";
+	}
 
 	// 회원가입을 진행
 	@RequestMapping("/register.do")
 	public String registerUser(HttpServletRequest req, @ModelAttribute User user) {
 
 		System.out.println(user.getLoginId() + ", " + user.getPassword());
-		
+
 		try {
 			userService.registerUser(user);
 			return "redirect:/main.do";
-		}catch(UserAlreadyExistException e) {
+		} catch (UserAlreadyExistException e) {
 			e.printStackTrace();
 			req.setAttribute("userExist", true);
 			req.setAttribute("ret", "main.do");
-		}catch(RegisterFailedException e) {
+		} catch (RegisterFailedException e) {
 			e.printStackTrace();
 			req.setAttribute("registerFail", true);
 			req.setAttribute("ret", "main.do");
 		}
-		return "writefinish";
-		
+		return "finishPage";
+
 	}
 
 	// 회원가입 폼을 요청
@@ -250,8 +256,15 @@ public class MainController {
 	// 글쓰기
 	@RequestMapping("/writeProduct.do")
 	public String writeProduct(@ModelAttribute Product product) {
-		productService.insert(product);
-		return "writefinish";
+		int proNo = productService.insert(product);
+		return "redirect:/productInfo.do?proNo=" + proNo;
+	}
+
+	// 글쓰기 폼 요청
+	@RequestMapping("/writeProductForm.do")
+	public String writeProductForm() {
+
+		return "writeProduct";
 	}
 
 	// 전체 목록보기

@@ -23,10 +23,10 @@ public class Login implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpSession session = request.getSession(false);
 
-		if (session == null || session.getAttribute("User") == null) {
+		if (session == null || session.getAttribute("loginUser") == null) {
 			
 			HttpServletResponse response = (HttpServletResponse) resp;
-			response.sendRedirect(request.getContextPath() + "/writeSuccess.do");
+			response.sendRedirect(request.getContextPath() + "/finishPage.do");
 
 		} else {
 			
