@@ -15,12 +15,10 @@
 				<ul class="productInfo-radioUl">
 					<c:if test="${!product.image.isEmpty() }">
 						<c:forEach var="product" items="${product.image }">
-								<li class="productInfo-radioLi"><img
-									src="${product.imagePath }" width="400px"
-									height="400px"></li>
+							<li class="productInfo-radioLi"><img
+								src="${product.imagePath }" width="400px" height="400px"></li>
 						</c:forEach>
 					</c:if>
-
 				</ul>
 				<div class="productInfo-raridoDiv">
 
@@ -68,8 +66,6 @@
 				</ul>
 			</div>
 			<div class="productInfo-btnDiv">
-
-
 				<button class="productInfo-zzimBtn">
 					<span class="productInfo-zzimI"><i class="fa fa-heart"
 						aria-hidden="true"></i> 찜안함</span>
@@ -88,6 +84,21 @@
 					상점이동
 				</button>
 			</div>
+
+			<div class="productInfo-btnSecondDiv">
+				<c:if test="${product.userNo} == ${loginUser.userNo }">
+					<button class="productInfo-productModify">
+						<span><i class="fa fa-refresh" aria-hidden="true"></i></span>
+						글 수정
+					</button>
+
+					<button class="productInfo-productdelete">
+						<span><i class="fa fa-times" aria-hidden="true"></i></span>
+						글 삭제
+					</button>
+				</c:if>
+			</div>
+
 			<!-- 최신글은 한번만 -->
 			<div class="lately-container" style="clear: both;">
 				<p class="category-info">
@@ -171,21 +182,7 @@
 			</div>
 			<div class="productInfo-exTitle">상품정보</div>
 			<div class="productInfo-ex"></div>
-			<div class="productInfo-exContext">
-				내용 ${product.content} <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br> <br>
-				<br> <br> <br> <br> <br> <br>rr
-			</div>
+			<div class="productInfo-exContext">내용 ${product.content}</div>
 			<!-- 맨 위, 맨 아래로 -->
 			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>
