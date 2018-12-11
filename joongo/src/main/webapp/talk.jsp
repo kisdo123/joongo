@@ -20,7 +20,7 @@
     <script type="text/javascript">
         //WebSocketEx는 프로젝트 이름
         //websocket 클래스 이름
-        var webSocket = new WebSocket("ws://192.168.0.254:8080/joongo/websocket");
+        var webSocket = new WebSocket("ws://192.168.0.254:8080/WebSocketEx/websocket");
         var messageTextArea = document.getElementById("messageTextArea");
        
         //웹 소켓이 연결되었을 때 호출되는 이벤트
