@@ -349,4 +349,10 @@ public class MainController {
 		productService.delete(product);
 		return "productModify";
 	}
+	
+	@RequestMapping("/chat.do")
+    public String viewChattingPage() {
+        return "chat";
+    }
+
 }

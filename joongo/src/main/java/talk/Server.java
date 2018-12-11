@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonWriter;
@@ -18,7 +17,7 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/server")
 
-public class Server {
+public class Server{
 
 	// 유저 집합 리스트
 
@@ -35,6 +34,7 @@ public class Server {
 
 	@OnOpen
 	public void handleOpen(Session userSession) {
+		System.out.println("client is now connected...");
 		sessionUsers.add(userSession);
 	}
 
@@ -53,7 +53,7 @@ public class Server {
 
 	@OnMessage
 	public void handleMessage(String message, Session userSession) throws IOException {
-		String username = (String)userSession.getUserProperties().get("username");
+		String username = (String) userSession.getUserProperties().get("username");
 		// 세션 프로퍼티에 username이 없으면 username을 선언하고 해당 세션을으로 메시지를 보낸다.(json 형식이다.)
 		// 최초 메시지는 username설정
 		if (username == null) {
@@ -100,8 +100,8 @@ public class Server {
 		StringWriter stringwriter = new StringWriter();
 		try (JsonWriter jsonWriter = Json.createWriter(stringwriter)) {
 			jsonWriter.write(jsonObject);
-		};
+		}
+		;
 		return stringwriter.toString();
 	}
-
 }

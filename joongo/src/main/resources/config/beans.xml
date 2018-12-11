@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:websocket="http://www.springframework.org/schema/websocket" xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.2.xsd
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.2.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
@@ -9,10 +15,13 @@
 	<context:component-scan base-package="Image"></context:component-scan>
 	<context:component-scan base-package="Product"></context:component-scan>
 	<context:component-scan base-package="Favorite"></context:component-scan>
-	<context:component-scan base-package="controller"></context:component-scan>
+	<context:component-scan
+		base-package="controller"></context:component-scan>
 
-	<context:property-placeholder location="classpath:/config/value.properties" />
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<context:property-placeholder
+		location="classpath:/config/value.properties" />
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${db.driverClass}" />
 		<property name="url" value="${db.url}" />
 		<property name="username" value="${db.username}" />
@@ -22,15 +31,18 @@
 	<!-- 마이바티스 매퍼 인터페이스를 한꺼번에 스캔!!! -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 매퍼로 읽을 아이를 특정 패키지안에서 검색!! -->
-		<property name="basePackage" value="User.DAO, Product.DAO, Favorite.DAO" />
+		<property name="basePackage"
+			value="User.DAO, Product.DAO, Favorite.DAO" />
 		<!-- 마이바티스매퍼를 구별할수있게 어노테이션 추가한걸로 구별 -->
 		<property name="annotationClass" value="User.DAO.Query" />
 	</bean>
 
 	<!-- Mybatis-spring설정 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="typeAliasesPackage" value="User,Product,Image,Favorite" />
+		<property name="typeAliasesPackage"
+			value="User,Product,Image,Favorite" />
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:/config/userMapper.xml</value>
@@ -40,15 +52,16 @@
 		</property>
 	</bean>
 
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 	<mvc:annotation-driven />
 	<mvc:resources location="/upload/" mapping="/upload/**"></mvc:resources>
 	<mvc:annotation-driven>
 		<mvc:message-converters>
-			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-
 </beans>
 
 
