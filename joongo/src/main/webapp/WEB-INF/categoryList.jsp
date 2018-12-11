@@ -9,7 +9,7 @@
 	<div class="w1200">
 		<div class="middle">
 			<div class="category-button-container">
-				<div class="category-button" onclick="selectCat(1)">의류</div>
+				<div class="category-button" id="category-button" onclick="selectCat(1)">의류</div>
 				<div class="category-button" onclick="selectCat(2)">가전제품</div>
 				<div class="category-button" onclick="selectCat(3)">화장품</div>
 				<div class="category-button" onclick="selectCat(4)">악기</div>
