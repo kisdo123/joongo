@@ -55,6 +55,10 @@ $(function(){
 	
 })
 
+$(document).ready(function () {
+	$("#category-button").trigger("click");
+});
+
 function selectCat(catNo){
 	console.log(catNo);
 	$.ajax({
