@@ -24,9 +24,9 @@ public class Product {
 	private List<Image> image;
 
 	public Product() {
-		String strwdate = wdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		wdate = LocalDateTime.parse(strwdate, formatter);
+//		String strwdate = wdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//		wdate = LocalDateTime.parse(strwdate, formatter);
 	}
 
 	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit,

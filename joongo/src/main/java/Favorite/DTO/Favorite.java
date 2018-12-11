@@ -11,6 +11,9 @@ public class Favorite {
 	
 	private int favoNo;
 	private User user;
+	private int userNo;
+	
+	private int proNo;
 	private Product product;
 	private String wdate;	// 장바구니에 추가한 시간
 	
@@ -37,6 +40,21 @@ public class Favorite {
 	}
 	public String getWdate() {
 		return wdate;
+	}
+	public int getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
+
+	public int getProNo() {
+		return proNo;
+	}
+
+	public void setProNo(int proNo) {
+		this.proNo = proNo;
 	}
 	
 }

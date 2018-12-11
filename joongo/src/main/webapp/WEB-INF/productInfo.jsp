@@ -88,13 +88,11 @@
 			<div class="productInfo-btnSecondDiv">
 				<c:if test="${product.userNo} == ${loginUser.userNo }">
 					<button class="productInfo-productModify">
-						<span><i class="fa fa-refresh" aria-hidden="true"></i></span>
-						글 수정
+						<span><i class="fa fa-refresh" aria-hidden="true"></i></span> 글 수정
 					</button>
 
 					<button class="productInfo-productdelete">
-						<span><i class="fa fa-times" aria-hidden="true"></i></span>
-						글 삭제
+						<span><i class="fa fa-times" aria-hidden="true"></i></span> 글 삭제
 					</button>
 				</c:if>
 			</div>
@@ -188,4 +186,40 @@
 		</div>
 	</div>
 </div>
+<script>
+//찜 선택 삭제 ajax 처링
+
+$(".productInfo-zzimBtn").click(function() {
+	$.ajax({
+		url : "addFavorite.do",
+		data : { "proNo" :${product.proNo},
+			"userNo" : ${loginUser.userNo} 
+		}, 
+		success : function() { 
+			$(".productInfo-zzimBtn").css("display", "none");
+			$(".productInfo-clickZzim").css("display", "inline");
+		},
+		error : function(error) {
+			console.log(error); alert('찜 선택이 실패했습니다.');
+		}
+	}); 
+});
+	
+$(".productInfo-clickZzim").click(function() {
+	$.ajax({
+		url : "deleteFavorite.do",
+		data : { "proNo" : ${product.proNo},
+			"userNo" : ${loginUser.userNo}
+		},
+		success : function() {
+			$(".productInfo-zzimBtn").css("display", "inline");
+			$(".productInfo-clickZzim").css("display", "none"); 
+		}, 
+		error : function(error) { 
+			console.log(error); alert('찜 해제에 실패했습니다.'); 
+		} 
+	}); 
+});
+ 
+</script>
 <jsp:include page="/particular/footer.jsp"></jsp:include>
