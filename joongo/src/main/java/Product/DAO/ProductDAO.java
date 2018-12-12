@@ -21,6 +21,6 @@ public interface ProductDAO {
 	public List<Product> selectProductbyUser(int userNo);
 	public Product updateProductSelect(Product product);
 	public int deleteImage(int imgNo);
-	public List<Product> selectExceptSelf(int proNo);
+	public List<Product> selectExceptSelf(Product product);
 	
 }

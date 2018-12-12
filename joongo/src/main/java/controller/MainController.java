@@ -316,8 +316,11 @@ public class MainController {
 	// 본인글제외 최신글 5개조회
 	@RequestMapping("/exceptSelf.do")
 	@ResponseBody
-	public Map<String, List<Product>> exceptSelf(Model model, @RequestParam int proNo) {
-		List<Product> products = productService.selectExceptSelf(proNo);
+	public Map<String, List<Product>> exceptSelf(Model model, @RequestParam int proNo, @RequestParam int catNo) {
+		Product product = new Product();
+		product.setProNo(proNo);
+		product.setCatNo(catNo);
+		List<Product> products = productService.selectExceptSelf(product);
 		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
 		map.put("products", products);
 

@@ -137,10 +137,10 @@ public class ProductServiceImpl implements ProductService {
 	
 	//본인글 제외 최신글 5개조회
 	@Override
-	public List<Product> selectExceptSelf(int proNo) {
-		List<Product> selectExceptSelf = productDAO.selectExceptSelf(proNo);
-		for (Product product : selectExceptSelf) {
-			proNo = product.getProNo();
+	public List<Product> selectExceptSelf(Product product) {
+		List<Product> selectExceptSelf = productDAO.selectExceptSelf(product);
+		for (Product pro : selectExceptSelf) {
+			int proNo = pro.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 			checkPathImage(product.getImage());

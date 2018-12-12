@@ -23,5 +23,5 @@ public interface ProductMapper {
 	List<Product> selectProductbyUser(int userNo);
 	Product updateProductSelect(Product product);
 	int deleteImage(int imgNo);
-	List<Product> selectExceptSelf(int proNo);
+	List<Product> selectExceptSelf(Product product);
 }

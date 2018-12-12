@@ -20,9 +20,9 @@
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 order by wdate desc limit 5;
 	</select>
 
-	<!--본인글 제외 최신글 5개 조회 -->
-	<select resultType="Product" parameterType="int" id="selectExceptSelf">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 and proNo not in (#{proNo}) order by wdate desc limit 5
+	<!-- 연관검색-->
+	<select id="selectExceptSelf" resultType="Product" parameterType="Product">
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 and products.catNo = #{catNo} and proNo not in (#{proNo})  order by wdate desc limit 5;
 	</select>
 
 	<!--한개 조회 -->

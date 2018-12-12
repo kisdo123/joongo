@@ -105,8 +105,8 @@ public class ProductDAOImpl implements ProductDAO {
 
 	//본인글 제외 최신글 5개 조회
 	@Override
-	public List<Product> selectExceptSelf(int proNo) {
-		return productMapper.selectExceptSelf(proNo);
+	public List<Product> selectExceptSelf(Product product) {
+		return productMapper.selectExceptSelf(product);
 	}
 
 }
