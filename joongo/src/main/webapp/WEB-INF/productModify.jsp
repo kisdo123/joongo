@@ -21,37 +21,37 @@
 								</tr>
 								<tr>
 									<td class="form-info">카테고리</td>
-									<td><c:choose>
+									<td>
 											<select class="select-info" name="catNo">
-												<c:when test="${product.catNo == 1}">
+												<c:if test="${product.catNo == 1}">
 													<option selected="selected" value="1">의류</option>
-												</c:when>
-												<c:when test="${product.catNo == 2}">
+												</c:if>
+												<c:if test="${product.catNo == 2}">
 													<option selected="selected" value="2">가전제품</option>
-												</c:when>
-												<c:when test="${product.catNo == 3}">
+												</c:if>
+												<c:if test="${product.catNo == 3}">
 													<option selected="selected" value="3">화장품</option>
-												</c:when>
-												<c:when test="${product.catNo == 4}">
+												</c:if>
+												<c:if test="${product.catNo == 4}">
 													<option selected="selected" value="4">악기</option>
-												</c:when>
-												<c:when test="${product.catNo == 5}">
+												</c:if>
+												<c:if test="${product.catNo == 5}">
 													<option selected="selected" value="5">도서</option>
-												</c:when>
-												<c:when test="${product.catNo == 6}">
+												</c:if>
+												<c:if test="${product.catNo == 6}">
 													<option selected="selected" value="6">생활용품</option>
-												</c:when>
-												<c:when test="${product.catNo == 7}">
+												</c:if>
+												<c:if test="${product.catNo == 7}">
 													<option selected="selected" value="7">스포츠</option>
-												</c:when>
-												<c:when test="${product.catNo == 8}">
+												</c:if>
+												<c:if test="${product.catNo == 8}">
 													<option selected="selected" value="8">식품</option>
-												</c:when>
-												<c:when test="${product.catNo == 9}">
+												</c:if>
+												<c:if test="${product.catNo == 9}">
 													<option selected="selected" value="9">기타</option>
-												</c:when>
+												</c:if>
 											</select>
-										</c:choose> <span class="form-info">가격</span> <input type="text" id="price" name="price" placeholder="희망 가격을 입력해주세요 (숫자만 입력가능합니다)" value="${product.price }" class="price-input"></td>
+										 <span class="form-info">가격</span> <input type="text" id="price" name="price" placeholder="희망 가격을 입력해주세요 (숫자만 입력가능합니다)" value="${product.price }" class="price-input"></td>
 								</tr>
 							</table>
 						</div>
@@ -71,7 +71,7 @@
 					</div>
 					<input type="hidden" name="userNo" value="${loginUser.userNo }"> <input type="hidden" name="nickname" value="${loginUser.nickname }">
 					<div class="register-container">
-						<input type="submit" value="등록" id="register" class="register"> <a href="#" class="cancel">취소</a>
+						<input type="submit" value="수정" id="register" class="register"> <a href="#" class="cancel">취소</a>
 					</div>
 				</form>
 			</div>
