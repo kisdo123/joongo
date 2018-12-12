@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -201,7 +202,7 @@ public class MainController {
 	}
 
 	// 회원 정보 수정 폼 요청
-	@RequestMapping("/modifyUserForm.do")
+	@RequestMapping(value = "/modifyUserForm.do", method = RequestMethod.GET)
 	public String UpdateUserForm(Model model, @RequestParam("userNo") int userNo) {
 
 		User pageUser = userService.getUserByUserNo(userNo);
@@ -211,7 +212,7 @@ public class MainController {
 	}
 
 	// 회원정보 수정
-	@RequestMapping("/modifyUser.do")
+	@RequestMapping(value = "/modifyUser.do", method = RequestMethod.POST)
 	public String UpdateUser(HttpServletRequest request, @ModelAttribute User user) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
