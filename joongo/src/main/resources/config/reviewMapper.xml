@@ -7,7 +7,7 @@
 	<insert id="insertReview" parameterType="Review">
 		insert into review(userNo, nickname, content) values(#{userNo}, #{nickname},#{content})
 	</insert>
-	
+
 	<select id="selectReviewList" resultType="Review">
 		select * from favorite
 	</select>
