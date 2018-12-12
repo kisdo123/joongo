@@ -70,6 +70,7 @@
 						</table>
 					</div>
 					<input type="hidden" name="userNo" value="${loginUser.userNo }"> <input type="hidden" name="nickname" value="${loginUser.nickname }">
+					<input type="hidden" name="proNo" value="${product.proNo }">]
 					<div class="register-container">
 						<input type="submit" value="수정" id="register" class="register"> <a href="#" class="cancel">취소</a>
 					</div>

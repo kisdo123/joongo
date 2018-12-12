@@ -342,10 +342,11 @@ public class MainController {
 
 	// 글수정
 	@RequestMapping("/productModify.do")
-	public String UpdateProduct(Model model, HttpServletRequest request, @ModelAttribute Product product) {
+	public String UpdateProduct(Model model, HttpServletRequest request, @ModelAttribute Product product, @RequestParam int proNo) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
 		product.setUserNo(userNo);
+		product.setProNo(proNo);
 		productService.update(product);
 		return "main";
 	}
