@@ -24,6 +24,11 @@
         var messageTextArea = document.getElementById("messageTextArea");
         var name = document.getElementById("name");
        
+        
+        webSocket.onopen = function(){
+        	sendUserNickname('${loginUser.nickname}');	
+        }
+        
         //메시지가 오면 messageTextArea요소에 메시지를 추가한다.
         webSocket.onmessage = function processMessge(message){
             //Json 풀기
@@ -32,9 +37,13 @@
                 messageTextArea.value += jsonData.message + "\n"
             };
         }
-
+	
+        function sendUserNickname(nickname){
+            webSocket.send(nickname);
+        }
+        
         //메시지 보내기
-        function sendMessage(){
+        function sendMessage(d){
             var messageText = document.getElementById("messageText");
             webSocket.send(messageText.value);
             messageText.value = "";
