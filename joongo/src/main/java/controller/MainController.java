@@ -235,8 +235,11 @@ public class MainController {
 		Product product = new Product();
 		product.setProNo(proNo);
 
-		Favorite favorite = new Favorite(user, product);
+		Favorite favorite = new Favorite();
+		favorite.setProNo(proNo);
+		favorite.setUserNo(userNo);
 		favoService.addFavorite(favorite);
+		
 
 	}
 
@@ -348,8 +351,9 @@ public class MainController {
 		product.setUserNo(userNo);
 		product.setProNo(proNo);
 		productService.update(product);
-		return "main";
+		return "productInfo";
 	}
+	
 
 	// 글 삭제
 	@RequestMapping("/delectProduct.do")
