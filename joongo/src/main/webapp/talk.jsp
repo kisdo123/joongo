@@ -10,7 +10,6 @@
     <textarea id="messageTextArea" readonly="readonly" rows="10" cols="45"></textarea><br />
     <!-- 송신 메시지 텍스트박스 -->
     <input type="text" id="messageText" size="50" />
-    <input type="text" id="name" value="김형렬">
     <!-- 송신 버튼 -->
     <input type="button" value="Send" onclick="sendMessage()" />
     
@@ -20,10 +19,8 @@
         var inIp = "ws://192.168.0.254:8080/joongo/server";
         var outIp = "ws://211.118.162.122:8080/joongo/server";
 
-        var webSocket = new WebSocket(localhost);
+        var webSocket = new WebSocket(inIp);
         var messageTextArea = document.getElementById("messageTextArea");
-        var name = document.getElementById("name");
-       
         
         webSocket.onopen = function(){
         	sendUserNickname('${loginUser.nickname}');	

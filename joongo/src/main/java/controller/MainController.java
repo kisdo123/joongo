@@ -226,7 +226,7 @@ public class MainController {
 
 	@RequestMapping("/addFavorite.do")
 	@ResponseBody
-	public String addFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
+	public void addFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
 
 		User user = new User();
 		user.setUserNo(userNo);
@@ -237,7 +237,6 @@ public class MainController {
 		Favorite favorite = new Favorite(user, product);
 		favoService.addFavorite(favorite);
 
-		return "";
 	}
 
 	@RequestMapping("/deleteFavorite.do")
