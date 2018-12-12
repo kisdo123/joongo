@@ -24,7 +24,6 @@
         var messageTextArea = document.getElementById("messageTextArea");
         var name = document.getElementById("name");
        
-        v
         //메시지가 오면 messageTextArea요소에 메시지를 추가한다.
         webSocket.onmessage = function processMessge(message){
             //Json 풀기

@@ -57,8 +57,9 @@ public class MainController {
 	}
 
 	// 결과페이지로 리턴
-	@RequestMapping("/finishPage.do")
-	public String finishPage() {
+	@RequestMapping("/loginFilter.do")
+	public String finishPage(HttpServletRequest request) {
+		request.setAttribute("loginFilter", true);
 		return "finishPage";
 	}
 
@@ -74,11 +75,11 @@ public class MainController {
 		} catch (UserAlreadyExistException e) {
 			e.printStackTrace();
 			req.setAttribute("userExist", true);
-			req.setAttribute("ret", "main.do");
+			req.setAttribute("ret", "/joongo/main.do");
 		} catch (RegisterFailedException e) {
 			e.printStackTrace();
 			req.setAttribute("registerFail", true);
-			req.setAttribute("ret", "main.do");
+			req.setAttribute("ret", "/joongo/main.do");
 		}
 		return "finishPage";
 
@@ -144,14 +145,14 @@ public class MainController {
 			return "redirect:/main.do";
 		} catch (UserNotFoundException e) {
 			e.printStackTrace();
-			request.setAttribute("loginFail", true);
-			request.setAttribute("ret", "main.do");
+			request.setAttribute("userNotFound", true);
+			request.setAttribute("ret", "/joongo/main.do");
 		} catch (PasswordNotMatchException e) {
 			e.printStackTrace();
 			request.setAttribute("passwordNotMatch", true);
-			request.setAttribute("ret", "main.do");
+			request.setAttribute("ret", "/joongo/main.do");
 		}
-		return "error";
+		return "finishPage";
 	}
 
 	// 로그아웃
@@ -220,7 +221,7 @@ public class MainController {
 		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 		}
-		return "myPage";
+		return "redirect:/userPage.do?userNo="+userNo;
 	}
 
 	@RequestMapping("/addFavorite.do")

@@ -53,8 +53,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User loginUser(String loginId, String password) {
+	public User loginUser(String loginId, String password) throws UserNotFoundException, PasswordNotMatchException {
 		User user = userDAO.selectById(loginId);
+		
 		if(user == null) {
 			throw new UserNotFoundException("유저를 찾을 수 없음");
 		}
@@ -99,6 +100,7 @@ public class UserServiceImpl implements UserService{
 		}
 		
 		user.setRdate(user.getRdate().substring(0,10));
+		user.setBdate(user.getBdate().substring(0,10));
 		
 		return user;
 	}
