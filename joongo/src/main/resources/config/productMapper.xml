@@ -3,89 +3,89 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-	<!-- 우리가 jdbc로 작성했떤 쿼리문을 여기다가 만들면됨 -->
+<!-- 우리가 jdbc로 작성했떤 쿼리문을 여기다가 만들면됨 -->
 <mapper namespace="Product.DAO.ProductMapper">
-	<!--검색 쿼리-->
+	<!--검색 쿼리 -->
 	<select id="selectSearchList" parameterType="string" resultType="Product">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and concat(products.title,products.tags,products.content) like concat('%',#{word},'%') and (products.able != 0 and products.condit!="판매완료");	
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and concat(products.title,products.tags,products.content) like concat('%',#{word},'%') and (products.able != 0 and products.condit!="판매완료");
 	</select>
-	
-	<!--전체 최신순 조회  -->	
+
+	<!--전체 최신순 조회 -->
 	<select id="selectList" resultType="Product">
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 order by wdate desc;
 	</select>
-	
-	<!--전체 최신순 5개조회  -->	
+
+	<!--전체 최신순 5개조회 -->
 	<select id="select5List" resultType="Product">
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 order by wdate desc limit 5;
 	</select>
-	
-	<!--본인글 제외 최신글 5개 조회-->
+
+	<!--본인글 제외 최신글 5개 조회 -->
 	<select resultType="Product" parameterType="int" id="selectExceptSelf">
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and able != 0 and proNo not in (#{proNo}) order by wdate desc limit 5
 	</select>
-	
-	<!--한개 조회  -->
+
+	<!--한개 조회 -->
 	<select id="selectOne" resultType="Product" parameterType="int">
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and proNo = #{proNo} and able != 0;
 	</select>
-	
-	<!-- 최신글 한개 조회  -->
+
+	<!-- 최신글 한개 조회 -->
 	<select id="selectNewOne" resultType="Product">
-		select  * from products where able != 0 order by wdate desc limit 1;
+		select * from products where able != 0 order by wdate desc limit 1;
 	</select>
-	
-	<!--카테고리 별 최신글 조회-->
+
+	<!--카테고리 별 최신글 조회 -->
 	<select id="selectcatNo" resultType="Product" parameterType="int">
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = #{catNo} and able != 0 order by wdate desc;
 	</select>
-	
-	<!--카테고리  최신글 5개 조회-->
+
+	<!--카테고리 최신글 5개 조회 -->
 	<select id="select5catNo" resultType="Product" parameterType="int">
 		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and products.catNo = #{catNo} and able != 0 order by wdate desc limit 5;
 	</select>
 
-	
-	<!-- 해당 글의 이미지 조회  -->
+
+	<!-- 해당 글의 이미지 조회 -->
 	<select id="selectImage" resultType="Image">
-		select  * from image where proNo = #{proNo};
+		select * from image where proNo = #{proNo};
 	</select>
-	
+
 	<!-- 이미지등록 -->
 	<insert id="insertImage" parameterType="Image">
 		insert into image(proNo, imagePath) values(#{proNo},#{imagePath});
 	</insert>
-	
+
 	<!--글 등록 -->
 	<insert id="insertProduct" parameterType="Product">
 		insert into products(title, catNo, userNo, nickname, price, content, tags) values(#{title},#{catNo},#{userNo},#{nickname},#{price},#{content},#{tags});
 	</insert>
-	
+
 	<!-- 상점보기 -->
-	<select id="selectProductbyUser" resultType="Product" parameterType="int">
+	<select id="selectProductbyUser" resultType="Product" parameterType="Product">
 		select products.proNo, products.title, products.catNo, categories.catName, users.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from users, products, categories where products.userNo = users.userNo and categories.catNo = products.catNo and Users.userNo = #{userNo} and products.able != 0 order by wdate desc;
 	</select>
-	
+
 	<!-- 글수정 -->
 	<update id="updateProduct" parameterType="Product">
 		update products set title=#{title}, catNo=#{catNo}, condit=#{condit}, price=#{price}, content=#{content}, tags=#{tags} where proNo = #{proNo} and userNo=#{userNo};
 	</update>
-	
+
 	<!--글삭제 -->
-	<update id="deleteProduct" parameterType="Product" >
+	<update id="deleteProduct" parameterType="Product">
 		update products set able=0 where proNo = #{proNo};
 	</update>
-	
+
 	<!--수정을 위한 글조회 -->
 	<select id="updateProductSelect" resultType="Product" parameterType="int">
-		select * from products where proNo = #{proNo} and userNo = #{userNo};
+		select * from products where userNo = #{userNo} and proNo = #{proNo};
 	</select>
-	
+
 	<!--이미지 삭제 -->
 	<delete id="deleteImage" parameterType="int">
 		delete from image where imgNo = #{imgNo};
 	</delete>
-	
+
 </mapper>
 
 

@@ -19,7 +19,7 @@ public interface ProductDAO {
 	public List<Product> select5List ();
 	public List<Product> select5catNo(int catNo);
 	public List<Product> selectProductbyUser(int userNo);
-	public Product updateProductSelect(int userNo, int proNo);
+	public Product updateProductSelect(Product product);
 	public int deleteImage(int imgNo);
 	public List<Product> selectExceptSelf(int proNo);
 	

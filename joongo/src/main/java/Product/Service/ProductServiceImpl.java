@@ -248,14 +248,12 @@ public class ProductServiceImpl implements ProductService {
 
 	// 수정을위한 select
 	@Override
-	public Product updateSelect(int userNo, int proNo) {
-		if (userNo == 0) {
-			System.out.println("로그인되지 않았습니다.");
-		}
-		Product product = productDAO.updateProductSelect(userNo, proNo);
+	public Product updateSelect(Product productsel) {
+		Product product = productDAO.updateProductSelect(productsel);
 		if (product.equals("") || product.equals(null)) {
 			throw new ProductNotFoundException("조회실패");
 		}
+		int proNo = product.getProNo();
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
 		checkPathImage(product.getImage());

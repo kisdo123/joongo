@@ -93,8 +93,8 @@ public class ProductDAOImpl implements ProductDAO {
 
 	//수정을 위한 select
 	@Override
-	public Product updateProductSelect(int userNo, int proNo) {
-		return productMapper.updateProductSelect(userNo, proNo);
+	public Product updateProductSelect(Product productsel) {
+		return productMapper.updateProductSelect(productsel);
 	}
 
 	//글삭제

@@ -68,7 +68,9 @@
 			<div class="productInfo-btnDiv">
 				<button class="productInfo-zzimBtn">
 					<span class="productInfo-zzimI"><i class="fa fa-heart"
-						aria-hidden="true"></i> 찜안함</span>
+						aria-hidden="true"
+						onclick="addFavorite(${product.proNo}, ${loginUser.userNo })"></i>
+						찜안함</span>
 				</button>
 				<button class="productInfo-clickZzim">
 					<span class="productInfo-zzimI"><i class="fa fa-heart"
@@ -84,21 +86,18 @@
 					상점이동
 				</button>
 			</div>
+				<div class="productInfo-btnSecondDiv">
+					<c:if test="${product.userNo == loginUser.userNo}">
+						<button class="productInfo-productModify" onclick="location.href='productModifyForm.do?proNo=${product.proNo }'">
+							<span><i class="fa fa-refresh" aria-hidden="true"></i></span> 글
+							수정
+						</button>
 
-			<div class="productInfo-btnSecondDiv">
-				<c:if test="${product.userNo} == ${loginUser.userNo }">
-					<button class="productInfo-productModify" onclick="location.href='productModifyForm.do'">
-						<span><i class="fa fa-refresh" aria-hidden="true"></i></span>
-						글 수정
-					</button>
-
-					<button class="productInfo-productdelete">
-						<span><i class="fa fa-times" aria-hidden="true"></i></span>
-						글 삭제
-					</button>
-				</c:if>
-			</div>
-
+						<button class="productInfo-productdelete">
+							<span><i class="fa fa-times" aria-hidden="true"></i></span> 글 삭제
+						</button>
+					</c:if>
+				</div>
 			<!-- 최신글은 한번만 -->
 			<div class="lately-container" style="clear: both;">
 				<p class="category-info">
@@ -183,9 +182,119 @@
 			<div class="productInfo-exTitle">상품정보</div>
 			<div class="productInfo-ex"></div>
 			<div class="productInfo-exContext">내용 ${product.content}</div>
+
 			<!-- 맨 위, 맨 아래로 -->
 			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>
 	</div>
 </div>
+
+<script type='text/javascript'>
+
+function addFavorite(proNo, userNo) {
+	$.ajax({
+		url : "addFavorite.do",
+		data : { "proNo" :proNo,
+			"userNo" : userNo
+		}, 
+		success : function() { 
+			$(".productInfo-zzimBtn").css("display", "none");
+			$(".productInfo-clickZzim").css("display", "inline");
+		},
+		error : function(error) {
+			console.log(error); alert('찜 선택이 실패했습니다.');
+		}
+	}); 
+}
+
+
+
+/* function getURLParameter(name, url) {
+	if(!url){
+    return decodeURI(
+     (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+    );
+	}
+}
+
+function getURLParameter2(name, url) {
+	if(!url){
+     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
+}
+
+
+
+function getParameterByName(name, url){
+	if(!url){
+		 name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		        results = regex.exec(location.search);
+		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+}
+
+
+// 글수정
+function productModify(){
+	
+	 $(".productInfo-productModify").click(function() {
+			
+		 var proNo = getParameterByName("proNo");
+		 var catNo = getParameterByName("catNo");
+		 console.log('val : ' + getURLParameter('index'));
+		 console.log('val : ' + getURLParameter2('index'));
+	});
+	
+}
+ */
+
+	
+
+
+
+
+
+// 글삭제 
+ $(".productInfo-productdelete").click(function() {
+	$.ajax({
+		url : "delectProduct.do",
+		data : { "proNo" :${product.proNo }
+		}, 
+		success : function() { 
+			alert("글을 삭제했습니다.");
+			location.href="main.do";
+		},
+		error : function(error) {
+			console.log(error); alert('글 삭제가 실패했습니다.');
+		}
+	}); 
+});
+	
+	
+	
+	
+	
+	
+
+		
+ /* 
+	$(".productInfo-clickZzim").click(function() {
+		$.ajax({
+			url : "deleteFavorite.do",
+			data : { "proNo" : ${product.proNo},
+				"userNo" : ${loginUser.userNo}
+			},
+			success : function() {
+				$(".productInfo-zzimBtn").css("display", "inline");
+				$(".productInfo-clickZzim").css("display", "none"); 
+			}, 
+			error : function(error) { 
+				console.log(error); alert('찜 해제에 실패했습니다.'); 
+			} 
+		}); 
+	}); */
+	
+ 
+</script>
 <jsp:include page="/particular/footer.jsp"></jsp:include>

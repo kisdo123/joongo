@@ -329,7 +329,10 @@ public class MainController {
 	public String UpdateProduct(HttpServletRequest request, Model model, @RequestParam int proNo) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
-		Product product = productService.updateSelect(userNo, proNo);
+		Product productsel = new Product();
+		productsel.setUserNo(userNo);
+		productsel.setProNo(proNo);
+		Product product = productService.updateSelect(productsel);
 		model.addAttribute("product", product);
 		return "productModify";
 	}
