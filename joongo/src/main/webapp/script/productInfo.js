@@ -122,26 +122,13 @@ $(function() {
 		}, 500);
 	});
 
-	// // 찜버튼 활성화
-	// $(".productInfo-zzimBtn").on("click", function() {
-	// $(".productInfo-zzimBtn").css("display", "none");
-	// $(".productInfo-clickZzim").css("display", "inline");
-	// });
-	//
+
 	// // 찜버튼 비활성화
 	// $(".productInfo-clickZzim").on("click", function() {
 	// $(".productInfo-zzimBtn").css("display", "inline");
 	// $(".productInfo-clickZzim").css("display", "none");
 	// });
 
-	
-	// 찜
-	$(".productInfo-zzimBtn").click(function() {
-
-		$(".productInfo-zzimBtn").css("display", "none");
-		$(".productInfo-clickZzim").css("display", "inline");
-
-	});
 	
 	
 	
