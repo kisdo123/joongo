@@ -12,7 +12,6 @@ public class Favorite {
 	private int favoNo;
 	private User user;
 	private int userNo;
-
 	private int proNo;
 	private Product product;
 	private String wdate; // 장바구니에 추가한 시간

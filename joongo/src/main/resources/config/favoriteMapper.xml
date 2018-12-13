@@ -12,7 +12,7 @@
 		select * from favorite
 	</select>
 
-	<select id="selectFavorite" resultType="Favorite" parameterType="int">
+	<select id="selectFavorite" resultType="Favorite" parameterType="Favorite">
 		select * from favorite where proNo=#{proNo} and userNo=#{userNo}
 	</select>
 

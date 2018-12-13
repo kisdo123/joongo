@@ -181,8 +181,6 @@ function addFavorite(userNo, proNo) {
 // 찜 버튼 클릭시 찜 버튼 비활성화 ajax
 function deleteFavorite(userNo, proNo) {
 	
-	console.log(proNo);
-	
 	$.ajax({
 		url : "deleteFavorite.do",
 		data : { "userNo" :userNo,
@@ -194,7 +192,8 @@ function deleteFavorite(userNo, proNo) {
 			$(".productInfo-clickZzim").css("display", "none");
 		},
 		error : function(error) {
-			console.log(error); alert('찜 삭제에 실패했습니다.');
+			console.log(error);
+			alert('찜 삭제에 실패했습니다.');
 		}
 	}); 
 }

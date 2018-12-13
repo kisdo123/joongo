@@ -222,7 +222,7 @@ public class MainController {
 		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 		}
-		return "redirect:/userPage.do?userNo="+userNo;
+		return "redirect:/userPage.do?userNo=" + userNo;
 	}
 
 	@RequestMapping("/addFavorite.do")
@@ -239,13 +239,13 @@ public class MainController {
 		favorite.setProNo(proNo);
 		favorite.setUserNo(userNo);
 		favoService.addFavorite(favorite);
-		
 
 	}
 
 	@RequestMapping("/deleteFavorite.do")
 	@ResponseBody
 	public void deleteFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
+
 		favoService.deleteFavorite(userNo, proNo);
 	}
 
@@ -345,7 +345,8 @@ public class MainController {
 
 	// 글수정
 	@RequestMapping("/productModify.do")
-	public String UpdateProduct(Model model, HttpServletRequest request, @ModelAttribute Product product, @RequestParam int proNo) {
+	public String UpdateProduct(Model model, HttpServletRequest request, @ModelAttribute Product product,
+			@RequestParam int proNo) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
 		product.setUserNo(userNo);
@@ -353,7 +354,6 @@ public class MainController {
 		productService.update(product);
 		return "productInfo";
 	}
-	
 
 	// 글 삭제
 	@RequestMapping("/delectProduct.do")
