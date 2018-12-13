@@ -155,7 +155,7 @@
 					<input type="hidden" name="proNo" value="${product.proNo }">
 					<div class="register-container">
 						<input type="submit" value="수정" id="register" class="register">
-						<a href="#" class="cancel">취소</a>
+						<a href="#" onclick="history.back(-1);" class="cancel">취소</a>
 					</div>
 				</form>
 			</div>
