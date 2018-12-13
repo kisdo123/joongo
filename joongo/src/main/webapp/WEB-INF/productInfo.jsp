@@ -104,80 +104,37 @@
 					<span class="category-title">연관상품</span>
 					<!-- <span class="all-view">전체보기</span> -->
 				</p>
-				<!-- 상품을 감싸고 있는 div  -->
+				
+				
 				<div class="product-container">
-					<!-- 상품이 for문으로 돌아가야 함 -->
-					<div class="product">
-						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg"
-								class="product-img">
-							</a>
-						</div>
-						<div class="product-info">
-							<div class="product-title">
-								<a href="#">ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ</a>
+					<!-- 상품을 5개 뽑는다. -->
+					<c:forEach var="product" items="${products }">
+						<div class="product">
+							<div class="product-img-container">
+								<a href="productInfo.do?proNo=${product.proNo }"> <c:if test="${product.image.isEmpty() }">
+										<img src="/joongo/image/no-image.jpg" class="product-img">
+									</c:if> <c:if test="${!product.image.isEmpty() }">
+										<img src="${product.image.get(0).imagePath }" class="product-img">
+									</c:if>
+								</a>
 							</div>
-							<div class="product-price">19000</div>
-							<div class="product-tag">#사과 #귤 #포도</div>
-						</div>
-					</div>
-					<div class="product">
-						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg"
-								class="product-img">
-							</a>
-						</div>
-						<div class="product-info">
-							<div class="product-title">
-								<a href="#">asdasdasdasdasdasdasd</a>
+							<div class="product-info">
+								<div class="product-title">
+									<a href="productInfo.do?proNo=${product.proNo }">${product.title }</a>
+								</div>
+								<div class="product-price">${product.price }</div>
+								<c:if test="${product.tags == '' || product.tags eq null || empty product.tags }">
+									<div class="product-tag">태그없음</div>
+								</c:if>
+								<c:if test="${product.tags != '' }">
+									<div class="product-tag">${product.tags }</div>
+								</c:if>
 							</div>
-							<div class="product-price">19000</div>
-							<div class="product-tag">#사과 #귤 #포도</div>
 						</div>
-					</div>
-					<div class="product">
-						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg"
-								class="product-img">
-							</a>
-						</div>
-						<div class="product-info">
-							<div class="product-title">
-								<a href="#">맛있는 과일!</a>
-							</div>
-							<div class="product-price">19000</div>
-							<div class="product-tag">#사과 #귤 #포도</div>
-						</div>
-					</div>
-					<div class="product">
-						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg"
-								class="product-img">
-							</a>
-						</div>
-						<div class="product-info">
-							<div class="product-title">
-								<a href="#">맛있는 과일!</a>
-							</div>
-							<div class="product-price">19000</div>
-							<div class="product-tag">#사과 #귤 #포도</div>
-						</div>
-					</div>
-					<div class="product">
-						<div class="product-img-container">
-							<a href="#"> <img src="../image/fruit.jpg"
-								class="product-img">
-							</a>
-						</div>
-						<div class="product-info">
-							<div class="product-title">
-								<a href="#">맛있는 과일!</a>
-							</div>
-							<div class="product-price">19000</div>
-							<div class="product-tag">#사과 #귤 #포도</div>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
+				
+				
 			</div>
 			<div class="productInfo-exTitle">상품정보</div>
 			<div class="productInfo-ex"></div>

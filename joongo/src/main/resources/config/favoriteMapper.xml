@@ -13,7 +13,7 @@
 	</select>
 
 	<select id="selectFavorite" resultType="Favorite" parameterType="Favorite">
-		select * from favorite where proNo=#{proNo} and userNo=#{userNo}
+		select * from favorite where proNo=#{proNo} and userNo=#{userNo} order by favoNo desc limit 1
 	</select>
 
 	<delete id="deleteFavorite" parameterType="int">
