@@ -92,7 +92,8 @@
 						<span><i class="fa fa-refresh" aria-hidden="true"></i></span> 글 수정
 					</button>
 
-					<button class="productInfo-productdelete">
+					<button class="productInfo-productdelete"
+						onclick="deleteProduct(${product.proNo })">
 						<span><i class="fa fa-times" aria-hidden="true"></i></span> 글 삭제
 					</button>
 				</c:if>
@@ -187,77 +188,4 @@
 		</div>
 	</div>
 </div>
-
-<script type='text/javascript'>
-
-
-
-
-function addFavorite(userNo, proNo) {
-	$.ajax({
-		url : "addFavorite.do",
-		data : { "userNo" :userNo,
-			"proNo" : proNo
-		}, 
-		success : function() { 
-			
-			$(".productInfo-zzimBtn").css("display", "none");
-			$(".productInfo-clickZzim").css("display", "inline");
-		},
-		error : function(error) {
-			console.log(error); alert('찜 선택이 실패했습니다.');
-		}
-	}); 
-}
-
-
-function deleteFavorite(userNo, proNo) {
-	
-	console.log(proNo);
-	
-	$.ajax({
-		url : "deleteFavorite.do",
-		data : { "userNo" :userNo,
-			"proNo" : proNo
-		}, 
-		success : function() { 
-			
-			$(".productInfo-zzimBtn").css("display", "inline");
-			$(".productInfo-clickZzim").css("display", "none");
-		},
-		error : function(error) {
-			console.log(error); alert('찜 삭제에 실패했습니다.');
-		}
-	}); 
-}
-
-
-
-
-
-// 글삭제 
- $(".productInfo-productdelete").click(function() {
-	$.ajax({
-		url : "delectProduct.do",
-		data : { "proNo" :${product.proNo }
-		}, 
-		success : function() { 
-			alert("글을 삭제했습니다.");
-			location.href="main.do";
-		},
-		error : function(error) {
-			console.log(error); alert('글 삭제가 실패했습니다.');
-		}
-	}); 
-});
-	
-  
-  
- 
-
-
-	
- 
-</script>
-
 <jsp:include page="/particular/footer.jsp"></jsp:include>
