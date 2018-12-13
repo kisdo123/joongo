@@ -70,7 +70,8 @@
 						aria-hidden="true"></i> 찜안함 ${favorite.favoNo }</span>
 				</button>
 
-				<button class="productInfo-clickZzim">
+				<button class="productInfo-clickZzim"
+					onclick="deleteFavorite(${loginUser.userNo}, ${product.proNo})">
 					<span class="productInfo-zzimI"><i class="fa fa-heart"
 						aria-hidden="true"></i> 찜함 </span>
 				</button>
@@ -210,6 +211,28 @@ function addFavorite(userNo, proNo) {
 }
 
 
+function deleteFavorite(userNo, proNo) {
+	
+	console.log(proNo);
+	
+	$.ajax({
+		url : "deleteFavorite.do",
+		data : { "userNo" :userNo,
+			"proNo" : proNo
+		}, 
+		success : function() { 
+			
+			$(".productInfo-zzimBtn").css("display", "inline");
+			$(".productInfo-clickZzim").css("display", "none");
+		},
+		error : function(error) {
+			console.log(error); alert('찜 삭제에 실패했습니다.');
+		}
+	}); 
+}
+
+
+
 
 
 // 글삭제 
@@ -231,27 +254,8 @@ function addFavorite(userNo, proNo) {
   
   
  
-	
 
-	
 
-		
-
-/* 	$(".productInfo-clickZzim").click(function() {
-		$.ajax({
-			url : "deleteFavorite.do",
-			data : { "proNo" : ${product.proNo},
-				"userNo" : ${loginUser.userNo}
-			},
-			success : function() {
-				$(".productInfo-zzimBtn").css("display", "inline");
-				$(".productInfo-clickZzim").css("display", "none"); 
-			}, 
-			error : function(error) { 
-				console.log(error); alert('찜 해제에 실패했습니다.'); 
-			} 
-		}); 
-	}); */
 	
  
 </script>
