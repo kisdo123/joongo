@@ -12,7 +12,7 @@
 	
 	
 	<select id="selectUserById" resultType="User" parameterType="string">
-		select * from users where loginId = #{loginId}
+		select * from users where loginId = #{loginId} and able = true
 	</select>
 	
 	<select id="selectUserByPhone" resultType="User" parameterType="string">
@@ -39,6 +39,7 @@
 	<update id="deleteUser" parameterType="int">
 		update users set able = 0 where userNo = #{userNo}
 	</update>
+
 </mapper>
 
  
