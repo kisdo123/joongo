@@ -23,7 +23,7 @@
 					<c:forEach var="product" items="${products }">
 						<div class="product">
 							<div class="product-img-container">
-								<a href="productInfo.do?proNo=${product.proNo }&catNo=${product.catNo}"> <c:if test="${product.image.isEmpty() }">
+								<a href="productInfo.do?proNo=${product.proNo }"> <c:if test="${product.image.isEmpty() }">
 										<img src="/joongo/image/no-image.jpg" class="product-img">
 									</c:if> <c:if test="${!product.image.isEmpty() }">
 										<img src="${product.image.get(0).imagePath }" class="product-img">

@@ -306,27 +306,20 @@ public class MainController {
 		return map;
 	}
 
-	// 내용보기
+	// 내용보기 + 연관상품
 	@RequestMapping("/productInfo.do")
-	public ModelAndView getUserInfo(@RequestParam int proNo) {
-		Product product = productService.oneSelect(proNo);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("product", product);
-		mv.setViewName("productInfo");
-		return mv;
-	}
-
-	// 본인글제외 최신글 5개조회
-	@RequestMapping("/exceptSelf.do")
 	@ResponseBody
-	public ModelAndView exceptSelf(@RequestParam int proNo, @RequestParam int catNo) {
+	public ModelAndView exceptSelf(@RequestParam int proNo) {
 		ModelAndView mv = new ModelAndView();
-		Product product = new Product();
-		product.setProNo(proNo);
-		product.setCatNo(catNo);
+		Product product = productService.oneSelect(proNo);
+		int catNo = product.getCatNo();
 		mv.addObject("product", product);
+		Product pro = new Product();
+		pro = product;
+		pro.setProNo(proNo);
+		pro.setCatNo(catNo);
 
-		List<Product> products = productService.selectExceptSelf(product);
+		List<Product> products = productService.selectExceptSelf(pro);
 		mv.addObject("products", products);
 		mv.setViewName("productInfo");
 

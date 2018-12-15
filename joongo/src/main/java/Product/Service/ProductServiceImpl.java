@@ -3,7 +3,6 @@ package Product.Service;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -137,7 +136,7 @@ public class ProductServiceImpl implements ProductService {
 		return select5List;
 	}
 
-	// 본인글 제외 최신글 5개조회
+	// 연관상품
 	@Override
 	public List<Product> selectExceptSelf(Product product) {
 		List<Product> selectExceptSelf = productDAO.selectExceptSelf(product);
@@ -205,10 +204,10 @@ public class ProductServiceImpl implements ProductService {
 		String contentimg = product.getContent();
 
 		List<Image> images = productDAO.selectImage(proNo);
-		for(Image image : images) {
+		for (Image image : images) {
 			productDAO.deleteImage(image.getImgNo());
 		}
-		
+
 		List<Image> imageList = new ArrayList<>();
 		for (int i = 0; i < 10; i++) {
 			if (contentimg.contains("<img")) {
@@ -235,7 +234,6 @@ public class ProductServiceImpl implements ProductService {
 			productDAO.insertImage(image);
 		}
 
-		
 		Map<String, Image> originImage = new HashMap<String, Image>();
 		for (int i = 0; i < images.size(); i++) {
 			originImage.put("image" + i, images.get(i));
@@ -243,13 +241,13 @@ public class ProductServiceImpl implements ProductService {
 
 		int size = originImage.size();
 		for (int i = 0; i < size; i++) {
-			System.out.println("i :"+ i);
+			System.out.println("i :" + i);
 			for (Image updateImage : imageList) {
 				System.out.println("remove : " + originImage.get("image" + i).getImagePath());
 				System.out.println("update : " + updateImage.getImagePath());
 				if (updateImage.getImagePath().equals(originImage.get("image" + i).getImagePath())) {
 					originImage.remove("image" + i);
-					System.out.println("맵에서 지움, size:"+originImage.size());
+					System.out.println("맵에서 지움, size:" + originImage.size());
 					break;
 				}
 			}
@@ -304,17 +302,15 @@ public class ProductServiceImpl implements ProductService {
 
 	// 이미지 패스에 파일이 존재하지않으면 변경
 	public void checkPathImage(List<Image> images) {
-		for (Image image : images) {
-			String imagePath = image.getImagePath();
-			File dir = new File(
-					"C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/"
-							+ imagePath);
-
-			if (!dir.exists()) {
-				image.setImagePath("/joongo/image/no-image.jpg");
-			}
-
-		}
+//		for (Image image : images) {
+//			String imagePath = image.getImagePath();
+//			File dir = new File("C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/"+ imagePath);
+//
+//			if (!dir.exists()) {
+//				image.setImagePath("/joongo/image/no-image.jpg");
+//			}
+//
+//		}
 	}
 
 }
