@@ -51,11 +51,6 @@ $(function() {
 			$("#productInfo-label" + i).css("display", "none");
 		}
 	}
-	
-	
-	
-	
-	
 
 	$("input[id='pos1']").click(function() {
 
@@ -127,18 +122,16 @@ $(function() {
 		}, 500);
 	});
 
-// // 찜버튼 활성화
-// $(".productInfo-zzimBtn").on("click", function() {
-// $(".productInfo-zzimBtn").css("display", "none");
-// $(".productInfo-clickZzim").css("display", "inline");
-// });
-//
-// // 찜버튼 비활성화
-// $(".productInfo-clickZzim").on("click", function() {
-// $(".productInfo-zzimBtn").css("display", "inline");
-// $(".productInfo-clickZzim").css("display", "none");
-// });
 
+	// // 찜버튼 비활성화
+	// $(".productInfo-clickZzim").on("click", function() {
+	// $(".productInfo-zzimBtn").css("display", "inline");
+	// $(".productInfo-clickZzim").css("display", "none");
+	// });
+
+	
+	
+	
 });
 
 // 가격 1000원 단위로 콤마찍기
@@ -148,4 +141,61 @@ function thousand(number) {
 
 }
 
- 
+
+// 글삭제 ajax
+function deleteProduct(proNo){
+	$.ajax({
+		url : "delectProduct.do",
+		data : { "proNo" : proNo }, 
+		success : function() { 
+			alert("글을 삭제했습니다.");
+			location.href="main.do";
+		},
+		error : function(error) {
+			console.log(error); alert('글 삭제가 실패했습니다.');
+		}
+	}); 
+}
+	
+
+
+
+// 찜 버튼 클릭시 활성화 ajax
+function addFavorite(userNo, proNo) {
+	$.ajax({
+		url : "addFavorite.do",
+		data : { "userNo" :userNo,
+			"proNo" : proNo
+		}, 
+		success : function() { 
+			
+			$(".productInfo-zzimBtn").css("display", "none");
+			$(".productInfo-clickZzim").css("display", "inline");
+		},
+		error : function(error) {
+			console.log(error); alert('찜 선택이 실패했습니다.');
+		}
+	}); 
+}
+
+// 찜 버튼 클릭시 찜 버튼 비활성화 ajax
+function deleteFavorite(userNo, proNo) {
+	
+	$.ajax({
+		url : "deleteFavorite.do",
+		data : { "userNo" :userNo,
+			"proNo" : proNo
+		}, 
+		success : function() { 
+			
+			$(".productInfo-zzimBtn").css("display", "inline");
+			$(".productInfo-clickZzim").css("display", "none");
+		},
+		error : function(error) {
+			console.log(error);
+			alert('찜 삭제에 실패했습니다.');
+		}
+	}); 
+}
+
+

@@ -10,7 +10,6 @@
     <textarea id="messageTextArea" readonly="readonly" rows="10" cols="45"></textarea><br />
     <!-- 송신 메시지 텍스트박스 -->
     <input type="text" id="messageText" size="50" />
-    <input type="text" id="name" value="김형렬">
     <!-- 송신 버튼 -->
     <input type="button" value="Send" onclick="sendMessage()" />
     
@@ -20,11 +19,13 @@
         var inIp = "ws://192.168.0.254:8080/joongo/server";
         var outIp = "ws://211.118.162.122:8080/joongo/server";
 
-        var webSocket = new WebSocket(localhost);
+        var webSocket = new WebSocket(inIp);
         var messageTextArea = document.getElementById("messageTextArea");
-        var name = document.getElementById("name");
-       
-        v
+        
+        webSocket.onopen = function(){
+        	sendUserNickname('${loginUser.nickname}');	
+        }
+        
         //메시지가 오면 messageTextArea요소에 메시지를 추가한다.
         webSocket.onmessage = function processMessge(message){
             //Json 풀기
@@ -33,9 +34,13 @@
                 messageTextArea.value += jsonData.message + "\n"
             };
         }
-
+	
+        function sendUserNickname(nickname){
+            webSocket.send(nickname);
+        }
+        
         //메시지 보내기
-        function sendMessage(){
+        function sendMessage(d){
             var messageText = document.getElementById("messageText");
             webSocket.send(messageText.value);
             messageText.value = "";

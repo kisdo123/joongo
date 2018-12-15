@@ -29,8 +29,8 @@ public class FavoriteDAOImpl implements FavoriteDAO {
 	}
 
 	@Override
-	public Favorite selectFavorite(int userNo, int proNo) {
-		return favoMapper.selectFavorite(userNo, proNo);
+	public Favorite selectFavorite(Favorite favorite) {
+		return favoMapper.selectFavorite(favorite);
 	}
 
 

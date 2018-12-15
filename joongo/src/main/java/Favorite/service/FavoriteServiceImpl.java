@@ -2,6 +2,7 @@ package Favorite.service;
 
 import java.util.List;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,13 +33,16 @@ public class FavoriteServiceImpl implements FavoriteService {
 
 	@Override
 	public void deleteFavorite(int userNo, int proNo) {
-		
 		if(userNo == 0) {
 			throw new BadLoginIdException("loginId 값이 올바르지 않음");
 		}
+		Favorite favo = new Favorite();
+		favo.setProNo(proNo);
+		favo.setUserNo(userNo);
 		
-		Favorite favorite = favoDAO.selectFavorite(userNo, proNo);
-		if(favorite == null) {
+		Favorite favorite = favoDAO.selectFavorite(favo);
+		
+		if(favorite.getFavoNo() == 0) {
 			throw new FavoriteNotFoundException("해당 장바구니 항목을 찾을 수 없음");
 		}
 		

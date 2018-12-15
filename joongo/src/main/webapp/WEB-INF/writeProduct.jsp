@@ -49,7 +49,7 @@
 					</div>
 					<input type="hidden" name="userNo" value="${loginUser.userNo }"> <input type="hidden" name="nickname" value="${loginUser.nickname }">
 					<div class="register-container">
-						<input type="submit" value="등록" id="register" class="register"> <a href="#" class="cancel">취소</a>
+						<input type="submit" value="등록" id="register" class="register"> <a href="#" onclick="history.back(-1);" class="cancel">취소</a>
 					</div>
 				</form>
 			</div>

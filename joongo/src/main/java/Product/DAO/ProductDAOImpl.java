@@ -93,8 +93,8 @@ public class ProductDAOImpl implements ProductDAO {
 
 	//수정을 위한 select
 	@Override
-	public Product updateProductSelect(int userNo, int proNo) {
-		return productMapper.updateProductSelect(userNo, proNo);
+	public Product updateProductSelect(Product productsel) {
+		return productMapper.updateProductSelect(productsel);
 	}
 
 	//글삭제
@@ -105,8 +105,8 @@ public class ProductDAOImpl implements ProductDAO {
 
 	//본인글 제외 최신글 5개 조회
 	@Override
-	public List<Product> selectExceptSelf(int proNo) {
-		return productMapper.selectExceptSelf(proNo);
+	public List<Product> selectExceptSelf(Product product) {
+		return productMapper.selectExceptSelf(product);
 	}
 
 }

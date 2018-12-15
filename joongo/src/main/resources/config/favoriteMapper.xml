@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Favorite.DAO.FavoriteMapper">
-	<insert id="insertUser" parameterType="Favorite">
+	<insert id="insertFavorite" parameterType="Favorite">
 		insert into favorite(userNo, proNo) values(#{userNo}, #{proNo})
 	</insert>
 	
@@ -12,8 +12,8 @@
 		select * from favorite
 	</select>
 
-	<select id="selectFavorite" resultType="Favorite" parameterType="int">
-		select * from favorite where proNo=#{proNo} and userNo=#{userNo}
+	<select id="selectFavorite" resultType="Favorite" parameterType="Favorite">
+		select * from favorite where proNo=#{proNo} and userNo=#{userNo} order by favoNo desc limit 1
 	</select>
 
 	<delete id="deleteFavorite" parameterType="int">

@@ -23,6 +23,9 @@
 					<span class="user-modify">
 						<c:if test="${pageUser.userNo == loginUser.userNo }">
 							<a id="modifya" class="modify">회원수정</a> <span>/</span>
+					<span class="user-name">${pageUser.name }(${pageUser.nickname })</span> <span class="user-modify"> <c:if test="${pageUser.user	No == loginUser.userNo }">
+							<a id="modifya" class="modify">회원수정</a>
+							<span>/</span>
 							<a id="deletea" class="modify">회원탈퇴</a>
 							<form id="modifyForm" action="modifyUserForm.do">
 								<input type="hidden" name="userNo" value="${pageUser.userNo }">

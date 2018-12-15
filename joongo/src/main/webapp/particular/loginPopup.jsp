@@ -45,8 +45,6 @@
 			Kakao.API.request({
 				url : '/v1/user/me',
 				success : function(res) {
-					console.log(res);
-
 					var userID = res.id; //유저의 카카오톡 고유 id
 
 					location.href="login.do?loginId="+userID+"&password="+userID;

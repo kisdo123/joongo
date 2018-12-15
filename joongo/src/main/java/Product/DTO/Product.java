@@ -1,7 +1,5 @@
 package Product.DTO;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.apache.ibatis.type.Alias;
@@ -19,16 +17,15 @@ public class Product {
 	private String price;
 	private String content;
 	private String tags;
-	private LocalDateTime wdate;
+	private String wdate;
 	private Boolean able;
 	private List<Image> image;
 
 	public Product() {
-		/*pasing();*/
 	}
 
 	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit,
-			String price, String content, String tags, LocalDateTime wdate, Boolean able) {
+			String price, String content, String tags, String wdate, Boolean able) {
 		this.proNo = proNo;
 		this.title = title;
 		this.catNo = catNo;
@@ -56,7 +53,7 @@ public class Product {
 	}
 
 	public Product(int proNo, String title, int catNo, String catName, int userNo, String nickname, String condit,
-			String price, String content, String tags, LocalDateTime wdate, Boolean able, List<Image> image) {
+			String price, String content, String tags, String wdate, Boolean able, List<Image> image) {
 		super();
 		this.proNo = proNo;
 		this.title = title;
@@ -153,11 +150,11 @@ public class Product {
 		this.tags = tags;
 	}
 
-	public LocalDateTime getWdate() {
+	public String getWdate() {
 		return wdate;
 	}
 
-	public void setWdate(LocalDateTime wdate) {
+	public void setWdate(String wdate) {
 		this.wdate = wdate;
 	}
 
@@ -175,13 +172,6 @@ public class Product {
 
 	public void setImage(List<Image> image) {
 		this.image = image;
-	}
-	
-	public LocalDateTime pasing() {
-		String strwdate = wdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		wdate = LocalDateTime.parse(strwdate, formatter);
-		return wdate;
 	}
 
 }

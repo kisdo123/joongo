@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -57,8 +58,9 @@ public class MainController {
 	}
 	
 	// 결과페이지로 리턴
-	@RequestMapping("/finishPage.do")
-	public String finishPage() {
+	@RequestMapping("/loginFilter.do")
+	public String finishPage(HttpServletRequest request) {
+		request.setAttribute("loginFilter", true);
 		return "finishPage";
 	}
 
@@ -74,11 +76,11 @@ public class MainController {
 		} catch (UserAlreadyExistException e) {
 			e.printStackTrace();
 			req.setAttribute("userExist", true);
-			req.setAttribute("ret", "main.do");
+			req.setAttribute("ret", "/joongo/main.do");
 		} catch (RegisterFailedException e) {
 			e.printStackTrace();
 			req.setAttribute("registerFail", true);
-			req.setAttribute("ret", "main.do");
+			req.setAttribute("ret", "/joongo/main.do");
 		}
 		return "finishPage";
 
@@ -144,14 +146,14 @@ public class MainController {
 			return "redirect:/main.do";
 		} catch (UserNotFoundException e) {
 			e.printStackTrace();
-			request.setAttribute("loginFail", true);
-			request.setAttribute("ret", "main.do");
+			request.setAttribute("userNotFound", true);
+			request.setAttribute("ret", "/joongo/main.do");
 		} catch (PasswordNotMatchException e) {
 			e.printStackTrace();
 			request.setAttribute("passwordNotMatch", true);
-			request.setAttribute("ret", "main.do");
+			request.setAttribute("ret", "/joongo/main.do");
 		}
-		return "error";
+		return "finishPage";
 	}
 
 	// 로그아웃
@@ -200,7 +202,7 @@ public class MainController {
 	}
 
 	// 회원 정보 수정 폼 요청
-	@RequestMapping("/modifyUserForm.do")
+	@RequestMapping(value = "/modifyUserForm.do", method = RequestMethod.GET)
 	public String UpdateUserForm(Model model, @RequestParam("userNo") int userNo) {
 
 		User pageUser = userService.getUserByUserNo(userNo);
@@ -210,7 +212,7 @@ public class MainController {
 	}
 
 	// 회원정보 수정
-	@RequestMapping("/modifyUser.do")
+	@RequestMapping(value = "/modifyUser.do", method = RequestMethod.POST)
 	public String UpdateUser(HttpServletRequest request, @ModelAttribute User user) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
@@ -220,12 +222,12 @@ public class MainController {
 		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 		}
-		return "myPage";
+		return "redirect:/userPage.do?userNo=" + userNo;
 	}
 
 	@RequestMapping("/addFavorite.do")
 	@ResponseBody
-	public String addFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
+	public void addFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
 
 		User user = new User();
 		user.setUserNo(userNo);
@@ -233,15 +235,17 @@ public class MainController {
 		Product product = new Product();
 		product.setProNo(proNo);
 
-		Favorite favorite = new Favorite(user, product);
+		Favorite favorite = new Favorite();
+		favorite.setProNo(proNo);
+		favorite.setUserNo(userNo);
 		favoService.addFavorite(favorite);
 
-		return "";
 	}
 
 	@RequestMapping("/deleteFavorite.do")
 	@ResponseBody
 	public void deleteFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
+
 		favoService.deleteFavorite(userNo, proNo);
 	}
 
@@ -315,8 +319,11 @@ public class MainController {
 	// 본인글제외 최신글 5개조회
 	@RequestMapping("/exceptSelf.do")
 	@ResponseBody
-	public Map<String, List<Product>> exceptSelf(Model model, @RequestParam int proNo) {
-		List<Product> products = productService.selectExceptSelf(proNo);
+	public Map<String, List<Product>> exceptSelf(Model model, @RequestParam int proNo, @RequestParam int catNo) {
+		Product product = new Product();
+		product.setProNo(proNo);
+		product.setCatNo(catNo);
+		List<Product> products = productService.selectExceptSelf(product);
 		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
 		map.put("products", products);
 
@@ -328,19 +335,27 @@ public class MainController {
 	public String UpdateProduct(HttpServletRequest request, Model model, @RequestParam int catNo) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
+<<<<<<< HEAD
 		Product product = productService.updateSelect(userNo, catNo);
+=======
+		Product productsel = new Product();
+		productsel.setUserNo(userNo);
+		productsel.setProNo(proNo);
+		Product product = productService.updateSelect(productsel);
 		model.addAttribute("product", product);
 		return "productModify";
 	}
 
 	// 글수정
 	@RequestMapping("/productModify.do")
-	public String UpdateProduct(Model model, HttpServletRequest request, @ModelAttribute Product product) {
+	public String UpdateProduct(Model model, HttpServletRequest request, @ModelAttribute Product product,
+			@RequestParam int proNo) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
 		product.setUserNo(userNo);
+		product.setProNo(proNo);
 		productService.update(product);
-		return "main";
+		return "productInfo";
 	}
 
 	// 글 삭제
