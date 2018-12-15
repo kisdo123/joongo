@@ -43,7 +43,7 @@
 						<table class="tags-table">
 							<tr>
 								<td class="form-info">태그</td>
-								<td class="tag-winput"><input type="text" name="tags" placeholder="태그는 ,로 구분합니다" class="title-input"></td>
+								<td class="tag-winput"><input type="text" name="tags" placeholder="태그는 ,로 구분합니다" class="title-inputTag" value=""></td>
 							</tr>
 						</table>
 					</div>

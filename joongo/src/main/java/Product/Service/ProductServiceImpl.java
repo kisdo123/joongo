@@ -1,7 +1,9 @@
 package Product.Service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -116,7 +118,7 @@ public class ProductServiceImpl implements ProductService {
 			// imagePath insert
 			productDAO.insertImage(image);
 		}
-		
+
 		Product newOne = productDAO.selectNewOne();
 		return newOne.getProNo();
 	}
@@ -134,8 +136,8 @@ public class ProductServiceImpl implements ProductService {
 		}
 		return select5List;
 	}
-	
-	//본인글 제외 최신글 5개조회
+
+	// 본인글 제외 최신글 5개조회
 	@Override
 	public List<Product> selectExceptSelf(Product product) {
 		List<Product> selectExceptSelf = productDAO.selectExceptSelf(product);
@@ -172,7 +174,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> selectShop(int userNo) {
 		List<Product> products = productDAO.selectProductbyUser(userNo);
-		
+
 		for (Product product : products) {
 			int proNo = product.getProNo();
 			List<Image> images = productDAO.selectImage(proNo);
@@ -189,30 +191,12 @@ public class ProductServiceImpl implements ProductService {
 		if (product.getUserNo() == 0) {
 			System.out.println("로그인되지 않았습니다.");
 		}
+		// 해당글의 imagePath조회
+		int proNo = product.getProNo();
 		// 글수정 쿼리 실행
 		int res = productDAO.updateProduct(product);
 		if (res == 0) {
 			throw new ProductNotFoundException("수정 실패");
-		}
-		// 해당글의 imagePath조회
-		int proNo = product.getProNo();
-		List<Image> images = productDAO.selectImage(proNo);
-		for (Image image : images) {
-			// Path에 있는 이미지 파일 삭제
-			int imgNo = image.getImgNo();
-			String path = image.getImagePath();
-			File file = new File(path);
-			if (file.exists()) {
-				if (file.delete()) {
-					System.out.println("파일삭제 성공");
-					productDAO.deleteImage(imgNo);
-				} else {
-					throw new ProductNotFoundException("이미지 삭제 실패");
-				}
-			} else {
-				System.out.println("이미지가 없습니다.");
-				break;
-			}
 		}
 
 		// Image 저장경로를 얻기위한 String값 처리
@@ -220,6 +204,12 @@ public class ProductServiceImpl implements ProductService {
 		String imagePath = "";
 		String contentimg = product.getContent();
 
+		List<Image> images = productDAO.selectImage(proNo);
+		for(Image image : images) {
+			productDAO.deleteImage(image.getImgNo());
+		}
+		
+		List<Image> imageList = new ArrayList<>();
 		for (int i = 0; i < 10; i++) {
 			if (contentimg.contains("<img")) {
 				int idx = contentimg.indexOf("src=");
@@ -240,10 +230,52 @@ public class ProductServiceImpl implements ProductService {
 				break;
 			}
 			Image image = new Image(proNo, imagePath);
-
 			// imagePath insert
+			imageList.add(image);
 			productDAO.insertImage(image);
 		}
+
+		
+		Map<String, Image> originImage = new HashMap<String, Image>();
+		for (int i = 0; i < images.size(); i++) {
+			originImage.put("image" + i, images.get(i));
+		}
+
+		int size = originImage.size();
+		for (int i = 0; i < size; i++) {
+			System.out.println("i :"+ i);
+			for (Image updateImage : imageList) {
+				System.out.println("remove : " + originImage.get("image" + i).getImagePath());
+				System.out.println("update : " + updateImage.getImagePath());
+				if (updateImage.getImagePath().equals(originImage.get("image" + i).getImagePath())) {
+					originImage.remove("image" + i);
+					System.out.println("맵에서 지움, size:"+originImage.size());
+					break;
+				}
+			}
+		}
+		System.out.println(originImage.size());
+
+		for (String key : originImage.keySet()) {
+			// Path에 있는 이미지 파일 삭제
+			Image deleteImage = originImage.get(key);
+			String path = deleteImage.getImagePath();
+			File file = new File(
+					"C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/"
+							+ path);
+			System.out.println(file.getPath());
+			if (file.exists()) {
+				if (file.delete()) {
+					System.out.println("파일삭제 성공");
+				} else {
+					throw new ProductNotFoundException("이미지 삭제 실패");
+				}
+			} else {
+				System.out.println("이미지가 없습니다.");
+				break;
+			}
+		}
+
 	}
 
 	// 수정을위한 select
@@ -274,7 +306,10 @@ public class ProductServiceImpl implements ProductService {
 	public void checkPathImage(List<Image> images) {
 		for (Image image : images) {
 			String imagePath = image.getImagePath();
-			File dir = new File("C:/Users/KOITT-02-A/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"+ imagePath);
+			File dir = new File(
+					"C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/"
+							+ imagePath);
+
 			if (!dir.exists()) {
 				image.setImagePath("/joongo/image/no-image.jpg");
 			}

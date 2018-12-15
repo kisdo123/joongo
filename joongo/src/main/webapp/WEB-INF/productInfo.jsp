@@ -108,26 +108,26 @@
 				
 				<div class="product-container">
 					<!-- 상품을 5개 뽑는다. -->
-					<c:forEach var="product" items="${products }">
+					<c:forEach var="pro" items="${products }">
 						<div class="product">
 							<div class="product-img-container">
-								<a href="productInfo.do?proNo=${product.proNo }"> <c:if test="${product.image.isEmpty() }">
+								<a href="productInfo.do?proNo=${pro.proNo }"> <c:if test="${pro.image.isEmpty() }">
 										<img src="/joongo/image/no-image.jpg" class="product-img">
-									</c:if> <c:if test="${!product.image.isEmpty() }">
-										<img src="${product.image.get(0).imagePath }" class="product-img">
+									</c:if> <c:if test="${!pro.image.isEmpty() }">
+										<img src="${pro.image.get(0).imagePath }" class="product-img">
 									</c:if>
 								</a>
 							</div>
 							<div class="product-info">
 								<div class="product-title">
-									<a href="productInfo.do?proNo=${product.proNo }">${product.title }</a>
+									<a href="productInfo.do?proNo=${pro.proNo }">${pro.title }</a>
 								</div>
-								<div class="product-price">${product.price }</div>
-								<c:if test="${product.tags == '' || product.tags eq null || empty product.tags }">
+								<div class="product-price">${pro.price }</div>
+								<c:if test="${pro.tags == '' || pro.tags eq null || empty pro.tags }">
 									<div class="product-tag">태그없음</div>
 								</c:if>
-								<c:if test="${product.tags != '' }">
-									<div class="product-tag">${product.tags }</div>
+								<c:if test="${pro.tags != '' }">
+									<div class="product-tag">${pro.tags }</div>
 								</c:if>
 							</div>
 						</div>

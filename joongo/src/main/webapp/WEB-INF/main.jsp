@@ -23,7 +23,7 @@
 					<c:forEach var="product" items="${products }">
 						<div class="product">
 							<div class="product-img-container">
-								<a href="productInfo.do?proNo=${product.proNo }"> <c:if test="${product.image.isEmpty() }">
+								<a href="productInfo.do?proNo=${product.proNo }&catNo=${product.catNo}"> <c:if test="${product.image.isEmpty() }">
 										<img src="/joongo/image/no-image.jpg" class="product-img">
 									</c:if> <c:if test="${!product.image.isEmpty() }">
 										<img src="${product.image.get(0).imagePath }" class="product-img">
@@ -80,7 +80,10 @@
 				${num = i -1;'' }
 					<div class="category" id="${categories[num] }">
 					<p class="category-info">
-						<span class="category-title">${titles[num] }</span> <span class="all-view"><a href="catList.do?catNo=${i} }">전체보기</a></span>
+						<span class="category-title">${titles[num] }</span>
+						<span class="all-view">
+							<a href="catList.do?catNo=${i} }">전체보기</a>
+						</span>
 					</p>
 					<!-- 상품을 감싸고 있는 div  -->
 					<div class="product-container">
