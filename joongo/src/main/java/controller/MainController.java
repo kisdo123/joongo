@@ -332,12 +332,9 @@ public class MainController {
 
 	// 글 수정화면에 기본값 입력
 	@RequestMapping("/productModifyForm.do")
-	public String UpdateProduct(HttpServletRequest request, Model model, @RequestParam int catNo) {
+	public String UpdateProduct(HttpServletRequest request, Model model, @RequestParam int proNo) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
-<<<<<<< HEAD
-		Product product = productService.updateSelect(userNo, catNo);
-=======
 		Product productsel = new Product();
 		productsel.setUserNo(userNo);
 		productsel.setProNo(proNo);

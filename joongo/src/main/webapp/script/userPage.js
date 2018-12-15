@@ -4,7 +4,7 @@ var SUPEREPICFANTASTICLENGTH;
 var SUPEREPICFANTASTICURL;
 
 function pagination() {
-	/* 페이지네이션 버튼 생성 */
+	/* 페이지네이션 버튼 생성  */
 	$('#pagination').pagination({
 		items: Object.values(SUPEREPICFANTASTICPRODUCTS).length,
 		itemsOnPage: SUPEREPICFANTASTICPRODUCTPERPAGE,

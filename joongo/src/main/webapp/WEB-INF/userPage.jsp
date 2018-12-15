@@ -18,12 +18,9 @@
 		<div class="middle">
 			<div class="user-info-container">
 				<!-- 유저 이름 -->
+				<!-- 유저 이름 -->
 				<div class="user-info">
-					<span class="user-name">${pageUser.name }(${pageUser.nickname })</span>
-					<span class="user-modify">
-						<c:if test="${pageUser.userNo == loginUser.userNo }">
-							<a id="modifya" class="modify">회원수정</a> <span>/</span>
-					<span class="user-name">${pageUser.name }(${pageUser.nickname })</span> <span class="user-modify"> <c:if test="${pageUser.user	No == loginUser.userNo }">
+					<span class="user-name">${pageUser.name }(${pageUser.nickname })</span> <span class="user-modify"> <c:if test="${pageUser.userNo == loginUser.userNo }">
 							<a id="modifya" class="modify">회원수정</a>
 							<span>/</span>
 							<a id="deletea" class="modify">회원탈퇴</a>
@@ -33,13 +30,9 @@
 							<form id="deleteUser" action="deleteUser.do">
 								<input type="hidden" name="userNo" value="${pageUser.userNo }">
 							</form>
-						</c:if>
-						
-						<!-- 신고하기 다른 사람 프로필을 봤을 때 -->
-						<c:if test="${pageUser.userNo != loginUser.userNo }">
+						</c:if> <!-- 신고하기 다른 사람 프로필을 봤을 때 --> <c:if test="${pageUser.userNo != loginUser.userNo }">
 							<form action="reportForm.do" method="POST">
-								<input type="hidden" value="${pageUser.userNo }">
-								<input type="submit" class="modify" value="신고하기">
+								<input type="hidden" value="${pageUser.userNo }"> <input type="submit" class="modify" value="신고하기">
 							</form>
 						</c:if>
 					</span>
