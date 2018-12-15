@@ -1,34 +1,26 @@
 var SUPEREPICFANTASTICPRODUCTS;
-var SUPEREPICFANTASTICSTART = 0;
-var SUPEREPICFANTASTICEND = 0;
 var SUPEREPICFANTASTICPRODUCTPERPAGE = 10;
 var SUPEREPICFANTASTICLENGTH;
-var SUPEREPICFANTASTICNUM;
-var SUPEREPICFANTASTICCUT = 5;
+var SUPEREPICFANTASTICURL;
 
-/* 자신의 상품리스트 보기 */
-function viewProducts(userNo, url, pageNum) {
-	var pagination = "";
-	$.ajax({
-		url: url,
-		dataType: 'json',
-		data: {
-			"userNo": userNo
-		},
-		success: function(data) {
-			SUPEREPICFANTASTICPRODUCTS = data;
-			SUPEREPICFANTASTICLENGTH = Object.values(data.products).length;
-			$("#product-package").html('');
-
-			SUPEREPICFANTASTICSTART = SUPEREPICFANTASTICPRODUCTPERPAGE * (pageNum-1);
-			SUPEREPICFANTASTICEND = SUPEREPICFANTASTICSTART + SUPEREPICFANTASTICPRODUCTPERPAGE;
-			SUPEREPICFANTASTICNUM = SUPEREPICFANTASTICLENGTH/SUPEREPICFANTASTICPRODUCTPERPAGE; 
+function pagination() {
+	/* 페이지네이션 버튼 생성 */
+	$('#pagination').pagination({
+		items: Object.values(SUPEREPICFANTASTICPRODUCTS).length,
+		itemsOnPage: SUPEREPICFANTASTICPRODUCTPERPAGE,
+		cssStyle: 'light-theme',
+		/* 번호를 눌렀을 때 */
+		onPageClick: function(pageNumber) {
+			var start = (pageNumber - 1)* SUPEREPICFANTASTICPRODUCTPERPAGE;
+			var end = start + SUPEREPICFANTASTICPRODUCTPERPAGE;
+			if(end > SUPEREPICFANTASTICLENGTH){
+				end = SUPEREPICFANTASTICLENGTH;
+			}
+			$('#product-package').empty();
 			
-			if(SUPEREPICFANTASTICNUM < 1)
-				SUPEREPICFANTASTICNUM = 1;
-			
-			for(var i=SUPEREPICFANTASTICSTART; i<SUPEREPICFANTASTICEND; i++){
-				var product = SUPEREPICFANTASTICPRODUCTS.products[i];
+			/* 10개씩 출력 */
+			for(var i=start; i<end; i++){
+				var product = SUPEREPICFANTASTICPRODUCTS[i];
 				var text = "<div class='product'>"+
 				"<div class='product-img-container'>" +
 				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
@@ -43,34 +35,75 @@ function viewProducts(userNo, url, pageNum) {
 				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
 				"</div>"+
 				"</div>";
-				
-				if(url == 'shopList.do') {
+				if(SUPEREPICFANTASTICURL == 'shopList.do') {
 					$('#product-package').append(text);
-				} else if(url == '') {
+				} else if(SUPEREPICFANTASTICURL == '') {
 					
 				}
 			}
-			
-			pagination += "<div>";
-			if(SUPEREPICFANTASTICNUM > 5) {
-				pagination += "<span><</span>";
-				for(var i=1; i<=SUPEREPICFANTASTICNUM; i++) {
-					pagination += "<span>" + i + "</span>";
-				}
-				pagination += "<span>></span>";
-			} else {
-				for(var i=1; i<=SUPEREPICFANTASTICNUM+1; i++) {
-					pagination += "<span>" + i + "</span>";
+        },
+        /* 첫 화면 10개 출력 */
+        onInit: function() {
+        	for(var i=0; i<10; i++){
+				var product = SUPEREPICFANTASTICPRODUCTS[i];
+				var text = "<div class='product'>"+
+				"<div class='product-img-container'>" +
+				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
+				"class='product-img'>"+
+				"</a>"+
+				"</div>"+
+				"<div class='product-info'>"+
+				"<div class='product-title'>"+
+				"<a href='productInfo.do?"+product.proNo+"'>"+product.title+"</a>"+
+				"</div>"+
+				"<div class='product-price'>"+product.price+"</div>"+
+				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+				"</div>"+
+				"</div>";
+				if(SUPEREPICFANTASTICURL == 'shopList.do') {
+					$('#product-package').removeClass('none');
+					$('#zzim-package').addClass('none');
+					$('#product-review').addClass('none');
+					$('#product-package').append(text);
+				} else if(SUPEREPICFANTASTICURL == '') {
+					$('#zzim-package').removeClass('none');
+					$('#product-package').addClass('none');
+					$('#product-review').addClass('none');
+					$('#zzim-package').append(text);
 				}
 			}
-			pagination += "</div>";
-			
-			$('#product-package').append(pagination);
-		},
-		error: function(error) {
-			alert('예상치도 못한 오류가 발생했습니다!');
-		}
+        }
 	});
+}
+
+/* 마이페이지 보기 */
+function view(userNo, url) {
+	$.ajax({
+		url: url,
+		dataType: 'json',
+		data: {
+			"userNo": userNo
+		},
+		success: function(data) {
+			SUPEREPICFANTASTICPRODUCTS = data.products;
+			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
+			SUPEREPICFANTASTICURL = url;
+			
+			/* 아무것도 없을 시 */
+			if(SUPEREPICFANTASTICLENGTH == 0) {
+				if(url == 'shopList.do') {
+					$('#product-package').append('<div style="text-align: center; line-height: 654px;">판매 중인 상품이 없습니다.</div>');
+				}
+			} else if (SUPEREPICFANTASTICLENGTH > 0) {
+				if(url == 'shopList.do') {
+					pagination();
+				}
+			}
+		},
+		error: function() {
+			alert('정보를 가져오는데 실패했습니다.');
+		}
+	})
 }
 
 $(function() {
@@ -89,25 +122,25 @@ $(function() {
 		}
 	})
 	
+	/* 소개글 변경 눌렀을 시 textarea와 버튼을 생성 */
+	$('#update').click(function() {
+		console.log('test');
+		var content = $('#introduce-content').text();
+		var information = {
+				'content': content
+		};
+		
+		$('#introduce-content').css('display', 'none');
+		$('#update').css('display', 'none');
+		$('#introduce-modify').css('display', 'block');
+		$('#register').css('display', 'block');
+		
+		$('#introduce-modify').val(content);
+	});
+	
 	$('.menu').click(function() {
 		var index = $('.menu').index(this);
 		var sibling = $(this).siblings();
-		
-	/* 소개글 변경 눌렀을 시 textarea와 버튼을 생성 */
-	$('#update').click(function() {
-			var content = $('#introduce-content').text();
-			var information = {
-					'content': content
-			};
-			
-			$('#introduce-content').css('display', 'none');
-			$('#update').css('display', 'none');
-			$('#introduce-modify').css('display', 'block');
-			$('#register').css('display', 'block');
-			
-			$('#introduce-modify').val(content);
-		});
-		console.log('test');
 		
 		$('.menu').each(function() {
 			$(this).css('border', 'none');
@@ -169,8 +202,17 @@ $(function() {
 	        frm.focus();
 		}
 	});
+	//후기 등록 글자수 제한
+	$(".review").keyup(function() {
+		var frm = $(".review");
+		if(frm.val().length > 100){  
+			alert("100자로 제한됩니다.");
+			frm.val(frm.val().substr(0,100));  
+			frm.focus();
+		};
+	});
 	
-});
+})
 
 /* 소개글 변경 */
 function introduceChange(userNo) {
@@ -195,5 +237,5 @@ function introduceChange(userNo) {
 			console.log(error);
 			alert('소개글 변경에 실패하였습니다.');
 		}
-	}); 
+	});
 }

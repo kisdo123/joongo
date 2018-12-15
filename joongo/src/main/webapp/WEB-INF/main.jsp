@@ -80,7 +80,7 @@
 				${num = i -1;'' }
 					<div class="category" id="${categories[num] }">
 					<p class="category-info">
-						<span class="category-title">${titles[num] }</span> <span class="all-view"><a href="catList.do?catNo=${i} }">전체보기</a></span>
+						<span class="category-title">${titles[num] }</span> <span class="all-view"><a href="catList.do?catNo=${i}">전체보기</a></span>
 					</p>
 					<!-- 상품을 감싸고 있는 div  -->
 					<div class="product-container">

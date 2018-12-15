@@ -83,8 +83,12 @@
 	cursor: pointer;
 }
 
-.mypage-menu-container, .product-package {
+.mypage-menu-container, .product-package, .zzim-package {
 	overflow: hidden;
+}
+
+.product-package, .zzim-package {
+	height: 654px;
 }
 
 .mypage-menu-container {
@@ -201,4 +205,49 @@
 
 .product-img-container {
 	height: 200px;
+}
+
+/* =============현승이=================== */
+
+.product-review{
+    padding: 20px 30px 20px 30px;
+    background-color: #f9f9f9;
+}
+.review{
+	width: 89%;
+    height: 94px;
+    outline: none;
+    resize: none;
+    font-size: 14px;
+}
+.review-btn{
+	float: right;
+    outline: none;
+    width: 100px;
+    height: 100px;
+    background-color: #FE8181;
+    border: none;
+    cursor: pointer;
+}
+.productuser-review{
+	border-bottom: 1px solid #e1e1e1;
+    padding: 20px 30px 0px 30px;
+}
+
+.user-review-container{
+	padding-top: 10px;
+}
+
+.user-review{
+	width: 99.4%;
+    outline: none;
+    resize: none;
+}
+
+.pagination {
+	margin-left: 31% !important;
+}
+
+.pagination > ul > li:FIRST-CHILD > span, .pagination > ul > li:LAST-CHILD > span {
+	border: none !important;
 }

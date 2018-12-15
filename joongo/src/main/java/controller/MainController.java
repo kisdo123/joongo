@@ -55,7 +55,7 @@ public class MainController {
 		model.addAttribute("cat5List", map);
 		return "main";
 	}
-
+	
 	// 결과페이지로 리턴
 	@RequestMapping("/finishPage.do")
 	public String finishPage() {
@@ -325,10 +325,10 @@ public class MainController {
 
 	// 글 수정화면에 기본값 입력
 	@RequestMapping("/productModifyForm.do")
-	public String UpdateProduct(HttpServletRequest request, Model model, @RequestParam int proNo) {
+	public String UpdateProduct(HttpServletRequest request, Model model, @RequestParam int catNo) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getUserNo();
-		Product product = productService.updateSelect(userNo, proNo);
+		Product product = productService.updateSelect(userNo, catNo);
 		model.addAttribute("product", product);
 		return "productModify";
 	}
