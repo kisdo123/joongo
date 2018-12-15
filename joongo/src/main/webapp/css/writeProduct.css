@@ -1,3 +1,7 @@
+input{
+	color : black;
+}
+
 .write-container {
 	background-color: #f8f8f8;
 }
@@ -25,11 +29,17 @@
 	width: 93.6%;
 }
 
+
+
 .tag-winput {
 	width: 96.7%;
 }
 
 .title-input {
+	width: 100%;
+}
+
+.title-inputTag{
 	width: 100%;
 }
 

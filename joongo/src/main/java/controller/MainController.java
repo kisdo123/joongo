@@ -279,16 +279,6 @@ public class MainController {
 		return "productList";
 	}
 
-	// 내용보기
-	@RequestMapping("/productInfo.do")
-	public ModelAndView getUserInfo(@RequestParam int proNo) {
-		Product product = productService.oneSelect(proNo);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("product", product);
-		mv.setViewName("productInfo");
-		return mv;
-	}
-
 	// 카테고리별 목록보기
 	@RequestMapping("/catList.do")
 	public String categoryList() {
@@ -316,18 +306,31 @@ public class MainController {
 		return map;
 	}
 
+	// 내용보기
+	@RequestMapping("/productInfo.do")
+	public ModelAndView getUserInfo(@RequestParam int proNo) {
+		Product product = productService.oneSelect(proNo);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("product", product);
+		mv.setViewName("productInfo");
+		return mv;
+	}
+
 	// 본인글제외 최신글 5개조회
 	@RequestMapping("/exceptSelf.do")
 	@ResponseBody
-	public Map<String, List<Product>> exceptSelf(Model model, @RequestParam int proNo, @RequestParam int catNo) {
+	public ModelAndView exceptSelf(@RequestParam int proNo, @RequestParam int catNo) {
+		ModelAndView mv = new ModelAndView();
 		Product product = new Product();
 		product.setProNo(proNo);
 		product.setCatNo(catNo);
-		List<Product> products = productService.selectExceptSelf(product);
-		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
-		map.put("products", products);
+		mv.addObject("product", product);
 
-		return map;
+		List<Product> products = productService.selectExceptSelf(product);
+		mv.addObject("products", products);
+		mv.setViewName("productInfo");
+
+		return mv;
 	}
 
 	// 글 수정화면에 기본값 입력
@@ -352,7 +355,7 @@ public class MainController {
 		product.setUserNo(userNo);
 		product.setProNo(proNo);
 		productService.update(product);
-		return "productInfo";
+		return "redirect:/productInfo.do?proNo=" + product.getProNo();
 	}
 
 	// 글 삭제
