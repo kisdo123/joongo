@@ -140,11 +140,12 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> selectExceptSelf(Product product) {
 		List<Product> selectExceptSelf = productDAO.selectExceptSelf(product);
+		
 		for (Product pro : selectExceptSelf) {
-			int proNo = pro.getProNo();
-			List<Image> images = productDAO.selectImage(proNo);
-			product.setImage(images);
-			checkPathImage(product.getImage());
+			int getproNo = pro.getProNo();
+			List<Image> images = productDAO.selectImage(getproNo);
+			pro.setImage(images);
+			checkPathImage(pro.getImage());
 		}
 		return selectExceptSelf;
 	}
@@ -259,7 +260,7 @@ public class ProductServiceImpl implements ProductService {
 			Image deleteImage = originImage.get(key);
 			String path = deleteImage.getImagePath();
 			File file = new File(
-					"C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/"
+					"C:/Users/Owner/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"
 							+ path);
 			System.out.println(file.getPath());
 			if (file.exists()) {
@@ -302,15 +303,15 @@ public class ProductServiceImpl implements ProductService {
 
 	// 이미지 패스에 파일이 존재하지않으면 변경
 	public void checkPathImage(List<Image> images) {
-//		for (Image image : images) {
-//			String imagePath = image.getImagePath();
-//			File dir = new File("C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/"+ imagePath);
-//
-//			if (!dir.exists()) {
-//				image.setImagePath("/joongo/image/no-image.jpg");
-//			}
-//
-//		}
+		for (Image image : images) {
+			String imagePath = image.getImagePath();
+			File dir = new File("C:/Users/Owner/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"+ imagePath);
+
+			if (!dir.exists()) {
+				image.setImagePath("/joongo/image/no-image.jpg");
+			}
+
+		}
 	}
 
 }

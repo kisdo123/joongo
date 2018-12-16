@@ -1,3 +1,5 @@
+<%@page import="controller.MainController"%>
+<%@page import="Product.DTO.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
@@ -76,17 +78,17 @@
 					<!-- <span class="all-view">전체보기</span> -->
 				</p>
 
-
-
 				<!-- 상품을 감싸고 있는 div  -->
 				<div class="product-container">
 					<!-- 상품을 5개 뽑는다. -->
-					<c:forEach var="pro" items="${products }">
+					<c:forEach var="pro" items="${pro }">
 						<div class="product">
 							<div class="product-img-container">
-								<a href="productInfo.do?proNo=${pro.proNo }"> <c:if test="${pro.image.isEmpty() }">
+								<a href="productInfo.do?proNo=${pro.proNo }">
+									<c:if test="${pro.image.isEmpty() }">
 										<img src="/joongo/image/no-image.jpg" class="product-img">
-									</c:if> <c:if test="${!pro.image.isEmpty() }">
+									</c:if>
+									<c:if test="${!pro.image.isEmpty() }">
 										<img src="${pro.image.get(0).imagePath }" class="product-img">
 									</c:if>
 								</a>
@@ -110,7 +112,7 @@
 			</div>
 			<div class="productInfo-exTitle">상품정보</div>
 			<div class="productInfo-ex"></div>
-			<div class="productInfo-exContext">내용 ${product.content}</div>
+			<div class="productInfo-exContext">${product.content}</div>
 
 			<!-- 맨 위, 맨 아래로 -->
 			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>

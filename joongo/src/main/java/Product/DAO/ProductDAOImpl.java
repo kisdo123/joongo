@@ -103,7 +103,7 @@ public class ProductDAOImpl implements ProductDAO {
 		return productMapper.deleteImage(imgNo);
 	}
 
-	//본인글 제외 최신글 5개 조회
+	//연관검색
 	@Override
 	public List<Product> selectExceptSelf(Product product) {
 		return productMapper.selectExceptSelf(product);

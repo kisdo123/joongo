@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import Favorite.DTO.Favorite;
 import Favorite.service.FavoriteService;
@@ -308,22 +307,14 @@ public class MainController {
 
 	// 내용보기 + 연관상품
 	@RequestMapping("/productInfo.do")
-	@ResponseBody
-	public ModelAndView exceptSelf(@RequestParam int proNo) {
-		ModelAndView mv = new ModelAndView();
+	public String exceptSelf(Model model, @RequestParam int proNo) {
 		Product product = productService.oneSelect(proNo);
-		int catNo = product.getCatNo();
-		mv.addObject("product", product);
-		Product pro = new Product();
-		pro = product;
-		pro.setProNo(proNo);
-		pro.setCatNo(catNo);
+		model.addAttribute("product", product);
+		
+		List<Product> products = productService.selectExceptSelf(product);		
+		model.addAttribute("pro", products);
 
-		List<Product> products = productService.selectExceptSelf(pro);
-		mv.addObject("products", products);
-		mv.setViewName("productInfo");
-
-		return mv;
+		return "productInfo";
 	}
 
 	// 글 수정화면에 기본값 입력
