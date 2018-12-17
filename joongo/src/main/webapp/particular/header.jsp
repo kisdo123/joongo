@@ -6,6 +6,8 @@
 			<div class="middle header-divTop">
 				<div class="header-logo">
 					<a href="main.do"> <img src="/joongo/image/logo.png" class="header-img">
+					
+					
 					</a>
 				</div>
 				<div class="header-search">

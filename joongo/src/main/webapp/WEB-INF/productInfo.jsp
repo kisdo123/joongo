@@ -51,11 +51,6 @@
 				<button class="productInfo-clickZzim" onclick="deleteFavorite(${loginUser.userNo}, ${product.proNo})">
 					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜함 </span>
 				</button>
-
-
-				<button class="productInfo-buyBtn">
-					<span><i class="fa fa-usd" aria-hidden="true"></i></span> 구매하기
-				</button>
 				<button class="productInfo-storeBtn">
 					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span> 상점이동
 				</button>

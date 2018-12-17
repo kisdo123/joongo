@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import Favorite.DAO.FavoriteDAO;
 import Favorite.DTO.Favorite;
 import Favorite.service.FavoriteService;
 import Product.DTO.Product;
@@ -39,6 +40,11 @@ public class MainController {
 	@Autowired
 	private ProductService productService;
 
+	@RequestMapping("/notice.do")
+	public String notice(Model model) {
+		return "notice";
+	}
+	
 	// 메인화면으로 보냄
 	@RequestMapping("/main.do")
 	public String goMain(Model model) {
@@ -307,12 +313,16 @@ public class MainController {
 
 	// 내용보기 + 연관상품
 	@RequestMapping("/productInfo.do")
-	public String exceptSelf(Model model, @RequestParam int proNo) {
+	public String exceptSelf(HttpServletRequest req, Model model, @RequestParam int proNo) {
 		Product product = productService.oneSelect(proNo);
 		model.addAttribute("product", product);
 		
 		List<Product> products = productService.selectExceptSelf(product);		
 		model.addAttribute("pro", products);
+		
+		if( req.getSession().getAttribute("LoginUser") != null) {			
+			Favorite favorite = favoService
+		}
 
 		return "productInfo";
 	}

@@ -82,7 +82,7 @@
 					<p class="category-info">
 						<span class="category-title">${titles[num] }</span>
 						<span class="all-view">
-							<a href="catList.do?catNo=${i} }">전체보기</a>
+							<a href="catList.do?catNo=${i}">전체보기</a>
 						</span>
 
 					</p>
