@@ -90,7 +90,7 @@
 										<img src="/joongo/image/no-image.jpg" class="product-img">
 									</c:if>
 									<c:if test="${!pro.image.isEmpty() }">
-										<img src="${pro.image.get(0).imagePath }" class="product-img">
+										<img src="${pro.image.get(0).imagePath }"  class="product-img">
 									</c:if>
 								</a>
 							</div>
@@ -103,7 +103,7 @@
 									<div class="product-tag">태그없음</div>
 								</c:if>
 								<c:if test="${pro.tags != '' }">
-									<div class="product-tag">${pro.tags }</div>
+									<div class="product-tag" style="max-width: 500px;">${pro.tags }</div>
 								</c:if>
 							</div>
 						</div>

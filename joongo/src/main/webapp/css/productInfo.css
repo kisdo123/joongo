@@ -251,3 +251,7 @@ label {
 #pos10:checked ~.pos>label:nth-child(10) {
 	background: #666;
 }
+
+.productInfo-exContext p img {
+	width: 95%;
+}

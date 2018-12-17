@@ -13,6 +13,8 @@ public interface UserDAO {
 	
 	public User selectById(String loginId);
 	
+	public User registerCheck(String loginId);
+	
 	public User selectByUserNo(int userNo);
 	
 	public List<User> selectList();

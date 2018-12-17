@@ -15,6 +15,10 @@
 		select * from users where loginId = #{loginId} and able = true
 	</select>
 	
+	<select id="registerCheck" resultType="User" parameterType="string">
+		select * from users where loginId = #{loginId}
+	</select>
+	
 	<select id="selectUserByPhone" resultType="User" parameterType="string">
 		select * from users where phone = #{phone}
 	</select>
