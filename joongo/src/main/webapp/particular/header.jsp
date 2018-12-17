@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<body class="text-center" oncontextmenu="return false" ondragstart="return false" onselect="return false">
+<body class="text-center" oncontextmenu="return false" ondragstart="return false" onselect="return false" ondrop="return false">
 	<div id="header-body">
 		<nav id="header-navbar">
 			<div class="middle header-divTop">
