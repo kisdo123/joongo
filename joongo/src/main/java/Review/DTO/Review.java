@@ -1,5 +1,8 @@
 package Review.DTO;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("Review")
 public class Review {
 	private int reviewNo;
 	private int userNo;
