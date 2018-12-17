@@ -43,13 +43,19 @@
 				</ul>
 			</div>
 			<div class="productInfo-btnDiv">
-
+			<c:if test="${favo == null }">
 				<button class="productInfo-zzimBtn" onclick="addFavorite(${loginUser.userNo}, ${product.proNo})">
-					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜안함 ${favorite.favoNo }</span>
+					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜</span>
 				</button>
+			</c:if>
+			<c:if test="${favo != null }">
+				<button class="productInfo-clickZzim" onclick="deleteFavorite(${loginUser.userNo}, ${favo.favoNo})">
+					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜 해제 </span>
+				</button>
+			</c:if>
 
-				<button class="productInfo-clickZzim" onclick="deleteFavorite(${loginUser.userNo}, ${product.proNo})">
-					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜함 </span>
+				<button class="productInfo-buyBtn">
+					<span><i class="fa fa-usd" aria-hidden="true"></i></span> 구매하기
 				</button>
 				<button class="productInfo-storeBtn">
 					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span> 상점이동
