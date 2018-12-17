@@ -9,7 +9,7 @@ import User.DAO.Query;
 public interface FavoriteMapper {
 	void insertFavorite(Favorite favorite);
 	int deleteFavorite(int favoNo);
-	List<Favorite> selectFavoriteList();
+	List<Favorite> selectFavoriteListByUser(int userNo);
 	Favorite selectFavorite(Favorite favorite);
 	
 }

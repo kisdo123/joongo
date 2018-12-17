@@ -19,9 +19,9 @@ public class FavoriteServiceImpl implements FavoriteService {
 	
 	
 	@Override
-	public List<Favorite> favoriteList() {		
+	public List<Favorite> favoriteListByUser(int userId) {		
 		
-		List<Favorite> favoList = favoDAO.selectFavoriteList();
+		List<Favorite> favoList = favoDAO.selectFavoriteListByUser(userId);
 		return favoList;
 		
 	}
@@ -32,21 +32,13 @@ public class FavoriteServiceImpl implements FavoriteService {
 	}
 
 	@Override
-	public void deleteFavorite(int userNo, int proNo) {
+	public void deleteFavorite(int userNo, int favoNo) {
 		if(userNo == 0) {
 			throw new BadLoginIdException("loginId 값이 올바르지 않음");
 		}
-		Favorite favo = new Favorite();
-		favo.setProNo(proNo);
-		favo.setUserNo(userNo);
+
 		
-		Favorite favorite = favoDAO.selectFavorite(favo);
-		
-		if(favorite.getFavoNo() == 0) {
-			throw new FavoriteNotFoundException("해당 장바구니 항목을 찾을 수 없음");
-		}
-		
-		int res = favoDAO.deleteFavorite(favorite.getFavoNo());
+		int res = favoDAO.deleteFavorite(favoNo);
 		if(res == 0) {
 			throw new FavoriteNotFoundException("삭제 실패");
 		}
@@ -55,7 +47,9 @@ public class FavoriteServiceImpl implements FavoriteService {
 	@Override
 	public Favorite selectFavorite(int userNo, int proNo) {
 		Favorite favo = new Favorite();
-		return null;
+		favo.setProNo(proNo);
+		favo.setUserNo(userNo);
+		return favoDAO.selectFavorite(favo);
 	}
 
 

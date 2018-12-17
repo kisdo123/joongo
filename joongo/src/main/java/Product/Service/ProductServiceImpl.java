@@ -260,7 +260,7 @@ public class ProductServiceImpl implements ProductService {
 			Image deleteImage = originImage.get(key);
 			String path = deleteImage.getImagePath();
 			File file = new File(
-					"C:/Users/Owner/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"
+					"C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"
 							+ path);
 			System.out.println(file.getPath());
 			if (file.exists()) {
@@ -305,7 +305,7 @@ public class ProductServiceImpl implements ProductService {
 	public void checkPathImage(List<Image> images) {
 		for (Image image : images) {
 			String imagePath = image.getImagePath();
-			File dir = new File("C:/Users/Owner/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"+ imagePath);
+			File dir = new File("C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"+ imagePath);
 
 			if (!dir.exists()) {
 				image.setImagePath("/joongo/image/no-image.jpg");

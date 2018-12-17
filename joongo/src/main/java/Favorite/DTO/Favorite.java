@@ -10,37 +10,23 @@ import User.DTO.User;
 public class Favorite {
 
 	private int favoNo;
-	private User user;
 	private int userNo;
 	private int proNo;
-	private Product product;
 	private String wdate; // 장바구니에 추가한 시간
 
 	public Favorite() {
 	}
 
-	public Favorite(User user, Product product) {
-		this.user = user;
-		this.product = product;
-	}
 
-	public Favorite(int favoNo, User user, Product product, String wdate) {
+	public Favorite(int favoNo, int userNo, int proNo, String wdate) {
 		this.favoNo = favoNo;
-		this.user = user;
-		this.product = product;
 		this.wdate = wdate;
+		this.userNo = userNo;
+		this.proNo = proNo;
 	}
 
 	public int getFavoNo() {
 		return favoNo;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public Product getProduct() {
-		return product;
 	}
 
 	public String getWdate() {

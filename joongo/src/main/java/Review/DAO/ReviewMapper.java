@@ -10,5 +10,5 @@ public interface ReviewMapper {
 	void insertReview(Review reivew);
 	int deleteReview(int reviewNo);
 	int updateReview(Review review);
-	List<Review> selectReviewList();
+	List<Review> selectReviewList(int pageNo);
 }

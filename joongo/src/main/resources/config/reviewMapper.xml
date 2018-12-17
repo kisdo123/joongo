@@ -8,8 +8,11 @@
 		insert into review(userNo, nickname, content) values(#{userNo}, #{nickname},#{content})
 	</insert>
 
-	<select id="selectReviewList" resultType="Review">
-		select * from favorite
+	<update id="updateReview" parameterType="Reveiw">
+		update review set content = #{content} values(#{content}) where reviewNo = #{reviewNo}
+	</update>
+	<select id="selectReviewList" parameterType="int" resultType="Review">
+		select * from favorite where pageNo = #{pageNo}
 	</select>
 
 	<delete id="deleteReview" parameterType="int">

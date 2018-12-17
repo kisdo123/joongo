@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,11 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import Favorite.DAO.FavoriteDAO;
 import Favorite.DTO.Favorite;
 import Favorite.service.FavoriteService;
 import Product.DTO.Product;
 import Product.Service.ProductService;
+import Review.DTO.Review;
+import Review.Service.ReviewService;
 import User.DTO.User;
 import User.service.UserService;
 import exception.PasswordNotMatchException;
@@ -39,6 +41,9 @@ public class MainController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private ReviewService reviewService;
 
 	@RequestMapping("/notice.do")
 	public String notice(Model model) {
@@ -249,9 +254,9 @@ public class MainController {
 
 	@RequestMapping("/deleteFavorite.do")
 	@ResponseBody
-	public void deleteFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
-
-		favoService.deleteFavorite(userNo, proNo);
+	public void deleteFavorite(@RequestParam("userNo") int userNo, @RequestParam("favoNo") int favoNo) {
+	
+		favoService.deleteFavorite(userNo, favoNo);
 	}
 
 	// 검색
@@ -310,6 +315,25 @@ public class MainController {
 
 		return map;
 	}
+	
+	// 찜 목록 보기
+	@RequestMapping("/favoriteList.do")
+	@ResponseBody
+	public Map<String, List<Product>> selectFavoriteByUser(@RequestParam("userNo") int userNo){
+		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
+		
+		List<Favorite> favolist = favoService.favoriteListByUser(userNo);
+		
+		List<Product> products = new ArrayList<Product>();
+		for(Favorite favo : favolist) {
+			Product product = productService.oneSelect(favo.getProNo());
+			products.add(product);
+		}
+		map.put("favoList", products);
+		
+		return map;
+		
+	}
 
 	// 내용보기 + 연관상품
 	@RequestMapping("/productInfo.do")
@@ -319,9 +343,11 @@ public class MainController {
 		
 		List<Product> products = productService.selectExceptSelf(product);		
 		model.addAttribute("pro", products);
+		User loginUser = (User) req.getSession().getAttribute("loginUser");
 		
-		if( req.getSession().getAttribute("LoginUser") != null) {			
-			Favorite favorite = favoService
+		if( loginUser != null) {			
+			Favorite favorite = favoService.selectFavorite(loginUser.getUserNo(), proNo);
+			model.addAttribute("favo", favorite);
 		}
 
 		return "productInfo";
@@ -357,5 +383,45 @@ public class MainController {
 	public String delectProduct(Model model, @ModelAttribute Product product) {
 		productService.delete(product);
 		return "productModify";
+	}
+	
+	//리뷰 등록
+	@RequestMapping("/addReview.do")
+	@ResponseBody
+	public void addReivew(@ModelAttribute Review review) {
+		reviewService.insertReview(review);
+	
+	}
+		
+	//리뷰 수정
+	@RequestMapping("/updateReview.do")
+	@ResponseBody
+	public void updateReivew(HttpServletRequest req, @ModelAttribute Review review) {
+		User loginUser = (User) req.getSession().getAttribute("loginUser");
+		if(loginUser != null) {			
+			reviewService.updateReview(loginUser.getUserNo(), review);
+		}
+		
+	}
+	
+	//리뷰 삭제
+	@RequestMapping("/deleteReview.do")
+	@ResponseBody
+	public void deleteReivew(HttpServletRequest req, @RequestParam("reviewNo") int reviewNo) {
+		User loginUser = (User) req.getSession().getAttribute("loginUser");
+		if(loginUser != null) {			
+			reviewService.deleteReview(loginUser.getUserNo(), reviewNo);
+		}
+	
+	}
+	//리뷰 목록반환
+	@RequestMapping("/getReviewList.do")
+	@ResponseBody
+	public Map<String, List<Review>> getReviewList(@RequestParam("pageNo") int pageNo) {
+		Map<String, List<Review>> map = new HashMap<String, List<Review>>();
+		List<Review> reviewList = reviewService.selectReviewList(pageNo);
+		map.put("reviewList", reviewList);
+		
+		return map;
 	}
 }

@@ -179,12 +179,12 @@ function addFavorite(userNo, proNo) {
 }
 
 // 찜 버튼 클릭시 찜 버튼 비활성화 ajax
-function deleteFavorite(userNo, proNo) {
+function deleteFavorite(userNo, favoNo) {
 	
 	$.ajax({
 		url : "deleteFavorite.do",
 		data : { "userNo" :userNo,
-			"proNo" : proNo
+			"favoNo" : favoNo
 		}, 
 		success : function() { 
 			
