@@ -52,5 +52,11 @@ public class FavoriteServiceImpl implements FavoriteService {
 		}
 	}
 
+	@Override
+	public Favorite selectFavorite(int userNo, int proNo) {
+		Favorite favo = new Favorite();
+		return null;
+	}
+
 
 }
