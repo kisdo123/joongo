@@ -142,23 +142,6 @@ function thousand(number) {
 }
 
 
-// 글삭제 ajax
-function deleteProduct(proNo){
-	$.ajax({
-		url : "delectProduct.do",
-		data : { "proNo" : proNo }, 
-		success : function() { 
-			alert("글을 삭제했습니다.");
-			location.href="main.do";
-		},
-		error : function(error) {
-			console.log(error); alert('글 삭제가 실패했습니다.');
-		}
-	}); 
-}
-	
-
-
 
 // 찜 버튼 클릭시 활성화 ajax
 function addFavorite(userNo, proNo) {

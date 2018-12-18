@@ -62,8 +62,7 @@
 					<button class="productInfo-productModify" onclick="location.href='productModifyForm.do?proNo=${product.proNo }'">
 						<span><i class="fa fa-refresh" aria-hidden="true"></i></span> 글 수정
 					</button>
-
-					<button class="productInfo-productdelete" onclick="deleteProduct(${product.proNo })">
+					<button class="productInfo-productdelete">
 						<span><i class="fa fa-times" aria-hidden="true"></i></span> 글 삭제
 					</button>
 				</c:if>
@@ -115,3 +114,4 @@
 	</div>
 </div>
 <jsp:include page="/particular/footer.jsp"></jsp:include>
+<jsp:include page="/particular/deletePopup.jsp"></jsp:include>

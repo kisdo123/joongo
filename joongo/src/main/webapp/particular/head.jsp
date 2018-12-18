@@ -11,8 +11,10 @@
 <link rel="stylesheet" type="text/css" href="/joongo/css/loginPopup.css">
 <link rel="stylesheet" type="text/css" href="/joongo/css/registerPopup.css">
 <link rel="stylesheet" type="text/css" href="/joongo/css/sideMenu.css">
+<link rel="stylesheet" type="text/css" href="/joongo/css/deletePopup.css">
 
 <script type="text/javascript" src="/joongo/script/header.js"></script>
 <script type="text/javascript" src="/joongo/script/loginPopup.js"></script>
 <script type="text/javascript" src="/joongo/script/registerPopup.js"></script>
 <script type="text/javascript" src="/joongo/script/sideMenu.js"></script>
+<script type="text/javascript" src="/joongo/script/deletePopup.js"></script>
