@@ -64,77 +64,64 @@
 }
 
 .productInfo-zzimBtn {
-	position: absolute;
-    width: 200px;
-    height: 56px;
-    border: 1px solid #ffa425;
-    background-color: #ffa425;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
-    color: #fff;
-    left: 753px;
-    bottom: 308px;
+	width: 200px;
+	height: 56px;
+	border: 1px solid #ffa425;
+	background-color: #ffa425;
+	font-size: 18px;
+	font-weight: 700;
+	cursor: pointer;
+	color: #fff;
+	margin-right: 5px;
 }
 
-.productInfo-clickZzim{
-	position: absolute;
-    width: 200px;
-    height: 56px;
-    border: 1px solid #ffa425;
-    background-color: #ffa425;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
-    color: #e81e22;
-    left: 753px;
-    bottom: 308px;
+.productInfo-clickZzim {
+	width: 200px;
+	height: 56px;
+	border: 1px solid #ffa425;
+	background-color: #ffa425;
+	font-size: 18px;
+	font-weight: 700;
+	cursor: pointer;
+	color: #e81e22;
+	margin-right: 5px;
 }
-
 
 .productInfo-storeBtn {
-	position: absolute;
-    width: 200px;
-    height: 56px;
-    border: 1px solid #3dcf38;
-    background-color: #3dcf38;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    cursor: pointer;
-    right: 460px;
-    bottom: 308px;
+	width: 200px;
+	height: 56px;
+	border: 1px solid #3dcf38;
+	background-color: #3dcf38;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	cursor: pointer;
+	margin-right: 5px;
 }
 
-
-.productInfo-productModify{
-	position: absolute;
-    width: 200px;
-    height: 56px;
-    border: 1px solid #673ab7;
-    background-color: #673ab7;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    cursor: pointer;
-    left: 753px;
-    bottom: 240px;
+.productInfo-productModify {
+	width: 200px;
+	height: 56px;
+	border: 1px solid #673ab7;
+	background-color: #673ab7;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	cursor: pointer;
+	margin-right: 5px;
 }
 
-.productInfo-productdelete{
-	position: absolute;
-    width: 200px;
-    height: 56px;
-    border: 1px solid #4862ef;
-    background-color: #4862ef;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    cursor: pointer;
-    right: 460px;
-    bottom: 240px;
+.productInfo-productdelete {
+	width: 200px;
+	height: 56px;
+	border: 1px solid #4862ef;
+	background-color: #4862ef;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	cursor: pointer;
+	margin-right: 5px;
 }
-
 
 .productInfo-img {
 	width: 400px;
