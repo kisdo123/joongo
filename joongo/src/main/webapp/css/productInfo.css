@@ -73,8 +73,8 @@
     font-weight: 700;
     cursor: pointer;
     color: #fff;
+    left: 753px;
     bottom: 308px;
-    right: 502px;
 }
 
 .productInfo-clickZzim{
@@ -87,8 +87,8 @@
     font-weight: 700;
     cursor: pointer;
     color: #e81e22;
+    left: 753px;
     bottom: 308px;
-    right: 502px;
 }
 
 
@@ -102,8 +102,8 @@
     font-weight: 700;
     color: #fff;
     cursor: pointer;
+    right: 460px;
     bottom: 308px;
-    right: 292px;
 }
 
 
@@ -117,8 +117,8 @@
     font-weight: 700;
     color: #fff;
     cursor: pointer;
+    left: 753px;
     bottom: 240px;
-    right: 502px;
 }
 
 .productInfo-productdelete{
@@ -131,7 +131,7 @@
     font-weight: 700;
     color: #fff;
     cursor: pointer;
-    right: 292px;
+    right: 460px;
     bottom: 240px;
 }
 
