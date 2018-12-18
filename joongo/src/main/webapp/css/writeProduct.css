@@ -52,6 +52,15 @@ input{
 	width: 305px;
 }
 
+.condit-input{
+	
+}
+
+.select-condit{
+	height: 22px;
+}
+
+
 .tag-container {
 	margin-top: 10px;
 }

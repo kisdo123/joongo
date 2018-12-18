@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/writeProduct.css?6">
 <script type="text/javascript" src="/joongo/script/writeProduct.js"></script>
@@ -17,14 +18,11 @@
 							<table>
 								<tr>
 									<td class="form-info">제목</td>
-									<td class="title-winput">
-										<input type="text" id="title" name="title" placeholder="제목을 입력하세요" class="title-input" value="${product.title }" autofocus>
-									</td>
+									<td class="title-winput"><input type="text" id="title" name="title" placeholder="제목을 입력하세요" class="title-input" value="${product.title }" autofocus></td>
 								</tr>
 								<tr>
 									<td class="form-info">카테고리</td>
-									<td>
-										<select class="select-info" name="catNo">
+									<td><select class="select-info" name="catNo">
 											<c:if test="${product.catNo == 1}">
 												<option selected="selected" value="1">의류</option>
 												<option value="2">가전제품</option>
@@ -124,10 +122,26 @@
 												<option value="8">식품</option>
 												<option selected="selected" value="9">기타</option>
 											</c:if>
+									</select> <span class="form-info">가격</span> <input type="text" id="price" name="price" placeholder="희망 가격을 입력해주세요 (숫자만 입력가능합니다)" value="${product.price }" class="price-input"> 
+									
+									
+									<span class="form-info">상태
+									
+									<c:if test="${product.condit eq '판매중'}">
+									<select class="select-condit" id="price" name="condit">
+												<option value="판매중" selected="selected">${product.condit }</option>
+												<option value="판매완료">판매완료</option>	
 										</select>
-										<span class="form-info">가격</span>
-										<input type="text" id="price" name="price" placeholder="희망 가격을 입력해주세요 (숫자만 입력가능합니다)" value="${product.price }" class="price-input">
-									</td>
+									</c:if>
+									
+									<c:if test="${product.condit eq '판매완료'}">
+												<select class="select-condit" id="price" name="condit">
+													<option value="판매중">판매중</option>
+													<option value="판매완료" selected="selected">${product.condit }</option>
+												</select>
+											</c:if>
+
+									</span></td>
 								</tr>
 							</table>
 						</div>
@@ -141,9 +155,7 @@
 						<table class="tags-table">
 							<tr>
 								<td class="form-info">태그</td>
-								<td class="tag-winput">
-									<input type="text" name="tags" placeholder="태그는 ,로 구분합니다" class="title-input" value="${product.tags }">
-								</td>
+								<td class="tag-winput"><input type="text" name="tags" placeholder="태그는 ,로 구분합니다" class="title-input" value="${product.tags }"></td>
 							</tr>
 						</table>
 					</div>
