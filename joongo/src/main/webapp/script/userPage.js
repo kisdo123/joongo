@@ -22,7 +22,6 @@ function pagination() {
 			/* 10개씩 출력 */
 			for(var i=start; i<end; i++){
 				var product = SUPEREPICFANTASTICPRODUCTS[i];
-				console.log(product)
 				var text = "<div class='product'>"+
 				"<div class='product-img-container'>" +
 				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
@@ -46,9 +45,21 @@ function pagination() {
         },
         /* 첫 화면 10개 출력 */
         onInit: function() {
-        	for(var i=0; i<10; i++){
+        	$('#product-package').empty();
+			$('#zzim-package').empty();
+        	var end;
+        	
+        	if(SUPEREPICFANTASTICLENGTH <= 10) {
+        		end = SUPEREPICFANTASTICLENGTH;
+        	} else if(SUPEREPICFANTASTICLENGTH > 10) {
+        		end = 10;
+        	} else {
+        		alert('가져올 수 없습니다.');
+        	}
+        		
+        	for(var i=0; i<end; i++){
 				var product = SUPEREPICFANTASTICPRODUCTS[i];
-				console.log(product.proNo)
+				console.log(product)
 				var text = "<div class='product'>"+
 				"<div class='product-img-container'>" +
 				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
@@ -93,11 +104,7 @@ function view(userNo, url) {
 			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
 			SUPEREPICFANTASTICURL = url;
 			
-			console.log(url);
-			console.log(SUPEREPICFANTASTICLENGTH);
-			
 			/* 아무것도 없을 시 */
-			
 			if(url == 'shopList.do') {
 				if(SUPEREPICFANTASTICLENGTH == 0) {
 					$('#product-package').append('<div style="text-align: center; line-height: 654px;">판매 중인 상품이 없습니다.</div>');
@@ -138,7 +145,6 @@ $(function() {
 	
 	/* 소개글 변경 눌렀을 시 textarea와 버튼을 생성 */
 	$('#update').click(function() {
-		console.log('test');
 		var content = $('#introduce-content').text();
 		var information = {
 				'content': content
@@ -248,7 +254,6 @@ function introduceChange(userNo) {
 			$('#introduce-content').text(content);
 		},
 		error: function(error) {
-			console.log(error);
 			alert('소개글 변경에 실패하였습니다.');
 		}
 	});

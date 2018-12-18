@@ -101,7 +101,7 @@
 							</div>
 						</div> -->
 					<!-- 찜 div -->
-					<div class="zzim-package none" id="fav-packge"></div>
+					<div class="zzim-package none" id="zzim-package"></div>
 					<div class="pagination" id="pagination"></div>
 				</div>
 			</div>
