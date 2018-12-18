@@ -7,7 +7,7 @@
 <mapper namespace="Product.DAO.ProductMapper">
 	<!--검색 쿼리 -->
 	<select id="selectSearchList" parameterType="string" resultType="Product">
-		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and concat(products.title,products.tags,products.content) like concat('%',#{word},'%') and (products.able != 0 and products.condit!="판매완료");
+		select products.proNo, products.title, products.catNo, categories.catName, products.userNo, products.nickname, products.condit, products.price, products.content, products.tags, products.wdate, products.able from products, categories where products.catNo = categories.catNo and concat(products.title,products.tags,categories.catName) like concat('%',#{word},'%') and (products.able != 0 and products.condit!="판매완료") order by wdate desc;
 	</select>
 
 	<!--전체 최신순 조회 -->

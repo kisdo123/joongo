@@ -329,7 +329,7 @@ public class MainController {
 			Product product = productService.oneSelect(favo.getProNo());
 			products.add(product);
 		}
-		map.put("favoList", products);
+		map.put("products", products);
 		
 		return map;
 		

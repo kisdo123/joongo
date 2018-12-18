@@ -16,6 +16,7 @@ public interface UserService {
 	
 	public User getUserByUserNo(int userNo);
 	
+	
 	public User loginUser(String loginId, String password);
 	
 	public List<User> searchUserList();

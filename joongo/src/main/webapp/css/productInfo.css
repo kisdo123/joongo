@@ -84,8 +84,7 @@
 	font-weight: 700;
 	margin-right: 5px;
 	cursor: pointer;
-	color : #0d34f1f2;
-	display: none;
+	color : #e81e22;
 }
 
 
@@ -250,4 +249,8 @@ label {
 
 #pos10:checked ~.pos>label:nth-child(10) {
 	background: #666;
+}
+
+.productInfo-exContext p img {
+	width: 95%;
 }

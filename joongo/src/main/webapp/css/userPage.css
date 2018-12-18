@@ -1,8 +1,8 @@
-.mypage-container  {
+.mypage-container {
 	background-color: #f8f8f8;
 }
 
-.modify{
+.modify {
 	cursor: pointer;
 }
 
@@ -43,10 +43,10 @@
 
 .modify {
 	border: none;
-    background-color: white;
-    padding: 0px;
-    font-size: 14px;
-    color: red;
+	background-color: white;
+	padding: 0px;
+	font-size: 14px;
+	color: red;
 }
 
 .modify:VISITED, .modify:HOVER {
@@ -140,7 +140,7 @@
 
 .product:NTH-CHILD(5n) {
 	margin-right: 0px;
-} 
+}
 
 .product:FIRST-CHILD {
 	margin-left: 0px;
@@ -192,62 +192,65 @@
 
 .introduce-textarea {
 	height: 40px;
-    width: 95.14%;
-    float: left;
-    border-right: none;
-    resize: none;
+	width: 95.14%;
+	float: left;
+	border-right: none;
+	resize: none;
 }
 
 .register {
 	float: right;
-    height: 46px;
+	height: 46px;
 }
 
 .product-img-container {
-	height: 200px;
+	width: 194.8px;
+	height: 194.8px;
 }
 
 /* =============현승이=================== */
-
-.product-review{
-    padding: 20px 30px 20px 30px;
-    background-color: #f9f9f9;
+.product-review {
+	padding: 20px 30px 20px 30px;
+	background-color: #f9f9f9;
 }
-.review{
+
+.review {
 	width: 89%;
-    height: 94px;
-    outline: none;
-    resize: none;
-    font-size: 14px;
-}
-.review-btn{
-	float: right;
-    outline: none;
-    width: 100px;
-    height: 100px;
-    background-color: #FE8181;
-    border: none;
-    cursor: pointer;
-}
-.productuser-review{
-	border-bottom: 1px solid #e1e1e1;
-    padding: 20px 30px 0px 30px;
+	height: 94px;
+	outline: none;
+	resize: none;
+	font-size: 14px;
 }
 
-.user-review-container{
+.review-btn {
+	float: right;
+	outline: none;
+	width: 100px;
+	height: 100px;
+	background-color: #FE8181;
+	border: none;
+	cursor: pointer;
+}
+
+.productuser-review {
+	border-bottom: 1px solid #e1e1e1;
+	padding: 20px 30px 0px 30px;
+}
+
+.user-review-container {
 	padding-top: 10px;
 }
 
-.user-review{
+.user-review {
 	width: 99.4%;
-    outline: none;
-    resize: none;
+	outline: none;
+	resize: none;
 }
 
 .pagination {
 	margin-left: 31% !important;
 }
 
-.pagination > ul > li:FIRST-CHILD > span, .pagination > ul > li:LAST-CHILD > span {
+.pagination>ul>li:FIRST-CHILD>span, .pagination>ul>li:LAST-CHILD>span {
 	border: none !important;
 }

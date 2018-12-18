@@ -43,6 +43,7 @@
 				</ul>
 			</div>
 			<div class="productInfo-btnDiv">
+			
 			<c:if test="${favo == null }">
 				<button class="productInfo-zzimBtn" onclick="addFavorite(${loginUser.userNo}, ${product.proNo})">
 					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜</span>
@@ -50,13 +51,9 @@
 			</c:if>
 			<c:if test="${favo != null }">
 				<button class="productInfo-clickZzim" onclick="deleteFavorite(${loginUser.userNo}, ${favo.favoNo})">
-					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜 해제 </span>
+					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜 </span>
 				</button>
 			</c:if>
-
-				<button class="productInfo-buyBtn">
-					<span><i class="fa fa-usd" aria-hidden="true"></i></span> 구매하기
-				</button>
 				<button class="productInfo-storeBtn">
 					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span> 상점이동
 				</button>
@@ -90,7 +87,7 @@
 										<img src="/joongo/image/no-image.jpg" class="product-img">
 									</c:if>
 									<c:if test="${!pro.image.isEmpty() }">
-										<img src="${pro.image.get(0).imagePath }" class="product-img">
+										<img src="${pro.image.get(0).imagePath }"  class="product-img">
 									</c:if>
 								</a>
 							</div>
@@ -103,7 +100,7 @@
 									<div class="product-tag">태그없음</div>
 								</c:if>
 								<c:if test="${pro.tags != '' }">
-									<div class="product-tag">${pro.tags }</div>
+									<div class="product-tag" style="max-width: 500px;">${pro.tags }</div>
 								</c:if>
 							</div>
 						</div>

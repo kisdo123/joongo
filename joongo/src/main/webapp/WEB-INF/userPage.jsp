@@ -73,7 +73,7 @@
 				<div class="mypage-menu">
 					<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
 					<div class="center menu-title menu">후기</div>
-					<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'shopList.do')">찜</div>
+					<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'favoriteList.do')">찜</div>
 				</div>
 				<!-- product를 감싸는 div -->
 				<div class="menu-contents" >

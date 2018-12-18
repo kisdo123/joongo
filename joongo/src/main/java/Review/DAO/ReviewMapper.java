@@ -7,7 +7,7 @@ import User.DAO.Query;
 
 @Query
 public interface ReviewMapper {
-	void insertReview(Review reivew);
+	void insertReview(Review review);
 	int deleteReview(int reviewNo);
 	int updateReview(Review review);
 	List<Review> selectReviewList(int pageNo);

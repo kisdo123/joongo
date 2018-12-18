@@ -11,6 +11,7 @@ public interface IUserMapper {
 	List<User> selectUserList();
 	User selectUserById(String loginId);
 	User selectUserByPhone(String phone);
+	User registerCheck(String loginId);
 	User selectUserByUserNo(int userNo);
 	int updateUser(User user);
 	int deleteUser(int userNo);

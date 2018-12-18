@@ -10,20 +10,10 @@
 <div id="container" class="container">
 	<div class="w1200">
 		<div class="middle">
-			<div class="category-button-container">
-				<div class="category-button" onclick="selectCat(1)">의류</div>
-				<div class="category-button" onclick="selectCat(2)">가전제품</div>
-				<div class="category-button" onclick="selectCat(3)">화장품</div>
-				<div class="category-button" onclick="selectCat(4)">악기</div>
-				<div class="category-button" onclick="selectCat(5)">도서</div>
-				<div class="category-button" onclick="selectCat(6)">생활용품</div>
-				<div class="category-button" onclick="selectCat(7)">스포츠</div>
-				<div class="category-button" onclick="selectCat(8)">식품</div>
-				<div class="category-button" onclick="selectCat(9)">기타</div>
-			</div>
+			
 			<div class="category">
 				<p class="category-info">
-					<span><input value="의류" readonly class="category-title"></span>
+					<span><input value="검색결과" readonly class="category-title"></span>
 				</p>
 				<div id="products" class="product-container">
 					<c:forEach var="product" items="${products}">

@@ -17,10 +17,12 @@ function pagination() {
 				end = SUPEREPICFANTASTICLENGTH;
 			}
 			$('#product-package').empty();
+			$('#zzim-package').empty();
 			
 			/* 10개씩 출력 */
 			for(var i=start; i<end; i++){
 				var product = SUPEREPICFANTASTICPRODUCTS[i];
+				console.log(product)
 				var text = "<div class='product'>"+
 				"<div class='product-img-container'>" +
 				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
@@ -37,8 +39,8 @@ function pagination() {
 				"</div>";
 				if(SUPEREPICFANTASTICURL == 'shopList.do') {
 					$('#product-package').append(text);
-				} else if(SUPEREPICFANTASTICURL == '') {
-					
+				} else if(SUPEREPICFANTASTICURL == 'favoriteList.do') {
+					$('#zzim-package').append(text);
 				}
 			}
         },
@@ -46,6 +48,7 @@ function pagination() {
         onInit: function() {
         	for(var i=0; i<10; i++){
 				var product = SUPEREPICFANTASTICPRODUCTS[i];
+				console.log(product.proNo)
 				var text = "<div class='product'>"+
 				"<div class='product-img-container'>" +
 				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
@@ -65,7 +68,7 @@ function pagination() {
 					$('#zzim-package').addClass('none');
 					$('#product-review').addClass('none');
 					$('#product-package').append(text);
-				} else if(SUPEREPICFANTASTICURL == '') {
+				} else if(SUPEREPICFANTASTICURL == 'favoriteList.do') {
 					$('#zzim-package').removeClass('none');
 					$('#product-package').addClass('none');
 					$('#product-review').addClass('none');
@@ -85,23 +88,34 @@ function view(userNo, url) {
 			"userNo": userNo
 		},
 		success: function(data) {
+			console.log(data);
 			SUPEREPICFANTASTICPRODUCTS = data.products;
 			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
 			SUPEREPICFANTASTICURL = url;
 			
+			console.log(url);
+			console.log(SUPEREPICFANTASTICLENGTH);
+			
 			/* 아무것도 없을 시 */
-			if(SUPEREPICFANTASTICLENGTH == 0) {
-				if(url == 'shopList.do') {
+			
+			if(url == 'shopList.do') {
+				if(SUPEREPICFANTASTICLENGTH == 0) {
 					$('#product-package').append('<div style="text-align: center; line-height: 654px;">판매 중인 상품이 없습니다.</div>');
+				} else if (SUPEREPICFANTASTICLENGTH > 0) {
+					pagination();
 				}
-			} else if (SUPEREPICFANTASTICLENGTH > 0) {
-				if(url == 'shopList.do') {
+			}
+			
+			if(url == 'favoriteList.do') {
+				if(SUPEREPICFANTASTICLENGTH == 0) {
+					$('#zzim-package').append('<div style="text-align: center; line-height: 654px;">찜한 상품이 없습니다.</div>');
+				} else if (SUPEREPICFANTASTICLENGTH > 0) {
 					pagination();
 				}
 			}
 		},
-		error: function() {
-			alert('정보를 가져오는데 실패했습니다.');
+		error: function(error) {
+			console.log(error)
 		}
 	})
 }

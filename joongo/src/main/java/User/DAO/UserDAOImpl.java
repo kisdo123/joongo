@@ -32,6 +32,11 @@ public class UserDAOImpl implements UserDAO {
 	public User selectById(String loginId) {
 		return userMapper.selectUserById(loginId);
 	}
+	
+	@Override
+	public User registerCheck(String loginId) {
+		return userMapper.registerCheck(loginId);
+	}
 
 	@Override
 	public List<User> selectList() {

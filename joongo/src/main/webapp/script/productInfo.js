@@ -171,6 +171,7 @@ function addFavorite(userNo, proNo) {
 			
 			$(".productInfo-zzimBtn").css("display", "none");
 			$(".productInfo-clickZzim").css("display", "inline");
+			$(".productInfo-btnDiv").load(document.URL +  ' .productInfo-btnDiv');
 		},
 		error : function(error) {
 			console.log(error); alert('찜 선택이 실패했습니다.');
@@ -190,6 +191,7 @@ function deleteFavorite(userNo, favoNo) {
 			
 			$(".productInfo-zzimBtn").css("display", "inline");
 			$(".productInfo-clickZzim").css("display", "none");
+			$(".productInfo-btnDiv").load(document.URL +  ' .productInfo-btnDiv');
 		},
 		error : function(error) {
 			console.log(error);
