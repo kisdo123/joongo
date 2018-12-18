@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="Report.DAO.reportMapper">
+<mapper namespace="Report.DAO.ReportMapper">
 	<insert id="insertReport" parameterType="Report">
 		insert into report(demandNo, claimeeNo, reportId, content) values(#{demandNo}, #{claimeeNo}, #{reportId}, #{content})
 	</insert>
@@ -15,5 +15,7 @@
 	<select id="selectReportListByUser" parameterType="int" resultType="Report">
 		select * from report where userNo = #{userNo}
 	</select>
-
+	<select id="selectReportCategory" resultType="ReportCategory">
+		select * from reportCategories
+	</select>
 </mapper>	

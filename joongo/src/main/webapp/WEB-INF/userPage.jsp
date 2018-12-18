@@ -34,7 +34,7 @@
 							</form>
 						</c:if> <!-- 신고하기 다른 사람 프로필을 봤을 때 --> <c:if test="${pageUser.userNo != loginUser.userNo }">
 							<form action="reportForm.do" method="POST">
-								<input type="hidden" value="${pageUser.userNo }"> <input type="submit" class="modify" value="신고하기">
+								<input type="hidden" name="claimeeNo" value="${pageUser.userNo }"> <input type="submit" class="modify" value="신고하기">
 							</form>
 						</c:if>
 					</span>

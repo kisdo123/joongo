@@ -22,6 +22,7 @@ import Favorite.service.FavoriteService;
 import Product.DTO.Product;
 import Product.Service.ProductService;
 import Report.DTO.Report;
+import Report.DTO.ReportCategory;
 import Report.service.ReportService;
 import Review.DTO.Review;
 import Review.Service.ReviewService;
@@ -432,13 +433,17 @@ public class MainController {
 	}
 	
 	@RequestMapping("/report.do")
-	public String report(@ModelAttribute Report report) {
+	public String report(HttpServletRequest req, @ModelAttribute Report report) {
 		reportService.insertReport(report);
 		return "redirect:/main.do";
 	}
 	
 	@RequestMapping("/reportForm.do")
-	public String reportForm() {
+	public String reportForm(HttpServletRequest req, @RequestParam("claimeeNo") int claimeeNo) {
+		User claimee = userService.getUserByUserNo(claimeeNo);
+		List<ReportCategory> reportCategory = reportService.selectReportCategory();
+		req.setAttribute("reportList", reportCategory);
+		req.setAttribute("claimee", claimee);
 		return "report";
 	}
 }

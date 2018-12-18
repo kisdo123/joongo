@@ -18,19 +18,20 @@
 				</a>
 			</div>
 			<form id="form" method="post" action="report.do" onsubmit="return false">
+				<input type="hidden" name="claimeeNo" value="${claimee.userNo }">
 				<div class="report">
-					<h4 class="report_title">신고대상의 이름</h4>
-					<span class="box"> <input type="text" readonly id="userName">
+					<h4 class="report_title">신고대상의 아이디</h4>
+					<span class="box"> <input type="text" value="${claimee.loginId }" readonly id="userName">
 					</span>
 				</div>
 				<div class="report">
 					<h4 class="report_title">신고대상의 별명</h4>
-					<span class="box"> <input type="text" value="a" readonly id="userNickname">
+					<span class="box"> <input type="text" value="${claimee.nickname }" readonly id="userNickname">
 					</span>
 				</div>
 				<div class="report">
 					<h4 class="report_title">신고사유</h4>
-					<span class="box"> <select name="report_q" id="reason" class="select">
+					<span class="box"> <select name="reportId" id="reason" class="select">
 							<option value="0" disabled selected>--------------------------------------------신고사유----------------------------------------------------</option>
 							<c:forEach var="report" items="${reportList }">
 								<option value="${report.reportId }">${report.reportType }</option>
@@ -43,7 +44,7 @@
 				<div>
 					<h4 class="report_title">신고 내용</h4>
 					<div>
-						<textarea class="report-content" id="report-content" placeholder="100자이내로 써주세요."></textarea>
+						<textarea class="report-content" name="content" id="report-content" placeholder="100자이내로 써주세요."></textarea>
 					</div>
 					<p id="answer_msg"></p>
 				</div>

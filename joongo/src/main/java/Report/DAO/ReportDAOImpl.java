@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Report.DTO.Report;
+import Report.DTO.ReportCategory;
 
 @Repository("reportDAO")
 public class ReportDAOImpl implements ReportDAO {
@@ -27,6 +28,11 @@ public class ReportDAOImpl implements ReportDAO {
 	@Override
 	public List<Report> selectReportListByUser(int userNo) {
 		return reportMapper.selectReportListByUser(userNo);
+	}
+
+	@Override
+	public List<ReportCategory> selectReportCategory() {
+		return reportMapper.selectReportCategory();
 	}
 
 }

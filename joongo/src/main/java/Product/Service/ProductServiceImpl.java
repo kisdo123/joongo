@@ -221,7 +221,7 @@ public class ProductServiceImpl implements ProductService {
 
 				// 확장자명 분류
 				if (contentimg.contains(".jpg") || contentimg.contains(".png") || contentimg.contains(".gif")
-						|| contentimg.contains(".bmp")) {
+						|| contentimg.contains(".bmp") || contentimg.contains(".PNG")) {
 					extension = contentimg.indexOf(".");
 					imagePath = contentimg.substring(idx + 5, extension + 4);
 					contentimg = contentimg.substring(extension + 4);
