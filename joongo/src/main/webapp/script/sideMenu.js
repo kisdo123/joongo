@@ -1,14 +1,16 @@
 $(function(){
 	
-
 	// 맨 위로
 	$('.up').click(function() {
-		$('html').scrollTop(0);
+		$('html').animate( { scrollTop : 0 }, 400 );
+		return false;
 	});
+	
 	
 	// 맨 아래로
 	$('.down').click(function() {
-		$('html').scrollTop($(document).height());
+		$('html').animate( { scrollTop : $(document).height() }, 400 );
+		return false;
 	});
 	
 	// 스크롤 애니메이션
