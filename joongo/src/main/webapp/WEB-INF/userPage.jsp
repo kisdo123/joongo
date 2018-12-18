@@ -73,10 +73,14 @@
 			</div>
 			<div class="mypage-menu-container">
 				<div class="mypage-menu">
-					<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
-					<div class="center menu-title menu">후기</div>
 					<c:if test="${pageUser.userNo == loginUser.userNo }">
+						<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
+						<div class="center menu-title menu">후기</div>
 						<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'favoriteList.do')">찜</div>
+					</c:if>
+					<c:if test="${pageUser.userNo != loginUser.userNo }">
+						<div class="center1 menu-title1 menu1" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
+						<div class="center1 menu-title1 menu1">후기</div>
 					</c:if>
 				</div>
 				<!-- product를 감싸는 div -->
