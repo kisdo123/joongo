@@ -1,23 +1,27 @@
 $(function() {
-	
 	$('#report').click(function() {
-		var name = $('#userName').val();
-		var nickname = $('#userNickname').val();
+		var select = $('#reason > option:selected').val();
+		var text = $('#report-content').val();
 		var checked = true;
 		
-		var dbname = "";
-		var dbnickname = "";
+		if(select == 0) {
+			$('#report_msg').text("신고사유를 선택해주세요.");
+			checked = false;
+		} else {
+			$('#report_msg').text("");
+			checked = true;
+		}
 		
-		$.ajax({
-			url: '',
-			data: userId,
-			dataType: 'json',
-			success: function(data) {
-				
-			}
-		})
+		if(text.trim() == "") {
+			checked = false;
+		} else {
+			checked = true;
+		}
 		
-	})
+		if(checked) {
+			$('#form')[0].submit();
+		}
+	});
 	
 	// textarea 글자수 제한
 	$('#report-content').keyup(function() {

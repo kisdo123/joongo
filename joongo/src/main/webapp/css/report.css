@@ -76,3 +76,7 @@ input[type=submit]{
 	height: 34px;
 	border-radius: 5px;
 }
+
+#report_msg {
+	color: red;
+}

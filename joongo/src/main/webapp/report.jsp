@@ -31,7 +31,7 @@
 				<div class="report">
 					<h4 class="report_title">신고사유</h4>
 					<span class="box"> <select name="report_q" id="reason" class="select">
-							<option value="" disabled selected>--------------------------------------------신고사유----------------------------------------------------</option>
+							<option value="0" disabled selected>--------------------------------------------신고사유----------------------------------------------------</option>
 							<c:forEach var="report" items="${reportList }">
 								<option value="${report.reportId }">${report.reportType }</option>
 							</c:forEach>
