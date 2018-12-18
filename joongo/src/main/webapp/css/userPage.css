@@ -247,10 +247,11 @@
 	resize: none;
 }
 
-.pagination {
-	margin-left: 31% !important;
-}
-
 .pagination>ul>li:FIRST-CHILD>span, .pagination>ul>li:LAST-CHILD>span {
 	border: none !important;
+}
+
+.pagination {
+	display: flex !important;
+    justify-content: center;
 }

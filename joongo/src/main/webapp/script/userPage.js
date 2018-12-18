@@ -3,6 +3,19 @@ var SUPEREPICFANTASTICPRODUCTPERPAGE = 10;
 var SUPEREPICFANTASTICLENGTH;
 var SUPEREPICFANTASTICURL;
 
+/* none 처리 */
+function changeCss() {
+	if(SUPEREPICFANTASTICURL == 'shopList.do') {
+		$('#product-package').removeClass('none');
+		$('#zzim-package').addClass('none');
+		$('#product-review').addClass('none');
+	} else if(SUPEREPICFANTASTICURL == 'favoriteList.do') {
+		$('#zzim-package').removeClass('none');
+		$('#product-package').addClass('none');
+		$('#product-review').addClass('none');
+	}
+}
+
 function pagination() {
 	/* 페이지네이션 버튼 생성  */
 	$('#pagination').pagination({
@@ -45,8 +58,6 @@ function pagination() {
         },
         /* 첫 화면 10개 출력 */
         onInit: function() {
-        	$('#product-package').empty();
-			$('#zzim-package').empty();
         	var end;
         	
         	if(SUPEREPICFANTASTICLENGTH <= 10) {
@@ -75,14 +86,10 @@ function pagination() {
 				"</div>"+
 				"</div>";
 				if(SUPEREPICFANTASTICURL == 'shopList.do') {
-					$('#product-package').removeClass('none');
-					$('#zzim-package').addClass('none');
-					$('#product-review').addClass('none');
+					changeCss();
 					$('#product-package').append(text);
 				} else if(SUPEREPICFANTASTICURL == 'favoriteList.do') {
-					$('#zzim-package').removeClass('none');
-					$('#product-package').addClass('none');
-					$('#product-review').addClass('none');
+					changeCss();
 					$('#zzim-package').append(text);
 				}
 			}
@@ -92,6 +99,8 @@ function pagination() {
 
 /* 마이페이지 보기 */
 function view(userNo, url) {
+	$('#product-package').empty();
+	$('#zzim-package').empty();
 	$.ajax({
 		url: url,
 		dataType: 'json',
@@ -99,7 +108,6 @@ function view(userNo, url) {
 			"userNo": userNo
 		},
 		success: function(data) {
-			console.log(data);
 			SUPEREPICFANTASTICPRODUCTS = data.products;
 			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
 			SUPEREPICFANTASTICURL = url;
@@ -107,6 +115,7 @@ function view(userNo, url) {
 			/* 아무것도 없을 시 */
 			if(url == 'shopList.do') {
 				if(SUPEREPICFANTASTICLENGTH == 0) {
+					changeCss();
 					$('#product-package').append('<div style="text-align: center; line-height: 654px;">판매 중인 상품이 없습니다.</div>');
 				} else if (SUPEREPICFANTASTICLENGTH > 0) {
 					pagination();
@@ -115,6 +124,7 @@ function view(userNo, url) {
 			
 			if(url == 'favoriteList.do') {
 				if(SUPEREPICFANTASTICLENGTH == 0) {
+					changeCss();
 					$('#zzim-package').append('<div style="text-align: center; line-height: 654px;">찜한 상품이 없습니다.</div>');
 				} else if (SUPEREPICFANTASTICLENGTH > 0) {
 					pagination();

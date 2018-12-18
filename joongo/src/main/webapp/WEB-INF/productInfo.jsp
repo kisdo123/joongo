@@ -45,7 +45,7 @@
 			<div class="productInfo-btnDiv">
 				<c:if test="${favo == null }">
 					<button class="productInfo-zzimBtn" onclick="addFavorite(${loginUser.userNo}, ${product.proNo})">
-						<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜하기</span>
+						<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 상품 찜</span>
 					</button>
 				</c:if>
 				<c:if test="${favo != null }">

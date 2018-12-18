@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<% request.setCharacterEncoding("utf-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/userPage.css?2">
 <link rel="stylesheet" type="text/css" href="/joongo/css/simplePagination.css">
@@ -61,9 +63,9 @@
 						<div class="introduce" id="introduce">
 							<span class="introduce-content" id="introduce-content">${pageUser.introduce }</span>
 							<c:if test="${loginUser.userNo == pageUser.userNo }">
-							<p class="update" id="update">변경</p>
-							<textarea class="introduce-textarea" id="introduce-modify">${pageUser.introduce }</textarea>
-							<button class="register" id="register" onclick="introduceChange(${pageUser.userNo})">등록</button>
+								<p class="update" id="update">변경</p>
+								<textarea class="introduce-textarea" id="introduce-modify">${pageUser.introduce }</textarea>
+								<button class="register" id="register" onclick="introduceChange(${pageUser.userNo})">등록</button>
 							</c:if>
 						</div>
 					</div>
@@ -73,10 +75,12 @@
 				<div class="mypage-menu">
 					<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
 					<div class="center menu-title menu">후기</div>
-					<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'favoriteList.do')">찜</div>
+					<c:if test="${pageUser.userNo == loginUser.userNo }">
+						<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'favoriteList.do')">찜</div>
+					</c:if>
 				</div>
 				<!-- product를 감싸는 div -->
-				<div class="menu-contents" >
+				<div class="menu-contents">
 					<!-- 내 상품 div -->
 					<div class="product-package" id="product-package"></div>
 					<!-- 후기 div -->
@@ -84,8 +88,8 @@
 						<!-- <textarea class="review"></textarea>
 						<button class="review-btn">등록</button> -->
 					</div>
-						
-						<!-- <div class="productuser-review">
+
+					<!-- <div class="productuser-review">
 							<div class="user-review-container">
 								<span>믿잉</span>
 								<span>2000-01-23</span>
