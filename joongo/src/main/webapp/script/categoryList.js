@@ -55,12 +55,8 @@ $(function(){
 	
 })
 
-/*$(document).ready(function () {
-	$("#category-button").trigger("click");
-});
-*/
+/*카테고리 버튼 클릭하여 보여주기*/
 function selectCat(catNo){
-	console.log(catNo);
 	$.ajax({
 		type:"Post",
 		url:"getCatList.do",
@@ -70,7 +66,6 @@ function selectCat(catNo){
 		dataType:"json",
 		success: function(list){
 			
-			console.log(Object.values(list.products).length);
 			$("#products").html('');
 			
 			for(var i=0; i<Object.values(list.products).length; i++){
@@ -101,3 +96,65 @@ function selectCat(catNo){
 		
 	})
 }
+/*카테고리 전체보기*/
+$(document).ready(function(){
+	var address = window.location.href;
+	var catNo = address.substr(address.indexOf('=')+1);
+	
+	$(".category-button").each(function(){
+		$(this).css({
+			"border-color": "#e8e8e8",
+			"background-color": "white",
+			"color": "black"
+		});
+	});
+	
+	$(".category-button:nth-child("+ catNo +")").css({
+		"border-color": "#f64448",
+		"background-color": "#f64448",
+		"color": "white"
+	});
+	var category = $(".category-button:nth-child("+ catNo +")").text();
+	$(".category-title").val(category);
+	
+	$.ajax({
+		type:"GET",
+		url:"getCatList.do",
+		data:{
+			"catNo":catNo
+		},
+		dataType:"json",
+		success: function(list){
+			
+			$("#products").html('');
+			
+			for(var i=0; i<Object.values(list.products).length; i++){
+				
+				var product = list.products[i];
+				var text = "<div class='product'>"+
+								"<div class='product-img-container'>" +
+									"<a href='#'> <img src='"+((product.image.length==0)?"/joongo/image/no-image.jpg":product.image[0].imagePath) +"'"+
+										"class='product-img'>"+
+									"</a>"+
+								"</div>"+
+								"<div class='product-info'>"+
+									"<div class='product-title'>"+
+										"<a href='productInfo.do?"+product.proNo+"'>"+product.title+"</a>"+
+									"</div>"+
+									"<div class='product-price'>"+product.price+"</div>"+
+									"<div class='product-tag'>"+product.tags+"</div>"+
+								"</div>"+
+							"</div>";
+				
+				$("#products").append(text);
+			}
+		
+		},error: function(error){
+			console.log(error);
+			alert("에러가 발생했습니다.");
+		}
+	})
+})
+//카테고리 페이징
+
+

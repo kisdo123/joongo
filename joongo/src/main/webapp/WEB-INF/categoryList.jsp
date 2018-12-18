@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/categoryList.css">
-<script type="text/javascript" src="/joongo/script/categoryList.js"></script>
+<script type="text/javascript" src="/joongo/script/categoryList.js?1"></script>
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <div id="container" class="container">
 	<div class="w1200">
