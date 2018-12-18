@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+button {
+	outline: 0;
+}
+
 .productInfo-topDiv {
 	float: left;
 	width: 400px;
@@ -73,6 +77,7 @@
 	cursor: pointer;
 	color: #fff;
 	margin-right: 5px;
+	border-radius: 10px;
 }
 
 .productInfo-clickZzim {
@@ -85,6 +90,7 @@
 	cursor: pointer;
 	color: #e81e22;
 	margin-right: 5px;
+	border-radius: 10px;
 }
 
 .productInfo-storeBtn {
@@ -97,6 +103,7 @@
 	color: #fff;
 	cursor: pointer;
 	margin-right: 5px;
+	border-radius: 10px;
 }
 
 .productInfo-productModify {
@@ -109,6 +116,7 @@
 	color: #fff;
 	cursor: pointer;
 	margin-right: 5px;
+	border-radius: 10px;
 }
 
 .productInfo-productdelete {
@@ -121,6 +129,7 @@
 	color: #fff;
 	cursor: pointer;
 	margin-right: 5px;
+	border-radius: 10px;
 }
 
 .productInfo-img {

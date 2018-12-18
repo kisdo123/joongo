@@ -43,6 +43,9 @@
 				</ul>
 			</div>
 			<div class="productInfo-btnDiv">
+				<button class="productInfo-storeBtn" onclick="location.href='userPage.do?userNo=${product.userNo }'">
+					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span> 상점이동
+				</button>
 				<c:if test="${favo == null }">
 					<button class="productInfo-zzimBtn" onclick="addFavorite(${loginUser.userNo}, ${product.proNo})">
 						<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 상품 찜</span>
@@ -53,9 +56,6 @@
 						<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜 해제</span>
 					</button>
 				</c:if>
-				<button class="productInfo-storeBtn" onclick="location.href='userPage.do?userNo=${product.userNo }'">
-					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span> 상점이동
-				</button>
 			</div>
 			<div class="productInfo-btnSecondDiv">
 				<c:if test="${product.userNo == loginUser.userNo}">
