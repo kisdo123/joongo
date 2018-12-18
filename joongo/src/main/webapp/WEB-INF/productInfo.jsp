@@ -43,18 +43,17 @@
 				</ul>
 			</div>
 			<div class="productInfo-btnDiv">
-			
-			<c:if test="${favo == null }">
-				<button class="productInfo-zzimBtn" onclick="addFavorite(${loginUser.userNo}, ${product.proNo})">
-					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜</span>
-				</button>
-			</c:if>
-			<c:if test="${favo != null }">
-				<button class="productInfo-clickZzim" onclick="deleteFavorite(${loginUser.userNo}, ${favo.favoNo})">
-					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜 </span>
-				</button>
-			</c:if>
-				<button class="productInfo-storeBtn">
+				<c:if test="${favo == null }">
+					<button class="productInfo-zzimBtn" onclick="addFavorite(${loginUser.userNo}, ${product.proNo})">
+						<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜하기</span>
+					</button>
+				</c:if>
+				<c:if test="${favo != null }">
+					<button class="productInfo-clickZzim" onclick="deleteFavorite(${loginUser.userNo}, ${favo.favoNo})">
+						<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜 해제</span>
+					</button>
+				</c:if>
+				<button class="productInfo-storeBtn" onclick="location.href='userPage.do?userNo=${product.userNo }'">
 					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span> 상점이동
 				</button>
 			</div>
@@ -82,12 +81,10 @@
 					<c:forEach var="pro" items="${pro }">
 						<div class="product">
 							<div class="product-img-container">
-								<a href="productInfo.do?proNo=${pro.proNo }">
-									<c:if test="${pro.image.isEmpty() }">
+								<a href="productInfo.do?proNo=${pro.proNo }"> <c:if test="${pro.image.isEmpty() }">
 										<img src="/joongo/image/no-image.jpg" class="product-img">
-									</c:if>
-									<c:if test="${!pro.image.isEmpty() }">
-										<img src="${pro.image.get(0).imagePath }"  class="product-img">
+									</c:if> <c:if test="${!pro.image.isEmpty() }">
+										<img src="${pro.image.get(0).imagePath }" class="product-img">
 									</c:if>
 								</a>
 							</div>
