@@ -3,10 +3,12 @@ package Report.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import Report.DAO.ReportDAO;
 import Report.DTO.Report;
 
+@Service("reportService")
 public class ReportServiceImpl implements ReportService {
 
 	@Autowired

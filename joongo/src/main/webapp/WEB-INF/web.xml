@@ -66,5 +66,8 @@
 		<url-pattern>/productModifyForm.do</url-pattern>
 		<url-pattern>/productModify.do</url-pattern>
 		<url-pattern>/delectProduct.do</url-pattern>
+		<url-pattern>/addFavorite.do</url-pattern>
+		<url-pattern>/deleteFavorite.do</url-pattern>
+		
 	</filter-mapping>
 </web-app>

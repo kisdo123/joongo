@@ -1,5 +1,8 @@
 package Report.DTO;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("Report")
 public class Report {
 	private int reportNo;
 	private int demandNo; // 신고인
