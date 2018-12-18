@@ -64,65 +64,75 @@
 }
 
 .productInfo-zzimBtn {
-	width: 200px;
-	height: 56px;
-	border: 1px solid #ffa425;
-	background-color: #ffa425;
-	font-size: 18px;
-	font-weight: 700;
-	color: #fff;
-	margin-right: 5px;
-	cursor: pointer;
+	position: absolute;
+    width: 200px;
+    height: 56px;
+    border: 1px solid #ffa425;
+    background-color: #ffa425;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    bottom: 308px;
+    right: 502px;
 }
 
 .productInfo-clickZzim{
-	width: 200px;
-	height: 56px;
-	border: 1px solid #ffa425;
-	background-color: #ffa425;
-	font-size: 18px;
-	font-weight: 700;
-	margin-right: 5px;
-	cursor: pointer;
-	color : #e81e22;
+	position: absolute;
+    width: 200px;
+    height: 56px;
+    border: 1px solid #ffa425;
+    background-color: #ffa425;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #e81e22;
+    bottom: 308px;
+    right: 502px;
 }
 
 
 .productInfo-storeBtn {
-	width: 200px;
-	height: 56px;
-	border: 1px solid #3dcf38;
-	background-color: #3dcf38;
-	font-size: 18px;
-	font-weight: 700;
-	color: #fff;
-	margin-right: 5px;
-	cursor: pointer;
+	position: absolute;
+    width: 200px;
+    height: 56px;
+    border: 1px solid #3dcf38;
+    background-color: #3dcf38;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    bottom: 308px;
+    right: 292px;
 }
 
 
 .productInfo-productModify{
-	width: 200px;
-	height: 56px;
-	border: 1px solid #673ab7;
-	background-color: #673ab7;
-	font-size: 18px;
-	font-weight: 700;
-	color: #fff;
-	margin-right: 5px;
-	cursor: pointer;
+	position: absolute;
+    width: 200px;
+    height: 56px;
+    border: 1px solid #673ab7;
+    background-color: #673ab7;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    bottom: 240px;
+    right: 502px;
 }
 
 .productInfo-productdelete{
-	width: 200px;
-	height: 56px;
-	border: 1px solid #4862ef;
-	background-color: #4862ef;
-	font-size: 18px;
-	font-weight: 700;
-	color: #fff;
-	margin-right: 5px;
-	cursor: pointer;
+	position: absolute;
+    width: 200px;
+    height: 56px;
+    border: 1px solid #4862ef;
+    background-color: #4862ef;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    right: 292px;
+    bottom: 240px;
 }
 
 
