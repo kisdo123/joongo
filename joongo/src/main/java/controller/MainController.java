@@ -21,6 +21,8 @@ import Favorite.DTO.Favorite;
 import Favorite.service.FavoriteService;
 import Product.DTO.Product;
 import Product.Service.ProductService;
+import Report.DTO.Report;
+import Report.service.ReportService;
 import Review.DTO.Review;
 import Review.Service.ReviewService;
 import User.DTO.User;
@@ -44,6 +46,9 @@ public class MainController {
 	
 	@Autowired
 	private ReviewService reviewService;
+	
+	@Autowired
+	private ReportService reportService;
 
 	@RequestMapping("/notice.do")
 	public String notice(Model model) {
@@ -339,6 +344,7 @@ public class MainController {
 	@RequestMapping("/productInfo.do")
 	public String exceptSelf(HttpServletRequest req, Model model, @RequestParam int proNo) {
 		Product product = productService.oneSelect(proNo);
+		//product = productService.메소드 (product);
 		model.addAttribute("product", product);
 		
 		List<Product> products = productService.selectExceptSelf(product);		
@@ -423,5 +429,16 @@ public class MainController {
 		map.put("reviewList", reviewList);
 		
 		return map;
+	}
+	
+	@RequestMapping("/report.do")
+	public String report(@ModelAttribute Report report) {
+		reportService.insertReport(report);
+		return "redirect:/main.do";
+	}
+	
+	@RequestMapping("/reportForm.do")
+	public String reportForm() {
+		return "report";
 	}
 }
