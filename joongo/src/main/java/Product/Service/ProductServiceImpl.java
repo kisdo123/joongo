@@ -74,6 +74,7 @@ public class ProductServiceImpl implements ProductService {
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
 		checkPathImage(product.getImage());
+		blockHTMLTag(product);
 		return product;
 	}
 
@@ -132,6 +133,7 @@ public class ProductServiceImpl implements ProductService {
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 			checkPathImage(product.getImage());
+			blockHTMLTag(product);
 		}
 		return select5List;
 	}
@@ -146,6 +148,7 @@ public class ProductServiceImpl implements ProductService {
 			List<Image> images = productDAO.selectImage(getproNo);
 			pro.setImage(images);
 			checkPathImage(pro.getImage());
+			blockHTMLTag(product);
 		}
 		return selectExceptSelf;
 	}
@@ -162,6 +165,7 @@ public class ProductServiceImpl implements ProductService {
 				List<Image> images = productDAO.selectImage(proNo);
 				product.setImage(images);
 				checkPathImage(product.getImage());
+				blockHTMLTag(product);
 			}
 			map.put("category" + i, productscat);
 
@@ -180,6 +184,7 @@ public class ProductServiceImpl implements ProductService {
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 			checkPathImage(product.getImage());
+			blockHTMLTag(product);
 		}
 
 		return products;
@@ -288,6 +293,7 @@ public class ProductServiceImpl implements ProductService {
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
 		checkPathImage(product.getImage());
+		blockHTMLTag(product);
 
 		return product;
 	}
@@ -312,6 +318,13 @@ public class ProductServiceImpl implements ProductService {
 			}
 
 		}
+	}
+	
+	//&lt; 등의 HTML 특수문자를 치환해줌
+	public void blockHTMLTag(Product product) {
+		String chTitle = product.getTitle();
+		chTitle = chTitle.replace("&amp;", "&").replace("&lt;","<").replace("&gt;", ">")
+				.replace("&nbsp;"," ");
 	}
 
 }

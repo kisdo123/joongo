@@ -32,12 +32,9 @@
 					<h4 class="report_title">신고사유</h4>
 					<span class="box"> <select name="report_q" id="reason" class="select">
 							<option value="" disabled selected>--------------------------------------------신고사유----------------------------------------------------</option>
-							<option>비방 및 욕설</option>
-							<option>사기 거래</option>
-							<option>광고 및 매크로</option>
-							<option>개인정보 노출</option>
-							<option>음란성 글 작성</option>
-							<option>유해물질 판매</option>
+							<c:forEach var="report" items="${reportList }">
+								<option value="${report.reportId }">${report.reportType }</option>
+							</c:forEach>
 							<option id="etc">기타</option>
 					</select>
 					</span>
