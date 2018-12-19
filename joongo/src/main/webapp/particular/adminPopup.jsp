@@ -10,12 +10,12 @@
 	<img id="adminPopup-popCloseImg" src="/joongo/image/loginCloseBtn.png">
 	<div id="adminPopup-popupTitle">관리할 목록을 선택하세요</div>
 	<div id="adminPopup-popupBtn">
-		<button id="adminPopup-userBtn">유저관리</button>
-		<button id="adminPopup-noticeBtn">공지사항</button>
+		<button id="adminPopup-userBtn" onclick="location.href='adminGetAllUsers.do'">유저관리</button>
+		<button id="adminPopup-noticeBtn" onclick="location.href='adminlist.do'">공지사항</button>
 	</div>
 	<div id="adminPopup-popupBtnSecond">
 		<button id="adminPopup-productBtn">상품관리</button>
-		<button id="adminPopup-product1Btn">신  고</button>
+		<button id="adminPopup-product1Btn" onclick="location.href='adminGetAllReports.do'">신고목록</button>
 	</div>
 </div>
 

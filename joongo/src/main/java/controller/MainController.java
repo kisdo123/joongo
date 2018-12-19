@@ -481,17 +481,17 @@ public class MainController {
 	}
 
 	// 관리자 기능
-	@RequestMapping("/admin/getAllUsers.do")
+	@RequestMapping("/adminGetAllUsers.do")
 	public String getAllUsers(Model model) {
 
 		List<User> userList = adminService.getAllUsers();
 		model.addAttribute("userList", userList);
 		// 페이지 추가
-		return "";
+		return "adminUser";
 	}
 
 	// 관리자 유저삭제
-	@RequestMapping("/admin/deleteUser.do")
+	@RequestMapping("adminDeleteUser.do")
 	@ResponseBody
 	public String deleteUser(HttpServletRequest req, @RequestParam("userNo") int userNo) {
 
@@ -509,7 +509,7 @@ public class MainController {
 	}
 
 	// 관리자 유저 수정
-	@RequestMapping("/admin/updateUserAble.do")
+	@RequestMapping("/adminUpdateUserAble.do")
 	@ResponseBody
 	public String updateUserAble(HttpServletRequest req, @RequestParam("userNo") int userNo,
 			@RequestParam("able") boolean able) {
@@ -523,20 +523,20 @@ public class MainController {
 			e.printStackTrace();
 			return "deleteFailed";
 		}
-
 	}
 
+	
 	// 모든 신고목록보기
-	@RequestMapping("/admin/getAllReports.do")
+	@RequestMapping("/adminGetAllReports.do")
 	public String getAllReports(Model model) {
 		List<Report> reportList = adminService.getAllReports();
 		model.addAttribute("reportList", reportList);
 
-		return "";
+		return "adminReport";
 	}
 
 	// 신고목록 삭제
-	@RequestMapping("/admin/deleteReport.do")
+	@RequestMapping("/adminDeleteReport.do")
 	@ResponseBody
 	public String deleteReportFromDB(HttpServletRequest req, @RequestParam("reportNo") int reportNo) {
 		try {
@@ -576,7 +576,7 @@ public class MainController {
 	public String adminlist(Model model) {
 		List<Notice> notices = noticeService.adminlist();
 		model.addAttribute("notices", notices);
-		return "화면";
+		return "adminNotice";
 	}
 
 	// 일반 목록보기

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import Notice.DTO.Notice;
 
-@Repository("NoticeDAO")
+@Repository("noticeDAO")
 public class NoticeDAOImpl implements NoticeDAO{
 
 	@Autowired

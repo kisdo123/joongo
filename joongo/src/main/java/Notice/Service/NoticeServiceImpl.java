@@ -9,7 +9,7 @@ import Notice.DAO.NoticeDAO;
 import Notice.DTO.Notice;
 import exception.NoticeNotFoundException;
 
-@Service("NoticeService")
+@Service("noticeService")
 public class NoticeServiceImpl implements NoticeService {
 
 	@Autowired
@@ -27,11 +27,7 @@ public class NoticeServiceImpl implements NoticeService {
 	// 관리자용 목록보기
 	@Override
 	public List<Notice> adminlist() {
-		List<Notice> notices = noticeDAO.adminlist();
-		for (Notice notice : notices) {
-			notice.setTitle(blockHTMLTag(notice.getTitle()));
-			notice.setContent(blockHTMLTag(notice.getContent()));
-		}
+		List<Notice> notices = noticeDAO.adminlist();		
 		return notices;
 	}
 
@@ -39,10 +35,6 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public List<Notice> list() {
 		List<Notice> notices = noticeDAO.list();
-		for (Notice notice : notices) {
-			notice.setTitle(blockHTMLTag(notice.getTitle()));
-			notice.setContent(blockHTMLTag(notice.getContent()));
-		}
 		return notices;
 	}
 
@@ -50,10 +42,6 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public Notice viewcontent(int noticeNo) {
 		Notice notice = noticeDAO.viewcontent(noticeNo);
-
-		notice.setTitle(blockHTMLTag(notice.getTitle()));
-		notice.setContent(blockHTMLTag(notice.getContent()));
-
 		return notice;
 	}
 
@@ -82,13 +70,6 @@ public class NoticeServiceImpl implements NoticeService {
 		if (res == 0) {
 			throw new NoticeNotFoundException("삭제실패");
 		}
-	}
-
-	// &lt; 등의 HTML 특수문자를 치환해줌
-	public String blockHTMLTag(String target) {
-		target = target.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&nbsp;", " ");
-		return target;
-
 	}
 
 }
