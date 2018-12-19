@@ -52,6 +52,8 @@
 			</div>
 		</nav>
 	</div>
+	
+	
 	<jsp:include page="/particular/loginPopup.jsp"></jsp:include>
 	<jsp:include page="/particular/registerPopup.jsp"></jsp:include>
 	<jsp:include page="/particular/adminPopup.jsp"></jsp:include>
