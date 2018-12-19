@@ -75,7 +75,7 @@
 				<div class="mypage-menu">
 					<c:if test="${pageUser.userNo == loginUser.userNo }">
 						<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
-						<div class="center menu-title menu" onclick="viewReview(${pageUser.userNo}, 'getReviewList.do')">후기</div>
+						<div class="center menu-title menu" onclick="viewReview(${loginUser.userNo}, ${pageUser.userNo}, 'getReviewList.do')">후기</div>
 						<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'favoriteList.do')">찜</div>
 					</c:if>
 					<c:if test="${pageUser.userNo != loginUser.userNo }">

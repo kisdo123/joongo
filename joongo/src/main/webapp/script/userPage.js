@@ -2,9 +2,10 @@ var SUPEREPICFANTASTICITEM;
 var SUPEREPICFANTASTICPRODUCTPERPAGE = 10;
 var SUPEREPICFANTASTICLENGTH;
 var SUPEREPICFANTASTICURL;
-
+var SUPEREPICFANTASTICUSERNO = 0;
+var SUPEREPICFANTASTICPAGENO = 0;
 function pagination() {
-	/* 페이지네이션 버튼 생성  */
+	/* 페이지네이션 버튼 생성 */
 	$('#pagination').pagination({
 		items: Object.values(SUPEREPICFANTASTICITEM).length,
 		itemsOnPage: SUPEREPICFANTASTICPRODUCTPERPAGE,
@@ -41,21 +42,28 @@ function pagination() {
 					$('#userpage').append(text);
 				}
 			} else if (SUPEREPICFANTASTICURL == 'getReviewList.do') {
-				var addreview = "<div class='product-review none' id='product-review'>"+
+				var addreview = "";
+				
+				if(SUPEREPICFANTASTICPAGENO != SUPEREPICFANTASTICUSERNO){
+					"<div class='product-review none' id='product-review'>"+
 					"<textarea class='review'></textarea>"+
 					"<button class='review-btn'>등록</button>"+
 					"</div>";
+				}
 				
 				$('#userpage').append(addreview);
 				for(var i=start; i<end; i++){
+					console.log(start + ' ' + end);
 					var review = SUPEREPICFANTASTICITEM[i];
+					console.log(review);
 					var text = "<div class='productuser-review'>"+
 					"<div class='user-review-container'>"+
-					"<span>"+review.name+"</span>"+
+					"<span>"+review.nickname+"</span>"+
 					"<span>"+review.wdate+"</span>"+
 						"<p class='user-review'>"+review.content+"</p>"+
 							"</div>"+
 					"</div>";
+					console.log(text);
 					$('#userpage').append(text);
 				}
 			}
@@ -95,17 +103,21 @@ function pagination() {
 					$('#userpage').append(text);
 	        	}
 			}  else if (SUPEREPICFANTASTICURL == 'getReviewList.do') {
-				var addreview = "<div class='product-review none' id='product-review'>"+
-				"<textarea class='review'></textarea>"+
-				"<button class='review-btn'>등록</button>"+
-				"</div>";
+				var addreview = "";
+				if(SUPEREPICFANTASTICPAGENO != SUPEREPICFANTASTICUSERNO){
+					
+					"<div class='product-review none' id='product-review'>"+
+					"<textarea class='review'></textarea>"+
+					"<button class='review-btn'>등록</button>"+
+					"</div>";
+				}
 			
 				$('#userpage').append(addreview);
-				for(var i=start; i<end; i++){
+				for(var i=0; i<end; i++){
 					var review = SUPEREPICFANTASTICITEM[i];
 					var text = "<div class='productuser-review'>"+
 					"<div class='user-review-container'>"+
-					"<span>"+review.name+"</span>"+
+					"<span>"+review.nickname+"</span>"+
 					"<span>"+review.wdate+"</span>"+
 						"<p class='user-review'>"+review.content+"</p>"+
 							"</div>"+
@@ -157,7 +169,9 @@ function view(userNo, url) {
 	})
 }
 
-function viewReview(pageNo, url) {
+function viewReview(userNo, pageNo, url) {
+	SUPEREPICFANTASTICUSERNO = userNo;
+	SUPEREPICFANTASTICPAGENO = pageNo;
 	$.ajax({
 		url: url,
 		dataType: 'json',
@@ -175,11 +189,15 @@ function viewReview(pageNo, url) {
 			
 			if(url == 'getReviewList.do') {
 				if(SUPEREPICFANTASTICLENGTH == 0) {
-					$('#userpage').append("<div class='product-review none' id='product-review'>"+
-							"<textarea class='review' id='review'></textarea>"+
-							"<button class='review-btn'>등록</button>"+
-							"</div>");
-					$('#userpage').append('<div style="text-align: center; line-height: 654px;">후기가 없습니다.</div>');
+					if(SUPEREPICFANTASTICUSERNO == SUPEREPICFANTASTICPAGENO){
+						$('#userpage').append('<div style="text-align: center; line-height: 654px;">후기가 없습니다.</div>');
+					}else{
+						$('#userpage').append("<div class='product-review none' id='product-review'>"+
+								"<textarea class='review' id='review'></textarea>"+
+								"<button class='review-btn'>등록</button>"+
+								"</div>");
+						$('#userpage').append('<div style="text-align: center; line-height: 654px;">후기가 없습니다.</div>');
+					}
 				} else if (SUPEREPICFANTASTICLENGTH > 0) {
 					pagination();
 				}
@@ -194,14 +212,11 @@ function viewReview(pageNo, url) {
 $(function() {
 	
 	// 후기추가
-	$('.review-btn').click(function() {
-		var review = $('#review').val();
-		
-		$.ajax({
-			url: 'addReview.do',
-			data:
-		})
-	});
+	/*
+	 * $('.review-btn').click(function() { var review = $('#review').val();
+	 * 
+	 * $.ajax({ url: 'addReview.do', data: }) });
+	 */
 	
 	// tag #추가
 	$('.product-tag').each(function() {
@@ -356,7 +371,7 @@ $(function() {
 	        frm.focus();
 		}
 	});
-	//후기 등록 글자수 제한
+	// 후기 등록 글자수 제한
 	$(".review").keyup(function() {
 		var frm = $(".review");
 		if(frm.val().length > 100){  
