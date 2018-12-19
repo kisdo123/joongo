@@ -19,14 +19,14 @@ public class User {
 	private String introduce;
 	private String bdate;
 	private String rdate;
-	private Boolean isAdmin;
+	private Boolean admin;
 	private Boolean able;
 	private Boolean kakao;
 	
 	public User() {}
 	
 	public User(int userNo, String loginId, String password, String password_q, String password_a, String name,
-			String nickname, String email, String phone, String addr, String bdate, String rdate, Boolean isAdmin,
+			String nickname, String email, String phone, String addr, String bdate, String rdate, Boolean admin,
 			Boolean able, Boolean kakao) {
 		this.userNo = userNo;
 		this.loginId = loginId;
@@ -40,7 +40,7 @@ public class User {
 		this.addr = addr;
 		this.bdate = bdate;
 		this.rdate = rdate;
-		this.isAdmin = isAdmin;
+		this.admin = admin;
 		this.able = able;
 		this.kakao = kakao;
 	}
@@ -95,8 +95,8 @@ public class User {
 		this.rdate = rdate;
 	}
 
-	public void setIsAdmin(Boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setIsAdmin(Boolean admin) {
+		this.admin = admin;
 	}
 
 	public void setAble(Boolean able) {
@@ -180,12 +180,14 @@ public class User {
 	public String getRdate() {
 		return rdate;
 	}
-	public Boolean isAdmin() {
-		return isAdmin;
+	public Boolean getAdmin() {
+		return admin;
 	}
 	public Boolean isAble() {
 		return able;
 	}
+	
+	
 	
 	
 }
