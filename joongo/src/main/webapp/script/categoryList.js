@@ -1,4 +1,28 @@
+var SUPEREPICFANTASTICPRODUCTS;
+var SUPEREPICFANTASTICPRODUCTPERPAGE = 20;
+var SUPEREPICFANTASTICLENGTH;
+var SUPEREPICFANTASTICURL;
+var address = window.location.href;
+var catNo = address.substr(address.indexOf('=')+1);
+
 $(function(){
+	
+//	$.ajax({
+//		url: 'getCatList.do',
+//		dataType: 'json',
+//		data: {
+//			"catNo": catNo
+//		},
+//		success: function(data) {
+//			console.log(data);
+//			SUPEREPICFANTASTICPRODUCTS = data.products;
+//			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
+////			pagination();
+//		},
+//		error: function(error) {
+//			console.log(error)
+//		}
+//	})
 	
 	// 마지막 line 클래스 없애기
 	$('.line').last().remove();
@@ -61,13 +85,13 @@ function selectCat(catNo){
 		type:"Post",
 		url:"getCatList.do",
 		data:{
-			"catNo":catNo
+			"catNo": catNo
 		},
 		dataType:"json",
 		success: function(list){
-			
-			$("#products").html('');
-			
+			$('#products').empty();
+			SUPEREPICFANTASTICPRODUCTS = list.products;
+			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
 			for(var i=0; i<Object.values(list.products).length; i++){
 				
 				var product = list.products[i];
@@ -86,7 +110,7 @@ function selectCat(catNo){
 								"</div>"+
 							"</div>";
 				
-				$("#products").append(text);
+				pagination();
 			}
 		
 		},error: function(error){
@@ -98,9 +122,6 @@ function selectCat(catNo){
 }
 /*카테고리 전체보기*/
 $(document).ready(function(){
-	var address = window.location.href;
-	var catNo = address.substr(address.indexOf('=')+1);
-	
 	$(".category-button").each(function(){
 		$(this).css({
 			"border-color": "#e8e8e8",
@@ -125,36 +146,98 @@ $(document).ready(function(){
 		},
 		dataType:"json",
 		success: function(list){
-			
-			$("#products").html('');
-			
-			for(var i=0; i<Object.values(list.products).length; i++){
-				
-				var product = list.products[i];
-				var text = "<div class='product'>"+
-								"<div class='product-img-container'>" +
-									"<a href='#'> <img src='"+((product.image.length==0)?"/joongo/image/no-image.jpg":product.image[0].imagePath) +"'"+
-										"class='product-img'>"+
-									"</a>"+
-								"</div>"+
-								"<div class='product-info'>"+
-									"<div class='product-title'>"+
-										"<a href='productInfo.do?"+product.proNo+"'>"+product.title+"</a>"+
-									"</div>"+
-									"<div class='product-price'>"+product.price+"</div>"+
-									"<div class='product-tag'>"+product.tags+"</div>"+
-								"</div>"+
-							"</div>";
-				
-				$("#products").append(text);
-			}
+			$('#products').empty();
+			SUPEREPICFANTASTICPRODUCTS = list.products;
+			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
+			pagination();
 		
 		},error: function(error){
-			console.log(error);
 			alert("에러가 발생했습니다.");
 		}
 	})
 })
 //카테고리 페이징
 
-
+function pagination() {
+	/* 페이지네이션 버튼 생성  */
+	$('#pagination').pagination({
+		items: Object.values(SUPEREPICFANTASTICPRODUCTS).length,
+		itemsOnPage: SUPEREPICFANTASTICPRODUCTPERPAGE,
+		cssStyle: 'light-theme',
+		/* 번호를 눌렀을 때 */
+		onPageClick: function(pageNumber) {
+			$('#products').empty();
+			var start = (pageNumber - 1)* SUPEREPICFANTASTICPRODUCTPERPAGE;
+			var end = start + SUPEREPICFANTASTICPRODUCTPERPAGE;
+			if(end > SUPEREPICFANTASTICLENGTH){
+				end = SUPEREPICFANTASTICLENGTH;
+			}
+			
+			/* 10개씩 출력 */
+			for(var i=start; i<end; i++){
+				var product = SUPEREPICFANTASTICPRODUCTS[i];
+				var text = "<div class='product'>"+
+				"<div class='product-img-container'>" +
+				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
+				"class='product-img'>"+
+				"</a>"+
+				"</div>"+
+				"<div class='product-info'>"+
+				"<div class='product-title'>"+
+				"<a href='productInfo.do?"+product.proNo+"'>"+product.title+"</a>"+
+				"</div>"+
+				"<div class='product-price'>"+product.price+"</div>"+
+				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+				"</div>"+
+				"</div>";
+				
+				$('#products').append(text);
+			}
+        },
+        /* 첫 화면 10개 출력 */
+        onInit: function() {
+        	$('#products').empty();
+        	var end;
+        	
+        	if(SUPEREPICFANTASTICLENGTH <= 20) {
+        		end = SUPEREPICFANTASTICLENGTH;
+        	} else if(SUPEREPICFANTASTICLENGTH > 20) {
+        		end = 20;
+        	} else {
+        		console.log(SUPEREPICFANTASTICLENGTH);
+        	}
+        		
+        	for(var i=0; i<end; i++){
+				var product = SUPEREPICFANTASTICPRODUCTS[i];
+				var text = "<div class='product'>"+
+				"<div class='product-img-container'>" +
+				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
+				"class='product-img'>"+
+				"</a>"+
+				"</div>"+
+				"<div class='product-info'>"+
+				"<div class='product-title'>"+
+				"<a href='productInfo.do?"+product.proNo+"'>"+product.title+"</a>"+
+				"</div>"+
+				"<div class='product-price'>"+product.price+"</div>"+
+				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+				"</div>"+
+				"</div>";
+				
+				$('#products').append(text);
+				
+//				if(SUPEREPICFANTASTICURL == 'shopList.do') {
+//					$('#product-package').removeClass('none');
+//					$('#zzim-package').addClass('none');
+//					$('#product-review').addClass('none');
+//					$('#product-package').append(text);
+//				} else if(SUPEREPICFANTASTICURL == 'favoriteList.do') {
+//					$('#zzim-package').removeClass('none');
+//					$('#product-package').addClass('none');
+//					$('#product-review').addClass('none');
+//					$('#zzim-package').append(text);
+//				}
+			}
+        }
+	});
+}

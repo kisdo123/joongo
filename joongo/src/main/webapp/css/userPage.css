@@ -83,11 +83,11 @@
 	cursor: pointer;
 }
 
-.mypage-menu-container, .product-package, .zzim-package {
+.mypage-menu-container, .userpage{
 	overflow: hidden;
 }
 
-.product-package, .zzim-package {
+.userpage {
 	height: 654px;
 }
 
@@ -223,7 +223,7 @@
 	clear: both;
 }
 
-.introduce-textarea, .register, .none, .line:LAST-CHILD {
+.introduce-textarea, .register, .line:LAST-CHILD {
 	display: none;
 }
 
@@ -246,10 +246,10 @@
 }
 
 /* =============현승이=================== */
-.product-review {
+/* .product-review {
 	padding: 20px 30px 20px 30px;
 	background-color: #f9f9f9;
-}
+} */
 
 .review {
 	width: 89%;
@@ -285,7 +285,7 @@
 }
 
 .pagination {
-	margin-left: 31% !important;
+	margin-left: 33% !important;
 }
 
 .pagination>ul>li:FIRST-CHILD>span, .pagination>ul>li:LAST-CHILD>span {

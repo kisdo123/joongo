@@ -116,7 +116,6 @@ span.ellipse.clickable {
     text-align: center;
     min-width: 14px;
     padding: 0 7px;
-    margin: 0 5px 0 0;
     background: -moz-linear-gradient(top, #ffffff 0%, #efefef 100%);
     background: -o-linear-gradient(top, #ffffff 0%,#efefef 100%);
     background: -ms-linear-gradient(top, #ffffff 0%,#efefef 100%);
@@ -131,7 +130,7 @@ span.ellipse.clickable {
 .light-theme .current {
 	cursor: pointer;
 	padding-bottom: 3px;
-	border-bottom: 1px solid red;
+	border-bottom: 3px solid red;
 }
 
 .light-theme .ellipse {

@@ -3,6 +3,8 @@
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/categoryList.css">
 <script type="text/javascript" src="/joongo/script/categoryList.js?1"></script>
+<script type="text/javascript" src="/joongo/script/pagination.js"></script>
+<link rel="stylesheet" type="text/css" href="/joongo/css/simplePagination.css">
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <div id="container" class="container">
 	<div class="w1200">
@@ -22,34 +24,9 @@
 				<p class="category-info">
 					<span><input value="의류" readonly class="category-title"></span>
 				</p>
-				<div id="products" class="product-container">
-					<c:forEach var="product" items="${products}">
-						<div class="product">
-							<div class="product-img-container">
-								<a href="#"> <img src="/joongo/image/fruit.jpg"
-									class="product-img">
-								</a>
-							</div>
-							<div class="product-info">
-								<div class="product-title">
-									<a href="#">${product.title}</a>
-								</div>
-								<div class="product-price">${product.price}</div>
-								<div class="product-tag">${product.tags}</div>
-							</div>
-						</div>
-					</c:forEach>
-				</div>
+				<div id="products" class="product-container"></div>
 			</div>
-			<div class="product-pageNum">
-				<span class="pageNum">◁</span>
-				<span class="pageNum">1</span>
-				<span class="pageNum">2</span>
-				<span class="pageNum">3</span>
-				<span class="pageNum">4</span>
-				<span class="pageNum">5</span>
-				<span class="pageNum">▷</span>
-			</div>
+			<div class="pagination" id="pagination"></div>
 			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>
 	</div>

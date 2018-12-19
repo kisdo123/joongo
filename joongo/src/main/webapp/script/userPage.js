@@ -1,4 +1,4 @@
-var SUPEREPICFANTASTICPRODUCTS;
+var SUPEREPICFANTASTICITEM;
 var SUPEREPICFANTASTICPRODUCTPERPAGE = 10;
 var SUPEREPICFANTASTICLENGTH;
 var SUPEREPICFANTASTICURL;
@@ -6,7 +6,7 @@ var SUPEREPICFANTASTICURL;
 function pagination() {
 	/* 페이지네이션 버튼 생성  */
 	$('#pagination').pagination({
-		items: Object.values(SUPEREPICFANTASTICPRODUCTS).length,
+		items: Object.values(SUPEREPICFANTASTICITEM).length,
 		itemsOnPage: SUPEREPICFANTASTICPRODUCTPERPAGE,
 		cssStyle: 'light-theme',
 		/* 번호를 눌렀을 때 */
@@ -16,37 +16,54 @@ function pagination() {
 			if(end > SUPEREPICFANTASTICLENGTH){
 				end = SUPEREPICFANTASTICLENGTH;
 			}
-			$('#product-package').empty();
-			$('#zzim-package').empty();
+			
+			$('#userpage').empty();
 			
 			/* 10개씩 출력 */
-			for(var i=start; i<end; i++){
-				var product = SUPEREPICFANTASTICPRODUCTS[i];
-				var text = "<div class='product'>"+
-				"<div class='product-img-container'>" +
-				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
-				"class='product-img'>"+
-				"</a>"+
-				"</div>"+
-				"<div class='product-info'>"+
-				"<div class='product-title'>"+
-				"<a href='productInfo.do?"+product.proNo+"'>"+product.title+"</a>"+
-				"</div>"+
-				"<div class='product-price'>"+product.price+"</div>"+
-				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
-				"</div>"+
-				"</div>";
-				if(SUPEREPICFANTASTICURL == 'shopList.do') {
-					$('#product-package').append(text);
-				} else if(SUPEREPICFANTASTICURL == 'favoriteList.do') {
-					$('#zzim-package').append(text);
+			if(SUPEREPICFANTASTICURL == 'shopList.do' || SUPEREPICFANTASTICURL == 'favoriteList.do') {
+				for(var i=start; i<end; i++){
+					var product = SUPEREPICFANTASTICITEM[i];
+					var text = "<div class='product'>"+
+					"<div class='product-img-container'>" +
+					"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
+					"class='product-img'>"+
+					"</a>"+
+					"</div>"+
+					"<div class='product-info'>"+
+					"<div class='product-title'>"+
+					"<a href='productInfo.do?"+product.proNo+"'>"+product.title+"</a>"+
+					"</div>"+
+					"<div class='product-price'>"+product.price+"</div>"+
+					"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+					"</div>"+
+					"</div>";
+					
+					$('#userpage').append(text);
+				}
+			} else if (SUPEREPICFANTASTICURL == 'getReviewList.do') {
+				var addreview = "<div class='product-review none' id='product-review'>"+
+					"<textarea class='review'></textarea>"+
+					"<button class='review-btn'>등록</button>"+
+					"</div>";
+				
+				$('#userpage').append(addreview);
+				for(var i=start; i<end; i++){
+					var review = SUPEREPICFANTASTICITEM[i];
+					var text = "<div class='productuser-review'>"+
+					"<div class='user-review-container'>"+
+					"<span>"+review.name+"</span>"+
+					"<span>"+review.wdate+"</span>"+
+						"<p class='user-review'>"+review.content+"</p>"+
+							"</div>"+
+					"</div>";
+					$('#userpage').append(text);
 				}
 			}
         },
         /* 첫 화면 10개 출력 */
         onInit: function() {
-        	$('#product-package').empty();
-			$('#zzim-package').empty();
+        	
+        	$('#userpage').empty();
         	var end;
         	
         	if(SUPEREPICFANTASTICLENGTH <= 10) {
@@ -56,34 +73,44 @@ function pagination() {
         	} else {
         		alert('가져올 수 없습니다.');
         	}
-        		
-        	for(var i=0; i<end; i++){
-				var product = SUPEREPICFANTASTICPRODUCTS[i];
-				console.log(product)
-				var text = "<div class='product'>"+
-				"<div class='product-img-container'>" +
-				"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
-				"class='product-img'>"+
-				"</a>"+
-				"</div>"+
-				"<div class='product-info'>"+
-				"<div class='product-title'>"+
-				"<a href='productInfo.do?"+product.proNo+"'>"+product.title+"</a>"+
-				"</div>"+
-				"<div class='product-price'>"+product.price+"</div>"+
-				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
-				"</div>"+
+        	
+        	if(SUPEREPICFANTASTICURL == 'shopList.do' || SUPEREPICFANTASTICURL == 'favoriteList.do') {
+	        	for(var i=0; i<end; i++) {
+					var product = SUPEREPICFANTASTICITEM[i];
+					var text = "<div class='product'>"+
+					"<div class='product-img-container'>" +
+					"<a href='productInfo.do?proNo="+ product.proNo +"'><img src='"+((product.image.length==0)?'/joongo/image/no-image.jpg':product.image[0].imagePath) +"'"+
+					"class='product-img'>"+
+					"</a>"+
+					"</div>"+
+					"<div class='product-info'>"+
+					"<div class='product-title'>"+
+					"<a href='productInfo.do?"+product.proNo+"'>"+product.title+"</a>"+
+					"</div>"+
+					"<div class='product-price'>"+product.price+"</div>"+
+					"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+					"</div>"+
+					"</div>";
+					
+					$('#userpage').append(text);
+	        	}
+			}  else if (SUPEREPICFANTASTICURL == 'getReviewList.do') {
+				var addreview = "<div class='product-review none' id='product-review'>"+
+				"<textarea class='review'></textarea>"+
+				"<button class='review-btn'>등록</button>"+
 				"</div>";
-				if(SUPEREPICFANTASTICURL == 'shopList.do') {
-					$('#product-package').removeClass('none');
-					$('#zzim-package').addClass('none');
-					$('#product-review').addClass('none');
-					$('#product-package').append(text);
-				} else if(SUPEREPICFANTASTICURL == 'favoriteList.do') {
-					$('#zzim-package').removeClass('none');
-					$('#product-package').addClass('none');
-					$('#product-review').addClass('none');
-					$('#zzim-package').append(text);
+			
+				$('#userpage').append(addreview);
+				for(var i=start; i<end; i++){
+					var review = SUPEREPICFANTASTICITEM[i];
+					var text = "<div class='productuser-review'>"+
+					"<div class='user-review-container'>"+
+					"<span>"+review.name+"</span>"+
+					"<span>"+review.wdate+"</span>"+
+						"<p class='user-review'>"+review.content+"</p>"+
+							"</div>"+
+					"</div>";
+					$('#userpage').append(text);
 				}
 			}
         }
@@ -99,15 +126,18 @@ function view(userNo, url) {
 			"userNo": userNo
 		},
 		success: function(data) {
+			SUPEREPICFANTASTICITEM = data.products;
 			console.log(data);
-			SUPEREPICFANTASTICPRODUCTS = data.products;
-			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
+			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICITEM).length;
 			SUPEREPICFANTASTICURL = url;
+			
+			$('#userpage').empty();
+			$('#pagination').empty();
 			
 			/* 아무것도 없을 시 */
 			if(url == 'shopList.do') {
 				if(SUPEREPICFANTASTICLENGTH == 0) {
-					$('#product-package').append('<div style="text-align: center; line-height: 654px;">판매 중인 상품이 없습니다.</div>');
+					$('#userpage').append('<div style="text-align: center; line-height: 654px;">판매 중인 상품이 없습니다.</div>');
 				} else if (SUPEREPICFANTASTICLENGTH > 0) {
 					pagination();
 				}
@@ -115,19 +145,64 @@ function view(userNo, url) {
 			
 			if(url == 'favoriteList.do') {
 				if(SUPEREPICFANTASTICLENGTH == 0) {
-					$('#zzim-package').append('<div style="text-align: center; line-height: 654px;">찜한 상품이 없습니다.</div>');
+					$('#userpage').append('<div style="text-align: center; line-height: 654px;">찜한 상품이 없습니다.</div>');
 				} else if (SUPEREPICFANTASTICLENGTH > 0) {
 					pagination();
 				}
 			}
 		},
 		error: function(error) {
-			console.log(error)
+			alert('가져올 수 없습니다.');
+		}
+	})
+}
+
+function viewReview(pageNo, url) {
+	$.ajax({
+		url: url,
+		dataType: 'json',
+		data: {
+			"pageNo": pageNo
+		},
+		success: function(data) {
+			console.log(data);
+			SUPEREPICFANTASTICITEM = data.reviewList;
+			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICITEM).length;
+			SUPEREPICFANTASTICURL = url;
+			
+			$('#userpage').empty();
+			$('#pagination').empty();
+			
+			if(url == 'getReviewList.do') {
+				if(SUPEREPICFANTASTICLENGTH == 0) {
+					$('#userpage').append("<div class='product-review none' id='product-review'>"+
+							"<textarea class='review' id='review'></textarea>"+
+							"<button class='review-btn'>등록</button>"+
+							"</div>");
+					$('#userpage').append('<div style="text-align: center; line-height: 654px;">후기가 없습니다.</div>');
+				} else if (SUPEREPICFANTASTICLENGTH > 0) {
+					pagination();
+				}
+			}
+		},
+		error: function(error) {
+			console.log(error.responseText);
 		}
 	})
 }
 
 $(function() {
+	
+	// 후기추가
+	$('.review-btn').click(function() {
+		var review = $('#review').val();
+		
+		$.ajax({
+			url: 'addReview.do',
+			data:
+		})
+	});
+	
 	// tag #추가
 	$('.product-tag').each(function() {
 		var tag = $(this).text();
