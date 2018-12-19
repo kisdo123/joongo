@@ -10,6 +10,6 @@ import User.DAO.Query;
 public interface ReportMapper {
 	void insertReport(Report report);
 	List<Report> selectReportList();
-	List<Report> selectReportListByUser(int userNo);
+	List<Report> selectReportListByUser(int claimeeNo);
 	List<ReportCategory> selectReportCategory();
 }

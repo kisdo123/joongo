@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import Admin.service.AdminService;
 import Favorite.DTO.Favorite;
 import Favorite.service.FavoriteService;
+import Notice.DTO.Notice;
+import Notice.Service.NoticeService;
 import Product.DTO.Product;
 import Product.Service.ProductService;
 import Report.DTO.Report;
@@ -45,17 +46,20 @@ public class MainController {
 	private UserService userService;
 
 	@Autowired
+	private NoticeService noticeService;
+
+	@Autowired
 	private FavoriteService favoService;
 
 	@Autowired
 	private ProductService productService;
-	
+
 	@Autowired
 	private ReviewService reviewService;
-	
+
 	@Autowired
 	private ReportService reportService;
-	
+
 	@Autowired
 	private AdminService adminService;
 
@@ -63,14 +67,14 @@ public class MainController {
 	public String notice(Model model) {
 		return "notice";
 	}
-	
+
 	// 메인화면으로 보냄
 	@RequestMapping("/main.do")
 	public String goMain(Model model) {
 
 		List<Product> products = productService.select5List();
 		Map<String, List<Product>> map = productService.select5catNo();
-
+		
 		String[] categories = { "clothes", "appliances", "cosmetics", "instrument", "books", "household", "sports",
 				"foods", "etc" };
 		String[] titles = { "의류", "가전제품", "화장품", "악기/음향기기", "도서", "생활용품", "스포츠", "식품", "기타" };
@@ -80,7 +84,7 @@ public class MainController {
 		model.addAttribute("cat5List", map);
 		return "main";
 	}
-	
+
 	// 결과페이지로 리턴
 	@RequestMapping("/loginFilter.do")
 	public String finishPage(HttpServletRequest request) {
@@ -197,6 +201,7 @@ public class MainController {
 		userService.updateIntroduce(loginUserNo, userNo, content);
 	}
 
+	// 마이페이지
 	@RequestMapping("/userPage.do")
 	public String myPage(HttpServletRequest request, Model model, @RequestParam("userNo") int userNo) {
 		try {
@@ -212,6 +217,7 @@ public class MainController {
 		return "userPage";
 	}
 
+	// 유저삭제
 	@RequestMapping("/deleteUser.do")
 	public String deleteUser(HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("loginUser");
@@ -250,6 +256,7 @@ public class MainController {
 		return "redirect:/userPage.do?userNo=" + userNo;
 	}
 
+	// 찜하기
 	@RequestMapping("/addFavorite.do")
 	@ResponseBody
 	public void addFavorite(@RequestParam("userNo") int userNo, @RequestParam("proNo") int proNo) {
@@ -267,10 +274,11 @@ public class MainController {
 
 	}
 
+	// 찜삭제
 	@RequestMapping("/deleteFavorite.do")
 	@ResponseBody
 	public void deleteFavorite(@RequestParam("userNo") int userNo, @RequestParam("favoNo") int favoNo) {
-	
+
 		favoService.deleteFavorite(userNo, favoNo);
 	}
 
@@ -330,38 +338,38 @@ public class MainController {
 
 		return map;
 	}
-	
+
 	// 찜 목록 보기
 	@RequestMapping("/favoriteList.do")
 	@ResponseBody
-	public Map<String, List<Product>> selectFavoriteByUser(@RequestParam("userNo") int userNo){
+	public Map<String, List<Product>> selectFavoriteByUser(@RequestParam("userNo") int userNo) {
 		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
-		
+
 		List<Favorite> favolist = favoService.favoriteListByUser(userNo);
-		
+
 		List<Product> products = new ArrayList<Product>();
-		for(Favorite favo : favolist) {
+		for (Favorite favo : favolist) {
 			Product product = productService.oneSelect(favo.getProNo());
 			products.add(product);
 		}
 		map.put("products", products);
-		
+
 		return map;
-		
+
 	}
 
 	// 내용보기 + 연관상품
 	@RequestMapping("/productInfo.do")
 	public String exceptSelf(HttpServletRequest req, Model model, @RequestParam int proNo) {
 		Product product = productService.oneSelect(proNo);
-		//product = productService.메소드 (product);
+		// product = productService.메소드 (product);
 		model.addAttribute("product", product);
-		
-		List<Product> products = productService.selectExceptSelf(product);		
+
+		List<Product> products = productService.selectExceptSelf(product);
 		model.addAttribute("pro", products);
 		User loginUser = (User) req.getSession().getAttribute("loginUser");
-		
-		if( loginUser != null) {			
+
+		if (loginUser != null) {
 			Favorite favorite = favoService.selectFavorite(loginUser.getUserNo(), proNo);
 			model.addAttribute("favo", favorite);
 		}
@@ -400,53 +408,54 @@ public class MainController {
 		productService.delete(product);
 		return "productModify";
 	}
-	
-	//리뷰 등록
+
+	// 리뷰 등록
 	@RequestMapping("/addReview.do")
 	@ResponseBody
 	public void addReivew(@ModelAttribute Review review) {
 		reviewService.insertReview(review);
-	
+
 	}
-		
-	//리뷰 수정
+
+	// 리뷰 수정
 	@RequestMapping("/updateReview.do")
 	@ResponseBody
 	public void updateReivew(HttpServletRequest req, @ModelAttribute Review review) {
 		User loginUser = (User) req.getSession().getAttribute("loginUser");
-		if(loginUser != null) {			
+		if (loginUser != null) {
 			reviewService.updateReview(loginUser.getUserNo(), review);
 		}
-		
+
 	}
-	
-	//리뷰 삭제
+
+	// 리뷰 삭제
 	@RequestMapping("/deleteReview.do")
 	@ResponseBody
 	public void deleteReivew(HttpServletRequest req, @RequestParam("reviewNo") int reviewNo) {
 		User loginUser = (User) req.getSession().getAttribute("loginUser");
-		if(loginUser != null) {			
+		if (loginUser != null) {
 			reviewService.deleteReview(loginUser.getUserNo(), reviewNo);
 		}
-	
+
 	}
-	//리뷰 목록반환
+
+	// 리뷰 목록반환
 	@RequestMapping("/getReviewList.do")
 	@ResponseBody
 	public Map<String, List<Review>> getReviewList(@RequestParam("pageNo") int pageNo) {
 		Map<String, List<Review>> map = new HashMap<String, List<Review>>();
 		List<Review> reviewList = reviewService.selectReviewList(pageNo);
 		map.put("reviewList", reviewList);
-		
+
 		return map;
 	}
-	
+
 	@RequestMapping("/report.do")
 	public String report(HttpServletRequest req, @ModelAttribute Report report) {
 		reportService.insertReport(report);
 		return "redirect:/main.do";
 	}
-	
+
 	@RequestMapping("/reportForm.do")
 	public String reportForm(HttpServletRequest req, @RequestParam("claimeeNo") int claimeeNo) {
 		User claimee = userService.getUserByUserNo(claimeeNo);
@@ -455,71 +464,123 @@ public class MainController {
 		req.setAttribute("claimee", claimee);
 		return "report";
 	}
-	
+
 	// 관리자 기능
 	@RequestMapping("/admin/getAllUsers.do")
 	public String getAllUsers(Model model) {
-		
+
 		List<User> userList = adminService.getAllUsers();
-		model.addAttribute("userList",userList);
-		//페이지 추가
+		model.addAttribute("userList", userList);
+		// 페이지 추가
 		return "";
 	}
-	
+
+	// 관리자 유저삭제
 	@RequestMapping("/admin/deleteUser.do")
 	@ResponseBody
 	public String deleteUser(HttpServletRequest req, @RequestParam("userNo") int userNo) {
-		
+
 		try {
 			adminService.deleteUserFromDB(userNo);
 			return "success";
-		}catch(UserNotFoundException e) {
+		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 			return "userNotFound";
-		}catch(DeleteFailedException e) {
+		} catch (DeleteFailedException e) {
 			e.printStackTrace();
 			return "deleteFailed";
 		}
-		
+
 	}
-	
+
+	// 관리자 유저 수정
 	@RequestMapping("/admin/updateUserAble.do")
 	@ResponseBody
-	public String updateUserAble(HttpServletRequest req, @RequestParam("userNo") int userNo, @RequestParam("able") boolean able) {
+	public String updateUserAble(HttpServletRequest req, @RequestParam("userNo") int userNo,
+			@RequestParam("able") boolean able) {
 		try {
 			adminService.updateUserAble(userNo, able);
 			return "success";
-		}catch(UserNotFoundException e) {
+		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 			return "userNotFound";
-		}catch(UpdateFailedException e) {
+		} catch (UpdateFailedException e) {
 			e.printStackTrace();
 			return "deleteFailed";
 		}
-		
+
 	}
-	
+
+	// 모든 신고목록보기
 	@RequestMapping("/admin/getAllReports.do")
 	public String getAllReports(Model model) {
 		List<Report> reportList = adminService.getAllReports();
 		model.addAttribute("reportList", reportList);
-		
+
 		return "";
 	}
-	
+
+	// 신고목록 삭제
 	@RequestMapping("/admin/deleteReport.do")
 	@ResponseBody
 	public String deleteReportFromDB(HttpServletRequest req, @RequestParam("reportNo") int reportNo) {
 		try {
 			adminService.deleteReportFromDB(reportNo);
 			return "success";
-		}catch(ReportNotFoundException e) {
+		} catch (ReportNotFoundException e) {
 			e.printStackTrace();
 			return "reportNotFound";
-		}catch(UpdateFailedException e) {
+		} catch (UpdateFailedException e) {
 			e.printStackTrace();
 			return "deleteFailed";
 		}
 	}
+
+	// 글쓰기 진행
+	@RequestMapping("/writeNotice.do")
+	public String writeArticle(HttpServletRequest request, @ModelAttribute Notice notice) {
+		User user = (User) request.getSession().getAttribute("loginUser");
+		int userNo = user.getUserNo();
+		notice.setUserNo(userNo);
+		try {
+			noticeService.write(notice);
+			return "성공화면";
+		} catch (Exception e) {
+			return "실패화면";
+		}
+	}
+
+	// 글쓰기 폼을 요청
+	@RequestMapping("/writeNoticeForm.do")
+	public String writeNoticeForm(Model model) {
+		return "writeNotice";
+	}
+
+	// 관리자용 목록보기
+	@RequestMapping("/adminlist.do")
+	public String adminlist(Model model) {
+		List<Notice> notices = noticeService.adminlist();
+		model.addAttribute("notices", notices);
+		return "화면";
+	}
+
+	// 일반 목록보기
+	@RequestMapping("/noticelist.do")
+	public String list(Model model) {
+		List<Notice> notices = noticeService.list();
+		model.addAttribute("notices", notices);
+		return "화면";
+	}
+
+	// 내용보기
+	@RequestMapping("/noticeinfo.do")
+	public String viewcontent(Model model, @RequestParam int noticeNo) {
+		Notice notice = noticeService.viewcontent(noticeNo);
+		model.addAttribute("notice", notice);
+		return "화면";
+	}
 	
+	//able 변경
+	//글수정
+	//글삭제
 }

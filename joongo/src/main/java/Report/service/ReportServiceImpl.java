@@ -14,7 +14,7 @@ public class ReportServiceImpl implements ReportService {
 
 	@Autowired
 	ReportDAO reportDAO;
-	
+
 	@Override
 	public void insertReport(Report report) {
 		reportDAO.insertReport(report);
@@ -22,17 +22,32 @@ public class ReportServiceImpl implements ReportService {
 
 	@Override
 	public List<Report> selectReportList() {
-		return reportDAO.selectReportList();
+		List<Report> reports = reportDAO.selectReportList();
+		for(Report report : reports) {
+			report.setContent(blockHTMLTag(report.getContent()));
+		}
+		return reports;
 	}
 
 	@Override
 	public List<Report> selectReportListByUser(int userNo) {
-		return reportDAO.selectReportListByUser(userNo);
+		List<Report> reports = reportDAO.selectReportListByUser(userNo);
+		for(Report report : reports) {
+			report.setContent(blockHTMLTag(report.getContent()));
+		}
+		return reports;
 	}
 
 	@Override
 	public List<ReportCategory> selectReportCategory() {
 		return reportDAO.selectReportCategory();
+	}
+
+	// &lt; 등의 HTML 특수문자를 치환해줌
+	public String blockHTMLTag(String target) {
+		target = target.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&nbsp;", " ");
+		return target;
+
 	}
 
 }

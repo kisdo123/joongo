@@ -40,8 +40,20 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public List<Review> selectReviewList(int pageNo) {
-
-		return reviewDAO.selectReviewList(pageNo);
+		List<Review> reviews = reviewDAO.selectReviewList(pageNo);
+		
+		for(Review reivew : reviews) {
+			reivew.setContent(blockHTMLTag(reivew.getContent()));
+		}
+		return reviews;
+		
 	}
 
+	//&lt; 등의 HTML 특수문자를 치환해줌
+		public String blockHTMLTag(String target) {
+			target = target.replace("&amp;", "&").replace("&lt;","<").replace("&gt;", ">")
+					.replace("&nbsp;"," ");
+			return target;
+
+		}
 }

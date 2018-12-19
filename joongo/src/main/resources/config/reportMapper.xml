@@ -13,7 +13,7 @@
 		select * from report
 	</select>
 	<select id="selectReportListByUser" parameterType="int" resultType="Report">
-		select * from report where userNo = #{userNo}
+		select * from report where claimeeNo = #{claimeeNo}
 	</select>
 	<select id="selectReportCategory" resultType="ReportCategory">
 		select * from reportCategories
