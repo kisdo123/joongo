@@ -43,7 +43,6 @@
 				<value>classpath:/config/reviewMapper.xml</value>
 				<value>classpath:/config/reportMapper.xml</value>
 				<value>classpath:/config/adminMapper.xml</value>
-				<value>classpath:/config/noticeMapper.xml</value>
 			</list>
 		</property>
 	</bean>
