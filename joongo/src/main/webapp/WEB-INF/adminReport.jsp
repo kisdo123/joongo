@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/joongo/css/adminReport.css">
+<script type="text/javascript" src="/joongo/script/adminReport.js"></script>
+</head>
+<body>
 
 <button onclick="location.href='adminGetAllUsers.do'">유저관리</button>
 <button onclick="location.href='adminlist.do'">공지사항</button>
@@ -30,10 +39,12 @@
 					<td>${reports.reportId }</td>
 					<td>${reports.content }</td>
 					<td>${reports.wdate }</td>
-					<td><button class="noticeDelBtn" onclick="location.href='adminDeleteReport.do?reportNo=${reports.reportNo }'">글 삭제</button></td>
+					<td><button class="noticeDelBtn" onclick="deleteReport(${reports.reportNo })">글 삭제</button></td>
 				</tr>
 			</tbody>
 		</c:forEach>
 	</table>
 
 </div>
+</body>
+</html>
