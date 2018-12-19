@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.adminUser-table {
+	text-align: center;
+	border: 1px solid black;
+	font-size: 7px;
+	width: 100%;
+	max-width: 95%;
+	margin: auto;
+}
+

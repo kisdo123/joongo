@@ -505,7 +505,6 @@ public class MainController {
 			e.printStackTrace();
 			return "deleteFailed";
 		}
-
 	}
 
 	// 관리자 유저 수정
