@@ -395,7 +395,12 @@ public class MainController {
 	//리뷰 등록
 	@RequestMapping("/addReview.do")
 	@ResponseBody
-	public void addReivew(@ModelAttribute Review review) {
+	public void addReivew(HttpServletRequest request, @ModelAttribute Review review) {
+		User loginUser = (User) request.getSession().getAttribute("loginUser");
+		
+		review.setUserNo(loginUser.getUserNo());
+		review.setNickname(loginUser.getNickname());
+		
 		reviewService.insertReview(review);
 	
 	}
@@ -434,6 +439,8 @@ public class MainController {
 	
 	@RequestMapping("/report.do")
 	public String report(HttpServletRequest req, @ModelAttribute Report report) {
+		User loginUser = (User) req.getSession().getAttribute("loginUser");
+		report.setDemandNo(loginUser.getUserNo());
 		reportService.insertReport(report);
 		return "redirect:/main.do";
 	}
