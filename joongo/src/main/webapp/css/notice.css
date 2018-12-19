@@ -91,3 +91,19 @@
 .notice-atag:hover{
 	color: #f76e6e;
 }
+
+.notice-noticeListBtn{
+	position: relative;
+    width: 150px;
+    height: 56px;
+    border: 1px solid #fe8181;
+    background-color: #fe8181;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 5px;
+    border-radius: 10px;
+    margin-bottom: 70px;
+    left: 435px;
+}

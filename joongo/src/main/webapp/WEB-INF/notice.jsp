@@ -40,7 +40,7 @@
 					</c:forEach>
 				</table>
 			</div>
-
+			
 			<!-- 맨 위, 맨 아래로 -->
 			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>

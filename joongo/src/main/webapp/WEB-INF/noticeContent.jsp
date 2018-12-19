@@ -31,7 +31,7 @@
 				</c:if>
 
 			</div>
-
+			<button class="notice-noticeListBtn" onclick="location.href='noticelist.do'">목록보기</button>
 			<!-- 맨 위, 맨 아래로 -->
 			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>
