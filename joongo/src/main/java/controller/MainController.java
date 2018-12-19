@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import Admin.service.AdminService;
 import Favorite.DTO.Favorite;
 import Favorite.service.FavoriteService;
 import Product.DTO.Product;
@@ -28,8 +30,11 @@ import Review.DTO.Review;
 import Review.Service.ReviewService;
 import User.DTO.User;
 import User.service.UserService;
+import exception.DeleteFailedException;
 import exception.PasswordNotMatchException;
 import exception.RegisterFailedException;
+import exception.ReportNotFoundException;
+import exception.UpdateFailedException;
 import exception.UserAlreadyExistException;
 import exception.UserNotFoundException;
 
@@ -50,6 +55,9 @@ public class MainController {
 	
 	@Autowired
 	private ReportService reportService;
+	
+	@Autowired
+	private AdminService adminService;
 
 	@RequestMapping("/notice.do")
 	public String notice(Model model) {
@@ -191,7 +199,6 @@ public class MainController {
 
 	@RequestMapping("/userPage.do")
 	public String myPage(HttpServletRequest request, Model model, @RequestParam("userNo") int userNo) {
-
 		try {
 			User user = userService.getUserByUserNo(userNo);
 			model.addAttribute("pageUser", user);
@@ -448,4 +455,71 @@ public class MainController {
 		req.setAttribute("claimee", claimee);
 		return "report";
 	}
+	
+	// 관리자 기능
+	@RequestMapping("/admin/getAllUsers.do")
+	public String getAllUsers(Model model) {
+		
+		List<User> userList = adminService.getAllUsers();
+		model.addAttribute("userList",userList);
+		//페이지 추가
+		return "";
+	}
+	
+	@RequestMapping("/admin/deleteUser.do")
+	@ResponseBody
+	public String deleteUser(HttpServletRequest req, @RequestParam("userNo") int userNo) {
+		
+		try {
+			adminService.deleteUserFromDB(userNo);
+			return "success";
+		}catch(UserNotFoundException e) {
+			e.printStackTrace();
+			return "userNotFound";
+		}catch(DeleteFailedException e) {
+			e.printStackTrace();
+			return "deleteFailed";
+		}
+		
+	}
+	
+	@RequestMapping("/admin/updateUserAble.do")
+	@ResponseBody
+	public String updateUserAble(HttpServletRequest req, @RequestParam("userNo") int userNo, @RequestParam("able") boolean able) {
+		try {
+			adminService.updateUserAble(userNo, able);
+			return "success";
+		}catch(UserNotFoundException e) {
+			e.printStackTrace();
+			return "userNotFound";
+		}catch(UpdateFailedException e) {
+			e.printStackTrace();
+			return "deleteFailed";
+		}
+		
+	}
+	
+	@RequestMapping("/admin/getAllReports.do")
+	public String getAllReports(Model model) {
+		List<Report> reportList = adminService.getAllReports();
+		model.addAttribute("reportList", reportList);
+		
+		return "";
+	}
+	
+	@RequestMapping("/admin/deleteReport.do")
+	@ResponseBody
+	public String deleteReportFromDB(HttpServletRequest req, @RequestParam("reportNo") int reportNo) {
+		try {
+			adminService.deleteReportFromDB(reportNo);
+			return "success";
+		}catch(ReportNotFoundException e) {
+			e.printStackTrace();
+			return "reportNotFound";
+		}catch(UpdateFailedException e) {
+			e.printStackTrace();
+			return "deleteFailed";
+		}
+	}
+	
 }
