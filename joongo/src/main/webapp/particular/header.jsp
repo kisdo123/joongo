@@ -15,11 +15,12 @@
 						<input type="text" placeholder="&nbsp;검색어 입력" class="header-search-input" name="word" required> <input type="image" src="/joongo/image/searchBtn.png" class="header-search-icon">
 					</form>
 				</div>
-				<div class="header-divLogin">
+			<div class="header-divLogin">
 					<c:if test="${loginUser != null }">
 						<!-- 로그인 loginId가 있을 때 버튼 3개 -->
 						<div class="header-divNick">
 							<span class="header-spanNick">${loginUser.nickname }</span> 님 안녕하세요!
+							<button class="header-adminBtn" >관리자</button>
 						</div>
 						<form id='userpage-form' action="userPage.do" method="post">
 							<img src="/joongo/image/sellImg.png"> <span class="header-a" id="header-spanSell">판매하기</span> <img src="/joongo/image/myStoreImg.png"> <span class="header-a" id="header-spanMystore">내상점</span> <input type="hidden" name="userNo" value="${loginUser.userNo }"> <img src="/joongo/image/logoutImg.png" id="header-logoutImg"> <span class="header-a" id="header-spanLogout"> 로그아웃</span>
@@ -27,6 +28,22 @@
 
 					</c:if>
 				</div>
+				
+				
+				<%-- <div class="header-divAdmin">
+					<c:if test="${loginUser != null }">
+						<!-- 유저가 관리자일 때 관리자 버튼 버튼 추가 -->
+						<div class="header-divNick">
+							<span class="header-spanNick">${loginUser.nickname }</span> 님 안녕하세요!
+							<button class="header-adminBtn">관리자</button>
+						</div>
+						<form id='userpage-form' action="userPage.do" method="post">
+							<img src="/joongo/image/sellImg.png"> <span class="header-a" id="header-spanSell">판매하기</span> <img src="/joongo/image/myStoreImg.png"> <span class="header-a" id="header-spanMystore">내상점</span> <input type="hidden" name="userNo" value="${loginUser.userNo }"> <img src="/joongo/image/logoutImg.png" id="header-logoutImg"> <span class="header-a" id="header-spanLogout"> 로그아웃</span>
+						</form>
+					</c:if>
+				</div> --%>
+				
+				
 				<div class="header-divLogout">
 					<c:if test="${loginUser == null }">
 						<!-- 로그인 상태가 아닐 때 로그인 & 회원가입 버튼 -->
@@ -39,3 +56,4 @@
 	</div>
 	<jsp:include page="/particular/loginPopup.jsp"></jsp:include>
 	<jsp:include page="/particular/registerPopup.jsp"></jsp:include>
+	<jsp:include page="/particular/adminPopup.jsp"></jsp:include>

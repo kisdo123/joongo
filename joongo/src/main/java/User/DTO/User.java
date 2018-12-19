@@ -17,7 +17,6 @@ public class User {
 	private String phone;
 	private String addr;
 	private String introduce;
-	
 	private String bdate;
 	private String rdate;
 	private Boolean isAdmin;

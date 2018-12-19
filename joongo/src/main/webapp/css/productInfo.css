@@ -50,6 +50,10 @@ button {
 	margin-bottom: 10px;
 }
 
+.productInfo-conditSpan{
+	
+}
+
 .productInfo-contextLi>strong {
 	float: left;
 	min-width: 90px;
@@ -132,6 +136,13 @@ button {
 	border-radius: 10px;
 }
 
+
+.productInfo-category-title{
+	overflow: hidden;
+    padding: 20px 0px;
+    margin-top: 85px;
+}
+
 .productInfo-img {
 	width: 400px;
 	height: 400px;
@@ -152,6 +163,7 @@ button {
 
 .productInfo-exContext {
 	height: auto;
+	min-height: 300px;
 	margin-left: 30px;
 }
 
@@ -181,6 +193,10 @@ label {
 
 .productInfo-won {
 	font-size: 25px;
+}
+
+.productInfo-exContentSpan{
+	
 }
 
 .productInfo-raridoDiv label {

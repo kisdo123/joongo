@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+button{
+	outline: 0;
+}
+
 #header-body {
 	width: 100%;
 	border-bottom: 2px solid #e8e8e8;
@@ -36,6 +40,22 @@
 
 .header-divLogin {
 	float: left;
+}
+
+.header-divAdmin{
+	float: left;
+}
+
+.header-adminBtn{
+	margin-left: 5px;
+    width: 55px;
+    height: 30px;
+    border: 1px solid #666;
+    background-color: #666;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 .header-divLogout{

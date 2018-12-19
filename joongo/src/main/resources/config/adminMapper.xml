@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Favorite.DAO.FavoriteMapper">
+	<select id="selectAllUsers" resultType="User">
+		select * from users;
+	</select>
+	
+	<update id="updateUserAble" parameterType="int">
+		update users set able=#{able} where userNo = #{userNo}
+	</update>
+	
+	<delete id="deleteUserFromDB" parameterType="int">
+		delete from users where userNo = #{userNo}
+	</delete>
+	
+	<select id="selectAllReports" resultType="Report">
+		select * from report;
+	</select>
+
+	<delete id="deleteReportFromDB" parameterType="int">
+		delete from report where reportNo = #{reportNo}
+	</delete>
+</mapper>
+
+ 
