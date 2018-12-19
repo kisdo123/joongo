@@ -80,7 +80,7 @@
 					</c:if>
 					<c:if test="${pageUser.userNo != loginUser.userNo }">
 						<div class="center1 menu-title1 menu1" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
-						<div class="center1 menu-title1 menu1" onclick="viewReview(${pageUser.userNo}, 'getReviewList.do')">후기</div>
+						<div class="center1 menu-title1 menu1" onclick="viewReview(${loginUser.userNo}, ${pageUser.userNo}, 'getReviewList.do')">후기</div>
 					</c:if>
 				</div>
 				<!-- product를 감싸는 div -->
