@@ -8,9 +8,9 @@
 <button>상품관리</button>
 
 <div style="height: auto; margin-top: 50px;">
-	유저관리하는 페이지<br>
+	유저관리하는 페이지<br><br><br>
 
-	<table style="text-align: center; border: 1px solid black; font-size: 7px;">
+	<table style="text-align: center; border: 1px solid black; font-size: 7px; width: 100%; max-width: 95%; margin: auto;">
 		<thead>
 			<tr>
 				<th>유저번호</th>

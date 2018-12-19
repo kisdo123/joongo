@@ -10,7 +10,7 @@
 <div style="height: auto; margin-top: 50px;">
 	신고내용 관리하는 페이지<br><br><br>
 
-	<table style="text-align: center; border: 1px solid black;">
+	<table style="text-align: center; border: 1px solid black; width: 100%; max-width: 95%; margin: auto;">
 		<thead>
 			<tr>
 				<th>신고내용번호</th>

@@ -8,12 +8,11 @@
 <button>상품관리</button>
 
 <div style="height: auto; margin-top: 50px;">
-	공지사항 관리하는 페이지<br>
-
+	공지사항 관리하는 페이지
 	<button onclick="location.href='noticelist.do'">일반글 목록보기</button>
-
+	<br><br><br>
 	<table id="adminNotice-table"
-		style="width: 100%; max-width: 95%; margin: auto; text-align: center; border: 1px solid black;">
+		style="width: 100%; max-width: 95%; margin: auto; text-align:center; border: 1px solid black;">
 		<thead>
 			<tr>
 				<th>공지사항번호</th>
@@ -28,7 +27,8 @@
 				<tr>
 					<td>${notice.noticeNo }</td>
 					<td>${notice.title }</td>
-					<td><div style="width: 400px; word-wrap: break-word; margin: auto;">${notice.content }</div></td>
+					<td><div
+							style="width: 400px; text-align: left; word-wrap: break-word; margin: auto;">${notice.content }</div></td>
 					<td>${notice.userNo }</td>
 					<td>${notice.wdate }</td>
 					<td><button
