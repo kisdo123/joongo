@@ -53,7 +53,7 @@
 					<td style="width: 30px;">${users.introduce }</td>
 					<td>${users.bdate }</td>
 					<td>${users.userNo }</td>
-					<td><button>유저 수정</button></td>
+					<td><button onclick="admitUser(${users.userNo })">유저 수정</button></td>
 					<td><button onclick="deleteUser(${users.userNo })">유저 삭제</button></td>
 				</tr>
 			</tbody>

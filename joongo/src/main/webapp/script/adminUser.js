@@ -13,3 +13,20 @@ function deleteUser(userNo){
 		}
 	}); 
 }
+
+
+
+function admitUser(userNo){
+	$.ajax({
+		url : "adminUpdateUserAble.do",
+		data : { "userNo" : userNo
+		}, 
+		success : function() { 
+			alert("관리자 권한을 부여했습니다");
+			location.href="adminGetAllUsers.do";
+		},
+		error : function(error) {
+			console.log(error); alert('권리자 권한 부여에 실패했습니다.');
+		}
+	}); 
+}
