@@ -592,7 +592,7 @@ public class MainController {
 	public String viewcontent(Model model, @RequestParam int noticeNo) {
 		Notice notice = noticeService.viewcontent(noticeNo);
 		model.addAttribute("notice", notice);
-		return "화면";
+		return "noticeContent";
 	}
 
 	// able 변경

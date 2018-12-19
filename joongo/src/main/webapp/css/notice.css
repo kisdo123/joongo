@@ -79,3 +79,17 @@
 	text-overflow: ellipsis;
 }
 
+#notice-topContentDiv{
+	padding-bottom: 400px;
+}
+
+.notice-divContent{
+	width: 900px;
+	word-wrap: break-word;
+	margin: auto;
+	margin-top: 40px;
+}
+
+.notice-atag:hover{
+	color: #f76e6e;
+}

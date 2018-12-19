@@ -10,7 +10,7 @@
 	<div class="w1200">
 		<div class="middle">
 
-			<div id="notice-topDiv">
+			<div id="notice-topContentDiv">
 
 				<div id="notice-header">
 					<div id="notice-title">
@@ -22,23 +22,14 @@
 				<table id="notice-table">
 					<thead>
 						<tr>
-							<th class="notice-thead_th">번호</th>
-							<th class="notice-thead_th">제목</th>
 							<th class="notice-thead_th">내용</th>
-							<th class="notice-thead_th">게시일</th>
 						</tr>
 					</thead>
-					<c:forEach var="notice" items="${notices }">
-						<tbody>
-							<tr>
-								<td>${notice.noticeNo }</td>
-								<td>${notice.title }</td>
-								<td><a class="notice-atag" href="noticeInfo.do?noticeNo=${notice.noticeNo }">${notice.content }</a></td>
-								<td>${notice.wdate }</td>
-							</tr>
-						</tbody>
-					</c:forEach>
 				</table>
+				<c:if test="${notice.noticeNo != null }">
+					<div class="notice-divContent">${notice.content }</div>
+				</c:if>
+
 			</div>
 
 			<!-- 맨 위, 맨 아래로 -->
