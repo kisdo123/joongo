@@ -128,6 +128,11 @@ $(function() {
 	// $(".productInfo-zzimBtn").css("display", "inline");
 	// $(".productInfo-clickZzim").css("display", "none");
 	// });
+	
+	
+	$(".productInfo-conditSpan:contains('판매완료')").css("color","#e81e22");
+	
+	$(".productInfo-conditSpan:contains('판매중')").css("color","blue");
 
 	
 	

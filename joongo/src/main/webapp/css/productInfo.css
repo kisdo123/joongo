@@ -50,6 +50,10 @@ button {
 	margin-bottom: 10px;
 }
 
+.productInfo-conditSpan{
+	
+}
+
 .productInfo-contextLi>strong {
 	float: left;
 	min-width: 90px;
