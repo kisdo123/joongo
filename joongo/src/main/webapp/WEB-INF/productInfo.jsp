@@ -39,7 +39,7 @@
 				<ul class="productInfo-contextUl">
 					<li class="productInfo-contextLi"><strong>주소</strong> <span>서울특별시</span></li>
 					<li class="productInfo-contextLi"><strong>등록날짜</strong> <span>${product.wdate }</span></li>
-					<li class="productInfo-contextLi"><strong>상태</strong> <span>${product.condit}</span></li>
+					<li class="productInfo-contextLi"><strong>상태</strong> <span class="productInfo-conditSpan">${product.condit}</span></li>
 				</ul>
 			</div>
 			<div class="productInfo-btnDiv">
@@ -69,7 +69,7 @@
 			</div>
 			<!-- 최신글은 한번만 -->
 			<div class="lately-container" style="clear: both;">
-				<p class="category-info">
+				<p class="productInfo-category-title">
 					<span class="category-title">연관상품</span>
 					<!-- <span class="all-view">전체보기</span> -->
 				</p>
