@@ -69,7 +69,7 @@
 			</div>
 			<!-- 최신글은 한번만 -->
 			<div class="lately-container" style="clear: both;">
-				<p class="category-info">
+				<p class="productInfo-category-title">
 					<span class="category-title">연관상품</span>
 					<!-- <span class="all-view">전체보기</span> -->
 				</p>
