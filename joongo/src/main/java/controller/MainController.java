@@ -297,7 +297,7 @@ public class MainController {
 		map.put("products", products);
 		return map;
 	}
-	
+
 	// 글쓰기
 	@RequestMapping("/writeProduct.do")
 	public String writeProduct(@ModelAttribute Product product) {
@@ -596,10 +596,40 @@ public class MainController {
 	}
 
 	// able 변경
+	@RequestMapping("/ableUpdate.do")
+	public String noticeUpdate(HttpServletRequest request,Model model,@RequestParam int noticeNo ,@RequestParam Boolean able) {	
+		Notice notice = new Notice();
+		User user = (User) request.getSession().getAttribute("loginUser");
+		int userNo = user.getUserNo();
+		notice.setUserNo(userNo);
+		notice.setAble(able);
+		notice.setNoticeNo(noticeNo);
+		try {
+			noticeService.updateable(notice);
+			return "성공화면";
+		} catch (Exception e) {
+			return "실패화면";
+		}
+	}
 
 	// 글 수정화면에 기본값 입력
+	@RequestMapping("/noticeUpdateForm.do")
+	public String noticeUpdateForm(Model model, @RequestParam int noticeNo) {
+		Notice notice = noticeService.viewcontent(noticeNo);
+		model.addAttribute("notice", notice);
+		return "화면";
+	}
 
 	// 글수정
+	@RequestMapping("/noticeUpdate.do")
+	public String noticeUpdate(HttpServletRequest request, Model model,  @ModelAttribute Notice notice) {
+		try {
+			noticeService.updateNotice(notice);
+			return "성공화면";
+		} catch (Exception e) {
+			return "실패화면";
+		}
+	}
 
 	// 글삭제
 	@RequestMapping("/deleteNotice.do")
