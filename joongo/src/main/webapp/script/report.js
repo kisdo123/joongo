@@ -4,14 +4,6 @@ $(function() {
 		var text = $('#report-content').val();
 		var checked = true;
 		
-		if(select == 0) {
-			$('#report_msg').text("신고사유를 선택해주세요.");
-			checked = false;
-		} else {
-			$('#report_msg').text("");
-			checked = true;
-		}
-		
 		if(text.trim() == "") {
 			checked = false;
 		} else {

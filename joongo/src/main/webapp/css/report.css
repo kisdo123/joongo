@@ -17,6 +17,10 @@ input{
 	border: 1px solid gray;
 }
 
+.report_option{
+	background-color: red;
+}
+
 input:focus{
 	outline: none;
 }
@@ -75,6 +79,7 @@ input[type=submit]{
 .select {
 	height: 34px;
 	border-radius: 5px;
+	width: 500px;
 }
 
 #report_msg {
