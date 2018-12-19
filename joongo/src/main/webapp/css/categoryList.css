@@ -170,3 +170,12 @@
 	width: 194.8px;
 	height: 194.8px;
 }
+
+.pagination {
+	display: flex;
+	justify-content: center;
+}
+
+.pagination > ul {
+	display: flex;
+}

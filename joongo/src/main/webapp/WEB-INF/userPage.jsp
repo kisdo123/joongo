@@ -75,41 +75,19 @@
 				<div class="mypage-menu">
 					<c:if test="${pageUser.userNo == loginUser.userNo }">
 						<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
-						<div class="center menu-title menu">후기</div>
+						<div class="center menu-title menu" onclick="viewReview(${loginUser.userNo}, ${pageUser.userNo}, 'getReviewList.do')">후기</div>
 						<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'favoriteList.do')">찜</div>
 					</c:if>
 					<c:if test="${pageUser.userNo != loginUser.userNo }">
 						<div class="center1 menu-title1 menu1" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
-						<div class="center1 menu-title1 menu1">후기</div>
+						<div class="center1 menu-title1 menu1" onclick="viewReview(${loginUser.userNo}, ${pageUser.userNo}, 'getReviewList.do')">후기</div>
 					</c:if>
 				</div>
 				<!-- product를 감싸는 div -->
 				<div class="menu-contents">
-					<!-- 내 상품 div -->
-					<div class="product-package" id="product-package"></div>
-					<!-- 후기 div -->
-					<div class="product-review none" id="product-review">
-						<!-- <textarea class="review"></textarea>
-						<button class="review-btn">등록</button> -->
-					</div>
-
-					<!-- <div class="productuser-review">
-							<div class="user-review-container">
-								<span>믿잉</span>
-								<span>2000-01-23</span>
-									<p class="user-review">이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.</p>
-							</div>
-						</div>
-						
-						<div class="productuser-review">
-							<div class="user-review-container">
-								<span>믿잉</span>
-								<span>2000-01-23</span>
-									<p class="user-review">이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.이거 잘 받았어요.</p>
-							</div>
-						</div> -->
-					<!-- 찜 div -->
-					<div class="zzim-package none" id="zzim-package"></div>
+					<!-- ajax div -->
+					<div class="userpage" id="userpage"></div>
+					<!-- 페이지네이션 -->
 					<div class="pagination" id="pagination"></div>
 				</div>
 			</div>

@@ -5,27 +5,35 @@ import org.apache.ibatis.type.Alias;
 @Alias("Review")
 public class Review {
 	private int reviewNo;
+	private int pageNo;
 	private int userNo;
 	private String nickname;
 	private String content;
 	private String wdate;
-	private boolean flag;
 	
 	public Review() {}
 	
-	public Review(int reviewNo, int userNo, String nickname, String content, String wdate, boolean flag) {
+	public Review(int reviewNo, int pageNo, int userNo, String nickname, String content, String wdate) {
+		this.pageNo = pageNo;
 		this.reviewNo = reviewNo;
 		this.userNo = userNo;
 		this.nickname = nickname;
 		this.content = content;
 		this.wdate = wdate;
-		this.flag = flag;
 	}
 	
-	public Review( int userNo, String nickname, String content, String wdate) {
+	public Review(int pageNo, int userNo, String nickname, String content, String wdate) {
+		this.pageNo = pageNo;
 		this.userNo = userNo;
 		this.nickname = nickname;
 		this.content = content;
+	}
+	
+	public int getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
 	}
 	
 	public int getReviewNo() {
@@ -58,11 +66,6 @@ public class Review {
 	public void setWdate(String wdate) {
 		this.wdate = wdate;
 	}
-	public boolean isFlag() {
-		return flag;
-	}
-	public void setFlag(boolean flag) {
-		this.flag = flag;
-	}
+
 	
 }
