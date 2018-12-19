@@ -15,8 +15,7 @@
 	</div>
 	<div id="adminPopup-popupBtnSecond">
 		<button id="adminPopup-productBtn">상품관리</button>
-		<button id="adminPopup-product1Btn">상품관리</button>
+		<button id="adminPopup-product1Btn">신  고</button>
 	</div>
-
 </div>
 
