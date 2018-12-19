@@ -78,7 +78,8 @@ public class ProductServiceImpl implements ProductService {
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
 		checkPathImage(product.getImage());
-		product.setTitle(blockHTMLTag(product.getTitle()));
+		String chTitle = blockHTMLTag(product.getTitle());
+		product.setTitle(chTitle);
 		product.setTags(blockHTMLTag(product.getTags()));
 		return product;
 	}
