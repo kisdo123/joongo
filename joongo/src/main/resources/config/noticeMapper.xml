@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Notice.DAO.NoticeMapper">
+	<!-- 글쓰기 -->
+	<insert id="write" parameterType="Notice">
+		insert into notice(title, userNo, content) values(#{title},#{userNo},#{content});
+	</insert>
+	
+	<!-- 관리자용 목록보기 -->
+	<select id="adminlist" resultType="Notice">
+		select * from notice;
+	</select>
+	
+	<!-- 공개용 목록보기 -->
+	<select id="list" resultType="Notice">
+		select * from notice where able = 1;
+	</select>
+	
+	<!-- 내용보기 -->
+	<select id="viewcontent" resultType="Notice" parameterType="int">
+		select * from notice where noticeNo = #{noticeNo};
+	</select>
+	
+	<!-- able변경 -->
+	<update id="updateable" parameterType="Notice">
+		update notice set able=#{able}  where noticeNo =#{noticeNo} and userNo=#{userNo};
+	</update>
+	
+	<!-- 글수정 -->
+	<update id="updateNotice" parameterType="Notice">
+		update notice set title=#{title}, content=#{content} where noticeNo = #{noticeNo} and userNo=#{userNo};
+	</update>
+	
+	<!-- 글삭제 -->
+	<delete id="deleteNotice" parameterType="Notice">
+		delete from notice where noticeNo = #{noticeNo} and userNo = #{userNo};
+	</delete>
+
+</mapper>
+
+ 
