@@ -10,9 +10,10 @@
 <div style="height: auto; margin-top: 50px;">
 	공지사항 관리하는 페이지<br>
 
-		<button onclick="location.href='noticelist.do'">일반글 목록보기</button>
-		
-	<table style="text-align: center; border: 1px solid black;">
+	<button onclick="location.href='noticelist.do'">일반글 목록보기</button>
+
+	<table id="adminNotice-table"
+		style="width: 100%; max-width: 95%; margin: auto; text-align: center; border: 1px solid black;">
 		<thead>
 			<tr>
 				<th>공지사항번호</th>
@@ -27,11 +28,13 @@
 				<tr>
 					<td>${notice.noticeNo }</td>
 					<td>${notice.title }</td>
-					<td>${notice.content }</td>
+					<td><div style="width: 400px; word-wrap: break-word; margin: auto;">${notice.content }</div></td>
 					<td>${notice.userNo }</td>
 					<td>${notice.wdate }</td>
-					<td><button onclick="location.href='noticeUpdateForm.do?noticeNo=${notice.noticeNo }'">글수정</button></td>
-					<td><button onclick="location.href='deleteNotice.do?noticeNo=${notice.noticeNo }&userNo=${loginUser.userNo }'">글삭제</button></td>
+					<td><button
+							onclick="location.href='noticeUpdateForm.do?noticeNo=${notice.noticeNo }'">글수정</button></td>
+					<td><button
+							onclick="location.href='deleteNotice.do?noticeNo=${notice.noticeNo }&userNo=${loginUser.userNo }'">글삭제</button></td>
 				</tr>
 			</tbody>
 		</c:forEach>

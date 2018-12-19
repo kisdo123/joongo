@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="/joongo/css/registerPopup.css">
 <link rel="stylesheet" type="text/css" href="/joongo/css/sideMenu.css">
 <link rel="stylesheet" type="text/css" href="/joongo/css/deletePopup.css">
-
+<link rel="stylesheet" type="text/css" href="/joongo/css/adminNotice.css">
 
 <script type="text/javascript" src="/joongo/script/header.js"></script>
 <script type="text/javascript" src="/joongo/script/loginPopup.js"></script>

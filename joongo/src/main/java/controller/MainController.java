@@ -594,6 +594,9 @@ public class MainController {
 		model.addAttribute("notice", notice);
 		return "noticeContent";
 	}
+	
+	
+	
 
 	// able 변경
 	@RequestMapping("/ableUpdate.do")
