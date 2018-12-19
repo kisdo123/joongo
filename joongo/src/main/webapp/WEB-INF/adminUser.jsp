@@ -4,9 +4,9 @@
 
 
 <div style="height: auto; margin-top: 50px;">
-	유저관리하는 페이지<br> <br> <br>
+	유저관리하는 페이지<br>
 
-	<table>
+	<table style="text-align: center; border: 1px solid black; font-size: 7px;">
 		<thead>
 			<tr>
 				<th>유저번호</th>
@@ -19,7 +19,7 @@
 				<th>이메일</th>
 				<th>전화변호</th>
 				<th>주소</th>
-				<th>소개글</th>
+				<th style="width: 40px;">소개글</th>
 				<th>생일</th>
 			</tr>
 		</thead>
@@ -36,9 +36,11 @@
 					<td>${users.email }</td>
 					<td>${users.phone }</td>
 					<td>${users.addr }</td>
-					<td>${users.introduce }</td>
+					<td style="width: 30px;">${users.introduce }</td>
 					<td>${users.bdate }</td>
 					<td>${users.userNo }</td>
+					<td><button>유저 수정</button></td>
+					<td><button>유저 삭제</button></td>
 				</tr>
 			</tbody>
 		</c:forEach>

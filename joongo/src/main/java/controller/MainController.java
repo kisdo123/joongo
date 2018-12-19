@@ -584,7 +584,7 @@ public class MainController {
 	public String list(Model model) {
 		List<Notice> notices = noticeService.list();
 		model.addAttribute("notices", notices);
-		return "화면";
+		return "notice";
 	}
 
 	// 내용보기
@@ -615,9 +615,10 @@ public class MainController {
 	// 글 수정화면에 기본값 입력
 	@RequestMapping("/noticeUpdateForm.do")
 	public String noticeUpdateForm(Model model, @RequestParam int noticeNo) {
+		System.out.println(noticeNo);
 		Notice notice = noticeService.viewcontent(noticeNo);
 		model.addAttribute("notice", notice);
-		return "화면";
+		return "adminNoticeModify";
 	}
 
 	// 글수정
@@ -625,9 +626,9 @@ public class MainController {
 	public String noticeUpdate(HttpServletRequest request, Model model,  @ModelAttribute Notice notice) {
 		try {
 			noticeService.updateNotice(notice);
-			return "성공화면";
+			return "redirect:/adminlist.do";
 		} catch (Exception e) {
-			return "실패화면";
+			return "adminNoticeModify";
 		}
 	}
 
