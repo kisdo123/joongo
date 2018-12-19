@@ -12,7 +12,7 @@ public class Notice {
 	private String wdate;
 	private Boolean able;
 
-	Notice() {
+	public Notice() {
 	}
 
 	public Notice(int noticeNo, String title, int userNo, String content, String wdate, Boolean able) {

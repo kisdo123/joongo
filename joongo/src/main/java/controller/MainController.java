@@ -74,7 +74,7 @@ public class MainController {
 
 		List<Product> products = productService.select5List();
 		Map<String, List<Product>> map = productService.select5catNo();
-		
+
 		String[] categories = { "clothes", "appliances", "cosmetics", "instrument", "books", "household", "sports",
 				"foods", "etc" };
 		String[] titles = { "의류", "가전제품", "화장품", "악기/음향기기", "도서", "생활용품", "스포츠", "식품", "기타" };
@@ -284,12 +284,20 @@ public class MainController {
 
 	// 검색
 	@RequestMapping("/search.do")
-	public String getUserList(Model model, @RequestParam("word") String word) {
-		List<Product> products = productService.searching(word);
-		model.addAttribute("products", products);
+	public String getSearchPage(Model model) {
+
 		return "search";
 	}
 
+	@RequestMapping("/getSearchProducts.do")
+	@ResponseBody
+	public Map<String, List<Product>> getSearchList(@RequestParam("word") String word) {
+		List<Product> products = productService.searching(word);
+		Map<String, List<Product>> map = new HashMap<String, List<Product>>();
+		map.put("products", products);
+		return map;
+	}
+	
 	// 글쓰기
 	@RequestMapping("/writeProduct.do")
 	public String writeProduct(@ModelAttribute Product product) {
@@ -414,10 +422,10 @@ public class MainController {
 	@ResponseBody
 	public void addReivew(HttpServletRequest request, @ModelAttribute Review review) {
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
-		
+
 		review.setUserNo(loginUser.getUserNo());
 		review.setNickname(loginUser.getNickname());
-		
+
 		reviewService.insertReview(review);
 
 	}
@@ -543,7 +551,7 @@ public class MainController {
 		}
 	}
 
-	// 글쓰기 진행
+	// 공지글쓰기 진행
 	@RequestMapping("/writeNotice.do")
 	public String writeArticle(HttpServletRequest request, @ModelAttribute Notice notice) {
 		User user = (User) request.getSession().getAttribute("loginUser");
@@ -557,7 +565,7 @@ public class MainController {
 		}
 	}
 
-	// 글쓰기 폼을 요청
+	// 공지글쓰기 폼을 요청
 	@RequestMapping("/writeNoticeForm.do")
 	public String writeNoticeForm(Model model) {
 		return "writeNotice";
@@ -586,8 +594,26 @@ public class MainController {
 		model.addAttribute("notice", notice);
 		return "화면";
 	}
-	
-	//able 변경
-	//글수정
-	//글삭제
+
+	// able 변경
+
+	// 글 수정화면에 기본값 입력
+
+	// 글수정
+
+	// 글삭제
+	@RequestMapping("/deleteNotice.do")
+	public String deleteNotice(HttpServletRequest request, @ModelAttribute int noticeNo) {
+		User user = (User) request.getSession().getAttribute("loginUser");
+		int userNo = user.getUserNo();
+		Notice notice = new Notice();
+		notice.setUserNo(userNo);
+		notice.setNoticeNo(noticeNo);
+		try {
+			noticeService.deleteNotice(notice);
+			return "성공화면";
+		} catch (Exception e) {
+			return "실패화면";
+		}
+	}
 }
