@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<button onclick="location.href='adminGetAllUsers.do'">유저관리</button>
+<button onclick="location.href='adminlist.do'">공지사항</button>
+<button onclick="location.href='adminGetAllReports.do'">신고목록</button>
+<button>상품관리</button>
 
 <div style="height: auto; margin-top: 50px;">
 	유저관리하는 페이지<br>

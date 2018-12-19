@@ -544,10 +544,10 @@ public class MainController {
 			return "success";
 		} catch (ReportNotFoundException e) {
 			e.printStackTrace();
-			return "reportNotFound";
+			return "adminReport";
 		} catch (UpdateFailedException e) {
 			e.printStackTrace();
-			return "deleteFailed";
+			return "adminReport";
 		}
 	}
 
@@ -588,7 +588,7 @@ public class MainController {
 	}
 
 	// 내용보기
-	@RequestMapping("/noticeinfo.do")
+	@RequestMapping("/noticeInfo.do")
 	public String viewcontent(Model model, @RequestParam int noticeNo) {
 		Notice notice = noticeService.viewcontent(noticeNo);
 		model.addAttribute("notice", notice);
@@ -642,9 +642,9 @@ public class MainController {
 		notice.setNoticeNo(noticeNo);
 		try {
 			noticeService.deleteNotice(notice);
-			return "성공화면";
+			return "redirect:/adminlist.do";
 		} catch (Exception e) {
-			return "실패화면";
+			return "main";
 		}
 	}
 }

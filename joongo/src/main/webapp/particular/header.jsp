@@ -22,7 +22,7 @@
 							<span class="header-spanNick">${loginUser.nickname }</span>
 							님 안녕하세요!
 							<c:if test="${loginUser.admin}">
-							<button class="header-adminBtn">관리자</button>
+							<button class="header-adminBtn" onclick="location.href='adminGetAllUsers.do'">관리자</button>
 							</c:if>
 						</div>
 						<form id='userpage-form' action="userPage.do" method="post">
@@ -56,4 +56,3 @@
 	
 	<jsp:include page="/particular/loginPopup.jsp"></jsp:include>
 	<jsp:include page="/particular/registerPopup.jsp"></jsp:include>
-	<jsp:include page="/particular/adminPopup.jsp"></jsp:include>

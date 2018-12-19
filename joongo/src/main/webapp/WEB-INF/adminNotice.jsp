@@ -2,10 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<button onclick="location.href='adminGetAllUsers.do'">유저관리</button>
+<button onclick="location.href='adminlist.do'">공지사항</button>
+<button onclick="location.href='adminGetAllReports.do'">신고목록</button>
+<button>상품관리</button>
+
 <div style="height: auto; margin-top: 50px;">
 	공지사항 관리하는 페이지<br>
 
-		<button onclick="location.href='notice.do'">일반글 목록보기</button>
+		<button onclick="location.href='noticelist.do'">일반글 목록보기</button>
 		
 	<table style="text-align: center; border: 1px solid black;">
 		<thead>
@@ -26,7 +31,7 @@
 					<td>${notice.userNo }</td>
 					<td>${notice.wdate }</td>
 					<td><button onclick="location.href='noticeUpdateForm.do?noticeNo=${notice.noticeNo }'">글수정</button></td>
-					<td><button>글삭제</button></td>
+					<td><button onclick="location.href='deleteNotice.do?noticeNo=${notice.noticeNo }&userNo=${loginUser.userNo }'">글삭제</button></td>
 				</tr>
 			</tbody>
 		</c:forEach>

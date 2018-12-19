@@ -8,6 +8,6 @@
 		<span>BOTTOM</span><i class="fa fa-arrow-down arrow-down" aria-hidden="true"></i>
 	</div>
 	<div class="product-notice">
-		<a href="notice.do"><img src="/joongo/image/noticeImg.png"><span class="product-spanNotice">공지사항</span></a>
+		<a href="noticelist.do"><img src="/joongo/image/noticeImg.png"><span class="product-spanNotice">공지사항</span></a>
 	</div>
 </div>
