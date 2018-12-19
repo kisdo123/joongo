@@ -94,6 +94,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByUserNo(int userNo) {
+		if(userNo == 0) {
+			throw new UserNotFoundException("유저 아이디: 0");
+		}
 		User user = userDAO.selectByUserNo(userNo);
 		if (user == null) {
 			throw new UserNotFoundException("유저를 찾을 수 없음");

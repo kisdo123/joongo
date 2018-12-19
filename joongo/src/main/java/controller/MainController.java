@@ -190,13 +190,15 @@ public class MainController {
 	}
 
 	@RequestMapping("/userPage.do")
-	public String myPage(Model model, @RequestParam("userNo") int userNo) {
+	public String myPage(HttpServletRequest request, Model model, @RequestParam("userNo") int userNo) {
 
 		try {
 			User user = userService.getUserByUserNo(userNo);
 			model.addAttribute("pageUser", user);
 		} catch (UserNotFoundException e) {
 			e.printStackTrace();
+			request.setAttribute("userNotFound", true);
+			request.setAttribute("ret", "/joongo/main.do");
 		}
 
 		// 유저페이지의 대상 유저
