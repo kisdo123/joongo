@@ -285,7 +285,7 @@ public class MainController {
 	// 검색
 	@RequestMapping("/search.do")
 	public String getSearchPage(Model model, @RequestParam("word") String word) {
-		model.addAttribute("word",word);
+		model.addAttribute("word", word);
 		return "search";
 	}
 
@@ -596,17 +596,14 @@ public class MainController {
 
 	// 공지 able 변경
 	@RequestMapping("/ableUpdate.do")
-	public String noticeUpdate(HttpServletRequest request, Model model, @RequestParam int noticeNo,
-			@RequestParam Boolean able) {
-		Notice notice = new Notice();
-		notice.setAble(able);
-		notice.setNoticeNo(noticeNo);
+	public String noticeUpdate(HttpServletRequest request, Model model, @RequestParam("noticeNo") int noticeNo,
+			@RequestParam("able") Boolean able) {
 		try {
-			noticeService.updateable(notice);
-			return "성공화면";
+			noticeService.updateable(noticeNo, able);
+			return "redirect:/adminlist.do";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "실패화면";
+			return "adminNotice";
 		}
 	}
 
@@ -632,10 +629,8 @@ public class MainController {
 
 	// 공지글삭제
 	@RequestMapping("/noticeDelete.do")
-	public String noticeDelete(@ModelAttribute int noticeNo) {
-		System.out.println("함수접근");
+	public String noticeDelete(@RequestParam("noticeNo") int noticeNo) {
 		try {
-			System.out.println(noticeNo);
 			noticeService.deleteNotice(noticeNo);
 			return "redirect:/adminlist.do";
 		} catch (Exception e) {

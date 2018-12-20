@@ -47,8 +47,15 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// able 변경
 	@Override
-	public void updateable(Notice notice) {
-		int res = noticeDAO.updateable(notice);
+	public void updateable(int noticeNo, Boolean able) {
+		if (noticeNo == 0) {
+			throw new NoticeNotFoundException("공지글을 찾을수 없음");
+		}
+		int ableToInt = 0;
+		if(able) {
+			ableToInt= 1;
+		}
+		int res = noticeDAO.updateable(noticeNo, ableToInt);
 		if (res == 0) {
 			throw new NoticeNotFoundException("변경실패");
 		}

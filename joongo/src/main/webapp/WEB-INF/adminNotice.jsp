@@ -28,6 +28,7 @@
 					<th>내용</th>
 					<th>유저번호</th>
 					<th>작성날짜</th>
+					<th>able</th>
 				</tr>
 			</thead>
 			<c:forEach var="notice" items="${notices }">
@@ -38,6 +39,9 @@
 						<td><div class="adiminNotice-div">${notice.content }</div></td>
 						<td>${notice.userNo }</td>
 						<td>${notice.wdate }</td>
+						<td>${notice.able }</td>
+						<td><button onclick="ableNotice(${notice.noticeNo },true)">글 활성화</button></td>
+						<td><button onclick="ableNotice(${notice.noticeNo },false)">글 비활성화</button></td>
 						<td><button
 								onclick="location.href='noticeUpdateForm.do?noticeNo=${notice.noticeNo }'">글수정</button></td>
 						<td><button

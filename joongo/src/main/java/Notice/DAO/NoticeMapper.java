@@ -11,7 +11,7 @@ public interface NoticeMapper {
 	List<Notice> adminlist();
 	List<Notice> list();
 	Notice viewcontent (int noticeNo);
-	int updateable(Notice notice);
+	int updateable(int noticeNo, int able);
 	int updateNotice(Notice notice);
 	int deleteNotice(int noticeNo);
 }

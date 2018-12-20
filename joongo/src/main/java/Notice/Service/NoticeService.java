@@ -9,7 +9,7 @@ public interface NoticeService {
 	public List<Notice> adminlist();
 	public List<Notice> list();
 	public Notice viewcontent (int noticeNo);
-	public void updateable(Notice notice);
+	public void updateable(int noticeNo, Boolean able);
 	public void updateNotice(Notice notice);
 	public void deleteNotice(int noticeNo);
 }

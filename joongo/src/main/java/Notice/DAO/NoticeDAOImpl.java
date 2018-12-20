@@ -39,8 +39,8 @@ public class NoticeDAOImpl implements NoticeDAO{
 
 	//able변경
 	@Override
-	public int updateable(Notice notice) {
-		return noticeMapper.updateable(notice);
+	public int updateable(int noticeNo, int able) {
+		return noticeMapper.updateable(noticeNo, able);
 	}
 
 	//글수정
