@@ -50,6 +50,7 @@
 				</tbody>
 			</c:forEach>
 		</table>
+		<br>
 		<button onclick="location.href='writeNoticeForm.do'">공지사항 글쓰기</button>
 	</div>
 </body>

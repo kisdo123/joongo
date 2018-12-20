@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/joongo/css/main.css?3">
 <script type="text/javascript" src="/joongo/script/main.js"></script>
@@ -40,6 +40,9 @@
 								</c:if>
 								<c:if test="${product.tags != '' }">
 									<div class="product-tag">${product.tags }</div>
+								</c:if>
+								<c:if test="${product.condit != ''}">
+									<div class="product-condit">${product.condit }</div>
 								</c:if>
 							</div>
 						</div>
@@ -109,6 +112,9 @@
 									</c:if>
 									<c:if test="${product.tags != '' }">
 										<div class="product-tag">${product.tags }</div>
+									</c:if>
+									<c:if test="${product.condit != ''}">
+										<div class="product-condit">${product.condit }</div>
 									</c:if>
 								</div>
 							</div>

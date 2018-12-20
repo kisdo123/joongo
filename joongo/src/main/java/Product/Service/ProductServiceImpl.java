@@ -74,13 +74,12 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product oneSelect(int proNo) {
 		Product product = productDAO.selectOne(proNo);
-
+		product.setTitle(blockHTMLTag(product.getTitle()));
+		product.setTags(blockHTMLTag(product.getTags()));
+		
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
 		checkPathImage(product.getImage());
-		String chTitle = blockHTMLTag(product.getTitle());
-		product.setTitle(chTitle);
-		product.setTags(blockHTMLTag(product.getTags()));
 		return product;
 	}
 
@@ -149,7 +148,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> selectExceptSelf(Product product) {
 		List<Product> selectExceptSelf = productDAO.selectExceptSelf(product);
-		
+
 		for (Product pro : selectExceptSelf) {
 			int getproNo = pro.getProNo();
 			List<Image> images = productDAO.selectImage(getproNo);
@@ -321,7 +320,9 @@ public class ProductServiceImpl implements ProductService {
 	public void checkPathImage(List<Image> images) {
 		for (Image image : images) {
 			String imagePath = image.getImagePath();
-			File dir = new File("C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"+ imagePath);
+			File dir = new File(
+					"C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"
+							+ imagePath);
 
 			if (!dir.exists()) {
 				image.setImagePath("/joongo/image/no-image.jpg");
@@ -329,14 +330,15 @@ public class ProductServiceImpl implements ProductService {
 
 		}
 	}
-	
-	//&lt; 등의 HTML 특수문자를 치환해줌
+
+	// &lt; 등의 HTML 특수문자를 치환해줌
 	public String blockHTMLTag(String target) {
-		target = target.replace("&amp;", "&").replace("&lt;","<").replace("&gt;", ">")
-				.replace("&nbsp;"," ");
+		target = target.replaceAll("&", "&amp;");
+		target = target.replaceAll("<", "&lt;");
+		target = target.replaceAll(">", "&gt;");
+		target = target.replaceAll(" ", "&nbsp;");
 		return target;
 
 	}
-	
 
 }

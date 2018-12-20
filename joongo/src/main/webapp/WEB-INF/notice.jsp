@@ -24,7 +24,7 @@
 						<tr>
 							<th class="notice-thead_th">번호</th>
 							<th class="notice-thead_th">제목</th>
-							<th class="notice-thead_th">내용</th>
+							<th class="notice-thead_th">작성자</th>
 							<th class="notice-thead_th">게시일</th>
 						</tr>
 					</thead>
@@ -32,8 +32,8 @@
 						<tbody>
 							<tr>
 								<td>${notice.noticeNo }</td>
-								<td>${notice.title }</td>
-								<td><a class="notice-atag" href="noticeInfo.do?noticeNo=${notice.noticeNo }">${notice.content }</a></td>
+								<td><a class="notice-atag" href="noticeInfo.do?noticeNo=${notice.noticeNo }">${notice.title }</a></td>
+								<td>중고장터 관리자</td>
 								<td>${notice.wdate }</td>
 							</tr>
 						</tbody>
