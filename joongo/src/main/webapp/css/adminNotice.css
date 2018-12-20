@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.adminNotice-table {
+	width: 100%;
+	max-width: 95%;
+	margin: auto;
+	text-align: center;
+	border: 1px solid black
+}
+
+.adiminNotice-div {
+	width: 400px;
+	text-align: left;
+	word-wrap: break-word;
+	margin: auto
+}
