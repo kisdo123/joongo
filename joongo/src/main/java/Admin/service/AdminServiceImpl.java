@@ -42,10 +42,11 @@ public class AdminServiceImpl implements AdminService{
 		if(userNo == 0) {
 			throw new UserNotFoundException("유저를 찾을 수 없음: 0");
 		}
-		int ableToInt = 0;
-		if(able) 
-			ableToInt= 1;
 
+		int ableToInt = 0;
+		if(able) {
+			ableToInt= 1;
+		}
 		int res = adminDAO.updateUserAble(userNo, ableToInt);
 		if(res == 0 ) {
 			throw new UpdateFailedException("수정 실패");

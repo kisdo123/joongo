@@ -9,7 +9,7 @@
 	</select>
 	
 	<update id="updateUserAble" parameterType="int">
-		update users set able=#{able} where userNo = #{userNo}
+		update users set able=#{param2} where userNo = #{param1}
 	</update>
 	
 	<delete id="deleteUserFromDB" parameterType="int">

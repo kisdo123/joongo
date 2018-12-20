@@ -32,6 +32,7 @@
 				<th>주소</th>
 				<th style="width: 40px;">소개글</th>
 				<th>생일</th>
+				<th>able</th>
 			</tr>
 		</thead>
 		<c:forEach var="users" items="${userList }">
@@ -49,8 +50,9 @@
 					<td>${users.addr }</td>
 					<td style="width: 30px;">${users.introduce }</td>
 					<td>${users.bdate }</td>
-					<td>${users.userNo }</td>
-					<td><button onclick="admitUser(${users.userNo })">유저 수정</button></td>
+					<td>${users.able }</td>
+					<td><button onclick="admitUser(${users.userNo },true)">유저 활성화</button></td>
+					<td><button onclick="admitUser(${users.userNo },false)">유저 비활성화</button></td>
 					<td><button onclick="deleteUser(${users.userNo })">유저 삭제</button></td>
 				</tr>
 			</tbody>
