@@ -4,6 +4,14 @@ var SUPEREPICFANTASTICLENGTH;
 var SUPEREPICFANTASTICURL;
 var SUPEREPICFANTASTICUSERNO = 0;
 var SUPEREPICFANTASTICPAGENO = 0;
+var SUPEREPICFANTASTICNICKNAME = "";
+
+function init(pageNo, userNo, nickname) {
+	SUPEREPICFANTASTICPAGENO = pageNo;
+	SUPEREPICFANTASTICUSERNO = userNo;
+	SUPEREPICFANTASTICNICKNAME = nickname;
+}
+
 function pagination() {
 	/* 페이지네이션 버튼 생성 */
 	$('#pagination').pagination({
@@ -45,17 +53,15 @@ function pagination() {
 				var addreview = "";
 				
 				if(SUPEREPICFANTASTICPAGENO != SUPEREPICFANTASTICUSERNO){
-					"<div class='product-review none' id='product-review'>"+
-					"<textarea class='review'></textarea>"+
-					"<button class='review-btn'>등록</button>"+
+					addreview += "<div class='product-review none' id='product-review'>"+
+					"<textarea class='review' id='review'></textarea>"+
+					"<button class='review-btn' id='review-btn' onclick='addReview()>등록</button>"+
 					"</div>";
 				}
 				
 				$('#userpage').append(addreview);
 				for(var i=start; i<end; i++){
-					console.log(start + ' ' + end);
 					var review = SUPEREPICFANTASTICITEM[i];
-					console.log(review);
 					var text = "<div class='productuser-review'>"+
 					"<div class='user-review-container'>"+
 					"<span>"+review.nickname+"</span>"+
@@ -63,7 +69,6 @@ function pagination() {
 						"<p class='user-review'>"+review.content+"</p>"+
 							"</div>"+
 					"</div>";
-					console.log(text);
 					$('#userpage').append(text);
 				}
 			}
@@ -106,9 +111,9 @@ function pagination() {
 				var addreview = "";
 				if(SUPEREPICFANTASTICPAGENO != SUPEREPICFANTASTICUSERNO){
 					
-					"<div class='product-review none' id='product-review'>"+
-					"<textarea class='review'></textarea>"+
-					"<button class='review-btn'>등록</button>"+
+					addreview += "<div class='product-review none' id='product-review'>"+
+					"<textarea class='review' id='review'></textarea>"+
+					"<button class='review-btn' id='review-btn' onclick='addReview()'>등록</button>"+
 					"</div>";
 				}
 			
@@ -116,10 +121,12 @@ function pagination() {
 				for(var i=0; i<end; i++){
 					var review = SUPEREPICFANTASTICITEM[i];
 					var text = "<div class='productuser-review'>"+
-					"<div class='user-review-container'>"+
-					"<span>"+review.nickname+"</span>"+
-					"<span>"+review.wdate+"</span>"+
-						"<p class='user-review'>"+review.content+"</p>"+
+							"<div class='user-review-container'>"+
+								"<span>"+review.nickname+"</span>"+
+								"<span>"+review.wdate+"</span>"+
+								"<p class='user-review'>"+review.content+"</p>"+
+								"<a onclick=''>수정</a>"+
+								"<a onclick=''>삭제</a>"+
 							"</div>"+
 					"</div>";
 					$('#userpage').append(text);
@@ -130,16 +137,15 @@ function pagination() {
 }
 
 /* 마이페이지 보기 */
-function view(userNo, url) {
+function view(url) {
 	$.ajax({
 		url: url,
 		dataType: 'json',
 		data: {
-			"userNo": userNo
+			"userNo": SUPEREPICFANTASTICUSERNO
 		},
 		success: function(data) {
 			SUPEREPICFANTASTICITEM = data.products;
-			console.log(data);
 			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICITEM).length;
 			SUPEREPICFANTASTICURL = url;
 			
@@ -164,22 +170,20 @@ function view(userNo, url) {
 			}
 		},
 		error: function(error) {
-			alert('가져올 수 없습니다.');
+			console.log(error);
 		}
 	})
 }
 
-function viewReview(userNo, pageNo, url) {
-	SUPEREPICFANTASTICUSERNO = userNo;
-	SUPEREPICFANTASTICPAGENO = pageNo;
+function viewReview(url) {
+	console.log(url)
 	$.ajax({
 		url: url,
 		dataType: 'json',
 		data: {
-			"pageNo": pageNo
+			"pageNo": SUPEREPICFANTASTICPAGENO
 		},
 		success: function(data) {
-			console.log(data);
 			SUPEREPICFANTASTICITEM = data.reviewList;
 			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICITEM).length;
 			SUPEREPICFANTASTICURL = url;
@@ -194,8 +198,7 @@ function viewReview(userNo, pageNo, url) {
 					}else{
 						$('#userpage').append("<div class='product-review none' id='product-review'>"+
 								"<textarea class='review' id='review'></textarea>"+
-								"<button class='review-btn'>등록</button>"+
-								"</div>");
+								"<button class='review-btn' id='review-btn' onclick='addReview()'>등록</button></div>");
 						$('#userpage').append('<div style="text-align: center; line-height: 654px;">후기가 없습니다.</div>');
 					}
 				} else if (SUPEREPICFANTASTICLENGTH > 0) {
@@ -209,14 +212,30 @@ function viewReview(userNo, pageNo, url) {
 	})
 }
 
+function addReview() {
+	/**********\
+	 * 후기등록 * 
+	\**********/
+	var content = $('#review').val();
+	$.ajax({
+		url: 'addReview.do',
+		data: {
+			pageNo: SUPEREPICFANTASTICPAGENO,
+			userNo: SUPEREPICFANTASTICUSERNO,
+			nickname: SUPEREPICFANTASTICNICKNAME,
+			content: content
+		},
+		success: function() {
+			console.log('되버렸던 거임!');
+			viewReview('getReviewList.do');
+		},
+		error: function(error) {
+			console.log(error.responseText);
+		}
+	})
+}
+
 $(function() {
-	
-	// 후기추가
-	/*
-	 * $('.review-btn').click(function() { var review = $('#review').val();
-	 * 
-	 * $.ajax({ url: 'addReview.do', data: }) });
-	 */
 	
 	// tag #추가
 	$('.product-tag').each(function() {
@@ -343,16 +362,6 @@ $(function() {
 		}
 	});
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	$("#modifya").click(function(){
 		$("#modifyForm")[0].submit();
 	})
@@ -380,7 +389,6 @@ $(function() {
 			frm.focus();
 		};
 	});
-	
 })
 
 /* 소개글 변경 */
