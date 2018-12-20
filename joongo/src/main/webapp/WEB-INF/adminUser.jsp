@@ -32,6 +32,7 @@
 			</tr>
 		</thead>
 		<c:forEach var="users" items="${userList }">
+			<c:if test="${users.loginId != loginUser.loginId}">
 			<tbody>
 				<tr>
 					<td><a href="userPage.do?userNo=${users.userNo }">${users.userNo }</a></td>
@@ -48,6 +49,7 @@
 					<td><button onclick="deleteUser(${users.userNo })">유저 삭제</button></td>
 				</tr>
 			</tbody>
+			</c:if>
 		</c:forEach>
 	</table>
 

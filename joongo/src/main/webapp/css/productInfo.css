@@ -51,9 +51,6 @@ button {
 	margin-bottom: 10px;
 }
 
-.productInfo-conditSpan{
-	
-}
 
 .productInfo-contextLi>strong {
 	float: left;
@@ -262,4 +259,13 @@ label {
 
 .productInfo-exContext p img {
 	width: 95%;
+}
+
+
+.productInfo-conditIng{
+	color: blue;
+}
+
+.productInfo-conditSoldOut{
+	color: e81e22;
 }

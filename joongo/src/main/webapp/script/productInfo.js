@@ -132,9 +132,8 @@ $(function() {
 	
 	$(".productInfo-conditSpan:contains('판매완료')").css("color","#e81e22");
 	
-	$(".productInfo-conditSpan:contains('판매중')").css("color","blue");
+	$(".productInfo-conditSpan:contains('판매중')").css("color","#0043ffd1");
 
-	
 	
 	
 });

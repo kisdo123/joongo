@@ -78,7 +78,7 @@
 	font-weight: bolder;
 }
 
-.noticeContent-thead_td{
+.noticeContent-thead_td {
 	padding: 8px;
 	border: 5px solid #f4c9c9;
 	height: 70px;
@@ -156,10 +156,23 @@
 	text-align: center;
 }
 
-.notice-tbody{
+.notice-tbody {
 	border: 5px solid #f4c9c9;
 }
 
-.notice-thead{
+.notice-thead {
 	border: 5px solid #f4c9c9;
+}
+
+.notice_moreBtn {
+	width: 1000px;
+	height: 56px;
+	border: 1px solid #fe8181;
+	background-color: #fe8181;
+	font-size: 18px;
+	font-weight: 700;
+	cursor: pointer;
+	color: #fff;
+	margin-left: 15px;
+	border-radius: 10px;
 }

@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="/joongo/css/main.css">
 <link rel="stylesheet" type="text/css" href="/joongo/css/notice.css">
 <script type="text/javascript" src="/joongo/script/main.js"></script>
+<script type="text/javascript" src="/joongo/script/notice.js"></script>
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <div id="container" class="container">
 	<div class="w1200">
@@ -32,17 +33,21 @@
 						<tbody>
 							<tr>
 								<td>${notice.noticeNo }</td>
-								<td><div class="notice-div"><a class="notice-atag" href="noticeInfo.do?noticeNo=${notice.noticeNo }">${notice.title }</a></div></td>
+								<td><div class="notice-div">
+										<a class="notice-atag"
+											href="noticeInfo.do?noticeNo=${notice.noticeNo }">${notice.title }</a>
+									</div></td>
 								<td>중고장터 관리자</td>
 								<td>${notice.wdate }</td>
 							</tr>
+
 						</tbody>
 					</c:forEach>
 				</table>
-				<button>위로</button>
-				<button>아래로</button>
+
+				<button class="notice_moreBtn">더보기</button>
 			</div>
-			
+
 			<!-- 맨 위, 맨 아래로 -->
 			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>

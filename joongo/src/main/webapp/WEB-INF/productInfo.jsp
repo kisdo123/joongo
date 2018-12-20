@@ -98,6 +98,9 @@
 								<c:if test="${pro.tags != '' }">
 									<div class="product-tag" style="max-width: 500px;">${pro.tags }</div>
 								</c:if>
+								<c:if test="${product.condit != ''}">
+									<div class="product-condit">${product.condit }</div>
+								</c:if>
 							</div>
 						</div>
 					</c:forEach>
