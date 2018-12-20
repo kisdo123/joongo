@@ -480,7 +480,7 @@ public class MainController {
 		return "report";
 	}
 
-	// 관리자 기능
+	// 관리자 모든 유저보기
 	@RequestMapping("/adminGetAllUsers.do")
 	public String getAllUsers(Model model) {
 
@@ -525,7 +525,6 @@ public class MainController {
 		}
 	}
 
-	
 	// 모든 신고목록보기
 	@RequestMapping("/adminGetAllReports.do")
 	public String getAllReports(Model model) {
@@ -594,13 +593,11 @@ public class MainController {
 		model.addAttribute("notice", notice);
 		return "noticeContent";
 	}
-	
-	
-	
 
-	// able 변경
+	// 공지 able 변경
 	@RequestMapping("/ableUpdate.do")
-	public String noticeUpdate(HttpServletRequest request,Model model,@RequestParam int noticeNo ,@RequestParam Boolean able) {	
+	public String noticeUpdate(HttpServletRequest request, Model model, @RequestParam int noticeNo,
+			@RequestParam Boolean able) {
 		Notice notice = new Notice();
 		User user = (User) request.getSession().getAttribute("loginUser");
 		int userNo = user.getUserNo();
@@ -615,7 +612,7 @@ public class MainController {
 		}
 	}
 
-	// 글 수정화면에 기본값 입력
+	// 공지 글 수정화면에 기본값 입력
 	@RequestMapping("/noticeUpdateForm.do")
 	public String noticeUpdateForm(Model model, @RequestParam int noticeNo) {
 		System.out.println(noticeNo);
@@ -624,9 +621,9 @@ public class MainController {
 		return "adminNoticeModify";
 	}
 
-	// 글수정
+	// 공지글수정
 	@RequestMapping("/noticeUpdate.do")
-	public String noticeUpdate(HttpServletRequest request, Model model,  @ModelAttribute Notice notice) {
+	public String noticeUpdate(HttpServletRequest request, Model model, @ModelAttribute Notice notice) {
 		try {
 			noticeService.updateNotice(notice);
 			return "redirect:/main.do";
@@ -635,7 +632,7 @@ public class MainController {
 		}
 	}
 
-	// 글삭제
+	// 공지글삭제
 	@RequestMapping("/deleteNotice.do")
 	public String deleteNotice(HttpServletRequest request, @ModelAttribute int noticeNo) {
 		User user = (User) request.getSession().getAttribute("loginUser");
@@ -650,4 +647,38 @@ public class MainController {
 			return "main";
 		}
 	}
+
+	// 관리자 글 전체보기s
+	@RequestMapping("/adminAllProducts.do")
+	public String adminAllProducts(Model model) {
+		List<Product> products = adminService.selectAllProduct();
+		model.addAttribute("products", products);
+		return "화면";
+	}
+
+	// 글 able 변경
+	@RequestMapping("/updateableProduct.do")
+	@ResponseBody
+	public String updateableProduct(HttpServletRequest req, @RequestParam("proNo") int proNo,
+			@RequestParam("able") boolean able) {
+		try {
+			adminService.updateAbleProduct(able, proNo);
+			return "성공화면";
+		} catch (Exception e) {
+			return "실패화면";
+		}
+	}
+
+	// 글 완전삭제
+	@RequestMapping("adminDeleteProduct.do")
+	@ResponseBody
+	public String adminDeleteProduct(HttpServletRequest req, @RequestParam("proNo") int proNo) {
+		try {
+			adminService.deleteProduct(proNo);
+			return "성공화면";
+		} catch (Exception e) {
+			return "실패화면";
+		}
+	}
+
 }
