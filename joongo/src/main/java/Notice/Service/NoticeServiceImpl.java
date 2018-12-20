@@ -65,8 +65,8 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// 글삭제
 	@Override
-	public void deleteNotice(Notice notice) {
-		int res = noticeDAO.deleteNotice(notice);
+	public void deleteNotice(int noticeNo) {
+		int res = noticeDAO.deleteNotice(noticeNo);
 		if (res == 0) {
 			throw new NoticeNotFoundException("삭제실패");
 		}

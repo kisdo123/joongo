@@ -11,5 +11,5 @@ public interface NoticeDAO {
 	public Notice viewcontent (int noticeNo);
 	public int updateable(Notice notice);
 	public int updateNotice(Notice notice);
-	public int deleteNotice(Notice notice);
+	public int deleteNotice(int noticeNo);
 }

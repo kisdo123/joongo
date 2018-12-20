@@ -41,7 +41,7 @@
 						<td><button
 								onclick="location.href='noticeUpdateForm.do?noticeNo=${notice.noticeNo }'">글수정</button></td>
 						<td><button
-								onclick="location.href='deleteNotice.do?noticeNo=${notice.noticeNo }'">글삭제</button></td>
+								onclick="location.href='noticeDelete.do?noticeNo=${notice.noticeNo }'">글삭제</button></td>
 					</tr>
 				</tbody>
 			</c:forEach>

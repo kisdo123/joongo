@@ -13,5 +13,5 @@ public interface NoticeMapper {
 	Notice viewcontent (int noticeNo);
 	int updateable(Notice notice);
 	int updateNotice(Notice notice);
-	int deleteNotice(Notice notice);
+	int deleteNotice(int noticeNo);
 }

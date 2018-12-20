@@ -51,8 +51,8 @@ public class NoticeDAOImpl implements NoticeDAO{
 
 	//글삭제
 	@Override
-	public int deleteNotice(Notice notice) {
-		return noticeMapper.deleteNotice(notice);
+	public int deleteNotice(int noticeNo) {
+		return noticeMapper.deleteNotice(noticeNo);
 	}
 
 }

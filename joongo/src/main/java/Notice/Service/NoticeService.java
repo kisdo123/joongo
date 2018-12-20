@@ -11,5 +11,5 @@ public interface NoticeService {
 	public Notice viewcontent (int noticeNo);
 	public void updateable(Notice notice);
 	public void updateNotice(Notice notice);
-	public void deleteNotice(Notice notice);
+	public void deleteNotice(int noticeNo);
 }

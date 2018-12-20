@@ -23,10 +23,8 @@
 			공지사항 제목 : <input type="text" name="title" value="${notice.title }">
 			<br>
 			공지사항 내용 : <input type="text" name="content" value="${notice.content }">
-			
 			<input type="hidden" name="userNo" value="${loginUser.userNo }">
-			
-			<input type="submit" value="수정하기">
+			<input type="submit" value="수정하기" class="admitNoticeModift-submitBtn">
 		</c:if>
 	</form>
 

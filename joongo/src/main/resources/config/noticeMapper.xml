@@ -26,17 +26,17 @@
 	
 	<!-- able변경 -->
 	<update id="updateable" parameterType="Notice">
-		update notice set able=#{able}  where noticeNo =#{noticeNo} and userNo=#{userNo};
+		update notice set able=#{able}  where noticeNo =#{noticeNo};
 	</update>
 	
 	<!-- 글수정 -->
 	<update id="updateNotice" parameterType="Notice">
-		update notice set title=#{title}, content=#{content} where noticeNo = #{noticeNo} and userNo=#{userNo};
+		update notice set title=#{title}, content=#{content} where noticeNo = #{noticeNo};
 	</update>
 	
 	<!-- 글삭제 -->
-	<delete id="deleteNotice" parameterType="Notice">
-		delete from notice where noticeNo = #{noticeNo} and userNo = #{userNo};
+	<delete id="deleteNotice" parameterType="int">
+		delete from notice where noticeNo = #{noticeNo};
 	</delete>
 
 </mapper>
