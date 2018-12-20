@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import Product.DTO.Product;
 import Report.DTO.Report;
 import User.DTO.User;
 
@@ -37,6 +38,21 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public int deleteReportFromDB(int reportNo) {
 		return adminMapper.deleteReportFromDB(reportNo);
+	}
+
+	@Override
+	public List<Product> selectAllProduct() {
+		return adminMapper.selectAllProduct();
+	}
+
+	@Override
+	public int updateAbleProduct(int able, int proNo) {
+		return adminMapper.updateAbleProduct(able, proNo);
+	}
+
+	@Override
+	public int deleteProduct(int proNo) {
+		return adminMapper.deleteProduct(proNo);
 	}
 
 }
