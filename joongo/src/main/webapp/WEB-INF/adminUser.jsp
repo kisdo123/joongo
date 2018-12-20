@@ -34,7 +34,7 @@
 		<c:forEach var="users" items="${userList }">
 			<tbody>
 				<tr>
-					<td>${users.userNo }</td>
+					<td><a href="userPage.do?userNo=${users.userNo }">${users.userNo }</a></td>
 					<td>${users.loginId }</td>
 					<td>${users.nickname }</td>
 					<td>${users.name }</td>

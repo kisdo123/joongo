@@ -39,6 +39,8 @@
 						</tbody>
 					</c:forEach>
 				</table>
+				<button>위로</button>
+				<button>아래로</button>
 			</div>
 			
 			<!-- 맨 위, 맨 아래로 -->

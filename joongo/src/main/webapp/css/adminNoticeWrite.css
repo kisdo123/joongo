@@ -1,1 +1,15 @@
 @charset "UTF-8";
+
+.adminNoticeWrite-div{
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+.adminNoticeWrite-title{
+	margin-bottom: 10px;
+}
+
+.adminNoticeWrite-inputTitle{
+	width: 500px;
+    height: 30px;
+}
