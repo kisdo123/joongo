@@ -2,6 +2,7 @@ package Admin.service;
 
 import java.util.List;
 
+import Product.DTO.Product;
 import Report.DTO.Report;
 import User.DTO.User;
 
@@ -16,6 +17,8 @@ public interface AdminService {
 	void deleteReportFromDB(int reportNo);
 	
 	// 글 관리
+	List<Product> selectAllProduct();
+	public void updateAbleProduct(Boolean able, int proNo);
+	public void deleteProduct(int proNo);
 	
-	// 공지 관리
 }

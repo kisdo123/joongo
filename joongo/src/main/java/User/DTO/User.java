@@ -183,7 +183,7 @@ public class User {
 	public Boolean getAdmin() {
 		return admin;
 	}
-	public Boolean isAble() {
+	public Boolean getAble() {
 		return able;
 	}
 	

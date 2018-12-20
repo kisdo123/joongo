@@ -15,18 +15,21 @@ function deleteUser(userNo){
 }
 
 
-
-function admitUser(userNo){
+// 유저 수정
+function admitUser(userNo, able){
 	$.ajax({
 		url : "adminUpdateUserAble.do",
-		data : { "userNo" : userNo
+		data : { "userNo" : userNo,
+			"able" : able
 		}, 
 		success : function() { 
-			alert("관리자 권한을 부여했습니다");
+			alert("유저를 수정했습니다.");
 			location.href="adminGetAllUsers.do";
 		},
 		error : function(error) {
-			console.log(error); alert('권리자 권한 부여에 실패했습니다.');
+			console.log(error); alert('유저 수정에 실패했습니다.');
 		}
 	}); 
 }
+
+

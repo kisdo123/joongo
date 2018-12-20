@@ -9,7 +9,7 @@
 	</select>
 	
 	<update id="updateUserAble" parameterType="int">
-		update users set able=#{able} where userNo = #{userNo}
+		update users set able=#{param2} where userNo = #{param1}
 	</update>
 	
 	<delete id="deleteUserFromDB" parameterType="int">
@@ -22,6 +22,21 @@
 
 	<delete id="deleteReportFromDB" parameterType="int">
 		delete from report where reportNo = #{reportNo}
+	</delete>
+	
+	<!-- 전체목록보기 -->
+	<select id="selectAllProduct" resultType="Product">
+		select * from products;
+	</select>
+	
+	<!-- able변경 -->
+	<update id="updateAbleProduct" parameterType="int">
+		update products set able=#{param1} where proNo = #{param2}
+	</update>
+	
+	<!-- 완전삭제 -->
+	<delete id="deleteProduct" parameterType="int">
+		delete from products where proNo = #{proNo}
 	</delete>
 </mapper>
 
