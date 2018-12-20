@@ -20,8 +20,8 @@
 		<thead>
 			<tr>
 				<th>신고내용번호</th>
-				<th>demandNo</th>
-				<th>claimeeNo</th>
+				<th>신고자</th>
+				<th>피신고자</th>
 				<th>신고ID</th>
 				<th>내용</th>
 				<th>작성날짜</th>

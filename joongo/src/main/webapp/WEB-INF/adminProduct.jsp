@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/joongo/css/adminProduct.css">
+<script type="text/javascript" src="/joongo/script/adminProduct.js"></script>
+</head>
+<body>
+
+<jsp:include page="/particular/adminHeader.jsp"></jsp:include>
+
+<div style="height: auto; margin-top: 50px;">
+	상품관리하는 페이지<br><br><br>
+
+	<table class="adminProduct-table">
+		<thead>
+			<tr>
+				<th>상품번호</th>
+				<th>제목</th>
+				<th>카테고리번호</th>
+				<th>유저번호</th>
+				<th>닉네임</th>
+				<th>상태</th>
+				<th>가격</th>
+				<th>태그</th>
+				<th>활성여부</th>
+			</tr>
+		</thead>
+		<c:forEach var="prouducts" items="${products }">
+			<tbody>
+				<tr>
+					<td>${prouducts.proNo }</td>
+					<td>${prouducts.title }</td>
+					<td>${prouducts.catNo }</td>
+					<td>${prouducts.userNo }</td>
+					<td>${prouducts.nickname }</td>
+					<td>${prouducts.condit }</td>
+					<td>${prouducts.price }</td>
+					<td>${prouducts.tags }</td>
+					<td>${prouducts.able }</td>
+					<td><button>활성화</button></td>
+					<td><button>비활성화</button></td>
+					<td><button onclick="location.href=''">상품 삭제</button></td>
+				</tr>
+			</tbody>
+		</c:forEach>
+	</table>
+
+</div>
+</body>
+</html>

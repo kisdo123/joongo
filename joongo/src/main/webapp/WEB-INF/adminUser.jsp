@@ -32,7 +32,7 @@
 				<th>주소</th>
 				<th style="width: 40px;">소개글</th>
 				<th>생일</th>
-				<th>able</th>
+				<th>활성여부</th>
 			</tr>
 		</thead>
 		<c:forEach var="users" items="${userList }">

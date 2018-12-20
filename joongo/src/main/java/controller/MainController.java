@@ -644,7 +644,7 @@ public class MainController {
 	public String adminAllProducts(Model model) {
 		List<Product> products = adminService.selectAllProduct();
 		model.addAttribute("products", products);
-		return "화면";
+		return "adminProduct";
 	}
 
 	// 글 able 변경

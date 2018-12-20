@@ -28,7 +28,7 @@
 					<th>내용</th>
 					<th>유저번호</th>
 					<th>작성날짜</th>
-					<th>able</th>
+					<th>활성여부</th>
 				</tr>
 			</thead>
 			<c:forEach var="notice" items="${notices }">
@@ -51,7 +51,6 @@
 			</c:forEach>
 		</table>
 		<button onclick="location.href='writeNoticeForm.do'">공지사항 글쓰기</button>
-
 	</div>
 </body>
 </html>
