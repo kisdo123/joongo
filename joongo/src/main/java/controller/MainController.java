@@ -512,6 +512,7 @@ public class MainController {
 	@ResponseBody
 	public String updateUserAble(HttpServletRequest req, @RequestParam("userNo") int userNo,
 			@RequestParam("able") boolean able) {
+		
 		try {
 			adminService.updateUserAble(userNo, able);
 			return "success";
@@ -567,7 +568,7 @@ public class MainController {
 	// 공지글쓰기 폼을 요청
 	@RequestMapping("/writeNoticeForm.do")
 	public String writeNoticeForm(Model model) {
-		return "writeNotice";
+		return "adminNoticeWrite";
 	}
 
 	// 관리자용 목록보기
