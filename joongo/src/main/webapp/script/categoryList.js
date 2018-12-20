@@ -226,17 +226,6 @@ function pagination() {
 				
 				$('#products').append(text);
 				
-//				if(SUPEREPICFANTASTICURL == 'shopList.do') {
-//					$('#product-package').removeClass('none');
-//					$('#zzim-package').addClass('none');
-//					$('#product-review').addClass('none');
-//					$('#product-package').append(text);
-//				} else if(SUPEREPICFANTASTICURL == 'favoriteList.do') {
-//					$('#zzim-package').removeClass('none');
-//					$('#product-package').addClass('none');
-//					$('#product-review').addClass('none');
-//					$('#zzim-package').append(text);
-//				}
 			}
         }
 	});

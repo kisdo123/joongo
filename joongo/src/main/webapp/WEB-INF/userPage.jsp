@@ -5,7 +5,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/particular/head.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="/joongo/css/userPage.css?2">
+<link rel="stylesheet" type="text/css" href="/joongo/css/userPage.css?5">
 <link rel="stylesheet" type="text/css" href="/joongo/css/simplePagination.css">
 <script type="text/javascript" src="/joongo/script/userPage.js?8"></script>
 <script type="text/javascript" src="/joongo/script/pagination.js"></script>
@@ -13,7 +13,8 @@
 <div class="mypage-container">
 	<script type="text/javascript">
 		window.onload = function() {
-			view(${pageUser.userNo}, 'shopList.do');
+			init(${pageUser.userNo}, ${loginUser.userNo}, '${loginUser.nickname}');
+			view('shopList.do');
 		}
 	</script>
 	<div class="first-middle">
@@ -74,13 +75,13 @@
 			<div class="mypage-menu-container">
 				<div class="mypage-menu">
 					<c:if test="${pageUser.userNo == loginUser.userNo }">
-						<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
-						<div class="center menu-title menu" onclick="viewReview(${loginUser.userNo}, ${pageUser.userNo}, 'getReviewList.do')">후기</div>
-						<div class="center menu-title menu" onclick="view(${pageUser.userNo}, 'favoriteList.do')">찜</div>
+						<div class="center menu-title menu" onclick="view('shopList.do')">상품</div>
+						<div class="center menu-title menu" onclick="viewReview('getReviewList.do')">후기</div>
+						<div class="center menu-title menu" onclick="view('favoriteList.do')">찜</div>
 					</c:if>
 					<c:if test="${pageUser.userNo != loginUser.userNo }">
-						<div class="center1 menu-title1 menu1" onclick="view(${pageUser.userNo}, 'shopList.do')">상품</div>
-						<div class="center1 menu-title1 menu1" onclick="viewReview(${loginUser.userNo}, ${pageUser.userNo}, 'getReviewList.do')">후기</div>
+						<div class="center1 menu-title1 menu1" onclick="view('shopList.do')">상품</div>
+						<div class="center1 menu-title1 menu1" onclick="viewReview('getReviewList.do')">후기</div>
 					</c:if>
 				</div>
 				<!-- product를 감싸는 div -->

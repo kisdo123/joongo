@@ -284,8 +284,8 @@ public class MainController {
 
 	// 검색
 	@RequestMapping("/search.do")
-	public String getSearchPage(Model model) {
-
+	public String getSearchPage(Model model, @RequestParam("word") String word) {
+		model.addAttribute("word",word);
 		return "search";
 	}
 

@@ -6,14 +6,14 @@
  
 <mapper namespace="Review.DAO.ReviewMapper">
 	<insert id="insertReview" parameterType="Review">
-		insert into review(userNo, nickname, content) values(#{userNo}, #{nickname},#{content})
+		insert into review(pageNo, userNo, nickname, content) values(#{pageNo},#{userNo}, #{nickname},#{content})
 	</insert>
 
 	<update id="updateReview" parameterType="Review">
 		update review set content = #{content} values(#{content}) where reviewNo = #{reviewNo}
 	</update>
 	<select id="selectReviewList" parameterType="int" resultType="Review">
-		select * from Review where pageNo = #{pageNo}
+		select * from Review where pageNo = #{pageNo} order by wdate desc;
 	</select>
 
 	<delete id="deleteReview" parameterType="int">
