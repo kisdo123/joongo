@@ -31,7 +31,6 @@
 						<tr>
 							<td>중고장터 관리자</td>
 							<td><div class="noticeContent-div">${notice.content }</div></td>
-							
 							<td>${notice.wdate }</td>
 						</tr>
 					</tbody>

@@ -118,7 +118,7 @@
 }
 
 .noticeContent-div {
-	width: 400px;
+	width: 540px;
 	text-align: center;
 	word-wrap: break-word;
 	margin: auto;
@@ -146,9 +146,6 @@
 	padding-bottom: 10px;
 	border: 5px solid #f4c9c9;
 	height: 500px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
 #noticeContent-table thead {
