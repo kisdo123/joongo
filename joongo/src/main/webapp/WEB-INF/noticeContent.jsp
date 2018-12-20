@@ -19,20 +19,26 @@
 					<p id="notice-title_sub">중고장터의 최근 소식을 신속하게 전달드립니다.</p>
 				</div>
 
-				<table id="notice-table">
-					<thead>
+				<table id="noticeContent-table">
+					<thead class="notice-thead">
 						<tr>
-							<th class="notice-thead_th">작성자</th>
-							<th class="notice-thead_th">내용</th>
-							<th class="notice-thead_th">작서일</th>
+							<td class="noticeContent-thead_td">작성자</td>
+							<td class="noticeContent-thead_td">내용</td>
+							<td class="noticeContent-thead_td">작성일</td>
 						</tr>
 					</thead>
+					<tbody class="notice-tbody">
+						<tr>
+							<td>중고장터 관리자</td>
+							<td><div class="noticeContent-div">${notice.content }</div></td>
+							
+							<td>${notice.wdate }</td>
+						</tr>
+					</tbody>
 				</table>
-				<c:if test="${notice.noticeNo != null }">
-					<div class="notice-divContent">${notice.content }</div>
-				</c:if>
 			</div>
-			<button class="notice-noticeListBtn" onclick="location.href='noticelist.do'">목록보기</button>
+			<button class="notice-noticeListBtn"
+				onclick="location.href='noticelist.do'">목록보기</button>
 			<!-- 맨 위, 맨 아래로 -->
 			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>

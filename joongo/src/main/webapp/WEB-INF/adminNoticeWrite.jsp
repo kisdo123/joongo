@@ -17,7 +17,7 @@
 		</div>
 		<!-- 스마트 에디터가 생기는 textarea -->
 		<textarea name="content" rows="10" cols="100" ></textarea>
-		<input type="submit" value="등록">
+		<input type="submit" value="등록" class="">
 	</form>
 </body>
 </html>

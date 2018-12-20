@@ -22,15 +22,11 @@
 			<tr>
 				<th>유저번호</th>
 				<th>로그인ID</th>
-				<th>암호</th>
-				<th>암호질문</th>
-				<th>암호답변</th>
 				<th>닉네임</th>
 				<th>이름</th>
 				<th>이메일</th>
 				<th>전화변호</th>
 				<th>주소</th>
-				<th style="width: 40px;">소개글</th>
 				<th>생일</th>
 				<th>활성여부</th>
 			</tr>
@@ -40,15 +36,11 @@
 				<tr>
 					<td>${users.userNo }</td>
 					<td>${users.loginId }</td>
-					<td>${users.password }</td>
-					<td>${users.password_q }</td>
-					<td>${users.password_a }</td>
 					<td>${users.nickname }</td>
 					<td>${users.name }</td>
 					<td>${users.email }</td>
 					<td>${users.phone }</td>
 					<td>${users.addr }</td>
-					<td style="width: 30px;">${users.introduce }</td>
 					<td>${users.bdate }</td>
 					<td>${users.able }</td>
 					<td><button onclick="admitUser(${users.userNo },true)">유저 활성화</button></td>

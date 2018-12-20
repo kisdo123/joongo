@@ -34,7 +34,7 @@
 					<td>${reports.demandNo }</td>
 					<td>${reports.claimeeNo }</td>
 					<td>${reports.reportId }</td>
-					<td>${reports.content }</td>
+					<td><div class="adminReport-div">${reports.content }</div></td>
 					<td>${reports.wdate }</td>
 					<td><button class="noticeDelBtn" onclick="deleteReport(${reports.reportNo })">글 삭제</button></td>
 				</tr>

@@ -5,12 +5,13 @@
 	max-width: 95%;
 	margin: auto;
 	text-align: center;
-	border: 1px solid black
+	border: 1px solid black;
+	text-align: center;
 }
 
 .adiminNotice-div {
 	width: 400px;
-	text-align: left;
+	text-align: center;
 	word-wrap: break-word;
-	margin: auto
+	margin: auto;
 }

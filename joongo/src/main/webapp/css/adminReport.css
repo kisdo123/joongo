@@ -7,3 +7,10 @@
 	 max-width: 95%;
 	 margin: auto;
 }
+
+.adminReport-div{
+	text-align: center;
+	width: 400px;
+	word-wrap: break-word;
+	margin: auto;
+}
