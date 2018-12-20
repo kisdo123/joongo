@@ -626,7 +626,7 @@ public class MainController {
 	public String noticeUpdate(HttpServletRequest request, Model model, @ModelAttribute Notice notice) {
 		try {
 			noticeService.updateNotice(notice);
-			return "redirect:/adminlist.do";
+			return "redirect:/main.do";
 		} catch (Exception e) {
 			return "adminNoticeModify";
 		}
