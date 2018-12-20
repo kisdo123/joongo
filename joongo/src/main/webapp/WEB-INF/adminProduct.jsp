@@ -42,14 +42,13 @@
 					<td>${prouducts.price }</td>
 					<td>${prouducts.tags }</td>
 					<td>${prouducts.able }</td>
-					<td><button>활성화</button></td>
-					<td><button>비활성화</button></td>
-					<td><button onclick="location.href=''">상품 삭제</button></td>
+					<td><button onclick="ableProduct(${prouducts.proNo },true)">활성화</button></td>
+					<td><button onclick="ableProduct(${prouducts.proNo },false)">비활성화</button></td>
+					<td><button onclick="location.href='adminDeleteProduct.do?proNo=${prouducts.proNo }'">상품 삭제</button></td>
 				</tr>
 			</tbody>
 		</c:forEach>
 	</table>
-
 </div>
 </body>
 </html>

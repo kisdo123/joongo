@@ -20,6 +20,6 @@ public interface AdminMapper {
 
 	// 글 관리
 	List<Product> selectAllProduct();
-	int updateAbleProduct(int able, int proNo);
+	int updateAbleProduct(int proNo, int able);
 	int deleteProduct(int proNo);
 }

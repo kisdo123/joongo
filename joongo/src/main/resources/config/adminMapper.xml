@@ -31,7 +31,7 @@
 	
 	<!-- able변경 -->
 	<update id="updateAbleProduct" parameterType="int">
-		update products set able=#{param1} where proNo = #{param2}
+		update products set able=#{param2} where proNo = #{param1}
 	</update>
 	
 	<!-- 완전삭제 -->

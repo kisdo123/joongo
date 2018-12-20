@@ -77,7 +77,7 @@ public class AdminServiceImpl implements AdminService{
 
 	//able 변경
 	@Override
-	public void updateAbleProduct(Boolean able, int proNo) {
+	public void updateAbleProduct(int proNo, boolean able) {
 		if(proNo == 0) {
 			throw new ProductNotFoundException("글을 찾을수 없음");
 		}
@@ -86,11 +86,11 @@ public class AdminServiceImpl implements AdminService{
 			ableToInt= 1;
 		}
 
-		int res = adminDAO.updateUserAble(ableToInt, proNo);
+		int res = adminDAO.updateAbleProduct(proNo, ableToInt);
 		if(res == 0 ) {
 			throw new UpdateFailedException("수정 실패");
 		}
-	}
+	}	
 	
 	//완전삭제
 	@Override

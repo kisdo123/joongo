@@ -19,6 +19,6 @@ public interface AdminDAO {
 	// 글 관리
 	
 	public List<Product> selectAllProduct();
-	public int updateAbleProduct(int able, int proNo);
+	public int updateAbleProduct(int proNo, int able);
 	public int deleteProduct(int proNo);
 }

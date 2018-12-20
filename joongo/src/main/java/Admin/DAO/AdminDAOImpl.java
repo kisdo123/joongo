@@ -46,8 +46,8 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public int updateAbleProduct(int able, int proNo) {
-		return adminMapper.updateAbleProduct(able, proNo);
+	public int updateAbleProduct(int proNo, int able) {
+		return adminMapper.updateAbleProduct(proNo, able);
 	}
 
 	@Override

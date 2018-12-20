@@ -18,7 +18,7 @@ public interface AdminService {
 	
 	// 글 관리
 	List<Product> selectAllProduct();
-	public void updateAbleProduct(Boolean able, int proNo);
+	public void updateAbleProduct(int proNo, boolean able);
 	public void deleteProduct(int proNo);
 	
 }

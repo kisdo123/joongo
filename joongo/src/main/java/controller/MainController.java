@@ -653,24 +653,23 @@ public class MainController {
 	public String updateableProduct(HttpServletRequest req, @RequestParam("proNo") int proNo,
 			@RequestParam("able") boolean able) {
 		try {
-			adminService.updateAbleProduct(able, proNo);
-			return "성공화면";
+			adminService.updateAbleProduct(proNo, able);
+			return "success";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "실패화면";
+			return "adminProduct";
 		}
 	}
 
 	// 글 완전삭제
 	@RequestMapping("adminDeleteProduct.do")
-	@ResponseBody
 	public String adminDeleteProduct(HttpServletRequest req, @RequestParam("proNo") int proNo) {
 		try {
 			adminService.deleteProduct(proNo);
-			return "성공화면";
+			return "redirect:/adminAllProducts.do";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "실패화면";
+			return "adminProduct";
 		}
 	}
 

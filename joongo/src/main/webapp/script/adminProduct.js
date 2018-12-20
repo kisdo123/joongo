@@ -1,15 +1,17 @@
 
 
-function deleteReport(reportNo){
+function ableProduct(proNo, able){
 	$.ajax({
-		url : "adminDeleteReport.do",
-		data : { "reportNo" : reportNo }, 
+		url : "updateableProduct.do",
+		data : { "proNo" : proNo,
+			"able" : able
+		}, 
 		success : function() { 
-			alert("신고글을 삭제했습니다.");
-			location.href="adminGetAllReports.do";
+			alert("상품을 수정했습니다.");
+			location.href="adminAllProducts.do";
 		},
 		error : function(error) {
-			console.log(error); alert('신고글 삭제가 실패했습니다.');
+			console.log(error); alert('상품 수정이 실패했습니다.');
 		}
 	}); 
 }
