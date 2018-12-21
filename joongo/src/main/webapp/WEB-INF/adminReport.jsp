@@ -14,7 +14,7 @@
 <div class="adminHeader"><jsp:include page="/particular/adminHeader.jsp"></jsp:include></div>
 
 <div class="adminReport-divTop">
-	<div class="adminNotice-divTitle">신고내용 관리</div>
+	<div class="adminNotice-divTitle">[ 신고내용 관리 ]</div>
 
 	<table class="adminReport-table">
 		<thead>

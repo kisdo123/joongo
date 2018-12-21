@@ -13,7 +13,7 @@
 
 	<div class="adminNoticeModify-topDiv" style="height: auto; margin-top: 50px;">
 		<div class="adminNoticeModify-div">
-			<div class="adminNotice-divTitle">공지사항 수정</div>
+			<div class="adminNotice-divTitle1">[ 공지사항 수정 ]</div>
 
 			<form action="adminNoticeUpdate.do" method="post">
 				<c:if test="${notice != null }">
@@ -29,8 +29,8 @@
 					<textarea class="adminNoticeModify-textarea" name="content" rows="20" cols="100" placeholder="공지사항 내용을 입력하세요" required>${notice.content }</textarea>
 					<input type="hidden" name="userNo" value="${loginUser.userNo }">
 					<div>
-						<input type="submit" value="공지수정">
-						<button onclick="location.href='adminNoticeList.do'">취소</button>
+						<input class="adminHeader-btn3" type="submit" value="공지수정" >
+						<button class="adminHeader-btn" onclick="location.href='adminNoticeList.do'">취소</button>
 					</div>
 				</c:if>
 			</form>

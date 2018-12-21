@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+button {
+	outline: 0;
+}
+
+.adminHeader-btn {
+	width: 100px;
+	height: 40px;
+	border: 1px solid #666;
+	background-color: #666;
+	font-size: 15px;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-left: 5px;
+}
+
+.adminHeader-btn1 {
+	width: 100px;
+	height: 40px;
+	border: 1px solid #e18989;
+	background-color: #e18989;
+	font-size: 15px;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-left: 5px;
+}
+
+.adminHeader-btn3 {
+	width: 100px;
+	height: 40px;
+	border: 1px solid #666;
+	background-color: #666;
+	font-size: 15px;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-left: 525px;
+}

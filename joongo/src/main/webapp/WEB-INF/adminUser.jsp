@@ -13,7 +13,7 @@
 <div class="adminHeader"><jsp:include page="/particular/adminHeader.jsp"></jsp:include></div>
 
 <div class="adminUser-divTop">
-	<div class="adminUser-divTitle">사용자 관리</div>
+	<div class="adminUser-divTitle">[ 사용자 관리 ]</div>
 	
 
 	<table class="adminUser-table">

@@ -6,11 +6,12 @@
 }
 
 .adminNotice-divTitle {
-	text-align: center;
+	
 	margin: auto;
 	margin-bottom: 60px;
 	font-size: 20px;
 	font-weight: bolder;
+	margin-left: 300px;
 }
 
 .adminNoticeWrite-div {

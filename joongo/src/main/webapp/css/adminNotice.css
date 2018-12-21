@@ -5,8 +5,8 @@
 	margin-top: 30px;
 }
 
-.adminNotice-btmDiv{
-	margin-bottom: 10px;
+.adminNotice-btmDiv {
+	margin-bottom: 15px;
 }
 
 .adminNotice-divTop {
@@ -15,7 +15,7 @@
 	margin-bottom: 50px;
 }
 
-.adminNoticeModify-topDiv{
+.adminNoticeModify-topDiv {
 	height: auto;
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -30,6 +30,12 @@
 }
 
 
+.adminNotice-divTitle1{
+	margin-left: 300px;
+	margin-bottom: 30px;
+	font-size: 20px;
+	font-weight: bolder;
+}
 
 .adminNotice-table {
 	width: 100%;
@@ -100,7 +106,20 @@
 	padding-right: 10px;
 }
 
-.adminNoticeModify-textarea{
+.adminNoticeModify-textarea {
 	padding: 10px;
-	    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
+
+.adminHeader-btn2 {
+	width: 140px;
+    height: 40px;
+    border: 1px solid #666;
+    background-color: #666;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+
+}
+
