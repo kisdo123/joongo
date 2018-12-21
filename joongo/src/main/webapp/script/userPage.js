@@ -156,8 +156,8 @@ function pagination() {
 					var text = "<div class='productuser-review'>"+
 					"<div class='user-review-container'>"+
 					"<input id='reviewNo' type='hidden' value='"+review.reviewNo+"'>" +
-					"<span>"+review.nickname+"</span>"+
-							"<span class='date'>"+review.wdate+"</span>"+
+					"<span>닉네임 : "+review.nickname+"</span>"+
+							"<span class='date'>"+ review.wdate+"</span>"+
 							"<div class='user-review-content'>"+
 								"<p class='user-review'>"+review.content+"</p>"+
 									"<p class='user-review-function'>" +
@@ -280,7 +280,7 @@ $(function() {
 		var content = $(this).parent().prev().text();
 		reviewNo = $(this).parent().parent().parent().find('input[type=hidden]').val();
 		$(this).parent().parent().prepend('<button id="modify">수정</button>');
-		$(this).parent().parent().prepend('<input type="text" value="' + content + '" id="reviewInput" required>');
+		$(this).parent().parent().prepend('<textarea id="reviewInput" class="reviewInput" required>'+ content +'</textarea>');
 		$(this).parent().prev().remove();
 		$(this).parent().remove();
 	})
@@ -477,6 +477,15 @@ $(function() {
 	// 후기 등록 글자수 제한
 	$(".review").keyup(function() {
 		var frm = $(".review");
+		if(frm.val().length > 100){  
+			alert("100자로 제한됩니다.");
+			frm.val(frm.val().substr(0,100));  
+			frm.focus();
+		};
+	});
+	// 후기 수정 글자수 제한
+	$(document).on('keyup', '#reviewInput', function() {
+		var frm = $("#reviewInput");
 		if(frm.val().length > 100){  
 			alert("100자로 제한됩니다.");
 			frm.val(frm.val().substr(0,100));  

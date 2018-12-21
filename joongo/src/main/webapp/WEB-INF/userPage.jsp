@@ -63,7 +63,7 @@
 					<div class="introduce-update">
 						<div class="introduce" id="introduce">
 							<c:if test="${pageUser.introduce.trim() == ''}">
-								<span class="introduce-content" id="introduce-content">소개글이 없습니다.</span>
+								<p class="introduce-content" id="introduce-content">소개글이 없습니다.</p>
 								<c:if test="${loginUser.userNo == pageUser.userNo }">
 									<p class="update" id="update">변경</p>
 									<textarea class="introduce-textarea" id="introduce-modify" placeholder="소개글을 입력해주세요."></textarea>

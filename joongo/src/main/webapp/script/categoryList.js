@@ -211,7 +211,7 @@ function pagination() {
         	} else if(SUPEREPICFANTASTICLENGTH > 20) {
         		end = 20;
         	} else {
-        		console.log(SUPEREPICFANTASTICLENGTH);
+        		alert('오류가 발생했습니다.')
         	}
         		
         	for(var i=0; i<end; i++){
