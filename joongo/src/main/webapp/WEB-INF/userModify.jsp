@@ -90,7 +90,7 @@
 				<div class="signup">
 					<h4 class="signup_title">전화번호</h4>
 					<span class="box">
-						<input type="text" class="phone" id="phone" name="phone" value="${pageUser.phone }">
+						<input type="text" class="modify-phone" id="phone" name="phone" value="${pageUser.phone }">
 						<button class="phone_cheak" onclick="phoneDuplicate()">중복확인</button>
 					</span>
 					<p id="phone_msg"></p>
