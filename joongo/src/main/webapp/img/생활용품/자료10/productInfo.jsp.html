@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://localhost:8080/joongo/particular/productInfo.jsp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script src="./productInfo.jsp_files/jquery.min.js.다운로드"></script>
+<link rel="stylesheet" href="./productInfo.jsp_files/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="./productInfo.jsp_files/public.css">
+<link rel="stylesheet" type="text/css" href="./productInfo.jsp_files/header.css">
+<link rel="stylesheet" type="text/css" href="./productInfo.jsp_files/footer.css">
+<link rel="stylesheet" type="text/css" href="./productInfo.jsp_files/loginPopup.css">
+<link rel="stylesheet" type="text/css" href="./productInfo.jsp_files/registerPopup.css">
+
+<script type="text/javascript" src="./productInfo.jsp_files/header.js.다운로드"></script>
+<script type="text/javascript" src="./productInfo.jsp_files/loginPopup.js.다운로드"></script>
+<script type="text/javascript" src="./productInfo.jsp_files/registerPopup.js.다운로드"></script>
+<link rel="stylesheet" type="text/css" href="./productInfo.jsp_files/main.css">
+<link rel="stylesheet" type="text/css" href="./productInfo.jsp_files/productInfo.css">
+<link rel="stylesheet" type="text/css" href="./productInfo.jsp_files/slide.css">
+<script type="text/javascript" src="./productInfo.jsp_files/main.js.다운로드"></script>
+<script type="text/javascript" src="./productInfo.jsp_files/productInfo.js.다운로드"></script>
+
+
+</head><body class="text-center" oncontextmenu="return false" ondragstart="return false" onselect="return false">
+	<div id="header-body" class="header-topfixed">
+		<nav id="header-navbar">
+			<div class="middle header-divTop">
+				<div class="header-logo">
+					<a href="http://localhost:8080/joongo/particular/productInfo.jsp#"> <img src="./productInfo.jsp_files/logo.png" class="header-img">
+					</a>
+				</div>
+				<div class="header-search">
+					<form action="http://localhost:8080/joongo/particular/search.do" method="post" class="header-form-search">
+						<input type="text" placeholder=" 검색어 입력" class="header-search-input" name="word" required=""> <input type="image" src="./productInfo.jsp_files/searchBtn.png" class="header-search-icon">
+					</form>
+				</div>
+				<div class="header-divLogin">
+					
+						<!-- 로그인 loginId가 있을 때 버튼 3개 -->
+						<div class="header-divNick">
+							<span class="header-spanNick"></span> 님
+							안녕하세요!
+						</div>
+						<img src="./productInfo.jsp_files/sellImg.png">
+						<span class="header-a" id="header-spanSell">판매하기</span>
+						<img src="./productInfo.jsp_files/myStoreImg.png">
+						<span class="header-a" id="header-spanMystore"> 내상점</span>
+						<img src="./productInfo.jsp_files/logoutImg.png" id="header-logoutImg">
+						<span class="header-a" id="header-spanLogout"> 로그아웃</span>
+
+					<!-- </c:if> -->
+				</div>
+				
+			</div>
+		</nav>
+	</div>
+	
+<script src="./productInfo.jsp_files/kakao.min.js.다운로드"></script>
+
+<div id="loginPopup-popup_mask"></div>
+<!-- 팝업 배경 DIV -->
+
+<div id="loginPopup-popupDiv">
+	<!-- 팝업창 -->
+
+	<img id="loginPopup-loginImg" src="./productInfo.jsp_files/logo100.png"> <img id="loginPopup-popCloseImg" src="./productInfo.jsp_files/loginCloseBtn.png">
+	<div id="loginPopup-popupTitle">중고장터로 중고거래 시작하기</div>
+	<div id="loginPopup-popupText">
+		로그인하고 빠르고 안전하게 중고거래를 시작하세요!<br> 단 15초면 회원가입 완료!
+		<div id="loginPopup-loginAPI">
+			<a id="kakao-register-btn"><iframe name="easyXDM_Kakao_2bvau9fcskd_provider" id="easyXDM_Kakao_2bvau9fcskd_provider" src="./productInfo.jsp_files/kakaoLoginWidget.html" frameborder="0" style="width: 222px; height: 49px;"></iframe></a> <a href="http://developers.kakao.com/logout"></a>
+		</div>
+
+	</div>
+	<div>
+		<form action="http://localhost:8080/joongo/particular/login.do">
+			<input class="loginPopup-loginInput" type="text" name="loginId" placeholder="아이디" required="" autofocus=""><br> <input class="loginPopup-loginInput" type="password" name="password" placeholder="비밀번호" required=""><br> <input type="submit" id="loginPopup-loginSubmit" value="로그인하기">
+		</form>
+
+	</div>
+	<br>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	// 사용할 앱의 JavaScript 키를 설정해 주세요.
+	Kakao.init('5e7ba7b367a3ddeee8bfc6511796f9b2');
+	
+	// 카카오 로그인 버튼을 생성합니다.
+	Kakao.Auth.createLoginButton({
+		container : '#kakao-register-btn',
+		success : function(authObj) {
+
+			// 로그인 성공시, API를 호출합니다.
+			Kakao.API.request({
+				url : '/v1/user/me',
+				success : function(res) {
+					console.log(res);
+
+					var userID = res.id; //유저의 카카오톡 고유 id
+
+					location.href="login.do?loginId="+userID+"&password="+userID;
+				},
+				fail : function(error) {
+					alert(JSON.stringify(error));
+				}
+			});
+		},
+		fail : function(err) {
+			alert(JSON.stringify(err));
+		}
+	});
+	//]]>
+</script>
+
+	
+<script src="./productInfo.jsp_files/kakao.min.js.다운로드"></script>
+
+	<div id="registerPopup-popup_mask"></div>
+	<!-- 팝업 배경 DIV -->
+
+	<div id="registerPopup-popupDiv">
+		<!-- 팝업창 -->
+
+		<img id="registerPopup-loginImg" src="./productInfo.jsp_files/logo100.png">
+		<img id="registerPopup-popCloseImg" src="./productInfo.jsp_files/loginCloseBtn.png">
+		<div id="registerPopup-popupTitle">중고장터로 중고거래 시작하기</div>
+		<div id="registerPopup-popupText">
+			로그인하고 빠르고 안전하게 중고거래를 시작하세요!<br> 단 15초면 회원가입 완료!
+			<div id="registerPopup-loginAPI">
+				<a id="kakao-login-btn"><iframe name="easyXDM_Kakao_exvjgkifeil_provider" id="easyXDM_Kakao_exvjgkifeil_provider" src="./productInfo.jsp_files/kakaoLoginWidget(1).html" frameborder="0" style="width: 222px; height: 49px;"></iframe></a> <a href="http://developers.kakao.com/logout"></a>
+			</div>
+
+			<!-- <div id="registerNormal">
+				<a id="normal-login-btn"></a> <a href="registerForm.do"></a>
+			</div> -->
+		</div>
+		<div id="registerPopup-signupPopup">
+			<a href="http://localhost:8080/joongo/particular/productInfo.jsp#">회원가입</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		//<![CDATA[
+		// 사용할 앱의 JavaScript 키를 설정해 주세요.
+		Kakao.init('5e7ba7b367a3ddeee8bfc6511796f9b2');
+
+		// 카카오 로그인 버튼을 생성합니다.
+		Kakao.Auth.createLoginButton({
+			container : '#kakao-login-btn',
+			success : function(authObj) {
+
+				// 로그인 성공시, API를 호출합니다.
+				Kakao.API.request({
+					url : '/v1/user/me',
+					success : function(res) {
+						console.log(res);
+
+						var userID = res.id; //유저의 카카오톡 고유 id
+						var userEmail = res.kaccount_email; //유저의 이메일
+						var userNickName = res.properties.nickname; //유저가 등록한 별명
+
+						location.href="registerFormKakao.do?loginId="+userID+"&email="+userEmail+"&nickname="+userNickName;
+
+					},
+					fail : function(error) {
+						alert(JSON.stringify(error));
+					}
+				});
+			},
+			fail : function(err) {
+				alert(JSON.stringify(err));
+			}
+		});
+		//]]>
+	</script>
+
+<div id="container" class="container">
+	<div class="w1200">
+
+
+
+		<div class="middle">
+			<div class="productInfo-topDiv">
+				<ul class="productInfo-radioUl">
+					<li class="productInfo-radioLi"><img src="./productInfo.jsp_files/1.jpg" class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src="./productInfo.jsp_files/2.jpg" class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src="./productInfo.jsp_files/3.jpg" class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src="./productInfo.jsp_files/4.jpg" class="productInfo-img"></li>
+					<li class="productInfo-radioLi"><img src="./productInfo.jsp_files/5.jpg" class="productInfo-img"></li>
+				</ul>
+				<div class="productInfo-raridoDiv">
+					<input type="radio" name="pos" class="pos" value="1" id="pos1" checked="checked"> <input type="radio" name="pos" class="pos" value="2" id="pos2"> <input type="radio" name="pos" class="pos" value="3" id="pos3"> <input type="radio" name="pos" class="pos" value="4" id="pos4"> <input type="radio" name="pos" class="pos" value="5" id="pos5">
+					<p class="pos">
+						<label for="pos1"></label> <label for="pos2"></label> <label for="pos3"></label> <label for="pos4"></label>
+					</p>
+				</div>
+			</div>
+
+			<div class="productInfo-context">
+				<c:foreach var="product" items="">
+					<div class="productInfo-title">제목 : </div>
+					<div class="productInfo-price">
+						가격 :  <span class="productInfo-won">원</span>
+					</div>
+
+					<ul class="productInfo-contextUl">
+						<li class="productInfo-contextLi"><strong>주소</strong> <span>서울특별시</span>
+						</li>
+						<li class="productInfo-contextLi"><strong>등록날짜</strong> <span>2018.11.30</span>
+						</li>
+						<li class="productInfo-contextLi"><strong>찜</strong> <span>30</span>
+						</li>
+						<li class="productInfo-contextLi"><strong>조회수</strong> <span>1234</span>
+						</li>
+						<li class="productInfo-contextLi"><strong>상태</strong> <span>판매중..</span>
+						</li>
+					</ul>
+				</c:foreach>
+			</div>
+
+			<div class="productInfo-btnDiv">
+				<button class="productInfo-zzimBtn">
+					<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜</span>
+				</button>
+				<button class="productInfo-buyBtn">
+					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
+					구매하기
+				</button>
+			</div>
+
+			<!-- 최신글은 한번만 -->
+			<div class="lately-container" style="clear: both;">
+				<p class="category-info">
+					<span class="category-title">연관상품</span>
+					<!-- <span class="all-view">전체보기</span> -->
+				</p>
+				<!-- 상품을 감싸고 있는 div  -->
+				<div class="product-container">
+					<!-- 상품이 for문으로 돌아가야 함 -->
+					<div class="product">
+						<div class="product-img-container">
+							<a href="http://localhost:8080/joongo/particular/productInfo.jsp#"> <img src="./productInfo.jsp_files/fruit.jpg" class="product-img">
+							</a>
+						</div>
+						<div class="product-info">
+							<div class="product-title">
+								<a href="http://localhost:8080/joongo/particular/productInfo.jsp#">ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ</a>
+							</div>
+							<div class="product-price">19000</div>
+							<div class="product-tag">#사과 #귤 #포도</div>
+						</div>
+					</div>
+					<div class="product">
+						<div class="product-img-container">
+							<a href="http://localhost:8080/joongo/particular/productInfo.jsp#"> <img src="./productInfo.jsp_files/fruit.jpg" class="product-img">
+							</a>
+						</div>
+						<div class="product-info">
+							<div class="product-title">
+								<a href="http://localhost:8080/joongo/particular/productInfo.jsp#">asdasdasdasdasdasdasd</a>
+							</div>
+							<div class="product-price">19000</div>
+							<div class="product-tag">#사과 #귤 #포도</div>
+						</div>
+					</div>
+					<div class="product">
+						<div class="product-img-container">
+							<a href="http://localhost:8080/joongo/particular/productInfo.jsp#"> <img src="./productInfo.jsp_files/fruit.jpg" class="product-img">
+							</a>
+						</div>
+						<div class="product-info">
+							<div class="product-title">
+								<a href="http://localhost:8080/joongo/particular/productInfo.jsp#">맛있는 과일!</a>
+							</div>
+							<div class="product-price">19000</div>
+							<div class="product-tag">#사과 #귤 #포도</div>
+						</div>
+					</div>
+					<div class="product">
+						<div class="product-img-container">
+							<a href="http://localhost:8080/joongo/particular/productInfo.jsp#"> <img src="./productInfo.jsp_files/fruit.jpg" class="product-img">
+							</a>
+						</div>
+						<div class="product-info">
+							<div class="product-title">
+								<a href="http://localhost:8080/joongo/particular/productInfo.jsp#">맛있는 과일!</a>
+							</div>
+							<div class="product-price">19000</div>
+							<div class="product-tag">#사과 #귤 #포도</div>
+						</div>
+					</div>
+					<div class="product">
+						<div class="product-img-container">
+							<a href="http://localhost:8080/joongo/particular/productInfo.jsp#"> <img src="./productInfo.jsp_files/fruit.jpg" class="product-img">
+							</a>
+						</div>
+						<div class="product-info">
+							<div class="product-title">
+								<a href="http://localhost:8080/joongo/particular/productInfo.jsp#">맛있는 과일!</a>
+							</div>
+							<div class="product-price">19000</div>
+							<div class="product-tag">#사과 #귤 #포도</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="productInfo-exTitle">상품정보</div>
+			<div class="productInfo-ex"></div>
+
+			<c:foreach var="product" items="">
+				<div class="productInfo-exContext">내용</div>
+			</c:foreach>
+
+			<!-- 맨 위, 맨 아래로 -->
+			<div class="top-down-cotainer">
+				<div class="up">
+					<span>TOP</span><i class="fa fa-arrow-up arrow-up" aria-hidden="true"></i>
+				</div>
+				<div class="down">
+					<span>BOTTOM</span><i class="fa fa-arrow-down arrow-down" aria-hidden="true"></i>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</div>
+
+
+
+<footer class="footer">
+	<div id="footer-middle" class="middle">
+		<div class="footer-logo">
+			<a href="http://localhost:8080/joongo/particular/productInfo.jsp#">
+				<img src="./productInfo.jsp_files/logo100.png" class="footer-logo-img">
+			</a>
+		</div>
+			<div class="footer-joongo">
+				<dl>
+					<dt>중고장터㈜</dt>
+					<dd>서울특별시 금천구 가산디지털1로 186 제이플라츠 5층</dd>
+					<dd>대표 : 김형렬</dd>
+					<dd>Tel: 010-1234-5678</dd>
+					<dd>Fax: 02-345-6789</dd>
+				</dl>
+			</div>
+			<div class="footer-center">
+				<dl>
+					<dt>고객센터</dt>
+					<dd> 서울특별시 금천구 가산디지털1로 186</dd>
+					<dd>Tel: 010-1234-5678</dd>
+					<dd>Fax: 02-345-6789</dd>
+					<dd>Email: koitt@koitt.com</dd>
+				</dl>
+			</div>
+			<div class="footer-ele">
+				<dl>
+					<dt>거래담당</dt>
+					<dd>Tel: 010-1234-5678</dd>
+					<dd>Fax: 02-345-6789</dd>
+					<dd>Email: koitt@koitt.com</dd>
+				</dl>
+			</div>
+		<div class="footer-conts">
+			<div class="footer-info">
+				서울특별시 금천구 가산디지털1로 186 제이플라츠 5층 TEL/010-1234-5678<br>
+				중고장터㈜는 통신판매중개자로서 중고거래마켓 중고장터의 거래 당사자가 아니며, 입점판매가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다.<br>
+			</div>
+			<div class="footer-copy">
+				Copyright ⓒ JOONGOJANG Corp. All rights reserved.
+			</div>
+			<ul class="footer-ul">
+				<li class="footer-li">
+					<a class="footer-facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+				</li>
+				<li class="footer-li">
+					<a class="footer-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+  				</li>
+  				<li class="footer-li">
+  					<a>카톡</a>
+  				</li>
+			</ul>
+		</div>
+	</div>
+</footer>
+
+</body></html>

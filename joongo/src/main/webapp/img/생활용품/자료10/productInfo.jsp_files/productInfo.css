@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+
+.productInfo-topDiv {
+	float: left;
+	width: 400px;
+	margin-right: 30px;
+	margin-bottom: 150px;
+	margin-top: 30px;
+	overflow: hidden;
+}
+
+.productInfo-context {
+	float: left;
+}
+
+.productInfo-title {
+	width: 500px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	font-size: 22px;
+	font-weight: bolder;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.productInfo-price {
+	width: 500px;
+	height: 65px;
+	font-size: 35px;
+	font-weight: bolder;
+	border-bottom: 1px solid #e8e8e8;
+	margin-bottom: 75px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	clear: both;
+}
+
+.productInfo-contextUl {
+	margin-bottom: 20px;
+}
+
+.productInfo-contextLi {
+	margin-bottom: 10px;
+}
+
+.productInfo-contextLi>strong {
+	float: left;
+	min-width: 90px;
+	font-size: 15px;
+	font-weight: bolder;
+	color: #999;
+}
+
+.productInfo-contextLi>span {
+	font-size: 15px;
+	font-weight: bolder;
+}
+
+.productInfo-btnDiv {
+	
+}
+
+.productInfo-zzimBtn {
+	width: 150px;
+	height: 56px;
+	border: 1px solid #ffa425;
+	background-color: #ffa425;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	margin-right: 5px;
+	cursor: pointer;
+
+}
+
+
+
+.productInfo-buyBtn {
+	width: 150px;
+	height: 56px;
+	border: 1px solid #da1519;
+	background-color: #e81e22;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.productInfo-img {
+	width: 400px;
+	height: 400px;
+}
+
+.productInfo-ex {
+	margin-bottom: 50px;
+	height: 30px;
+	border-bottom: 1px solid black;
+}
+
+.productInfo-exTitle {
+	margin-top: 100px;
+	margin-left: 30px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.productInfo-exContext {
+	height: 300px;
+	margin-left: 30px;
+}
+
+.productInfo-raridoDiv {
+	text-align: center;
+}
+
+label {
+	display: inline-block;
+	vertical-align: middle;
+	width: 10px;
+	height: 10px;
+	border: 2px solid #666;
+	background: #fff;
+	transition: 0.3s;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.productInfo-radioUl {
+	width: 2000px;
+}
+
+.productInfo-radioLi {
+	float: left;
+}
+
+.productInfo-won{
+	font-size: 25px;
+}
+
+
+.productInfo-raridoDiv label{
+	display: inline-block;
+	vertical-align: middle;
+	width: 10px;
+	height: 10px;
+	border: 2px solid #666;
+	background: #fff;
+	transition: 0.3s;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+
+.productInfo-raridoDiv input[type="radio"]{
+	display: none;
+}
+
+
+#pos1:checked ~.pos>label:nth-child(1) {
+	background: #666;
+}
+
+#pos2:checked ~.pos>label:nth-child(2) {
+	background: #666;
+}
+
+#pos3:checked ~.pos>label:nth-child(3) {
+	background: #666;
+}
+
+#pos4:checked ~.pos>label:nth-child(4) {
+	background: #666;
+}
+
