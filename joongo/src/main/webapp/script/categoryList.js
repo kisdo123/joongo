@@ -22,6 +22,11 @@ function tag() {
 	})
 }
 
+function conditCss() {
+	$(".product-condit:contains('판매완료')").css({"color": "#e81e22", "font-weight" : "bolder"});
+	$(".product-condit:contains('판매중')").css({"color": "#0043ffd1", "font-weight" : "bolder"});
+}
+
 $(function(){
 	
 	// 마지막 line 클래스 없애기
@@ -107,13 +112,13 @@ function selectCat(catNo){
 									"</div>"+
 									"<div class='product-price'>"+product.price+"</div>"+
 									"<div class='product-tag'>"+product.tags+"</div>"+
+									"<div class='product-condit'>"+ product.condit +"</div>"+
 								"</div>"+
 							"</div>";
 				
 				pagination();
 			}	
 		},error: function(error){
-			console.log(error);
 			alert("에러가 발생했습니다.");
 		}
 		
@@ -187,12 +192,14 @@ function pagination() {
 				"</div>"+
 				"<div class='product-price'>"+product.price+"</div>"+
 				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+				"<div class='product-condit'>"+ product.condit +"</div>"+
 				"</div>"+
 				"</div>";
 				
 				$('#products').append(text);
 			}
 			tag();
+			conditCss();
         },
         /* 첫 화면 10개 출력 */
         onInit: function() {
@@ -221,12 +228,14 @@ function pagination() {
 				"</div>"+
 				"<div class='product-price'>"+product.price+"</div>"+
 				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+				"<div class='product-condit'>"+ product.condit +"</div>"+
 				"</div>"+
 				"</div>";
 				
 				$('#products').append(text);
 			}
         	tag();
+        	conditCss();
         }
 	});
 }
