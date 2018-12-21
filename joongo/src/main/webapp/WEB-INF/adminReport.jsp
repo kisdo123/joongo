@@ -14,7 +14,7 @@
 <jsp:include page="/particular/adminHeader.jsp"></jsp:include>
 
 <div style="height: auto; margin-top: 50px;">
-	신고내용 관리하는 페이지<br><br><br>
+	<div class="adminNotice-divTitle">신고내용 관리</div>
 
 	<table class="adminReport-table">
 		<thead>
@@ -25,6 +25,7 @@
 				<th>신고ID</th>
 				<th>내용</th>
 				<th>작성날짜</th>
+				<th colspan="2">관리</th>
 			</tr>
 		</thead>
 		<c:forEach var="reports" items="${reportList }">
@@ -36,7 +37,7 @@
 					<td>${reports.reportId }</td>
 					<td><div class="adminReport-div">${reports.content }</div></td>
 					<td>${reports.wdate }</td>
-					<td><button class="noticeDelBtn" onclick="deleteReport(${reports.reportNo })">글 삭제</button></td>
+					<td style="border-right: 3px solid #6666667a;"><button class="noticeDelBtn" onclick="deleteReport(${reports.reportNo })">글 삭제</button></td>
 				</tr>
 			</tbody>
 		</c:forEach>

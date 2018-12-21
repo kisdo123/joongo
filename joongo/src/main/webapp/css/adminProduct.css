@@ -1,9 +1,41 @@
 @charset "UTF-8";
 
-.adminProduct-table{
-	 text-align: center;
-	 border: 1px solid black;
-	 width: 100%;
-	 max-width: 95%;
-	 margin: auto;
+.adminProduct-divTitle {
+	text-align: center;
+	margin: auto;
+	margin-bottom: 30px;
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.adminProduct-table {
+	text-align: center;
+	border: 1px solid black;
+	width: 100%;
+	max-width: 95%;
+	margin: auto;
+}
+
+.adminProduct-table {
+	width: 100%;
+	max-width: 95%;
+	margin: auto;
+	text-align: center;
+	border: 3px solid #6666667a;
+	font-size: 12px;
+	border-collapse: collapse;
+}
+
+.adminProduct-table thead tr {
+	background-color: #9e9e9e40;
+	height: 30px;
+}
+
+.adminProduct-table thead tr th {
+	border: 1px solid #c0c0c0;
+}
+
+.adminProduct-table td {
+	border: 1px solid #c0c0c0;
+	height: 30px;
 }

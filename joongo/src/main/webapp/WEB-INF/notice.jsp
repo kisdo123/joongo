@@ -45,7 +45,7 @@
 					</c:forEach>
 				</table>
 
-				<button class="notice_moreBtn">더보기</button>
+				<!-- <button class="notice_moreBtn">더보기</button> -->
 			</div>
 
 			<!-- 맨 위, 맨 아래로 -->
