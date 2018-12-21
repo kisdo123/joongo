@@ -119,6 +119,10 @@ $(function() {
 			$("#bdate").css("border-color", "red");
 			return false;
 		} else {
+			if ( $("#bdate").val().length < 8 ){
+				$("#bdate_msg").html("형식에 맞게 입력해주세요");
+				$("#bdate").css("border-color", "red");
+			}
 			$("#bdate_msg").html("");
 			$("#bdate").css("border-color", "gray");
 		}
