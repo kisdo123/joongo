@@ -79,10 +79,6 @@ function check() {
 	if ($("#phone1").val() == "" | $("#phone2").val() == "" | $("#phone3").val() == "") {
 		$("#phone_msg").html("전화번호를 입력하세요.").css("color", "red")
 		flag = false;
-	} else {
-		$("#phone_msg").html("");
-		let phone = $("#phone1").val()+"-"+$("#phone2").val()+"-"+$("#phone3").val();
-		$("#phone").val(phone);
 	}
 	if (flag) {
 		if(phoneDup){
