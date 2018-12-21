@@ -17,7 +17,7 @@
 					<input type="text" class="adminNoticeWrite-inputTitle" name="title" placeholder="공지사항 제목을 입력하세요" required autofocus>
 				</div>
 				<div class="adminNoticeWrite-content">공지사항 내용</div>
-				<textarea name="content" rows="10" cols="100" placeholder="공지사항 내용을 입력하세요" class="adminNoticeWrite-textarea" required></textarea>
+				<textarea name="content" rows="30" cols="100" placeholder="공지사항 내용을 입력하세요" class="adminNoticeWrite-textarea" required></textarea>
 				<div>
 					<input type="submit" value="공지등록">
 					<button onclick="location.href='adminNoticeList.do'">취소</button>

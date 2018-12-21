@@ -89,6 +89,8 @@
 						<div class="center menu-title menu" onclick="viewReview('getReviewList.do')">후기</div>
 						<div class="center menu-title menu" onclick="view('favoriteList.do')">찜</div>
 					</c:if>
+					
+					
 					<c:if test="${pageUser.userNo != loginUser.userNo }">
 						<div class="center1 menu-title1 menu1" onclick="view('shopList.do')">상품</div>
 						<div class="center1 menu-title1 menu1" onclick="viewReview('getReviewList.do')">후기</div>

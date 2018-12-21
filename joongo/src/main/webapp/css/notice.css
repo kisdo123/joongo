@@ -133,7 +133,7 @@
 	word-wrap: break-word;
 	margin: auto;
 	font-weight: bolder;
-	font-size: 20px;
+	font-size: 18px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -153,7 +153,7 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border: 5px solid #f4c9c9;
-	height: 500px;
+	height: auto;
 }
 
 #noticeContent-table thead {

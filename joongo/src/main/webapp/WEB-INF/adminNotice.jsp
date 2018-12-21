@@ -14,7 +14,11 @@
 	<div class="adminNotice-divTop">
 
 		<div class="adminNotice-divTitle">공지사항 관리</div>
-
+		<div class="adminNotice-btmDiv">
+			<button onclick="location.href='noticeList.do'" style="margin-left: 50px;">일반글 목록보기</button>
+			<button onclick="location.href='adminWriteNoticeForm.do'" style="float: right; margin-right: 50px;">공지사항 글쓰기</button>
+		</div>
+		
 		<table class="adminNotice-table">
 			<thead>
 				<tr>
@@ -55,10 +59,9 @@
 				</tbody>
 			</c:forEach>
 		</table>
-		<br>
 
-		<button onclick="location.href='noticeList.do'" style="float: left; margin-left: 40px;">일반글 목록보기</button>
-		<button onclick="location.href='adminWriteNoticeForm.do'" style="float: right; margin-right: 40px;">공지사항 글쓰기</button>
+
+
 
 	</div>
 </body>

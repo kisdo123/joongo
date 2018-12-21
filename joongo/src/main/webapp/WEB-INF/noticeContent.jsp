@@ -32,7 +32,7 @@
 					<tbody class="notice-tbody">
 						<tr>
 							<td colspan="3">
-								<div class="noticeContent-div">${notice.content }</div>
+								<div class="noticeContent-div"><pre>${notice.content }</pre></div>
 							</td>
 						</tr>
 					</tbody>
