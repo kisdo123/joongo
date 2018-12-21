@@ -111,7 +111,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void deleteProduct(int proNo) {
 		Product product = adminDAO.selectOneProduct(proNo);
-		
+		System.out.println("이미지 개수 "+product.getImage().size());
 		if (proNo == 0) {
 			throw new ProductNotFoundException("글을 찾을수 없음");
 		}
@@ -138,5 +138,4 @@ public class AdminServiceImpl implements AdminService {
 			}
 		}
 	}
-
 }
