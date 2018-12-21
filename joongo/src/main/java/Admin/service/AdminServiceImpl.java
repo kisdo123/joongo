@@ -40,6 +40,7 @@ public class AdminServiceImpl implements AdminService {
 			throw new DeleteFailedException("삭제 실패");
 		}
 
+		System.out.println(userNo);
 		// 유저가 삭제되면 관련 정보들을 모두 지움
 		adminDAO.deleteAllFavoriteByUser(userNo);
 		adminDAO.deleteAllReviewByUser(userNo);
