@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import Product.DAO.ProductDAO;
 import Product.DTO.Image;
 import Product.DTO.Product;
+import exception.BadLoginIdException;
 import exception.ProductNotFoundException;
 
 @Service("productService")
@@ -189,7 +190,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void update(Product product) {
 		if (product.getUserNo() == 0) {
-			System.out.println("로그인되지 않았습니다.");
+			throw new BadLoginIdException("로그인 정보가 누락되었습니다.");
 		}
 		// 해당글의 imagePath조회
 		int proNo = product.getProNo();
@@ -242,18 +243,13 @@ public class ProductServiceImpl implements ProductService {
 
 		int size = originImage.size();
 		for (int i = 0; i < size; i++) {
-			System.out.println("i :" + i);
 			for (Image updateImage : imageList) {
-				System.out.println("remove : " + originImage.get("image" + i).getImagePath());
-				System.out.println("update : " + updateImage.getImagePath());
 				if (updateImage.getImagePath().equals(originImage.get("image" + i).getImagePath())) {
 					originImage.remove("image" + i);
-					System.out.println("맵에서 지움, size:" + originImage.size());
 					break;
 				}
 			}
 		}
-		System.out.println(originImage.size());
 
 		for (String key : originImage.keySet()) {
 			// Path에 있는 이미지 파일 삭제
@@ -262,7 +258,6 @@ public class ProductServiceImpl implements ProductService {
 			File file = new File(
 					"C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"
 							+ path);
-			System.out.println(file.getPath());
 			if (file.exists()) {
 				if (file.delete()) {
 					System.out.println("파일삭제 성공");
