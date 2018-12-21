@@ -648,7 +648,7 @@ public class MainController {
 	}
 
 	// 글 able 변경
-	@RequestMapping("/updateableProduct.do")
+	@RequestMapping("/updateAbleProduct.do")
 	@ResponseBody
 	public String updateableProduct(HttpServletRequest req, @RequestParam("proNo") int proNo,
 			@RequestParam("able") boolean able) {
@@ -662,7 +662,7 @@ public class MainController {
 	}
 
 	// 글 완전삭제
-	@RequestMapping("adminDeleteProduct.do")
+	@RequestMapping("/adminDeleteProduct.do")
 	public String adminDeleteProduct(HttpServletRequest req, @RequestParam("proNo") int proNo) {
 		try {
 			adminService.deleteProduct(proNo);

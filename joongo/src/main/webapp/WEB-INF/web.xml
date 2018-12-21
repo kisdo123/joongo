@@ -54,20 +54,54 @@
 
 	<filter-mapping>
 		<filter-name>Login</filter-name>
-		<url-pattern>/writeProductForm.do</url-pattern>
-		<url-pattern>/writeProduct.do</url-pattern>
+		<!-- 유저 -->
 		<url-pattern>/logout.do</url-pattern>
 		<url-pattern>/introduceModify.do</url-pattern>
 		<url-pattern>/deleteUser.do</url-pattern>
 		<url-pattern>/modifyUserForm.do</url-pattern>
 		<url-pattern>/modifyUser.do</url-pattern>
-		<url-pattern>/addFavorite.do</url-pattern>
-		<url-pattern>/deleteFavorite.do</url-pattern>
+		
+		<!-- 게시글 -->
+		<url-pattern>/writeProductForm.do</url-pattern>
+		<url-pattern>/writeProduct.do</url-pattern>
 		<url-pattern>/productModifyForm.do</url-pattern>
 		<url-pattern>/productModify.do</url-pattern>
 		<url-pattern>/delectProduct.do</url-pattern>
+		
+		<!-- 장바구니 -->
 		<url-pattern>/addFavorite.do</url-pattern>
 		<url-pattern>/deleteFavorite.do</url-pattern>
 		
+		<!-- 후기 -->
+		<url-pattern>/addReview.do</url-pattern>
+		<url-pattern>/updateReview.do</url-pattern>
+		<url-pattern>/deleteReview.do</url-pattern>
+		<url-pattern>/getReviewList.do</url-pattern>
+		
+		<!-- 신고하기 -->
+		<url-pattern>/report.do</url-pattern>
+		<url-pattern>/reportForm.do</url-pattern>
+		
+		<!-- 공지사항 -->
+		<url-pattern>/writeNotice.do</url-pattern>
+		<url-pattern>/writeNoticeForm.do</url-pattern>
+		<url-pattern>/adminlist.do</url-pattern>
+		<url-pattern>/noticelist.do</url-pattern>
+		<url-pattern>/noticeInfo.do</url-pattern>
+		<url-pattern>/ableUpdate.do</url-pattern>
+		<url-pattern>/noticeUpdateForm.do</url-pattern>
+		<url-pattern>/noticeUpdate.do</url-pattern>
+		<url-pattern>/noticeDelete.do</url-pattern>
+		
+		<!-- 관리자 기능 -->
+		<url-pattern>/adminGetAllUsers.do</url-pattern>
+		<url-pattern>/adminDeleteUser.do</url-pattern>
+		<url-pattern>/adminUpdateUserAble.do</url-pattern>
+		<url-pattern>/adminGetAllReports.do</url-pattern>
+		<url-pattern>/adminDeleteReport.do</url-pattern>
+		<url-pattern>/noticeAllProducts.do</url-pattern>
+		<url-pattern>/adminAllProducts.do</url-pattern>
+		<url-pattern>/adminUpdateAbleProduct</url-pattern>
+		<url-pattern>/adminDeleteProduct.do</url-pattern>
 	</filter-mapping>
 </web-app>
