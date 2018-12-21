@@ -112,6 +112,9 @@ public class AdminServiceImpl implements AdminService {
 	public void deleteProduct(int proNo) {
 		Product product = adminDAO.selectOneProduct(proNo);
 		
+		List<Image> images = adminDAO.selectImagesByProduct(proNo);
+		product.setImage(images);
+		
 		if (proNo == 0) {
 			throw new ProductNotFoundException("글을 찾을수 없음");
 		}

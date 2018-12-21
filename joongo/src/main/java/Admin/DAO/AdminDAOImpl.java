@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import Product.DTO.Image;
 import Product.DTO.Product;
 import Report.DTO.Report;
 import User.DTO.User;
@@ -64,6 +65,12 @@ public class AdminDAOImpl implements AdminDAO {
 	public Product selectOneProduct(int proNo) {
 		return adminMapper.selectOneProduct(proNo);
 	}
+	
+	@Override
+	public List<Image> selectImagesByProduct(int proNo){
+		return adminMapper.selectImagesByProduct(proNo);
+	}
+	
 
 	@Override
 	public void deleteAllReviewByUser(int userNo) {

@@ -39,7 +39,13 @@
 	<select id="selectOneProduct" resultType="Product" parameterType="int">
 		select * from products where proNo = #{proNo}
 	</select>
-	
+
+	<!-- 해당 글의 이미지 조회 -->
+	<select id="selectImagesByProduct" resultType="Image" parameterType="int">
+		select * from image where proNo = #{proNo};
+	</select>	
+
+
 
 	<!-- 전체목록보기 -->
 	<select id="selectAllProduct" resultType="Product">
