@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<jsp:include page="/particular/adminHeader.jsp"></jsp:include>
+<div class="adminHeader"><jsp:include page="/particular/adminHeader.jsp"></jsp:include></div>
 
 <div class="adminReport-divTop">
 	<div class="adminNotice-divTitle">신고내용 관리</div>

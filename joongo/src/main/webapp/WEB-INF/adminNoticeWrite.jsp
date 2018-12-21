@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="/joongo/css/adminNoticeWrite.css">
 </head>
 <body>
-	<jsp:include page="/particular/adminHeader.jsp"></jsp:include>
+	<div class="adminHeader"><jsp:include page="/particular/adminHeader.jsp"></jsp:include></div>
 
 	<div style="height: auto; margin-top: 50px;">
 		<div class="adminNoticeWrite-div">

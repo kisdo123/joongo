@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/joongo/script/adminNotice.js"></script>
 </head>
 <body>
-	<jsp:include page="/particular/adminHeader.jsp"></jsp:include>
+	<div class="adminHeader"><jsp:include page="/particular/adminHeader.jsp"></jsp:include></div>
 
 	<div class="adminNotice-divTop">
 
@@ -56,9 +56,9 @@
 			</c:forEach>
 		</table>
 		<br>
-		
-			<button onclick="location.href='noticeList.do'" style="float: left; margin-left: 40px;">일반글 목록보기</button>
-			<button onclick="location.href='adminWriteNoticeForm.do'" style="float: right; margin-right: 40px;">공지사항 글쓰기</button>
+
+		<button onclick="location.href='noticeList.do'" style="float: left; margin-left: 40px;">일반글 목록보기</button>
+		<button onclick="location.href='adminWriteNoticeForm.do'" style="float: right; margin-right: 40px;">공지사항 글쓰기</button>
 
 	</div>
 </body>

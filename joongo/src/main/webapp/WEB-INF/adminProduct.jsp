@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<jsp:include page="/particular/adminHeader.jsp"></jsp:include>
+<div class="adminHeader"><jsp:include page="/particular/adminHeader.jsp"></jsp:include></div>
 
 <div class="adminProduct-divTop">
 	<div class="adminProduct-divTitle">상품 관리</div>

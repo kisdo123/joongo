@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/joongo/script/adminNoticeModify.js"></script>
 </head>
 <body>
-	<jsp:include page="/particular/adminHeader.jsp"></jsp:include>
+	<div class="adminHeader"><jsp:include page="/particular/adminHeader.jsp"></jsp:include></div>
 
 	<div class="adminNoticeModify-topDiv" style="height: auto; margin-top: 50px;">
 		<div class="adminNoticeModify-div">

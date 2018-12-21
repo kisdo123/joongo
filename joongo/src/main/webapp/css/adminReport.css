@@ -1,14 +1,17 @@
 @charset "UTF-8";
 
-
-.adminReport-divTop{
-	 height: auto;
-	 margin-top: 50px;
-	 margin-bottom: 50px;
+.adminHeader {
+	text-align: center;
+	margin-top: 30px;
 }
 
+.adminReport-divTop {
+	height: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
 
-.adminNotice-divTitle{
+.adminNotice-divTitle {
 	text-align: center;
 	margin: auto;
 	margin-bottom: 30px;
@@ -16,7 +19,7 @@
 	font-weight: bolder;
 }
 
-.adminReport-table{
+.adminReport-table {
 	width: 100%;
 	max-width: 95%;
 	margin: auto;
@@ -26,13 +29,12 @@
 	border-collapse: collapse;
 }
 
-.adminReport-div{
+.adminReport-div {
 	text-align: center;
 	width: 400px;
 	word-wrap: break-word;
 	margin: auto;
 }
-
 
 .adminReport-table thead tr {
 	background-color: #9e9e9e40;
@@ -45,6 +47,5 @@
 
 .adminReport-table td {
 	border: 1px solid #c0c0c0;
-	
 	height: 30px;
 }

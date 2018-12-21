@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
+.adminHeader {
+	text-align: center;
+	margin-top: 30px;
+}
+
 .adminNotice-divTitle {
+	text-align: center;
 	margin: auto;
 	margin-bottom: 60px;
 	font-size: 20px;
@@ -33,4 +39,5 @@
 
 .adminNoticeWrite-textarea {
 	padding: 10px;
+	    margin-bottom: 10px;
 }
