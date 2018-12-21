@@ -83,6 +83,7 @@
 	border: 5px solid #f4c9c9;
 	height: 70px;
 	font-weight: bolder;
+	font-size: 15px;
 }
 
 #notice-topContentDiv {
@@ -118,10 +119,11 @@
 }
 
 .noticeContent-div {
-	width: 540px;
-	text-align: center;
-	word-wrap: break-word;
-	margin: auto;
+	width: 100%;
+    height: 100%;
+    text-align: center;
+    word-wrap: break-word;
+    margin: auto;
 }
 
 .notice-div {
@@ -175,4 +177,24 @@
 	color: #fff;
 	margin-left: 15px;
 	border-radius: 10px;
+}
+
+
+.noticeContent-titleDiv{
+	width: 100%;
+	margin-left: 30px;
+}
+
+.noticeContent-thead_td1{
+	padding: 8px;
+	width: 65%;
+	border: 5px solid #f4c9c9;
+	height: 70px;
+	font-size: 
+	font-size: 25px;
+    font-weight: bolder;
+}
+
+.noticeContent-span{
+	border: 1px solid black;
 }

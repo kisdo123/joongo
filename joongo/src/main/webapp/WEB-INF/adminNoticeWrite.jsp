@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="adminNoticeWrite-div">
-		<form action="writeNotice.do" method="post">
+		<form action="adminWriteNotice.do" method="post">
 			<div class="adminNoticeWrite-title">
 				공지사항 제목 <input type="text" class="adminNoticeWrite-inputTitle" name="title"
 					placeholder="제목을 입력하세요" autofocus>
