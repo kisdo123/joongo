@@ -19,7 +19,7 @@
 					<c:if test="${loginUser != null }">
 						<!-- 로그인 loginId가 있을 때 버튼 3개 -->
 						<div class="header-divNick">
-							<span class="header-spanNick">${loginUser.nickname }</span>
+							<span class="header-spanNick">${loginUser.name }</span>
 							님 안녕하세요!
 							<c:if test="${loginUser.admin}">
 							<button class="header-adminBtn" onclick="location.href='adminGetAllUsers.do'">관리자</button>
