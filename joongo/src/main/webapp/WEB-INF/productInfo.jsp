@@ -44,9 +44,6 @@
 			</div>
 			<div class="productInfo-btnDiv">
 
-
-
-
 				<c:if test="${product.userNo == loginUser.userNo}">
 					<button class="productInfo-storeBtn1" onclick="location.href='userPage.do?userNo=${product.userNo }'">
 						<span>
