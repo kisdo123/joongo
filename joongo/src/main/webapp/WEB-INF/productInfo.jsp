@@ -43,76 +43,97 @@
 				</ul>
 			</div>
 			<div class="productInfo-btnDiv">
-				<button class="productInfo-storeBtn" onclick="location.href='userPage.do?userNo=${product.userNo }'">
-					<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span> 상점이동
-				</button>
-				<c:if test="${favo == null }">
-					<button class="productInfo-zzimBtn" onclick="addFavorite(${loginUser.userNo}, ${product.proNo})">
-						<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 상품 찜</span>
-					</button>
-				</c:if>
-				<c:if test="${favo != null }">
-					<button class="productInfo-clickZzim" onclick="deleteFavorite(${loginUser.userNo}, ${favo.favoNo})">
-						<span class="productInfo-zzimI"><i class="fa fa-heart" aria-hidden="true"></i> 찜 해제</span>
-					</button>
-				</c:if>
-			</div>
-			<div class="productInfo-btnSecondDiv">
+
 				<c:if test="${product.userNo == loginUser.userNo}">
+					<button class="productInfo-storeBtn1" onclick="location.href='userPage.do?userNo=${product.userNo }'">
+						<span>
+							<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+						</span>
+						상점이동
+					</button>
 					<button class="productInfo-productModify" onclick="location.href='productModifyForm.do?proNo=${product.proNo }'">
-						<span><i class="fa fa-refresh" aria-hidden="true"></i></span> 글 수정
+						<span>
+							<i class="fa fa-refresh" aria-hidden="true"></i>
+						</span>
+						글 수정
 					</button>
 					<button class="productInfo-productdelete">
-						<span><i class="fa fa-times" aria-hidden="true"></i></span> 글 삭제
+						<span>
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</span>
+						글 삭제
 					</button>
 				</c:if>
-			</div>
-			<!-- 최신글은 한번만 -->
-			<div class="lately-container" style="clear: both;">
-				<p class="productInfo-category-title">
-					<span class="category-title">연관상품</span>
-					<!-- <span class="all-view">전체보기</span> -->
-				</p>
+				<c:if test="${product.userNo != loginUser.userNo}">
+					<button class="productInfo-storeBtn" onclick="location.href='userPage.do?userNo=${product.userNo }'">
+						<span>
+							<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+						</span>
+						상점이동
+					</button>
+					<c:if test="${favo == null }">
+						<button class="productInfo-zzimBtn" onclick="addFavorite(${loginUser.userNo}, ${product.proNo})">
+							<span class="productInfo-zzimI">
+								<i class="fa fa-heart" aria-hidden="true"></i> 상품 찜
+							</span>
+						</button>
+					</c:if>
+					<c:if test="${favo != null }">
+						<button class="productInfo-clickZzim" onclick="deleteFavorite(${loginUser.userNo}, ${favo.favoNo})">
+							<span class="productInfo-zzimI">
+								<i class="fa fa-heart" aria-hidden="true"></i> 찜 해제
+							</span>
+						</button>
+					</c:if>
+				</c:if>
 
-				<!-- 상품을 감싸고 있는 div  -->
-				<div class="product-container">
-					<!-- 상품을 5개 뽑는다. -->
-					<c:forEach var="pro" items="${pro }">
-						<div class="product">
-							<div class="product-img-container">
-								<a href="productInfo.do?proNo=${pro.proNo }"> <c:if test="${pro.image.isEmpty() }">
-										<img src="/joongo/image/no-image.jpg" class="product-img">
-									</c:if> <c:if test="${!pro.image.isEmpty() }">
-										<img src="${pro.image.get(0).imagePath }" class="product-img">
-									</c:if>
-								</a>
-							</div>
-							<div class="product-info">
-								<div class="product-title">
-									<a href="productInfo.do?proNo=${pro.proNo }"> ${pro.title }</a>
+				<!-- 최신글은 한번만 -->
+				<div class="lately-container" style="clear: both;">
+					<p class="productInfo-category-title">
+						<span class="category-title">연관상품</span>
+						<!-- <span class="all-view">전체보기</span> -->
+					</p>
+
+					<!-- 상품을 감싸고 있는 div  -->
+					<div class="product-container">
+						<!-- 상품을 5개 뽑는다. -->
+						<c:forEach var="pro" items="${pro }">
+							<div class="product">
+								<div class="product-img-container">
+									<a href="productInfo.do?proNo=${pro.proNo }"> <c:if test="${pro.image.isEmpty() }">
+											<img src="/joongo/image/no-image.jpg" class="product-img">
+										</c:if> <c:if test="${!pro.image.isEmpty() }">
+											<img src="${pro.image.get(0).imagePath }" class="product-img">
+										</c:if>
+									</a>
 								</div>
-								<div class="product-price">${pro.price }</div>
-								<c:if test="${pro.tags == '' || pro.tags eq null || empty pro.tags }">
-									<div class="product-tag">태그없음</div>
-								</c:if>
-								<c:if test="${pro.tags != '' }">
-									<div class="product-tag" style="max-width: 500px;">${pro.tags }</div>
-								</c:if>
-								<c:if test="${product.condit != ''}">
-									<div class="product-condit">${product.condit }</div>
-								</c:if>
+								<div class="product-info">
+									<div class="product-title">
+										<a href="productInfo.do?proNo=${pro.proNo }"> ${product.title} </a>
+									</div>
+									<div class="product-price">${pro.price }</div>
+									<c:if test="${pro.tags == '' || pro.tags eq null || empty pro.tags }">
+										<div class="product-tag">태그없음</div>
+									</c:if>
+									<c:if test="${pro.tags != '' }">
+										<div class="product-tag" style="max-width: 500px;"> ${pro.tags }</div>
+									</c:if>
+									<c:if test="${product.condit != ''}">
+										<div class="product-condit">${product.condit }</div>
+									</c:if>
+								</div>
 							</div>
-						</div>
-					</c:forEach>
+						</c:forEach>
+					</div>
+
 				</div>
+				<div class="productInfo-exTitle">상품정보</div>
+				<div class="productInfo-ex"></div>
+				<div class="productInfo-exContext">${product.content}</div>
 
+				<!-- 맨 위, 맨 아래로 -->
+				<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 			</div>
-			<div class="productInfo-exTitle">상품정보</div>
-			<div class="productInfo-ex"></div>
-			<div class="productInfo-exContext">${product.content}</div>
-
-			<!-- 맨 위, 맨 아래로 -->
-			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>
 	</div>
 </div>

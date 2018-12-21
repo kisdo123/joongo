@@ -83,15 +83,13 @@
 		<url-pattern>/reportForm.do</url-pattern>
 		
 		<!-- 공지사항 -->
-		<url-pattern>/writeNotice.do</url-pattern>
-		<url-pattern>/writeNoticeForm.do</url-pattern>
-		<url-pattern>/adminlist.do</url-pattern>
-		<url-pattern>/noticelist.do</url-pattern>
-		<url-pattern>/noticeInfo.do</url-pattern>
-		<url-pattern>/ableUpdate.do</url-pattern>
-		<url-pattern>/noticeUpdateForm.do</url-pattern>
-		<url-pattern>/noticeUpdate.do</url-pattern>
-		<url-pattern>/noticeDelete.do</url-pattern>
+		<url-pattern>/adminWriteNotice.do</url-pattern>
+		<url-pattern>/adminWriteNoticeForm.do</url-pattern>
+		<url-pattern>/adminNoticeList.do</url-pattern>
+		<url-pattern>/adminAbleUpdate.do</url-pattern>
+		<url-pattern>/adminNoticeUpdateForm.do</url-pattern>
+		<url-pattern>/adminNoticeUpdate.do</url-pattern>
+		<url-pattern>/adminNoticeDelete.do</url-pattern>
 		
 		<!-- 관리자 기능 -->
 		<url-pattern>/adminGetAllUsers.do</url-pattern>
@@ -99,9 +97,8 @@
 		<url-pattern>/adminUpdateUserAble.do</url-pattern>
 		<url-pattern>/adminGetAllReports.do</url-pattern>
 		<url-pattern>/adminDeleteReport.do</url-pattern>
-		<url-pattern>/noticeAllProducts.do</url-pattern>
 		<url-pattern>/adminAllProducts.do</url-pattern>
-		<url-pattern>/adminUpdateAbleProduct</url-pattern>
+		<url-pattern>/adminUpdateAbleProduct.do</url-pattern>
 		<url-pattern>/adminDeleteProduct.do</url-pattern>
 	</filter-mapping>
 </web-app>

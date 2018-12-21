@@ -491,7 +491,7 @@ public class MainController {
 	}
 
 	// 관리자 유저삭제
-	@RequestMapping("adminDeleteUser.do")
+	@RequestMapping("/adminDeleteUser.do")
 	@ResponseBody
 	public String deleteUser(HttpServletRequest req, @RequestParam("userNo") int userNo) {
 
@@ -557,7 +557,7 @@ public class MainController {
 		notice.setUserNo(userNo);
 		try {
 			noticeService.write(notice);
-			return "redirect:/adminList.do";
+			return "redirect:/adminNoticeList.do";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "adminNoticeWrite";
@@ -571,8 +571,8 @@ public class MainController {
 	}
 
 	// 관리자용 목록보기
-	@RequestMapping("/adminList.do")
-	public String adminlist(Model model) {
+	@RequestMapping("/adminNoticeList.do")
+	public String adminNoticeList(Model model) {
 		List<Notice> notices = noticeService.adminlist();
 		model.addAttribute("notices", notices);
 		return "adminNotice";
@@ -587,7 +587,7 @@ public class MainController {
 	}
 
 	// 내용보기
-	@RequestMapping("/adminNoticeInfo.do")
+	@RequestMapping("/noticeInfo.do")
 	public String viewcontent(Model model, @RequestParam int noticeNo) {
 		Notice notice = noticeService.viewcontent(noticeNo);
 		model.addAttribute("notice", notice);
@@ -600,7 +600,7 @@ public class MainController {
 			@RequestParam("able") Boolean able) {
 		try {
 			noticeService.updateable(noticeNo, able);
-			return "redirect:/adminList.do";
+			return "redirect:/adminNoticeList.do";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "adminNotice";
@@ -620,7 +620,7 @@ public class MainController {
 	public String noticeUpdate(Model model, @ModelAttribute Notice notice) {
 		try {
 			noticeService.updateNotice(notice);
-			return "redirect:/adminList.do";
+			return "redirect:/adminNoticeList.do";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "adminNoticeModify";
@@ -632,7 +632,7 @@ public class MainController {
 	public String noticeDelete(@RequestParam("noticeNo") int noticeNo) {
 		try {
 			noticeService.deleteNotice(noticeNo);
-			return "redirect:/adminList.do";
+			return "redirect:/adminNoticeList.do";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "main";

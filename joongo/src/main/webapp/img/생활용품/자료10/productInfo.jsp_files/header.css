@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+#header-body {
+	width: 100%;
+	border-bottom: 2px solid #e8e8e8;
+	background-color: white;
+}
+
+#header-navbar {
+	width: 1200px;
+	height: 160px;
+	background-color: white;
+	margin: auto;
+}
+
+.header-divTop {
+	height: 100px;
+	padding-top: 50px;
+}
+
+.header-divMenu {
+	height: 10px;
+	margin-bottom: 30px;
+}
+
+.header-logo {
+	margin-top: 5px;
+	margin-right: 100px;
+	float: left;
+}
+
+.header-search {
+	float: left;
+	width: 435px;
+}
+
+.header-divLogin {
+	float: left;
+}
+
+.header-divLogout{
+	position: relative;
+    float: left;
+    right: 35px;
+    top: 15px;
+}
+
+.header-form-search {
+	width: 510px;
+	height: 52px;
+}
+
+#header-spanJoin {
+	margin-left: 25px;
+}
+
+.header-search-input {
+	width: 350px;
+	height: 40px;
+	border: 2px solid #e81e22;
+	float: left;
+	margin-right: 65px;
+	padding: 0 48px 0 14px;
+	margin-top: 5px;
+	font-size: 15px;
+}
+
+.header-search-icon {
+	position: relative;
+	top: 15px;
+	right: 105px;
+}
+
+.header-img {
+	width: 210px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.header-search-input:focus {
+	outline: none;
+}
+
+.header-a:hover {
+	color: #bbbbbb;
+	cursor: pointer;
+}
+
+ul.header-ulMenu li {
+	float: left;
+	width: 179px;
+	height: 48px;
+	background-color: #555;
+	/*  */
+	position: relative;
+}
+
+ul.header-ulMenu li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 48px;
+	text-indent: 30px;
+	font-weight: bold;
+	color: #eee;
+	text-decoration: none;
+}
+
+ul.header-ulMenu li a:hover {
+	background-color: #333;
+}
+
+ul.header-ulMenu li ul.header-sub {
+	position: absolute;
+}
+
+ul.header-ulMenu {
+	zoom: 1;
+}
+
+ul.header-ulMenu:after {
+	height: 0;
+	visibility: hidden;
+	content: ".";
+	display: block;
+	clear: both;
+}
+
+.header-topfixed {
+	position: fixed;
+	top: 0;
+}
+
+.header-newLogin {
+	width: 420px;
+	border-radius: 4px;
+	box-shadow: 0 6px 50px 0 rgba(0, 0, 0, .1);
+	overflow: hidden;
+}
+
+.header-divNick {
+	margin-bottom: 15px;
+}
+
+.header-spanNick {
+	font-size: 20px;
+	font-weight: bolder;
+	color: #FFC107;
+}
+
+#header-spanLogin {
+	margin-left: 80px;
+}
+
+#header-spanSell {
+	vertical-align: top;
+	margin-right: 5px;
+}
+
+#header-spanMystore {
+	vertical-align: top;
+	margin-right: 5px;
+}
+
+#header-spanLogout {
+	vertical-align: top;
+}
+
+#header-logoutImg {
+	vertical-align: super;
+}

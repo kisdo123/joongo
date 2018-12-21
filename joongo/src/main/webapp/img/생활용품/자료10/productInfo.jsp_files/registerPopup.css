@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+#registerPopup-popupDiv { /* 팝업창 css */
+	top: 0px;
+	position: absolute;
+	background: white;
+	width: 350px;
+	height: 500px;
+	border-radius: 4px;
+	display: none;
+	border: 2.5px solid #312b2bc9;
+	text-align: center;
+}
+
+#registerPopup-popup_mask { /* 팝업 배경 css */
+	position: fixed;
+	width: 100%;
+	height: 1000px;
+	top: 0px;
+	left: 0px;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	opacity: 0.8;
+}
+
+#registerPopup-popupTitle {
+	margin-top: 45px;
+	font-weight: bolder;
+	font-size: 18px;
+}
+
+#registerPopup-popupText {
+	font-size: 12px;
+	margin-top: 45px;
+}
+
+#registerPopup-loginAPI {
+	margin-top: 60px;
+	margin-bottom: 10px;
+}
+
+
+
+#registerPopup-loginImg {
+	width: 75px;
+    height: 75px;
+    margin-top: 55px;
+    margin-left: 20px;
+}
+
+
+
+#registerPopup-popCloseImg {
+	position: relative;
+    cursor: pointer;
+    left: 99px;
+    bottom: 93px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+}
+
+
+
+#registerPopup-signupPopup{
+	border-radius: 5px;
+    width: 225px;
+    height: 45px;
+    background: #FE8181;
+    text-align: center;
+    line-height: 45px;
+    margin: auto;
+}
+
+#registerPopup-signupPopup a{
+	text-decoration: none;
+	color: white;
+	
+}

@@ -11,7 +11,7 @@ public interface AdminService {
 	List<User> getAllUsers();
 	void deleteUserFromDB(int userNo);
 	void updateUserAble(int userNo, boolean able);
-	
+
 	// 신고 관리
 	List<Report> getAllReports();
 	void deleteReportFromDB(int reportNo);

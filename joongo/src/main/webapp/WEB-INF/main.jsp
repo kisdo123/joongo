@@ -4,7 +4,6 @@
 <link rel="stylesheet" type="text/css" href="/joongo/css/main.css?3">
 <script type="text/javascript" src="/joongo/script/main.js"></script>
 <jsp:include page="/particular/header.jsp"></jsp:include>
-
 <div id="container" class="container">
 	<div class="w1200">
 		<div class="middle">
@@ -19,7 +18,8 @@
 					<c:forEach var="product" items="${products }">
 						<div class="product">
 							<div class="product-img-container">
-								<a href="productInfo.do?proNo=${product.proNo }"> <c:if test="${product.image.isEmpty() }">
+								<a href="productInfo.do?proNo=${product.proNo }">
+									<c:if test="${product.image.isEmpty() }">
 										<img src="/joongo/image/no-image.jpg" class="product-img">
 									</c:if> <c:if test="${!product.image.isEmpty() }">
 										<img src="${product.image.get(0).imagePath }" class="product-img">
