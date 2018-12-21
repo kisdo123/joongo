@@ -62,11 +62,21 @@
 					<span class="intro-title bold">소개글</span>
 					<div class="introduce-update">
 						<div class="introduce" id="introduce">
-							<span class="introduce-content" id="introduce-content">${pageUser.introduce }</span>
-							<c:if test="${loginUser.userNo == pageUser.userNo }">
-								<p class="update" id="update">변경</p>
-								<textarea class="introduce-textarea" id="introduce-modify">${pageUser.introduce }</textarea>
-								<button class="register" id="register" onclick="introduceChange(${pageUser.userNo})">등록</button>
+							<c:if test="${pageUser.introduce.trim() == ''}">
+								<span class="introduce-content" id="introduce-content">소개글이 없습니다.</span>
+								<c:if test="${loginUser.userNo == pageUser.userNo }">
+									<p class="update" id="update">변경</p>
+									<textarea class="introduce-textarea" id="introduce-modify" placeholder="소개글을 입력해주세요."></textarea>
+									<button class="register" id="register" onclick="introduceChange(${pageUser.userNo})">등록</button>
+								</c:if>
+							</c:if>
+							<c:if test="${pageUser.introduce.trim() != ''}">
+								<span class="introduce-content" id="introduce-content">${pageUser.introduce }</span>
+								<c:if test="${loginUser.userNo == pageUser.userNo }">
+									<p class="update" id="update">변경</p>
+									<textarea class="introduce-textarea" id="introduce-modify" placeholder="소개글을 입력해주세요.">${pageUser.introduce }</textarea>
+									<button class="register" id="register" onclick="introduceChange(${pageUser.userNo})">등록</button>
+								</c:if>
 							</c:if>
 						</div>
 					</div>

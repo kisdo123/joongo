@@ -12,6 +12,27 @@ function init(pageNo, userNo, nickname) {
 	SUPEREPICFANTASTICNICKNAME = nickname;
 }
 
+function tag() {
+	// tag #추가
+	$('.product-tag').each(function() {
+		var tag = $(this).text();
+		var ctag = '';
+
+		if (tag != '태그없음') {
+			let stag = tag.split(',');
+			for (let i = 0; i < stag.length; i++) {
+				ctag += '#' + stag[i] + ' ';
+			}
+			$(this).text(ctag);
+		}
+	})
+}
+
+function conditCss() {
+	$(".product-condit:contains('판매완료')").css({"color": "#e81e22", "font-weight" : "bolder"});
+	$(".product-condit:contains('판매중')").css({"color": "#0043ffd1", "font-weight" : "bolder"});
+}
+
 function pagination() {
 	/* 페이지네이션 버튼 생성 */
 	$('#pagination').pagination({
@@ -44,11 +65,14 @@ function pagination() {
 					"</div>"+
 					"<div class='product-price'>"+product.price+"</div>"+
 					"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+					"<div class='product-condit'>"+ product.condit +"</div>"+
 					"</div>"+
 					"</div>";
 					
 					$('#userpage').append(text);
 				}
+				tag();
+				conditCss();
 			} else if (SUPEREPICFANTASTICURL == 'getReviewList.do') {
 				var addreview = "";
 				
@@ -108,11 +132,14 @@ function pagination() {
 					"</div>"+
 					"<div class='product-price'>"+product.price+"</div>"+
 					"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+					"<div class='product-condit'>"+ product.condit +"</div>"+
 					"</div>"+
 					"</div>";
 					
 					$('#userpage').append(text);
 	        	}
+	        	tag();
+	        	conditCss();
 			}  else if (SUPEREPICFANTASTICURL == 'getReviewList.do') {
 				var addreview = "";
 				if(SUPEREPICFANTASTICPAGENO != SUPEREPICFANTASTICUSERNO){
@@ -180,14 +207,13 @@ function view(url) {
 				}
 			}
 		},
-		error: function(error) {
-			console.log(error);
+		error: function() {
+			alert('가져오는데 실패했습니다.');
 		}
 	})
 }
 
 function viewReview(url) {
-	console.log(url)
 	$.ajax({
 		url: url,
 		dataType: 'json',
@@ -217,8 +243,8 @@ function viewReview(url) {
 				}
 			}
 		},
-		error: function(error) {
-			console.log(error.responseText);
+		error: function() {
+			alert("후기를 가져올 수 없습니다.");
 		}
 	})
 }
@@ -241,7 +267,7 @@ function addReview() {
 			viewReview('getReviewList.do');
 		},
 		error: function(error) {
-			console.log(error.responseText);
+			alert('후기 등록에 실패했습니다.')
 		}
 	})
 }
@@ -277,7 +303,7 @@ $(function() {
 				viewReview('getReviewList.do');
 			},
 			error: function(error) {
-				console.log(error.responseText)
+				alert('수정에 실패했습니다.');
 			}
 		})
 	})
@@ -324,16 +350,15 @@ $(function() {
 	/* 소개글 변경 눌렀을 시 textarea와 버튼을 생성 */
 	$('#update').click(function() {
 		var content = $('#introduce-content').text();
-		var information = {
-				'content': content
-		};
 		
 		$('#introduce-content').css('display', 'none');
 		$('#update').css('display', 'none');
 		$('#introduce-modify').css('display', 'block');
 		$('#register').css('display', 'block');
 		
-		$('#introduce-modify').val(content);
+		if(content != '소개글이 없습니다.') {
+			$('#introduce-modify').val(content);
+		}
 	});
 	
 	$('.menu').click(function() {
@@ -477,7 +502,11 @@ function introduceChange(userNo) {
 			$('#introduce-modify').css('display', 'none');
 			$('#register').css('display', 'none');
 			
-			$('#introduce-content').text(content);
+			if(content != '') {
+				$('#introduce-content').text(content);
+			} else {
+				$('#introduce-content').text('소개글이 없습니다.');
+			}
 		},
 		error: function(error) {
 			alert('소개글 변경에 실패하였습니다.');
