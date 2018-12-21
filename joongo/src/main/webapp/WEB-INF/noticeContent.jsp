@@ -25,8 +25,8 @@
 								<span class="noticeContetn-titleNum">공지 ${notice.noticeNo }</span>
 								<span class="noticeContent-titleDiv">${notice.title }</span>
 							</td>
-							<td class="noticeContent-thead_td">중고장터 관리자</td>
-							<td class="noticeContent-thead_td">${notice.wdate }</td>
+							<td class="noticeContent-thead_td"><i class="fa fa-paint-brush" aria-hidden="true"></i>  중고장터 관리자</td>
+							<td class="noticeContent-thead_td"><i class="fa fa-calendar" aria-hidden="true"></i>  ${notice.wdate }</td>
 						</tr>
 					</thead>
 					<tbody class="notice-tbody">
