@@ -17,9 +17,9 @@
 	<jsp:include page="/particular/adminHeader.jsp"></jsp:include>
 
 	<div style="height: auto; margin-top: 50px;">
-		공지사항 관리하는 페이지
-		<button onclick="location.href='noticelist.do'">일반글 목록보기</button>
-		<br> <br> <br>
+	
+		<div class="adminNotice-divTitle">공지사항 관리<button onclick="location.href='noticelist.do'">일반글 목록보기</button></div>
+		
 		<table class="adminNotice-table">
 			<thead>
 				<tr>
@@ -29,6 +29,8 @@
 					<th>유저번호</th>
 					<th>작성날짜</th>
 					<th>활성여부</th>
+					<th colspan="4">관리</th>
+
 				</tr>
 			</thead>
 			<c:forEach var="notice" items="${notices }">

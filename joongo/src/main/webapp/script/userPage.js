@@ -65,8 +65,14 @@ function pagination() {
 					var text = "<div class='productuser-review'>"+
 					"<div class='user-review-container'>"+
 					"<span>"+review.nickname+"</span>"+
-					"<span>"+review.wdate+"</span>"+
-						"<p class='user-review'>"+review.content+"</p>"+
+							"<span class='date'>"+review.wdate+"</span>"+
+							"<div class='user-review-content'>"+
+								"<p class='user-review'>"+review.content+"</p>"+
+									"<p class='user-review-function'>" +
+									"<span id='user-review-modify' class='user-review-modify'>수정  </span>"+
+									"<span onclick='deleteReview()' class='user-review-delete'>삭제</span>"+
+									"</p>" +
+								"</div>"+
 							"</div>"+
 					"</div>";
 					$('#userpage').append(text);
@@ -121,12 +127,17 @@ function pagination() {
 				for(var i=0; i<end; i++){
 					var review = SUPEREPICFANTASTICITEM[i];
 					var text = "<div class='productuser-review'>"+
-							"<div class='user-review-container'>"+
-								"<span>"+review.nickname+"</span>"+
-								"<span>"+review.wdate+"</span>"+
+					"<div class='user-review-container'>"+
+					"<input id='reviewNo' type='hidden' value='"+review.reviewNo+"'>" +
+					"<span>"+review.nickname+"</span>"+
+							"<span class='date'>"+review.wdate+"</span>"+
+							"<div class='user-review-content'>"+
 								"<p class='user-review'>"+review.content+"</p>"+
-								"<a onclick=''>수정</a>"+
-								"<a onclick=''>삭제</a>"+
+									"<p class='user-review-function'>" +
+									"<span id='user-review-modify' class='user-review-modify'>수정  </span>"+
+									"<span id='user-review-delete' class='user-review-delete'>삭제</span>"+
+									"</p>" +
+								"</div>"+
 							"</div>"+
 					"</div>";
 					$('#userpage').append(text);
@@ -212,10 +223,11 @@ function viewReview(url) {
 	})
 }
 
+ /**********\
+    후기등록
+ \**********/
 function addReview() {
-	/**********\
-	 * 후기등록 * 
-	\**********/
+	
 	var content = $('#review').val();
 	$.ajax({
 		url: 'addReview.do',
@@ -226,7 +238,6 @@ function addReview() {
 			content: content
 		},
 		success: function() {
-			console.log('되버렸던 거임!');
 			viewReview('getReviewList.do');
 		},
 		error: function(error) {
@@ -236,6 +247,64 @@ function addReview() {
 }
 
 $(function() {
+	var reviewNo = 0;
+	
+	// 리뷰 수정버튼 클릭
+	$(document).on("click", ".user-review-modify", function() {
+		var content = $(this).parent().prev().text();
+		reviewNo = $(this).parent().parent().parent().find('input[type=hidden]').val();
+		$(this).parent().parent().prepend('<button id="modify">수정</button>');
+		$(this).parent().parent().prepend('<input type="text" value="' + content + '" id="reviewInput" required>');
+		$(this).parent().prev().remove();
+		$(this).parent().remove();
+	})
+	
+	// 수정 완료 버튼을 눌렀을 시
+	$(document).on('click', '#modify', function() {
+		var content = $('#reviewInput').val();
+		
+		$.ajax({
+			url: 'updateReview.do',
+			data: {
+				reviewNo: reviewNo,
+				content: content
+			},
+			success: function() {
+				$('.user-review').css('display', 'block');
+				$('.user-review-content > input').remove();
+				$('.user-review-content > button').remove();
+				
+				viewReview('getReviewList.do');
+			},
+			error: function(error) {
+				console.log(error.responseText)
+			}
+		})
+	})
+	
+	// 리뷰 삭제 버튼 클릭
+	$(document).on("click", ".user-review-delete", function() {
+		reviewNo = $(this).parent().parent().parent().find('input[type=hidden]').val();
+		var success = false;
+		$.ajax({
+			url: 'deleteReview.do',
+			data: {
+				reviewNo: reviewNo,
+			},
+			success: function() {
+				viewReview('getReviewList.do');
+				success = true;
+			},
+			error: function() {
+				alert('예기치 않은 오류가 발생했습니다.');
+			},
+			complete : function() {
+				if(success) {
+					alert("삭제했습니다.");
+				}    
+		    }
+		})
+	})
 	
 	// tag #추가
 	$('.product-tag').each(function() {

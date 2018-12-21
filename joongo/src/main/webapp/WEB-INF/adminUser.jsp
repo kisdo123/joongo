@@ -15,7 +15,8 @@
 <jsp:include page="/particular/adminHeader.jsp"></jsp:include>
 
 <div style="height: auto; margin-top: 50px;">
-	유저관리하는 페이지<br><br><br>
+	<div class="adminUser-divTitle">유저 관리</div>
+	
 
 	<table class="adminUser-table">
 		<thead>
@@ -29,10 +30,11 @@
 				<th>주소</th>
 				<th>생일</th>
 				<th>활성여부</th>
+				<th colspan="3">관리</th>
 			</tr>
 		</thead>
 		<c:forEach var="users" items="${userList }">
-			<c:if test="${users.loginId != loginUser.loginId}">
+			
 			<tbody>
 				<tr>
 					<td><a href="userPage.do?userNo=${users.userNo }">${users.userNo }</a></td>
@@ -46,10 +48,14 @@
 					<td>${users.able }</td>
 					<td><button onclick="admitUser(${users.userNo },true)">유저 활성화</button></td>
 					<td><button onclick="admitUser(${users.userNo },false)">유저 비활성화</button></td>
-					<td><button onclick="deleteUser(${users.userNo })">유저 삭제</button></td>
-				</tr>
+						
+							<td>
+							<c:if test="${users.loginId != loginUser.loginId}">
+								<button onclick="deleteUser(${users.userNo })">유저 삭제</button>
+							</c:if>
+						</td>
+					</tr>
 			</tbody>
-			</c:if>
 		</c:forEach>
 	</table>
 
