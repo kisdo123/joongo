@@ -54,5 +54,35 @@ public class AdminDAOImpl implements AdminDAO {
 	public int deleteProduct(int proNo) {
 		return adminMapper.deleteProduct(proNo);
 	}
+	
+	@Override
+	public Product selectOneProduct(int proNo) {
+		return adminMapper.selectOneProduct(proNo);
+	}
+
+	@Override
+	public void deleteAllReviewByUser(int userNo) {
+		adminMapper.deleteAllReviewByUser(userNo);
+	}
+
+	@Override
+	public void deleteAllFavoriteByUser(int userNo) {
+		adminMapper.deleteAllFavoriteByUser(userNo);
+	}
+
+	@Override
+	public void deleteAllImagesByProduct(int proNo) {
+		adminMapper.deleteAllImagesByProduct(proNo);
+	}
+
+	@Override
+	public List<Product> selectAllProductsByUser(int userNo) {
+		return adminMapper.selectAllProductsByUser(userNo);
+	}
+
+	@Override
+	public void deleteAllFavoriteByProduct(int proNo) {
+		adminMapper.deleteAllFavoriteByProduct(proNo);
+	}
 
 }

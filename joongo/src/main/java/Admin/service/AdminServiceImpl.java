@@ -1,5 +1,8 @@
 package Admin.service;
 
+import Product.DTO.Image;
+
+import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,44 +19,54 @@ import exception.UpdateFailedException;
 import exception.UserNotFoundException;
 
 @Service("adminService")
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	AdminDAO adminDAO;
-	
+
 	@Override
 	public List<User> getAllUsers() {
 		return adminDAO.selectAllUsers();
 	}
 
+	// 유저를 DB에서 삭제
 	@Override
 	public void deleteUserFromDB(int userNo) {
-		if(userNo == 0) {
+		if (userNo == 0) {
 			throw new UserNotFoundException("유저를 찾을 수 없음: 0");
 		}
 		int res = adminDAO.deleteUserFromDB(userNo);
-		if(res == 0) {
+		if (res == 0) {
 			throw new DeleteFailedException("삭제 실패");
 		}
+
+		// 유저가 삭제되면 관련 정보들을 모두 지움
+		adminDAO.deleteAllFavoriteByUser(userNo);
+		adminDAO.deleteAllReviewByUser(userNo);
+		List<Product> productList = adminDAO.selectAllProductsByUser(userNo);
+		for(Product product : productList) {
+			deleteProduct(product.getProNo());
+		}
+		
+		
 	}
 
 	@Override
 	public void updateUserAble(int userNo, boolean able) {
-		if(userNo == 0) {
+		if (userNo == 0) {
 			throw new UserNotFoundException("유저를 찾을 수 없음: 0");
 		}
 
 		int ableToInt = 0;
-		if(able) {
-			ableToInt= 1;
+		if (able) {
+			ableToInt = 1;
 		}
 		int res = adminDAO.updateUserAble(userNo, ableToInt);
-		if(res == 0 ) {
+		if (res == 0) {
 			throw new UpdateFailedException("수정 실패");
 		}
 	}
 
-	
 	@Override
 	public List<Report> getAllReports() {
 		return adminDAO.selectAllReports();
@@ -61,48 +74,68 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public void deleteReportFromDB(int reportNo) {
-		if(reportNo == 0 ) {
+		if (reportNo == 0) {
 			throw new ReportNotFoundException("신고글을 찾을 수 없음");
 		}
 		int res = adminDAO.deleteReportFromDB(reportNo);
-		if(res == 0 ) {
+		if (res == 0) {
 			throw new DeleteFailedException("삭제 실패");
 		}
 	}
-	//글전체목록 조회
+
+	// 글전체목록 조회
 	@Override
 	public List<Product> selectAllProduct() {
 		return adminDAO.selectAllProduct();
 	}
 
-	//able 변경
+	// able 변경
 	@Override
 	public void updateAbleProduct(int proNo, boolean able) {
-		if(proNo == 0) {
+		if (proNo == 0) {
 			throw new ProductNotFoundException("글을 찾을수 없음");
 		}
 		int ableToInt = 0;
-		if(able) {
-			ableToInt= 1;
+		if (able) {
+			ableToInt = 1;
 		}
 
 		int res = adminDAO.updateAbleProduct(proNo, ableToInt);
-		if(res == 0 ) {
+		if (res == 0) {
 			throw new UpdateFailedException("수정 실패");
 		}
-	}	
-	
-	//완전삭제
+	}
+
+	// 완전삭제
 	@Override
 	public void deleteProduct(int proNo) {
-		if(proNo == 0) {
+		Product product = adminDAO.selectOneProduct(proNo);
+		
+		if (proNo == 0) {
 			throw new ProductNotFoundException("글을 찾을수 없음");
 		}
 		int res = adminDAO.deleteProduct(proNo);
-		if(res == 0) {
-			throw new DeleteFailedException("삭제 실패");
+		if (res == 0) {
+			throw new DeleteFailedException("게시글 삭제 실패");
 		}
 		
+		if(!product.getImage().isEmpty()) {
+			adminDAO.deleteAllImagesByProduct(proNo);
+			
+			for(Image image : product.getImage()) {
+				String path = image.getImagePath();
+				File file = new File(
+						"C:/Users/KOITT_P/Desktop/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps"
+								+ path);
+				if (file.exists()) {
+					if (file.delete()) {
+						System.out.println("파일삭제 성공");
+					} else {
+						throw new DeleteFailedException("이미지 삭제 실패");
+					}
+				}
+			}
+		}
 	}
-	
+
 }

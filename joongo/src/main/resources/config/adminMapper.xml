@@ -16,6 +16,12 @@
 		delete from users where userNo = #{userNo}
 	</delete>
 	
+	<!-- 유저 삭제 시 관련 정보 삭제  -->
+	<delete id="deleteAllReviewByUser" parameterType="int">
+		delete from Review where userNo = #{userNo}
+	</delete>
+
+	<!-- 신고 -->
 	<select id="selectAllReports" resultType="Report">
 		select * from report;
 	</select>
@@ -24,6 +30,12 @@
 		delete from report where reportNo = #{reportNo}
 	</delete>
 	
+	<!-- 게시글 조회 -->
+	<select id="selectOneProduct" resultType="Product" parameterType="int">
+		select * from products where proNo = #{proNo}
+	</select>
+	
+
 	<!-- 전체목록보기 -->
 	<select id="selectAllProduct" resultType="Product">
 		select * from products;
@@ -38,6 +50,20 @@
 	<delete id="deleteProduct" parameterType="int">
 		delete from products where proNo = #{proNo}
 	</delete>
+	
+	<delete id="deleteAllFavoriteByProduct" parameterType="int">
+		delete from favorite where proNo = #{proNo}
+	</delete>
+	
+	<delete id="deleteAllImagesByProduct" parameterType="int">
+		delete from image where proNo = #{proNo}
+	</delete>
+	
+	
+	<!-- 유저가 쓴 모든 글 보기 -->
+	<select id="selectAllProductsByUser" parameterType="int">
+		select * from products where userNo= #{userNo}
+	</select>
 </mapper>
 
  
