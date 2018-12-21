@@ -5,10 +5,11 @@
 <script type="text/javascript" src="/joongo/script/categoryList.js?1"></script>
 <script type="text/javascript" src="/joongo/script/pagination.js"></script>
 <link rel="stylesheet" type="text/css" href="/joongo/css/simplePagination.css">
+<link rel="stylesheet" type="text/css" href="/joongo/css/userPage.css">
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <div id="container" class="container">
 	<div class="w1200">
-		<div class="middle">
+		<div class="middle" id="middle2">
 			<div class="category-button-container">
 				<div class="category-button" id="category-button" onclick="selectCat(1)">의류</div>
 				<div class="category-button" onclick="selectCat(2)">가전제품</div>

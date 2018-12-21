@@ -8,10 +8,6 @@
 <div id="container" class="container">
 	<div class="w1200">
 		<div class="middle">
-			<%-- <c:forEach var="i" begin="1" end="10">
-				
-				<c:forEach var="product" items="${cat5List.get() }"
-			</c:forEach> --%>
 			<!-- 최신글은 한번만 -->
 			<div class="lately-container" id="lately-container">
 				<p class="category-info">

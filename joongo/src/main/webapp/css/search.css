@@ -24,13 +24,12 @@
     margin: 0px;
 }
 
-.category-title {
+.search-word {
+	color: red;
+}
+.search, .search-word{
 	margin: 0px;
-	font-size: 20px;
-	float: left;
-	border: none;
-    cursor: auto;
-    outline: none;
+    font-size: 20px;
 }
 
 .all-view {
@@ -117,6 +116,11 @@
 	border-left: 1px solid #e8e8e8;
 }
 
+.nosearch{
+	font-size: 30px;
+    text-align: center;
+    line-height: 20;
+}
 .top-down-cotainer {
 	position: fixed;
     top: 45%;

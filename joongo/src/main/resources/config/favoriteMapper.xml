@@ -9,7 +9,7 @@
 	</insert>
 	
 	<select id="selectFavoriteListByUser" parameterType="int" resultType="Favorite">
-		select * from favorite where userNo = #{userNo}
+		select * from favorite where userNo = #{userNo} order by wdate desc;
 	</select>
 
 	<select id="selectFavorite" resultType="Favorite" parameterType="int">
