@@ -89,7 +89,8 @@
 				</div>
 				<div class="signup">
 					<h4 class="signup_title">전화번호</h4>
-					<span class="box"> <input type="text" id="phone1" class="phone" maxlength="3" pattern="[0-1]{3}"> <input type="text" id="phone2" class="phone" maxlength="4" pattern="[0-9]{4}"> <input type="text" id="phone3" class="phone" maxlength="4" pattern="[0-9]{4}"> <input type="hidden" id="phone" name="phone" value="${pageUser.phone }">
+					<span class="box">
+						<input type="text" id="phone" name="phone" value="${pageUser.phone }">
 						<button class="phone_cheak" onclick="phoneDuplicate()">중복확인</button>
 					</span>
 					<p id="phone_msg"></p>
@@ -103,7 +104,7 @@
 				</div>
 				<div class="signup">
 					<h4 class="signup_title">생년월일</h4>
-					<span class="box"> <input type="text" name="bdate" id="bdate" maxlength="6" pattern="[0-9]{6}" value="${pageUser.bdate }" readonly>
+					<span class="box"> <input type="text" name="bdate" id="bdate" maxlength="8" pattern="[0-9]{8}" value="${pageUser.bdate }" readonly>
 					</span>
 					<p id="bdate_msg"></p>
 				</div>

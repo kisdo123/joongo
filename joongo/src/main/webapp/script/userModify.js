@@ -1,4 +1,4 @@
-var phoneDup = false;
+var phoneDup = true;
 $(function() {
 	
 	$("#nickname").blur(function() {
@@ -10,6 +10,10 @@ $(function() {
 			$("#nickname_msg").html("");
 			$("#nickname").css("border-color", "gray");
 		}
+	});
+	
+	$("#phone").on("change", function(){
+		phoneDup = false;
 	});
 	
 	$("#nickname").keyup(function() {
