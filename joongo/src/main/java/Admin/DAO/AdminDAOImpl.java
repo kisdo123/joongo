@@ -36,6 +36,11 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
+	public void deleteAllFavoriteByUser(int userNo) {
+		adminMapper.deleteAllFavoriteByUser(userNo);
+	}
+	
+	@Override
 	public int deleteReportFromDB(int reportNo) {
 		return adminMapper.deleteReportFromDB(reportNo);
 	}
@@ -65,10 +70,6 @@ public class AdminDAOImpl implements AdminDAO {
 		adminMapper.deleteAllReviewByUser(userNo);
 	}
 
-	@Override
-	public void deleteAllFavoriteByUser(int userNo) {
-		adminMapper.deleteAllFavoriteByUser(userNo);
-	}
 
 	@Override
 	public void deleteAllImagesByProduct(int proNo) {

@@ -20,6 +20,11 @@
 	<delete id="deleteAllReviewByUser" parameterType="int">
 		delete from Review where userNo = #{userNo}
 	</delete>
+	
+	<delete id="deleteAllFavoriteByUser" parameterType="int">
+		delete from favorite where userNo = #{userNo}
+	</delete>
+
 
 	<!-- 신고 -->
 	<select id="selectAllReports" resultType="Report">
