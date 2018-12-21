@@ -45,9 +45,9 @@
 						<td><button onclick="ableNotice(${notice.noticeNo },true)">글 활성화</button></td>
 						<td><button onclick="ableNotice(${notice.noticeNo },false)">글 비활성화</button></td>
 						<td><button
-								onclick="location.href='noticeUpdateForm.do?noticeNo=${notice.noticeNo }'">글수정</button></td>
+								onclick="location.href='adminNoticeUpdateForm.do?noticeNo=${notice.noticeNo }'">글수정</button></td>
 						<td><button
-								onclick="location.href='noticeDelete.do?noticeNo=${notice.noticeNo }'">글삭제</button></td>
+								onclick="location.href='adminNoticeDelete.do?noticeNo=${notice.noticeNo }'">글삭제</button></td>
 					</tr>
 				</tbody>
 			</c:forEach>

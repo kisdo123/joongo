@@ -2,7 +2,7 @@
 
 function ableProduct(proNo, able){
 	$.ajax({
-		url : "updateAbleProduct.do",
+		url : "adminUpdateAbleProduct.do",
 		data : { "proNo" : proNo,
 			"able" : able
 		}, 

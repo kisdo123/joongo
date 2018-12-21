@@ -16,7 +16,7 @@
 <div style="height: auto; margin-top: 50px;">
 	공지사항 글 수정하는 페이지<br>
 
-	<form action="noticeUpdate.do" method="post">
+	<form action="adminNoticeUpdate.do" method="post">
 		<c:if test="${notice != null }">
 			공지사항 번호 : <input type="text" name="noticeNo" value="${notice.noticeNo }" readonly="readonly">
 			<br>

@@ -550,14 +550,14 @@ public class MainController {
 	}
 
 	// 공지글쓰기 진행
-	@RequestMapping("/writeNotice.do")
+	@RequestMapping("/adminWriteNotice.do")
 	public String writeArticle(HttpServletRequest request, @ModelAttribute Notice notice) {
 		User user = (User) request.getSession().getAttribute("loginUser");
 		int userNo = user.getUserNo();
 		notice.setUserNo(userNo);
 		try {
 			noticeService.write(notice);
-			return "redirect:/adminlist.do";
+			return "redirect:/adminList.do";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "adminNoticeWrite";
@@ -565,13 +565,13 @@ public class MainController {
 	}
 
 	// 공지글쓰기 폼을 요청
-	@RequestMapping("/writeNoticeForm.do")
+	@RequestMapping("/adminWriteNoticeForm.do")
 	public String writeNoticeForm(Model model) {
 		return "adminNoticeWrite";
 	}
 
 	// 관리자용 목록보기
-	@RequestMapping("/adminlist.do")
+	@RequestMapping("/adminList.do")
 	public String adminlist(Model model) {
 		List<Notice> notices = noticeService.adminlist();
 		model.addAttribute("notices", notices);
@@ -579,7 +579,7 @@ public class MainController {
 	}
 
 	// 일반 목록보기
-	@RequestMapping("/noticelist.do")
+	@RequestMapping("/noticeList.do")
 	public String list(Model model) {
 		List<Notice> notices = noticeService.list();
 		model.addAttribute("notices", notices);
@@ -587,7 +587,7 @@ public class MainController {
 	}
 
 	// 내용보기
-	@RequestMapping("/noticeInfo.do")
+	@RequestMapping("/adminNoticeInfo.do")
 	public String viewcontent(Model model, @RequestParam int noticeNo) {
 		Notice notice = noticeService.viewcontent(noticeNo);
 		model.addAttribute("notice", notice);
@@ -595,12 +595,12 @@ public class MainController {
 	}
 
 	// 공지 able 변경
-	@RequestMapping("/ableUpdate.do")
+	@RequestMapping("/adminAbleUpdate.do")
 	public String noticeUpdate(HttpServletRequest request, Model model, @RequestParam("noticeNo") int noticeNo,
 			@RequestParam("able") Boolean able) {
 		try {
 			noticeService.updateable(noticeNo, able);
-			return "redirect:/adminlist.do";
+			return "redirect:/adminList.do";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "adminNotice";
@@ -608,7 +608,7 @@ public class MainController {
 	}
 
 	// 공지 글 수정화면에 기본값 입력
-	@RequestMapping("/noticeUpdateForm.do")
+	@RequestMapping("/adminNoticeUpdateForm.do")
 	public String noticeUpdateForm(Model model, @RequestParam int noticeNo) {
 		Notice notice = noticeService.viewcontent(noticeNo);
 		model.addAttribute("notice", notice);
@@ -616,11 +616,11 @@ public class MainController {
 	}
 
 	// 공지글수정
-	@RequestMapping("/noticeUpdate.do")
+	@RequestMapping("/adminNoticeUpdate.do")
 	public String noticeUpdate(Model model, @ModelAttribute Notice notice) {
 		try {
 			noticeService.updateNotice(notice);
-			return "redirect:/adminlist.do";
+			return "redirect:/adminList.do";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "adminNoticeModify";
@@ -628,11 +628,11 @@ public class MainController {
 	}
 
 	// 공지글삭제
-	@RequestMapping("/noticeDelete.do")
+	@RequestMapping("/adminNoticeDelete.do")
 	public String noticeDelete(@RequestParam("noticeNo") int noticeNo) {
 		try {
 			noticeService.deleteNotice(noticeNo);
-			return "redirect:/adminlist.do";
+			return "redirect:/adminList.do";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "main";
@@ -648,7 +648,7 @@ public class MainController {
 	}
 
 	// 글 able 변경
-	@RequestMapping("/updateAbleProduct.do")
+	@RequestMapping("/adminUpdateAbleProduct.do")
 	@ResponseBody
 	public String updateableProduct(HttpServletRequest req, @RequestParam("proNo") int proNo,
 			@RequestParam("able") boolean able) {
