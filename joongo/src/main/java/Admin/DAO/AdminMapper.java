@@ -2,6 +2,7 @@ package Admin.DAO;
 
 import java.util.List;
 
+import Product.DTO.Image;
 import Product.DTO.Product;
 import Report.DTO.Report;
 import User.DAO.Query;
@@ -25,6 +26,8 @@ public interface AdminMapper {
 
 	// 글 관리
 	Product selectOneProduct(int proNo);
+	List<Image> selectImagesByProduct(int proNo);
+	
 	List<Product> selectAllProduct();
 	int updateAbleProduct(int proNo, int able);
 	int deleteProduct(int proNo);

@@ -2,6 +2,7 @@ package Admin.DAO;
 
 import java.util.List;
 
+import Product.DTO.Image;
 import Product.DTO.Product;
 import Report.DTO.Report;
 import User.DTO.User;
@@ -22,6 +23,8 @@ public interface AdminDAO {
 	
 	// 글 관리
 	public Product selectOneProduct(int proNo);
+	List<Image> selectImagesByProduct(int proNo);
+	
 	public List<Product> selectAllProduct();
 	public int updateAbleProduct(int proNo, int able);
 	public int deleteProduct(int proNo);
