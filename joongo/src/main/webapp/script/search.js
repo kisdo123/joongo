@@ -83,6 +83,7 @@ function pagination() {
 				"</div>"+
 				"<div class='product-price'>"+product.price+"</div>"+
 				"<div class='product-tag'>"+product.tags+"</div>"+
+				"<div class="
 				"</div>"+
 				"</div>";
 				$('#products').append(text);

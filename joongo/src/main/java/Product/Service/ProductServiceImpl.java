@@ -33,8 +33,6 @@ public class ProductServiceImpl implements ProductService {
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 			checkPathImage(product.getImage());
-			product.setTitle(blockHTMLTag(product.getTitle()));
-			product.setTags(blockHTMLTag(product.getTags()));
 		}
 
 		return products;
@@ -50,8 +48,6 @@ public class ProductServiceImpl implements ProductService {
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 			checkPathImage(product.getImage());
-			product.setTitle(blockHTMLTag(product.getTitle()));
-			product.setTags(blockHTMLTag(product.getTags()));
 		}
 		return products;
 	}
@@ -74,8 +70,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product oneSelect(int proNo) {
 		Product product = productDAO.selectOne(proNo);
-		product.setTitle(blockHTMLTag(product.getTitle()));
-		product.setTags(blockHTMLTag(product.getTags()));
 		
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
@@ -138,8 +132,6 @@ public class ProductServiceImpl implements ProductService {
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 			checkPathImage(product.getImage());
-			product.setTitle(blockHTMLTag(product.getTitle()));
-			product.setTags(blockHTMLTag(product.getTags()));
 		}
 		return select5List;
 	}
@@ -154,8 +146,6 @@ public class ProductServiceImpl implements ProductService {
 			List<Image> images = productDAO.selectImage(getproNo);
 			pro.setImage(images);
 			checkPathImage(pro.getImage());
-			product.setTitle(blockHTMLTag(product.getTitle()));
-			product.setTags(blockHTMLTag(product.getTags()));
 		}
 		return selectExceptSelf;
 	}
@@ -172,8 +162,6 @@ public class ProductServiceImpl implements ProductService {
 				List<Image> images = productDAO.selectImage(proNo);
 				product.setImage(images);
 				checkPathImage(product.getImage());
-				product.setTitle(blockHTMLTag(product.getTitle()));
-				product.setTags(blockHTMLTag(product.getTags()));
 			}
 			map.put("category" + i, productscat);
 
@@ -192,8 +180,6 @@ public class ProductServiceImpl implements ProductService {
 			List<Image> images = productDAO.selectImage(proNo);
 			product.setImage(images);
 			checkPathImage(product.getImage());
-			product.setTitle(blockHTMLTag(product.getTitle()));
-			product.setTags(blockHTMLTag(product.getTags()));
 		}
 
 		return products;
@@ -302,8 +288,6 @@ public class ProductServiceImpl implements ProductService {
 		List<Image> images = productDAO.selectImage(proNo);
 		product.setImage(images);
 		checkPathImage(product.getImage());
-		product.setTitle(blockHTMLTag(product.getTitle()));
-		product.setTags(blockHTMLTag(product.getTags()));
 		return product;
 	}
 
@@ -330,15 +314,4 @@ public class ProductServiceImpl implements ProductService {
 
 		}
 	}
-
-	// &lt; 등의 HTML 특수문자를 치환해줌
-	public String blockHTMLTag(String target) {
-		target = target.replaceAll("&", "&amp;");
-		target = target.replaceAll("<", "&lt;");
-		target = target.replaceAll(">", "&gt;");
-		target = target.replaceAll(" ", "&nbsp;");
-		return target;
-
-	}
-
 }
