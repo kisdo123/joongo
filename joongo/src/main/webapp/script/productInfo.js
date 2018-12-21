@@ -52,6 +52,9 @@ $(function() {
 		}
 	}
 
+	
+
+	
 	$("input[id='pos1']").click(function() {
 
 		$(".productInfo-radioUl").animate({
@@ -123,6 +126,8 @@ $(function() {
 	});
 
 
+	
+	
 	// // 찜버튼 비활성화
 	// $(".productInfo-clickZzim").on("click", function() {
 	// $(".productInfo-zzimBtn").css("display", "inline");

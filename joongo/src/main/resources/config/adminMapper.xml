@@ -18,7 +18,7 @@
 	
 	<!-- 유저 삭제 시 관련 정보 삭제  -->
 	<delete id="deleteAllReviewByUser" parameterType="int">
-		delete from Review where pageNo = #{userNo} or userNo#{userNo}
+		delete from Review where pageNo = #{userNo} or userNo = #{userNo}
 	</delete>
 	
 	<delete id="deleteAllFavoriteByUser" parameterType="int">

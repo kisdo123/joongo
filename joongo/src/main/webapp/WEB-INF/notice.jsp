@@ -32,7 +32,7 @@
 					<c:forEach var="notice" items="${notices }">
 						<tbody>
 							<tr>
-								<td>${notice.noticeNo }</td>
+								<td><span class="noticeContetn-titleNum">공지 ${notice.noticeNo }</span></td>
 								<td><div class="notice-div">
 										<a class="notice-atag"
 											href="noticeInfo.do?noticeNo=${notice.noticeNo }">${notice.title }</a>
