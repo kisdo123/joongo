@@ -5,8 +5,29 @@ var SUPEREPICFANTASTICURL;
 var address = window.location.href;
 var catNo = address.substr(address.indexOf('=')+1);
 
+function tag() {
+	// tag #추가
+	$('.product-tag').each(function() {
+		var tag = $(this).text();
+		var ctag = '';
+
+		if (tag != '태그없음') {
+			let stag = tag.split(',');
+			for (let i = 0; i < stag.length; i++) {
+				ctag += '#' + stag[i] + ' ';
+			}
+			console.log(ctag)
+			$(this).text(ctag);
+		}
+	})
+}
+
+function conditCss() {
+	$(".product-condit:contains('판매완료')").css({"color": "#e81e22", "font-weight" : "bolder"});
+	$(".product-condit:contains('판매중')").css({"color": "#0043ffd1", "font-weight" : "bolder"});
+}
+
 $(function(){
-	
 	// 카테고리 하나를 기본으로 잡아놓음
 	$('.category-button').first().css({
 		"border-color": "#f64448",
@@ -41,7 +62,11 @@ function search(word, url){
 			$('#products').empty();
 			SUPEREPICFANTASTICPRODUCTS = list.products;
 			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
-			pagination();
+			if(SUPEREPICFANTASTICLENGTH <= 0) {
+				$('#products').append('<div class="nosearch">검색결과가 없습니다.</div>')
+			} else if (SUPEREPICFANTASTICLENGTH > 0) {
+				pagination();
+			}
 		
 		},error: function(error){
 			alert("에러가 발생했습니다.");
@@ -82,11 +107,14 @@ function pagination() {
 				"<a href='#'>"+product.title+"</a>"+
 				"</div>"+
 				"<div class='product-price'>"+product.price+"</div>"+
-				"<div class='product-tag'>"+product.tags+"</div>"+
+				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+				"<div class='product-condit'>"+ product.condit +"</div>"+
 				"</div>"+
 				"</div>";
 				$('#products').append(text);
 			}
+			tag();
+			conditCss();
         },
         /* 첫 화면 10개 출력 */
         onInit: function() {
@@ -115,13 +143,15 @@ function pagination() {
 				"<a href='#'>"+product.title+"</a>"+
 				"</div>"+
 				"<div class='product-price'>"+product.price+"</div>"+
-				"<div class='product-tag'>"+product.tags+"</div>"+
+				"<div class='product-tag'>"+((product.tags == '') ? '태그없음' : product.tags) +"</div>"+
+				"<div class='product-condit'>"+ product.condit +"</div>"+
 				"</div>"+
 				"</div>";
 				
-				$('#products').append(text);
-				
+				$('#products').append(text);	
 			}
+        	tag();
+        	conditCss();
         }
 	});
 }

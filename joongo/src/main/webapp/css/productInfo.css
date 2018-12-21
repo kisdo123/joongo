@@ -108,6 +108,20 @@ button {
 	border-radius: 10px;
 }
 
+.productInfo-storeBtn1{
+	width: 410px;
+	height: 56px;
+	border: 1px solid #3dcf38;
+	background-color: #3dcf38;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	cursor: pointer;
+	margin-right: 5px;
+	border-radius: 10px;
+	margin-bottom : 12px;
+}
+
 .productInfo-productModify {
 	width: 200px;
 	height: 56px;

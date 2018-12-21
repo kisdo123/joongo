@@ -5,24 +5,24 @@ var SUPEREPICFANTASTICURL;
 var address = window.location.href;
 var catNo = address.substr(address.indexOf('=')+1);
 
+function tag() {
+	// tag #추가
+	$('.product-tag').each(function() {
+		var tag = $(this).text();
+		var ctag = '';
+		
+		console.log(tag);
+		if (tag != '태그없음') {
+			let stag = tag.split(',');
+			for (let i = 0; i < stag.length; i++) {
+				ctag += '#' + stag[i] + ' ';
+			}
+			$(this).text(ctag);
+		}
+	})
+}
+
 $(function(){
-	
-//	$.ajax({
-//		url: 'getCatList.do',
-//		dataType: 'json',
-//		data: {
-//			"catNo": catNo
-//		},
-//		success: function(data) {
-//			console.log(data);
-//			SUPEREPICFANTASTICPRODUCTS = data.products;
-//			SUPEREPICFANTASTICLENGTH = Object.values(SUPEREPICFANTASTICPRODUCTS).length;
-////			pagination();
-//		},
-//		error: function(error) {
-//			console.log(error)
-//		}
-//	})
 	
 	// 마지막 line 클래스 없애기
 	$('.line').last().remove();
@@ -111,8 +111,7 @@ function selectCat(catNo){
 							"</div>";
 				
 				pagination();
-			}
-		
+			}	
 		},error: function(error){
 			console.log(error);
 			alert("에러가 발생했습니다.");
@@ -193,6 +192,7 @@ function pagination() {
 				
 				$('#products').append(text);
 			}
+			tag();
         },
         /* 첫 화면 10개 출력 */
         onInit: function() {
@@ -225,8 +225,8 @@ function pagination() {
 				"</div>";
 				
 				$('#products').append(text);
-				
 			}
+        	tag();
         }
 	});
 }
