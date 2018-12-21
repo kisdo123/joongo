@@ -29,8 +29,10 @@ dd{
 	padding: 15px;
 }
 .footer-logo-img{
-	width: 100px;
-    height:100px;
+	width: 75px;
+    height: 75px;
+    margin-top: 12px;
+    margin-right: 10px;
 }
 .footer-info{
 	font-size: 12px;
