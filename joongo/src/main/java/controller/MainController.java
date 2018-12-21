@@ -491,7 +491,7 @@ public class MainController {
 	}
 
 	// 관리자 유저삭제
-	@RequestMapping("adminDeleteUser.do")
+	@RequestMapping("/adminDeleteUser.do")
 	@ResponseBody
 	public String deleteUser(HttpServletRequest req, @RequestParam("userNo") int userNo) {
 
