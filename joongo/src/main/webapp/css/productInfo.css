@@ -35,7 +35,7 @@ button {
 	font-size: 35px;
 	font-weight: bolder;
 	border-bottom: 1px solid #e8e8e8;
-	margin-bottom: 140px;
+	margin-bottom: 110px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -47,8 +47,12 @@ button {
 }
 
 .productInfo-contextLi {
+	width: 400px;
 	margin-top: 20px;
 	margin-bottom: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 
@@ -63,6 +67,9 @@ button {
 .productInfo-contextLi>span {
 	font-size: 15px;
 	font-weight: bolder;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	clear: both;
 }
 
 .productInfo-btnSecondDiv {
@@ -181,6 +188,11 @@ button {
 
 .productInfo-raridoDiv {
 	text-align: center;
+}
+
+.product-tag {
+	font-size: 14px;
+	color: #a5a4a4;
 }
 
 label {

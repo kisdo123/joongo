@@ -1,5 +1,24 @@
 $(function() {
 
+	// tag #추가
+	$(".product-tag").each(function() {
+		var tag = $(this).text();
+		var ctag = '';
+
+		if (tag != "태그없음") {
+			let stag = tag.split(",");
+			for (let i = 0; i < stag.length; i++) {
+				ctag += stag[i] + " ";
+			}
+
+			$(this).text(ctag);
+		}
+	});
+	
+	
+	
+	
+	
 	// 이미지 개수에 따른 상품 라디오 버튼 숫자조절
 	var total = $(".productInfo-radioUl>li").length;
 
