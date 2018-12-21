@@ -53,7 +53,7 @@
 							<button onclick="location.href='adminNoticeUpdateForm.do?noticeNo=${notice.noticeNo }'">글수정</button>
 						</td>
 						<td>
-							<button class="admitNoticeDel-Btn" onclick="location.href='adminNoticeDelete.do?noticeNo=${notice.noticeNo }'">글삭제</button>
+							<button onclick="location.href='adminNoticeDelete.do?noticeNo=${notice.noticeNo }'">글삭제</button>
 						</td>
 					</tr>
 				</tbody>

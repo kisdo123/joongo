@@ -6,7 +6,6 @@
 }
 
 .adminNotice-divTitle {
-	
 	margin: auto;
 	margin-bottom: 60px;
 	font-size: 20px;
@@ -32,6 +31,7 @@
 	height: 30px;
 	padding-left: 10px;
 	padding-right: 10px;
+	border-radius: 1px;
 }
 
 .adminNoticeWrite-content {
@@ -40,5 +40,6 @@
 
 .adminNoticeWrite-textarea {
 	padding: 10px;
-	    margin-bottom: 10px;
+	margin-bottom: 10px;
+	border-radius: 3px;
 }

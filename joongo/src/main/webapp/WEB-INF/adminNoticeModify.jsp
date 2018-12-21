@@ -26,7 +26,7 @@
 					</div>
 
 					<div class="adminNoticeModify-content">공지사항 내용</div>
-					<textarea class="adminNoticeModify-textarea" name="content" rows="20" cols="100" placeholder="공지사항 내용을 입력하세요" required>${notice.content }</textarea>
+					<textarea class="adminNoticeModify-textarea" name="content" rows="30" cols="100" placeholder="공지사항 내용을 입력하세요" required>${notice.content }</textarea>
 					<input type="hidden" name="userNo" value="${loginUser.userNo }">
 					<div>
 						<input class="adminHeader-btn3" type="submit" value="공지수정" >

@@ -1,10 +1,4 @@
-$(function() {
 
-	$(".admitNoticeDel-Btn").click(function() {
-		alert("공지사항을 삭제했습니다.");
-	})
-
-});
 
 
 

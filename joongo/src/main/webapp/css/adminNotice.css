@@ -92,23 +92,26 @@
 }
 
 .adminNoticeModify-input1 {
-	width: 700px;
+	width: 715px;
 	height: 30px;
 	padding-left: 10px;
 	padding-right: 10px;
 	background-color: #66666652;
+	border-radius: 1px;
 }
 
 .adminNoticeModify-input2 {
-	width: 700px;
+	width: 715px;
 	height: 30px;
 	padding-left: 10px;
 	padding-right: 10px;
+	border-radius: 1px;
 }
 
 .adminNoticeModify-textarea {
 	padding: 10px;
 	margin-bottom: 10px;
+	border-radius: 3px;
 }
 
 .adminHeader-btn2 {
