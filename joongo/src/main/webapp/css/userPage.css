@@ -54,6 +54,7 @@
 	padding: 0px;
 	font-size: 14px;
 	color: red;
+	cursor: pointer;
 }
 
 .modify:VISITED, .modify:HOVER {

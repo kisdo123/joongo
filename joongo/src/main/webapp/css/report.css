@@ -7,6 +7,16 @@
 h4{
 	margin: 5px 0px 5px 0px;
 }
+
+.report-middle {
+    width: 100%;
+    padding-top: 190px;
+    padding-bottom: 190px;
+}
+
+
+
+
 input{
 	width: 497px;
 	height: 30px;

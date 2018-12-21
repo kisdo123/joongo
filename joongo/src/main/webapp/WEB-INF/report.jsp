@@ -11,7 +11,7 @@
 <script src="/joongo/script/report.js" type="text/javascript"></script>
 </head>
 <body>
-	<div class="middle">
+	<div class="report-middle">
 		<div class="report_container">
 			<div class="report_logo">
 				<a href="main.do"> <img src="/joongo/image/logo100.png" class="report_logo_img">
@@ -51,7 +51,7 @@
 					<p class="ref">허위신고시 불이익을 받을 수 있습니다.</p>
 				</div>
 				<div class="report_submit">
-					<input type="submit" value="신고하기" id="report">
+					<input type="submit" value="신고하기" id="report" class="report_reportBtn">
 				</div>
 			</form>
 		</div>

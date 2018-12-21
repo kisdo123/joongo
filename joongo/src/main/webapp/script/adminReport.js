@@ -2,7 +2,7 @@
 
 function deleteReport(reportNo){
 	$.ajax({
-		url : "adminAdminDeleteReport.do",
+		url : "adminDeleteReport.do",
 		data : { "reportNo" : reportNo }, 
 		success : function() { 
 			alert("신고글을 삭제했습니다.");

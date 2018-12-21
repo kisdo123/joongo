@@ -1,14 +1,20 @@
 @charset "UTF-8";
 
-.adminUser-divTitle{
+.adminUser-divTop{
+	 height: auto;
+	 margin-top: 50px;
+	 margin-bottom: 50px;
+}
+
+
+
+.adminUser-divTitle {
 	text-align: center;
 	margin: auto;
 	margin-bottom: 30px;
 	font-size: 20px;
 	font-weight: bolder;
 }
-
-
 
 .adminUser-table {
 	width: 100%;

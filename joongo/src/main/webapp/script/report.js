@@ -5,12 +5,14 @@ $(function() {
 		var checked = true;
 		
 		if(text.trim() == "") {
+			alert("신고 내용을 입력하세요");
 			checked = false;
 		} else {
 			checked = true;
 		}
 		
 		if(checked) {
+			alert("신고되었습니다");
 			$('#form')[0].submit();
 		}
 	});
@@ -25,4 +27,10 @@ $(function() {
 	        frm.focus();
 		}
 	});
+	
+	
+	
+	
+	
+	
 });

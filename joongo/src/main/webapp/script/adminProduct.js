@@ -1,4 +1,10 @@
+$(function() {
 
+	$(".adminProduct-delBtn").click(function() {
+		alert("상품을 삭제했습니다.");
+	});
+
+});
 
 function ableProduct(proNo, able){
 	$.ajax({

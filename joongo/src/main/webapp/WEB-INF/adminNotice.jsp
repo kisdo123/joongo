@@ -11,20 +11,20 @@
 <body>
 	<jsp:include page="/particular/adminHeader.jsp"></jsp:include>
 
-	<div style="height: auto; margin-top: 50px;">
+	<div class="adminNotice-divTop">
 
 		<div class="adminNotice-divTitle">공지사항 관리</div>
 
 		<table class="adminNotice-table">
 			<thead>
 				<tr>
-					<th>공지사항번호</th>
-					<th>제목</th>
-					<th>내용</th>
+					<th>공지번호</th>
+					<th>공지제목</th>
+					<th>공지내용</th>
 					<th>유저번호</th>
 					<th>작성날짜</th>
 					<th>활성여부</th>
-					<th colspan="4">관리</th>
+					<th colspan="4">공지 관리</th>
 
 				</tr>
 			</thead>
@@ -49,7 +49,7 @@
 							<button onclick="location.href='adminNoticeUpdateForm.do?noticeNo=${notice.noticeNo }'">글수정</button>
 						</td>
 						<td>
-							<button onclick="location.href='adminNoticeDelete.do?noticeNo=${notice.noticeNo }'">글삭제</button>
+							<button class="admitNoticeDel-Btn" onclick="location.href='adminNoticeDelete.do?noticeNo=${notice.noticeNo }'">글삭제</button>
 						</td>
 					</tr>
 				</tbody>

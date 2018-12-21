@@ -22,8 +22,8 @@
 					<thead class="notice-thead">
 						<tr>
 							<td class="noticeContent-thead_td1">
-								<span class="noticeContetn-titleNum">공지 ${notice.noticeNo }</span>
-								<span class="noticeContent-titleDiv">${notice.title }</span>
+								<span class="noticeContent-titleNum">공지 ${notice.noticeNo }</span>
+								<div class="noticeContent-titleDiv">${notice.title }</div>
 							</td>
 							<td class="noticeContent-thead_td"><i class="fa fa-paint-brush" aria-hidden="true"></i>  중고장터 관리자</td>
 							<td class="noticeContent-thead_td"><i class="fa fa-calendar" aria-hidden="true"></i>  ${notice.wdate }</td>

@@ -1,15 +1,36 @@
 @charset "UTF-8";
 
-.adminNoticeWrite-div{
+.adminNotice-divTitle {
+	margin: auto;
+	margin-bottom: 60px;
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.adminNoticeWrite-div {
 	margin-top: 50px;
 	margin-left: 30px;
 }
 
-.adminNoticeWrite-title{
+.adminNoticeWrite-title {
 	margin-bottom: 10px;
 }
 
-.adminNoticeWrite-inputTitle{
-	width: 500px;
-    height: 30px;
+.adminNoticeWrite-title1 {
+	margin-bottom: 10px;
+}
+
+.adminNoticeWrite-inputTitle {
+	width: 715px;
+	height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.adminNoticeWrite-content {
+	margin-bottom: 10px;
+}
+
+.adminNoticeWrite-textarea {
+	padding: 10px;
 }

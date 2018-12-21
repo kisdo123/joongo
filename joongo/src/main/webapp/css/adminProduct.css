@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+.adminProduct-divTop{
+	 height: auto;
+	 margin-top: 50px;
+	 margin-bottom: 50px;
+}
+
+
+
 .adminProduct-divTitle {
 	text-align: center;
 	margin: auto;

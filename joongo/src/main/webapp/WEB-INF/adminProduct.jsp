@@ -13,7 +13,7 @@
 
 <jsp:include page="/particular/adminHeader.jsp"></jsp:include>
 
-<div style="height: auto; margin-top: 50px;">
+<div class="adminProduct-divTop">
 	<div class="adminProduct-divTitle">상품 관리</div>
 
 	<table class="adminProduct-table">
@@ -28,7 +28,7 @@
 				<th>가격</th>
 				<th>태그</th>
 				<th>활성여부</th>
-				<th colspan="4">관리</th>
+				<th colspan="4">상품 관리</th>
 			</tr>
 		</thead>
 		<c:forEach var="prouducts" items="${products }">
@@ -45,7 +45,7 @@
 					<td>${prouducts.able }</td>
 					<td><button onclick="ableProduct(${prouducts.proNo },true)">활성화</button></td>
 					<td><button onclick="ableProduct(${prouducts.proNo },false)">비활성화</button></td>
-					<td style="border-right: 3px solid #6666667a;"><button onclick="location.href='adminDeleteProduct.do?proNo=${prouducts.proNo }'">상품 삭제</button></td>
+					<td style="border-right: 3px solid #6666667a;"><button class="adminProduct-delBtn" onclick="location.href='adminDeleteProduct.do?proNo=${prouducts.proNo }'">상품 삭제</button></td>
 				</tr>
 			</tbody>
 		</c:forEach>

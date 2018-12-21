@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+
+.adminReport-divTop{
+	 height: auto;
+	 margin-top: 50px;
+	 margin-bottom: 50px;
+}
+
+
 .adminNotice-divTitle{
 	text-align: center;
 	margin: auto;

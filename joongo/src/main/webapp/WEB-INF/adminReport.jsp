@@ -13,7 +13,7 @@
 
 <jsp:include page="/particular/adminHeader.jsp"></jsp:include>
 
-<div style="height: auto; margin-top: 50px;">
+<div class="adminReport-divTop">
 	<div class="adminNotice-divTitle">신고내용 관리</div>
 
 	<table class="adminReport-table">
@@ -23,9 +23,9 @@
 				<th>신고자</th>
 				<th>피신고자</th>
 				<th>신고ID</th>
-				<th>내용</th>
+				<th>신고내용</th>
 				<th>작성날짜</th>
-				<th colspan="2">관리</th>
+				<th colspan="2">신고 관리</th>
 			</tr>
 		</thead>
 		<c:forEach var="reports" items="${reportList }">

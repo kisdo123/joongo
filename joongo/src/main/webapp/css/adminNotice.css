@@ -1,7 +1,18 @@
 @charset "UTF-8";
 
-.adminNotice-divTitle{
-	text-align: center;
+.adminNotice-divTop {
+	height: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.adminNoticeModify-topDiv{
+	height: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.adminNotice-divTitle {
 	margin: auto;
 	margin-bottom: 30px;
 	font-size: 20px;
@@ -19,10 +30,11 @@
 }
 
 .adiminNotice-div {
-	width: 400px;
+	width: 550px;
 	text-align: center;
 	word-wrap: break-word;
 	margin: auto;
+	padding: 12px;
 }
 
 .adminNotice-table thead tr {
@@ -37,4 +49,45 @@
 .adminNotice-table td {
 	border: 1px solid #c0c0c0;
 	height: 30px;
+}
+
+.adminNoticeModify-div {
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+.adminNoticeModify-titleDiv {
+	margin-bottom: 20px;
+}
+
+.adminNoticeModify-titleNum {
+	margin-bottom: 10px;
+}
+
+.adminNoticeModify-title {
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+
+.adminNoticeModify-content {
+	margin-bottom: 10px;
+}
+
+.adminNoticeModify-input1 {
+	width: 700px;
+	height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #66666652;
+}
+
+.adminNoticeModify-input2 {
+	width: 700px;
+	height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.adminNoticeModify-textarea{
+	padding: 10px;
 }
