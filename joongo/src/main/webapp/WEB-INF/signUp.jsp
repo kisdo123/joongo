@@ -14,7 +14,7 @@
 	<div class="middle">
 		<div class="signup_container">
 			<div class="signup_logo">
-				<a href="#"> <img src="/joongo/image/logo100.png" class="signup_logo_img">
+				<a href="location.href='main.do'"> <img src="/joongo/image/logo100.png" class="signup_logo_img">
 				</a>
 			</div>
 			<form id="form" method="post" action="register.do" onsubmit="return false">
@@ -47,11 +47,11 @@
 					<h4 class="signup_title">비밀번호 확인 질문</h4>
 					<span class="box"> <select name="password_q" id="question">
 							<option value="">-------------------------------------------------------질문------------------------------------------------</option>
-							<option>내가 졸업한 초등학교의 이름은?</option>
-							<option>나의 보물 1호는?</option>
-							<option>나의 고향은?</option>
-							<option>내가 가장 존경하는 인물은?</option>
-							<option>가장 기억에 남는 장소는?</option>
+							<option>자신이 나온 초등학교 이름은?</option>
+							<option>자신의 보물 1호 는 무엇인가?</option>
+							<option>나는 담배를 핀적이 있다,없다?</option>
+							<option>자신이 존경하는 인물은?</option>
+							<option>자신의 추억의 장소는?</option>
 					</select>
 					</span>
 					<p id="question_msg"></p>

@@ -14,7 +14,7 @@
 	<div class="middle">
 		<div class="report_container">
 			<div class="report_logo">
-				<a href="#"> <img src="/joongo/image/logo100.png" class="report_logo_img">
+				<a href="location.href='main.do'"> <img src="/joongo/image/logo100.png" class="report_logo_img">
 				</a>
 			</div>
 			<form id="form" method="post" action="report.do" onsubmit="return false">
