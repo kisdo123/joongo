@@ -180,7 +180,7 @@ function view(url) {
 		url: url,
 		dataType: 'json',
 		data: {
-			"userNo": SUPEREPICFANTASTICUSERNO
+			"userNo": SUPEREPICFANTASTICPAGENO
 		},
 		success: function(data) {
 			SUPEREPICFANTASTICITEM = data.products;
