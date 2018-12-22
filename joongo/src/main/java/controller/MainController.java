@@ -109,6 +109,10 @@ public class MainController {
 			e.printStackTrace();
 			req.setAttribute("registerFail", true);
 			req.setAttribute("ret", "/joongo/main.do");
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute("bdateInvalid", true);
+			req.setAttribute("ret", "/joongo/main.do");
 		}
 		return "finishPage";
 

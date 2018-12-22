@@ -20,6 +20,14 @@
 			location.href='${ret }';
 		</script>
 	</c:if>
+	
+	<c:if test="${bdateInvalid }">
+		<script>
+			alert("생년월일 형식이 올바르지 않습니다.");
+			location.href='${ret }';
+		</script>
+	</c:if>
+	
 
 	<c:if test="${registerFail }">
 		<script>

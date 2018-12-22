@@ -8,10 +8,6 @@
 <div id="container" class="container">
 	<div class="w1200">
 		<div class="middle">
-
-			
-
-
 			<!-- 맨 위, 맨 아래로 -->
 			<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
 		</div>

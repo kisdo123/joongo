@@ -110,7 +110,7 @@
 								</div>
 								<div class="product-info">
 									<div class="product-title">
-										<a href="productInfo.do?proNo=${pro.proNo }"> ${product.title} </a>
+										<a href="productInfo.do?proNo=${pro.proNo }"> ${pro.title} </a>
 									</div>
 									<div class="product-price">${pro.price }</div>
 									<c:if test="${pro.tags == '' || pro.tags eq null || empty pro.tags }">
