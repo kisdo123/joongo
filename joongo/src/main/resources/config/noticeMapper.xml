@@ -16,7 +16,7 @@
 	
 	<!-- 공개용 목록보기 -->
 	<select id="list" resultType="Notice">
-		select * from notice where able = 1;
+		select * from notice where able = 1 order by wdate desc;
 	</select>
 	
 	<!-- 내용보기 -->
@@ -40,5 +40,3 @@
 	</delete>
 
 </mapper>
-
- 
