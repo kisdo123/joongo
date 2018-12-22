@@ -23,9 +23,9 @@
 				<a id="normal-login-btn"></a> <a href="registerForm.do"></a>
 			</div> -->
 		</div>
-		<div id="registerPopup-signupPopup">
-			<a href="registerForm.do">회원가입</a>
-		</div>
+
+			<button id="registerPopup-signupPopup" onclick="location.href='registerForm.do'">회원가입</button>
+
 	</div>
 	<script type='text/javascript'>
 		//<![CDATA[
