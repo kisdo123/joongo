@@ -15,7 +15,7 @@
 #loginPopup-popup_mask { /* 팝업 배경 css */
 	position: fixed;
 	width: 100%;
-	height: 1000px;
+	height: 100%;
 	top: 0px;
 	left: 0px;
 	display: none;

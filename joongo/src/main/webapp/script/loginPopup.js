@@ -4,7 +4,8 @@ $(function() {
 		  
           $("#loginPopup-popupDiv").css({
              "top": (($(window).height()-$("#loginPopup-popupDiv").outerHeight())/2+$(window).scrollTop())+"px",
-             "left": (($(window).width()-$("#loginPopup-popupDiv").outerWidth())/2+$(window).scrollLeft())+"px"
+             "left": (($(window).width()-$("#loginPopup-popupDiv").outerWidth())/2+$(window).scrollLeft())+"px",
+             "right": (($(window).width()-$("#loginPopup-popupDiv").outerWidth())/2+$(window).scrollLeft())+"px"
              //팝업창을 가운데로 띄우기 위해 현재 화면의 가운데 값과 스크롤 값을 계산하여 팝업창 CSS 설정
           
           }); 

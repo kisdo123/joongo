@@ -13,6 +13,7 @@
 <div class="mypage-container">
 	<script type="text/javascript">
 		window.onload = function() {
+			
 			init(${pageUser.userNo}, ${loginUser.userNo}, '${loginUser.nickname}');
 			view('shopList.do');
 		}

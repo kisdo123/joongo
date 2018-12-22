@@ -130,7 +130,7 @@
 				</div>
 				<div class="productInfo-exTitle">상품정보</div>
 				<div class="productInfo-ex"></div>
-				<div class="productInfo-exContext">${product.content}</div>
+				<div class="productInfo-exContext"><pre>${product.content}</pre></div>
 
 				<!-- 맨 위, 맨 아래로 -->
 				<jsp:include page="/particular/sideMenu.jsp"></jsp:include>
