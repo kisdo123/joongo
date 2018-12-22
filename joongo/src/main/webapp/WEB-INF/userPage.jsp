@@ -11,6 +11,7 @@
 <script type="text/javascript" src="/joongo/script/pagination.js"></script>
 <jsp:include page="/particular/header.jsp"></jsp:include>
 <div class="mypage-container">
+
 	<script type="text/javascript">
 		window.onload = function() {
 			

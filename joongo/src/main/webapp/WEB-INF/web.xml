@@ -51,6 +51,12 @@
 		<filter-name>Login</filter-name>
 		<filter-class>filter.Login</filter-class>
 	</filter>
+	
+	<filter>
+		<filter-name>Admin</filter-name>
+		<filter-class>filter.Admin</filter-class>
+	</filter>
+	
 
 	<filter-mapping>
 		<filter-name>Login</filter-name>
@@ -60,6 +66,7 @@
 		<url-pattern>/deleteUser.do</url-pattern>
 		<url-pattern>/modifyUserForm.do</url-pattern>
 		<url-pattern>/modifyUser.do</url-pattern>
+		<url-pattern>/userPage.do</url-pattern>
 		
 		<!-- 게시글 -->
 		<url-pattern>/writeProductForm.do</url-pattern>
@@ -81,6 +88,29 @@
 		<!-- 신고하기 -->
 		<url-pattern>/report.do</url-pattern>
 		<url-pattern>/reportForm.do</url-pattern>
+		
+		<!-- 공지사항 -->
+		<url-pattern>/adminWriteNotice.do</url-pattern>
+		<url-pattern>/adminWriteNoticeForm.do</url-pattern>
+		<url-pattern>/adminNoticeList.do</url-pattern>
+		<url-pattern>/adminAbleUpdate.do</url-pattern>
+		<url-pattern>/adminNoticeUpdateForm.do</url-pattern>
+		<url-pattern>/adminNoticeUpdate.do</url-pattern>
+		<url-pattern>/adminNoticeDelete.do</url-pattern>
+		
+		<!-- 관리자 기능 -->
+		<url-pattern>/adminGetAllUsers.do</url-pattern>
+		<url-pattern>/adminDeleteUser.do</url-pattern>
+		<url-pattern>/adminUpdateUserAble.do</url-pattern>
+		<url-pattern>/adminGetAllReports.do</url-pattern>
+		<url-pattern>/adminDeleteReport.do</url-pattern>
+		<url-pattern>/adminAllProducts.do</url-pattern>
+		<url-pattern>/adminUpdateAbleProduct.do</url-pattern>
+		<url-pattern>/adminDeleteProduct.do</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Admin</filter-name>
 		
 		<!-- 공지사항 -->
 		<url-pattern>/adminWriteNotice.do</url-pattern>

@@ -87,10 +87,18 @@ public class MainController {
 
 	// 결과페이지로 리턴
 	@RequestMapping("/loginFilter.do")
-	public String finishPage(HttpServletRequest request) {
+	public String loginFilter(HttpServletRequest request) {
 		request.setAttribute("loginFilter", true);
 		return "finishPage";
 	}
+	
+	@RequestMapping("/finishPage.do")
+	public String finishPage(HttpServletRequest request) {
+		request.setAttribute("notAuth", true);
+		request.setAttribute("ret", "/joongo/main.do");
+		return "finishPage";
+	}
+	
 
 	// 회원가입을 진행
 	@RequestMapping("/register.do")
