@@ -224,6 +224,9 @@
 .product-tag {
 	font-size: 14px;
 	color: #bbbbbb;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .line {

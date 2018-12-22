@@ -86,19 +86,33 @@ function pagination() {
 				$('#userpage').append(addreview);
 				for(var i=start; i<end; i++){
 					var review = SUPEREPICFANTASTICITEM[i];
-					var text = "<div class='productuser-review'>"+
-					"<div class='user-review-container'>"+
-					"<span>"+review.nickname+"</span>"+
-							"<span class='date'>"+review.wdate+"</span>"+
-							"<div class='user-review-content'>"+
-								"<p class='user-review'>"+review.content+"</p>"+
-									"<p class='user-review-function'>" +
-									"<span id='user-review-modify' class='user-review-modify'>수정  </span>"+
-									"<span onclick='deleteReview()' class='user-review-delete'>삭제</span>"+
-									"</p>" +
+					if(review.userNo == SUPEREPICFANTASTICUSERNO) {
+						var text = "<div class='productuser-review'>"+
+						"<div class='user-review-container'>"+
+						"<input id='reviewNo' type='hidden' value='"+review.reviewNo+"'>" +
+						"<span>닉네임 : "+review.nickname+"</span>"+
+								"<span class='date'>"+ review.wdate+"</span>"+
+								"<div class='user-review-content'>"+
+									"<p class='user-review'>"+review.content+"</p>"+
+										"<p class='user-review-function'>" +
+										"<span id='user-review-modify' class='user-review-modify'>수정  </span>"+
+										"<span id='user-review-delete' class='user-review-delete'>삭제</span>"+
+										"</p>" +
+									"</div>"+
 								"</div>"+
-							"</div>"+
-					"</div>";
+						"</div>";
+					} else {
+						var text = "<div class='productuser-review'>"+
+						"<div class='user-review-container'>"+
+						"<input id='reviewNo' type='hidden' value='"+review.reviewNo+"'>" +
+						"<span>닉네임 : "+review.nickname+"</span>"+
+								"<span class='date'>"+ review.wdate+"</span>"+
+								"<div class='user-review-content'>"+
+									"<p class='user-review'>"+review.content+"</p>"+
+									"</div>"+
+								"</div>"+
+						"</div>";
+					}
 					$('#userpage').append(text);
 				}
 			}
@@ -153,20 +167,33 @@ function pagination() {
 				$('#userpage').append(addreview);
 				for(var i=0; i<end; i++){
 					var review = SUPEREPICFANTASTICITEM[i];
-					var text = "<div class='productuser-review'>"+
-					"<div class='user-review-container'>"+
-					"<input id='reviewNo' type='hidden' value='"+review.reviewNo+"'>" +
-					"<span>닉네임 : "+review.nickname+"</span>"+
-							"<span class='date'>"+ review.wdate+"</span>"+
-							"<div class='user-review-content'>"+
-								"<p class='user-review'>"+review.content+"</p>"+
-									"<p class='user-review-function'>" +
-									"<span id='user-review-modify' class='user-review-modify'>수정  </span>"+
-									"<span id='user-review-delete' class='user-review-delete'>삭제</span>"+
-									"</p>" +
+					if(review.userNo == SUPEREPICFANTASTICUSERNO) {
+						var text = "<div class='productuser-review'>"+
+						"<div class='user-review-container'>"+
+						"<input id='reviewNo' type='hidden' value='"+review.reviewNo+"'>" +
+						"<span>닉네임 : "+review.nickname+"</span>"+
+								"<span class='date'>"+ review.wdate+"</span>"+
+								"<div class='user-review-content'>"+
+									"<p class='user-review'>"+review.content+"</p>"+
+										"<p class='user-review-function'>" +
+										"<span id='user-review-modify' class='user-review-modify'>수정  </span>"+
+										"<span id='user-review-delete' class='user-review-delete'>삭제</span>"+
+										"</p>" +
+									"</div>"+
 								"</div>"+
-							"</div>"+
-					"</div>";
+						"</div>";
+					} else {
+						var text = "<div class='productuser-review'>"+
+						"<div class='user-review-container'>"+
+						"<input id='reviewNo' type='hidden' value='"+review.reviewNo+"'>" +
+						"<span>닉네임 : "+review.nickname+"</span>"+
+								"<span class='date'>"+ review.wdate+"</span>"+
+								"<div class='user-review-content'>"+
+									"<p class='user-review'>"+review.content+"</p>"+
+									"</div>"+
+								"</div>"+
+						"</div>";
+					}
 					$('#userpage').append(text);
 				}
 			}
@@ -321,7 +348,8 @@ $(function() {
 				viewReview('getReviewList.do');
 				success = true;
 			},
-			error: function() {
+			error: function(error) {
+				console.log(error)
 				alert('예기치 않은 오류가 발생했습니다.');
 			},
 			complete : function() {
